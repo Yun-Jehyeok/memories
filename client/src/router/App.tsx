@@ -4,6 +4,8 @@ import Login from "../pages/Login";
 import Main from "../pages/Main";
 import Signup from "../pages/Signup";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+
 const App = () => {
   return (
     <Switch>
