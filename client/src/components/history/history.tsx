@@ -8,7 +8,7 @@ const History = () => {
   return (
     <>
       <Page>
-        <div className="row" style={{ height: "100vh" }}>
+        <div className="row" style={{ height: "100vh", margin: "0" }}>
           <Year className="col align-self-center">
             <FontAwesomeIcon
               icon={faChevronUp}

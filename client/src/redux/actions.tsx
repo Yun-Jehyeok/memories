@@ -1,8 +1,12 @@
+// 액션 생성 함수
 import { LOGIN_REQUEST } from "./types";
 
-type User = {
+export type User = {
   email: string;
   password: string;
+  token?: string | undefined;
+  data?: any;
+  user?: object;
 };
 
 export const loginAction = (user: User) => ({

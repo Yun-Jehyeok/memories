@@ -1,5 +1,5 @@
 import { LoginAction } from "../actions";
-import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS } from "../types";
+import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from "../types";
 
 type authState = {
   token: null | string;
@@ -36,35 +36,33 @@ const authReducer = (state: authState = initialState, action: LoginAction) => {
         isLoading: true,
       };
 
-    // action.payload 안의 값들에 대한 type 설정도 해줘야 하는구나
+    case LOGIN_SUCCESS:
+      localStorage.setItem("token", action.payload.token);
 
-    // case LOGIN_SUCCESS:
-    //   localStorage.setItem("token", action.payload.token);
+      return {
+        ...state,
+        ...action.payload,
+        isAuthenticated: true,
+        isLoading: false,
+        userId: action.payload.user.id,
+        userRole: action.payload.user.role,
+        userName: action.payload.user.name,
+        errorMsg: "",
+      };
+    case LOGIN_FAILURE:
+      localStorage.removeItem("token");
 
-    //   return {
-    //     ...state,
-    //     ...action.payload,
-    //     isAuthenticated: true,
-    //     isLoading: false,
-    //     userId: action.payload.user.id,
-    //     userRole: action.payload.user.role,
-    //     userName: action.payload.user.name,
-    //     errorMsg: "",
-    //   };
-    // case LOGIN_FAILURE:
-    //   localStorage.removeItem("token");
-
-    //   return {
-    //     ...state,
-    //     ...action.payload,
-    //     token: null,
-    //     user: null,
-    //     userId: null,
-    //     isAuthenticated: false,
-    //     isLoading: false,
-    //     userRole: null,
-    //     errorMsg: action.payload.data.msg,
-    //   };
+      return {
+        ...state,
+        ...action.payload,
+        token: null,
+        user: null,
+        userId: null,
+        isAuthenticated: false,
+        isLoading: false,
+        userRole: null,
+        errorMsg: action.payload.data.msg,
+      };
 
     default:
       return state;
