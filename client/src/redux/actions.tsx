@@ -4,9 +4,9 @@ import { LOGIN_REQUEST } from "./types";
 export type User = {
   email: string;
   password: string;
-  token?: string | undefined;
+  token?: any;
   data?: any;
-  user?: object;
+  user?: any;
 };
 
 export const loginAction = (user: User) => ({

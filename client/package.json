@@ -64,7 +64,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react-motion": "^0.0.31",
+    "@types/react-motion": "0.0.31",
     "@types/styled-components": "^5.1.11",
     "i": "^0.3.6",
     "npm": "^7.19.1",

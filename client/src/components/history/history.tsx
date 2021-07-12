@@ -15,16 +15,13 @@ const History = () => {
               icon={faChevronUp}
               style={{ color: "#FF0000", fontSize: "2em" }}
             />
-            <Motion
-              defaultStyle={{x : 0.1}}
-              style = {{
-                x : spring(1)
-              }}
-            >
-              {style => (
-                <Text style={{ opacity : `${style.x}`, transitionDuration : "0.2s" }}>
+            <Motion defaultStyle={{ x: 0.1 }} style={{ x: spring(1) }}>
+              {(style) => (
+                <Text
+                  style={{ opacity: `${style.x}`, transitionDuration: "0.2s" }}
+                >
                   19
-                <Redtext>50</Redtext>
+                  <Redtext>50</Redtext>
                 </Text>
               )}
             </Motion>

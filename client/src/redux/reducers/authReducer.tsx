@@ -49,6 +49,7 @@ const authReducer = (state: authState = initialState, action: LoginAction) => {
         userName: action.payload.user.name,
         errorMsg: "",
       };
+
     case LOGIN_FAILURE:
       localStorage.removeItem("token");
 
