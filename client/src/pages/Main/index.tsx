@@ -1,11 +1,7 @@
 import React from "react";
 import Header from "../../components/navbar/navbar";
 import History from "../../components/history/history";
-import styled from "styled-components";
-
-const Body = styled.div`
-  position: relative;
-`;
+import { Body } from "./styles";
 
 const Main = () => {
   return (

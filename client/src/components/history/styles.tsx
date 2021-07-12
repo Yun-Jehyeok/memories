@@ -11,7 +11,7 @@ export const Year = styled.div`
 `;
 
 export const Text = styled.p`
-  font-size: 10em;
+  font-size: 13rem;
 `;
 
 export const Redtext = styled.span`
