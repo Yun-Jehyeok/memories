@@ -5,7 +5,7 @@ import { Navbar, Bar } from "./styles";
 
 const Header = () => {
   return (
-    <Navbar className="sticky-top">
+    <Navbar className="fixed-top">
       <Bar>
         <FontAwesomeIcon
           icon={faBars}
