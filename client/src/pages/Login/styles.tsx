@@ -36,7 +36,7 @@ export const Input = styled.input`
   border: 1px solid var(--saf-0);
   transition: border 80ms ease-out, box-shadow 80ms ease-out;
   box-sizing: border-box;
-  margin: 0 0 20px;
+  margin: 0 0 1vh;
   width: 100%;
   color: rgba(var(--sk_primary_foreground, 29, 28, 29), 1);
   background-color: rgba(var(--sk_primary_background, 255, 255, 255), 1);
