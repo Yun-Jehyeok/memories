@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Page = styled.div`
   background: #1a1a1a;
-  height: 100vh;
+  height: 120vh;
   width: 100%;
 `;
 export const Year = styled.div`
