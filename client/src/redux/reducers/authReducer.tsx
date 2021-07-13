@@ -1,5 +1,12 @@
-import { LoginAction } from "../actions";
-import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from "../types";
+import { AuthAction } from "../actions";
+import {
+  LOGIN_REQUEST,
+  LOGIN_SUCCESS,
+  LOGIN_FAILURE,
+  REGISTER_REQUEST,
+  REGISTER_SUCCESS,
+  REGISTER_FAILURE,
+} from "../types";
 
 type authState = {
   token: null | string;
@@ -27,9 +34,10 @@ const initialState: authState = {
   successMsg: "",
 };
 
-const authReducer = (state: authState = initialState, action: LoginAction) => {
+const authReducer = (state: authState = initialState, action: AuthAction) => {
   switch (action.type) {
     case LOGIN_REQUEST:
+    case REGISTER_REQUEST:
       return {
         ...state,
         errorMsg: "",
@@ -37,6 +45,7 @@ const authReducer = (state: authState = initialState, action: LoginAction) => {
       };
 
     case LOGIN_SUCCESS:
+    case REGISTER_SUCCESS:
       localStorage.setItem("token", action.payload.token);
 
       return {
@@ -51,6 +60,7 @@ const authReducer = (state: authState = initialState, action: LoginAction) => {
       };
 
     case LOGIN_FAILURE:
+    case REGISTER_FAILURE:
       localStorage.removeItem("token");
 
       return {
