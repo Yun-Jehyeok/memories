@@ -5,6 +5,7 @@ import Main from "../pages/Main";
 import Signup from "../pages/Signup";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import Contact from "../pages/Contact";
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <Route path="/" exact component={Main} />
       <Route path="/login" exact component={Login} />
       <Route path="/signup" exact component={Signup} />
+      <Route path="/contact" exact component={Contact} />
     </Switch>
   );
 };
