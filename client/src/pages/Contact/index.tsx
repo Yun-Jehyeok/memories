@@ -1,6 +1,6 @@
 import React from "react";
 import { Logo, OutLink } from "../../assets/commonStyle/styles";
-import { Container, Header, Item, Wrap } from "./style";
+import { Container, Header, Item, Wrap } from "./styles";
 
 const Contact = () => {
   return (
