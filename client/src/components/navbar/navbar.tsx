@@ -12,9 +12,9 @@ const Header = () => {
           src={logo}
           alt="logo"
           style={{
-            width:"5%",
-            marginTop: "10px",
-            marginLeft: "10px"
+            width:"3.5em",
+            marginTop: "15px",
+            marginLeft: "15px"
           }}
         />
         <FontAwesomeIcon

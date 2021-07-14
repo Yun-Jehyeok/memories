@@ -17,7 +17,7 @@ const History = () => {
   return (
     <>
       <Page>
-        <div className="row" style={{ height: "120vh", margin: "0" }}>
+        <div className="row" style={{ height: "100vh", margin: "0" }}>
           <Year className="col align-self-center">
             <button type="button" onClick={onCountUp}>
               <FontAwesomeIcon
