@@ -10,8 +10,8 @@ export const Wrap = styled.div`
 `;
 
 export const Container = styled.div`
-  width: 75%;
-  padding-top: 20vh;
+  width: 40%;
+  padding-top: 7vh;
   margin-left: 12%;
 `;
 
@@ -20,9 +20,17 @@ export const Header = styled.div`
   font-weight: bold;
 `;
 
-export const ItemBox = styled.div``;
-
 export const Item = styled.div`
   font-size: 9vh;
   font-weight: bold;
+  transition: all 0.3s linear;
+
+  & a {
+    color: white;
+    text-decoration: none;
+  }
+
+  &:hover {
+    transform: translateX(1%);
+  }
 `;
