@@ -1,11 +1,11 @@
 import React from "react";
-import { LogoImg, OutLink } from "../../assets/commonStyle/styles";
+import { Logo, OutLink } from "../../assets/commonStyle/styles";
 import { Container, Header, Item, Wrap } from "./style";
 
 const Contact = () => {
   return (
     <Wrap>
-      <LogoImg />
+      <Logo />
       <Container>
         <Header>
           <span style={{ color: "red" }}>C</span>ONTACT

@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import Logo from "../img/LogoImg.png";
+import LogoImg from "../img/LogoImg.png";
 
-export const LogoImg = styled.img.attrs({ src: `${Logo}` })`
+export const Logo = styled.img.attrs({ src: `${LogoImg}` })`
   margin: 1.5% 0 0 1.5%;
 `;
 
