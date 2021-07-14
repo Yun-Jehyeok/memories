@@ -1,8 +1,8 @@
 import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import useInput from "../../hooks/useInput";
-import { registerAction } from "../../redux/actions";
+import useInput from "@hooks/useInput";
+import { registerAction } from "@redux/actions";
 import {
   Button,
   Form,
