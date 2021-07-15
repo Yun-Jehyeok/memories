@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import LogoImg from "../img/LogoImg.png";
+import LogoImg from "../img/Logo.png";
 
 export const Logo = styled.img.attrs({ src: `${LogoImg}` })`
-  margin: 1.5% 0 0 1.5%;
+  margin: 15px 0 0 15px;
+  width: 3.5em;
 `;
 
 export const OutLink = styled.a.attrs({
