@@ -6,7 +6,7 @@ export const Textpage = styled.div`
     padding-top: 11.5%;
     padding-left: 10%;
     & > h2 {
-        font-size: 3rem;
+        font-size: 3.4rem;
     }
     & > a{
         height: 20px;

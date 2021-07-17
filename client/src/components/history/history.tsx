@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { Col, Row } from "reactstrap";
 import { Page, Year, Text, Redtext, Info } from "./styles";
-import { Motion, spring } from "react-motion";
 
 const History = () => {
   const [count, setCount] = useState<number>(50);
@@ -16,8 +15,17 @@ const History = () => {
 
   return (
     <>
-      <Page>
-        <div className="row" style={{ height: "120vh", margin: "0" }}>
+      <Page
+        className="page_section"
+        id="history_area">
+        <div
+          className="row"
+          style={{
+            height: "100vh",
+            margin: "0",
+            width: "100%"
+          }}
+        >
           <Year className="col align-self-center">
             <button type="button" onClick={onCountUp}>
               <FontAwesomeIcon
@@ -25,16 +33,10 @@ const History = () => {
                 style={{ color: "#FF0000", fontSize: "2em" }}
               />
             </button>
-            <Motion defaultStyle={{ x: 0.1 }} style={{ x: spring(1) }}>
-              {(style) => (
-                <Text
-                  style={{ opacity: `${style.x}`, transitionDuration: "0.2s" }}
-                >
-                  19
-                  <Redtext>{count}</Redtext>
-                </Text>
-              )}
-            </Motion>
+            <Text>
+              19
+              <Redtext>{count}</Redtext>
+            </Text>
             <button onClick={onCountDown}>
               <FontAwesomeIcon
                 icon={faChevronDown}
