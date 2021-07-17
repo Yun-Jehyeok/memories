@@ -15,7 +15,9 @@ const Contact = () => {
             <OutLink href="#">EMAIL</OutLink>
           </Item>
           <Item>
-            <OutLink href="http://github.com/Yun-Jehyeok">GITHUB</OutLink>
+            <OutLink href="http://github.com/Yun-Jehyeok/no_name">
+              GITHUB
+            </OutLink>
           </Item>
           <Item>
             <OutLink href="https://open.kakao.com/o/siDcC6nd">
