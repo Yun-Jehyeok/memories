@@ -13,23 +13,30 @@ const Pagenation = () => {
         background: "transparent",
       }}
     >
-      <Container className="float-end" style={{ margin: "5px" }}>
-        <FontAwesomeIcon
-          icon={faCircle}
-          style={{ color: "#E0E0E0", fontSize: "1.1em", margin: "2px" }}
-        />
-        <FontAwesomeIcon
-          icon={faCircle}
-          style={{ color: "#3498DA", fontSize: "1.1em", margin: "2px" }}
-        />
-        <FontAwesomeIcon
-          icon={faCircle}
-          style={{ color: "#E0E0E0", fontSize: "1.1em", margin: "2px" }}
-        />
-        <FontAwesomeIcon
-          icon={faCircle}
-          style={{ color: "#E0E0E0", fontSize: "1.1em", margin: "2px" }}
-        />
+      <Container className="nav_list float-end" style={{ margin: "5px" }}>
+        {/* <a href="#">
+          <FontAwesomeIcon
+            icon={faCircle}
+            style={{ color: "#E0E0E0", fontSize: "1.1em", margin: "2px" }}
+          />
+        </a> */}
+        <a href="#history_area">
+          <FontAwesomeIcon
+            icon={faCircle}
+            className="active"
+          />
+        </a>
+        {/* <a href="#">
+          <FontAwesomeIcon
+            icon={faCircle}
+            style={{ color: "#E0E0E0", fontSize: "1.1em", margin: "2px" }}
+          />
+        </a> */}
+        <a href="#involved_area">
+          <FontAwesomeIcon
+            icon={faCircle}
+          />
+        </a>
       </Container>
     </div>
   );

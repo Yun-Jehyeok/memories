@@ -6,7 +6,14 @@ import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 const Involved = () => {
   return (
-    <div style={{ height: "100vh", width: "100%" }}>
+    <div
+      className="page_section"
+      id="involved_area"
+      style={{
+        height: "100vh",
+        width: "100%"
+      }}
+    >
       <img
         src={background}
         alt="involved"
