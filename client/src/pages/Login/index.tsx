@@ -1,9 +1,19 @@
 import React, { useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { Logo } from "src/assets/commonStyle/styles";
 import useInput from "../../hooks/useInput";
 import { loginAction } from "../../redux/actions";
-import { Button, Form, Header, Input, Label, LinkContainer } from "./styles";
+import {
+  Button,
+  Container,
+  Form,
+  Header,
+  Input,
+  Label,
+  LinkContainer,
+  Wrap,
+} from "./styles";
 
 const Login = () => {
   const [email, onChangeEmail] = useInput("");
@@ -23,40 +33,45 @@ const Login = () => {
   );
 
   return (
-    <div id="container">
-      <Header>No-name</Header>
-      <Form onSubmit={onSubmit}>
-        <Label id="email-label">
-          <span>이메일 주소</span>
-          <div>
-            <Input
-              type="email"
-              id="email"
-              name="email"
-              value={email}
-              onChange={onChangeEmail}
-            />
-          </div>
-        </Label>
-        <Label id="password-label">
-          <span>비밀번호</span>
-          <div>
-            <Input
-              type="password"
-              id="password"
-              name="password"
-              value={password}
-              onChange={onChangePassword}
-            />
-          </div>
-        </Label>
-        <Button type="submit">로그인</Button>
-      </Form>
-      <LinkContainer>
-        아직 회원이 아니신가요?&nbsp;
-        <Link to="/signup">회원가입 하러가기</Link>
-      </LinkContainer>
-    </div>
+    <Wrap>
+      <Logo />
+      <Container>
+        <Header style={{ paddingTop: "12vh" }}>LOGIN</Header>
+        <Form onSubmit={onSubmit}>
+          <Label id="email-label">
+            <div>
+              <Input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Input your email"
+                value={email}
+                onChange={onChangeEmail}
+              />
+            </div>
+          </Label>
+          <Label id="password-label">
+            <div>
+              <Input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Input your password"
+                value={password}
+                onChange={onChangePassword}
+              />
+            </div>
+          </Label>
+          <Button type="submit">Sign in</Button>
+          <LinkContainer>
+            <div>or</div>
+            <Link to="/signup" style={{ color: "#4a154b" }}>
+              Register now
+            </Link>
+          </LinkContainer>
+        </Form>
+      </Container>
+    </Wrap>
   );
 };
 

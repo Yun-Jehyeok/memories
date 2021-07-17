@@ -1,19 +1,39 @@
 import styled from "styled-components";
 
+export const Wrap = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #1a1a1a;
+  color: white;
+  overflow: hidden;
+`;
+
+export const Container = styled.div`
+  background-color: white;
+  width: 30%;
+  margin-left: 35%;
+  height: 70vh;
+  border-radius: 13px;
+  margin-top: 6vh;
+`;
+
 export const Header = styled.header`
   text-align: center;
   font-weight: 700;
-  font-size: 4.5vh;
+  font-size: 5.5vh;
   line-height: 60px;
   letter-spacing: -0.75px;
-  margin-top: 20vh;
   margin-bottom: 50px;
+  color: #4a154b;
+  padding-top: 7vh;
 `;
 
 export const Form = styled.form`
   margin: 0 auto;
-  width: 40vh;
-  max-width: 40vh;
+  width: 80%;
+  max-width: 80%;
+  background-color: white;
 `;
 
 export const Label = styled.label`
@@ -24,47 +44,53 @@ export const Label = styled.label`
     display: block;
     text-align: left;
     padding-bottom: 8px;
-    font-size: 1.4vh;
+    font-size: 2.5vh;
+    font-weight: 700;
     cursor: pointer;
     line-height: 1.46666667;
   }
 `;
 
 export const Input = styled.input`
-  border-radius: 4px;
-  --saf-0: rgba(var(--sk_foreground_high_solid, 134, 134, 134), 1);
-  border: 1px solid var(--saf-0);
+  border-radius: 10px;
+  --saf-0: rgba(var(--sk_foreground_high_solid, 74, 21, 75), 1);
+  border: 2px solid var(--saf-0);
   transition: border 80ms ease-out, box-shadow 80ms ease-out;
   box-sizing: border-box;
-  margin: 0 0 1vh;
+  margin: 0 0 2vh;
   width: 100%;
   color: rgba(var(--sk_primary_foreground, 29, 28, 29), 1);
   background-color: rgba(var(--sk_primary_background, 255, 255, 255), 1);
   padding: 12px;
-  height: 4.5vh;
+  height: 6vh;
   padding-top: 11px;
   padding-bottom: 13px;
   font-size: 18px;
   line-height: 1.33333333;
+
+  &::placeholder {
+    color: #8977ad;
+  }
 `;
 
 export const Button = styled.button`
   margin-bottom: 12px;
-  width: 100%;
-  max-width: 100%;
+  width: 40%;
+  max-width: 40%;
+  margin-left: 30%;
   color: #fff;
   background-color: #4a154b;
   border: none;
-  font-size: 1.4vh;
+  font-size: 2.4vh;
   font-weight: 900;
-  height: 4.2vh;
+  height: 5.5vh;
   min-width: 96px;
   padding: 0 16px 3px;
   transition: all 80ms linear;
   user-select: none;
   outline: none;
   cursor: pointer;
-  border-radius: 4px;
+  border-radius: 30px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 
   &:hover {
@@ -77,31 +103,8 @@ export const Button = styled.button`
   }
 `;
 
-export const Error = styled.div`
-  color: #e01e5a;
-  margin: 8px 0 16px;
-  font-weight: bold;
-`;
-
-export const Success = styled.div`
-  color: #2eb67d;
-  font-weight: bold;
-`;
-
-export const LinkContainer = styled.p`
-  font-size: 1.2vh;
-  color: #616061;
-  margin: 0 auto 8px;
-  width: 40vh;
-  max-width: 40vh;
-
-  & a {
-    color: #1264a3;
-    text-decoration: none;
-    font-weight: 700;
-
-    &:hover {
-      color: #1280a0;
-    }
-  }
+export const LinkContainer = styled.div`
+  text-align: center;
+  font-size: 2.2vh;
+  color: black;
 `;
