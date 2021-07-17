@@ -24,6 +24,7 @@ export const Item = styled.div`
   font-size: 9vh;
   font-weight: bold;
   transition: all 0.3s linear;
+  margin-bottom: 2vh;
 
   & a {
     color: white;

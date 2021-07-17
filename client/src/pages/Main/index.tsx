@@ -5,6 +5,7 @@ import Pagenation from "../../components/pagenation/pagenation";
 import Involved from "../../components/involved/involved";
 import { Body } from "./styles";
 import useScript from "../../hooks/useScript";
+import Intro from "src/components/intro/intro";
 
 const Main: React.FC = () => {
   useScript(`
@@ -60,6 +61,7 @@ const Main: React.FC = () => {
   return (
     <>
       <Body>
+        <Intro />
         <Header />
         <History />
         <Involved />
