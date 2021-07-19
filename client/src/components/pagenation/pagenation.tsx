@@ -2,24 +2,8 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
 import { Container } from './styles'
-import useScript from '../../hooks/useScript'
 
 const Pagenation = () => {
-  useScript(`
-
-  function init(){
-    
-  }
-
-  $(window).scroll(function() {
-    winScrollTop = $(window).scrollTop();
-  })
-
-  $(function() {
-      init();
-  })
-  `)
-
   return (
     <div
       className="fixed-bottom"
