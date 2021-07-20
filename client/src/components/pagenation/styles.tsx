@@ -7,5 +7,6 @@ export const Container = styled.div`
     color: #E0E0E0;
     fontSize: 1.1em;
     margin: 2px;
+    cursor: pointer;
   }
 `;
