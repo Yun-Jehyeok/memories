@@ -1,18 +1,18 @@
-import { useEffect } from "react";
+import { useEffect } from 'react'
 
 const useScript = (url: string) => {
-    const script = document.createElement('script');
+  const script = document.createElement('script')
 
-    script.innerHTML = url;
-    script.async = true;
+  script.innerHTML = url
+  script.async = true
 
-    const element = () => {
-        document.body.appendChild(script);
-        return () => {
-            document.body.removeChild(script);
-        }
+  const element = () => {
+    document.body.appendChild(script)
+    return () => {
+      document.body.removeChild(script)
     }
-    setInterval(element, 500)
+  }
+  setInterval(element, 500)
 }
 
-export default useScript;
+export default useScript
