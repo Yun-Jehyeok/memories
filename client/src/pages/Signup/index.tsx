@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { Logo } from "src/assets/commonStyle/styles";
@@ -13,14 +13,35 @@ import {
   LinkContainer,
   Wrap,
   Container,
+  Error,
 } from "../Login/styles";
 
 const Signup = () => {
   const [email, onChangeEmail] = useInput("");
   const [name, onChangeName] = useInput("");
-  const [password, onChangePassword] = useInput("");
+  const [password, setPassword] = useState("");
+  const [passwordCheck, setPasswordCheck] = useState("");
+
+  // password === password-check?
+  const [passwordCheckError, setPasswordCheckError] = useState(false);
 
   const dispatch = useDispatch();
+
+  const onChangePassword = useCallback(
+    (e) => {
+      setPassword(e.target.value);
+      setPasswordCheckError(e.target.value !== passwordCheck);
+    },
+    [passwordCheck]
+  );
+
+  const onChangePasswordCheck = useCallback(
+    (e) => {
+      setPasswordCheck(e.target.value);
+      setPasswordCheckError(e.target.value !== password);
+    },
+    [password]
+  );
 
   const onSubmit = useCallback(
     (e) => {
@@ -74,6 +95,19 @@ const Signup = () => {
                 onChange={onChangePassword}
               />
             </div>
+          </Label>
+          <Label id="password-check-label">
+            <div>
+              <Input
+                type="password"
+                id="password-check"
+                name="password-check"
+                placeholder="Input your password one more time"
+                value={passwordCheck}
+                onChange={onChangePasswordCheck}
+              />
+            </div>
+            {passwordCheckError && <Error>비밀번호가 일치하지 않습니다.</Error>}
           </Label>
           <Button type="submit">Sign up</Button>
           <LinkContainer>
