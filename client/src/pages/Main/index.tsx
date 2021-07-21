@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from '../../components/navbar/navbar'
 import History from '../../components/history/history'
 import Pagenation from '../../components/pagenation/pagenation'
@@ -7,6 +7,7 @@ import { Body } from './styles'
 import useScript from '../../hooks/useScript'
 import Intro from 'src/components/intro/intro'
 import Exhibition from 'src/components/exhibition'
+import $ from 'jquery'
 
 const Main: React.FC = () => {
   useScript(`
