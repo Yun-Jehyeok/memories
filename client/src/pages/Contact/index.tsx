@@ -1,6 +1,6 @@
 import React from "react";
 import { Logo, OutLink } from "../../assets/commonStyle/styles";
-import { Container, Header, Item, Wrap } from "./styles";
+import { Container, Header, Item, Wrap, Mask } from "./styles";
 
 const Contact = () => {
   return (
@@ -10,19 +10,26 @@ const Contact = () => {
         <Header>
           <span style={{ color: "red" }}>C</span>ONTACT
         </Header>
-        <div id="item-box">
+        <div>
           <Item>
-            <OutLink href="#">EMAIL</OutLink>
-          </Item>
-          <Item>
-            <OutLink href="http://github.com/Yun-Jehyeok/no_name">
-              GITHUB
-            </OutLink>
-          </Item>
-          <Item>
-            <OutLink href="https://open.kakao.com/o/siDcC6nd">
-              KAKAO TALK
-            </OutLink>
+            <li>
+              <OutLink href="#">
+                <span>EMAIL</span>
+                <Mask></Mask>
+              </OutLink>
+            </li>
+            <li>
+              <OutLink href="http://github.com/Yun-Jehyeok/no_name">
+                <span>GITHUB</span>
+                <Mask></Mask>
+              </OutLink>
+            </li>
+            <li>
+              <OutLink href="https://open.kakao.com/o/siDcC6nd">
+                <span>KAKAO TALK</span>
+                <Mask></Mask>
+              </OutLink>
+            </li>
           </Item>
         </div>
       </Container>
