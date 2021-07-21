@@ -36,7 +36,7 @@ const Login = () => {
     <Wrap>
       <Logo />
       <Container>
-        <Header style={{ paddingTop: "12vh" }}>LOGIN</Header>
+        <Header style={{ paddingTop: "14vh" }}>LOGIN</Header>
         <Form onSubmit={onSubmit}>
           <Label id="email-label">
             <div>

@@ -13,9 +13,9 @@ export const Container = styled.div`
   background-color: white;
   width: 30%;
   margin-left: 35%;
-  height: 70vh;
+  height: 80vh;
   border-radius: 13px;
-  margin-top: 6vh;
+  overflow: hidden;
 `;
 
 export const Header = styled.header`
@@ -26,7 +26,7 @@ export const Header = styled.header`
   letter-spacing: -0.75px;
   margin-bottom: 50px;
   color: #4a154b;
-  padding-top: 7vh;
+  padding-top: 3vw;
 `;
 
 export const Form = styled.form`
@@ -107,4 +107,9 @@ export const LinkContainer = styled.div`
   text-align: center;
   font-size: 2.2vh;
   color: black;
+`;
+
+export const Error = styled.div`
+  font-size: 1.9vh;
+  color: red;
 `;
