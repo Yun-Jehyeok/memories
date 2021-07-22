@@ -17,7 +17,7 @@ const History = () => {
     <>
       <Page className="page_section" id="history_area">
         <div
-          className="row"
+          className="row justify-content-md-center"
           style={{
             height: '100vh',
             margin: '0',

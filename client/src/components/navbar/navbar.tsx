@@ -6,7 +6,8 @@ import { Logo } from '../../assets/commonStyle/styles'
 
 const Header = () => {
   return (
-    <Navbar className="fixed-top">
+    <Navbar
+      className="navBar fixed-top">
       <Bar>
         <Logo />
         <FontAwesomeIcon
