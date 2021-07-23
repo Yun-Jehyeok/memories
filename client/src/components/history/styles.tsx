@@ -8,7 +8,7 @@ export const Page = styled.div`
 export const Year = styled.div`
   color: #2d2d2d;
   text-align: center;
-  & > button {
+  & > div > button {
     background-color: transparent;
     cursor: pointer;
     border: none;
@@ -25,6 +25,7 @@ export const Redtext = styled.span`
 
 export const Info = styled.div`
   color: #ffffff;
+  width: 80%;
   & > Row > Col{
     border: 0.5px solid white;
     position: absolute;
@@ -32,4 +33,9 @@ export const Info = styled.div`
     left: 0;
     width: 10px;
   }
+`;
+
+export const Column = styled.div`
+  text-align: left;
+  font-size: 1.3rem;
 `;
