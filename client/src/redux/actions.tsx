@@ -1,4 +1,4 @@
-import { LOGIN_REQUEST, REGISTER_REQUEST, USER_LOADING_REQUEST } from "./types";
+import { LOGIN_REQUEST, REGISTER_REQUEST, USER_LOADING_REQUEST } from './types';
 
 export type User = {
   email: string;
@@ -19,13 +19,13 @@ export const registerAction = (user: User) => ({
   payload: user,
 });
 
-export const loadUserAction = () => ({
+export const loadUserAction = (token: null | String) => ({
   type: USER_LOADING_REQUEST,
-  payload: localStorage.getItem("token"),
+  payload: token,
 });
 
 export type AuthAction =
   | ReturnType<typeof loginAction>
   | ReturnType<typeof registerAction>;
-export type RegisterAction = ReturnType<typeof registerAction>;
+
 export type LoadUserAction = ReturnType<typeof loadUserAction>;

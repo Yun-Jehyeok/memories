@@ -1,4 +1,4 @@
-import { AuthAction } from "../actions";
+import { AuthAction } from '../actions';
 import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
@@ -6,7 +6,7 @@ import {
   REGISTER_REQUEST,
   REGISTER_SUCCESS,
   REGISTER_FAILURE,
-} from "../types";
+} from '../types';
 
 type authState = {
   token: null | string;
@@ -22,16 +22,16 @@ type authState = {
 };
 
 const initialState: authState = {
-  token: localStorage.getItem("token"),
+  token: localStorage.getItem('token'),
   isAuthenticated: null,
   isPasswordChange: false,
   isLoading: false,
-  user: "",
-  userId: "",
-  userName: "",
-  userRole: "",
-  errorMsg: "",
-  successMsg: "",
+  user: '',
+  userId: '',
+  userName: '',
+  userRole: '',
+  errorMsg: '',
+  successMsg: '',
 };
 
 const authReducer = (state: authState = initialState, action: AuthAction) => {
@@ -40,13 +40,13 @@ const authReducer = (state: authState = initialState, action: AuthAction) => {
     case REGISTER_REQUEST:
       return {
         ...state,
-        errorMsg: "",
+        errorMsg: '',
         isLoading: true,
       };
 
     case LOGIN_SUCCESS:
     case REGISTER_SUCCESS:
-      localStorage.setItem("token", action.payload.token);
+      localStorage.setItem('token', action.payload.token);
 
       return {
         ...state,
@@ -56,12 +56,12 @@ const authReducer = (state: authState = initialState, action: AuthAction) => {
         userId: action.payload.user.id,
         userRole: action.payload.user.role,
         userName: action.payload.user.name,
-        errorMsg: "",
+        errorMsg: '',
       };
 
     case LOGIN_FAILURE:
     case REGISTER_FAILURE:
-      localStorage.removeItem("token");
+      localStorage.removeItem('token');
 
       return {
         ...state,

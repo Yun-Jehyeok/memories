@@ -1,6 +1,6 @@
-import axios from "axios";
-import { all, call, put, takeEvery, fork } from "redux-saga/effects";
-import { AuthAction, User } from "../actions";
+import axios from 'axios';
+import { all, call, put, takeEvery, fork } from 'redux-saga/effects';
+import { AuthAction, LoadUserAction, User } from '../actions';
 import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
@@ -8,7 +8,10 @@ import {
   REGISTER_SUCCESS,
   REGISTER_FAILURE,
   REGISTER_REQUEST,
-} from "../types";
+  USER_LOADING_REQUEST,
+  USER_LOADING_FAILURE,
+  USER_LOADING_SUCCESS,
+} from '../types';
 
 type Result = {
   data: any;
@@ -17,11 +20,11 @@ type Result = {
 const loginUserAPI = (loginData: User) => {
   const config = {
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
   };
 
-  return axios.post("api/auth/login", loginData, config);
+  return axios.post('api/auth/login', loginData, config);
 };
 
 function* loginUser(loginaction: AuthAction) {
@@ -48,11 +51,11 @@ function* watchLoginUser() {
 const registerUserAPI = (registerData: User) => {
   const config = {
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
   };
 
-  return axios.post("api/user/register", registerData, config);
+  return axios.post('api/user/register', registerData, config);
 };
 
 function* registerUser(action: AuthAction) {
@@ -75,6 +78,42 @@ function* watchregisterUser() {
   yield takeEvery(REGISTER_REQUEST, registerUser);
 }
 
+// User Loading
+const userLoadingAPI = (token: null | String) => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+      'x-auth-token': `${token ? token : null}`,
+    },
+  };
+
+  return axios.get('api/auth/user', config);
+};
+
+function* userLoading(action: LoadUserAction) {
+  try {
+    const result: Result = yield call(userLoadingAPI, action.payload);
+
+    yield put({
+      type: USER_LOADING_SUCCESS,
+      payload: result.data,
+    });
+  } catch (e) {
+    yield put({
+      type: USER_LOADING_FAILURE,
+      payload: e.response,
+    });
+  }
+}
+
+function* watchuserLoading() {
+  yield takeEvery(USER_LOADING_REQUEST, userLoading);
+}
+
 export default function* authSaga() {
-  yield all([fork(watchLoginUser), fork(watchregisterUser)]);
+  yield all([
+    fork(watchLoginUser),
+    fork(watchregisterUser),
+    fork(watchuserLoading),
+  ]);
 }
