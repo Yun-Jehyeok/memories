@@ -1,4 +1,3 @@
-import { AuthAction } from '../actions';
 import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
@@ -8,20 +7,7 @@ import {
   REGISTER_FAILURE,
 } from '../types';
 
-type authState = {
-  token: null | string;
-  isAuthenticated: null | boolean;
-  isPasswordChange: boolean;
-  isLoading: boolean;
-  user: string;
-  userId: string;
-  userName: string;
-  userRole: string;
-  errorMsg: string;
-  successMsg: string;
-};
-
-const initialState: authState = {
+const initialState = {
   token: localStorage.getItem('token'),
   isAuthenticated: null,
   isPasswordChange: false,
@@ -34,7 +20,7 @@ const initialState: authState = {
   successMsg: '',
 };
 
-const authReducer = (state: authState = initialState, action: AuthAction) => {
+const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_REQUEST:
     case REGISTER_REQUEST:

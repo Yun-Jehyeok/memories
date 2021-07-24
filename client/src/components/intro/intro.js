@@ -1,16 +1,15 @@
-import React from "react";
-
-import { Page, Info } from "./styles";
+import React from 'react';
+import { Page, Info } from './styles';
 
 const Intro = () => {
   return (
     <>
       <Page className="page_section" id="intro_area">
-        <div className="row" style={{ height: "80vh", margin: "0px" }}>
+        <div className="row" style={{ height: '80vh', margin: '0px' }}>
           <Info className="col align-self-center">
             <b>
               <br />
-              <span className="red" style={{ color: "red" }}>
+              <span className="red" style={{ color: 'red' }}>
                 이것
               </span>
               이야말로

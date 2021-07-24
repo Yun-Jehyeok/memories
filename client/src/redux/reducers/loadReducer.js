@@ -5,22 +5,13 @@ import {
   USER_LOADING_FAILURE,
 } from '../types';
 
-type authState = {
-  isAuthenticated: null | boolean;
-  isLoading: boolean;
-  user: string;
-};
-
-const initialState: authState = {
+const initialState = {
   isAuthenticated: null,
   isLoading: false,
   user: '',
 };
 
-const authReducer = (
-  state: authState = initialState,
-  action: LoadUserAction,
-) => {
+const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case USER_LOADING_REQUEST:
       return {

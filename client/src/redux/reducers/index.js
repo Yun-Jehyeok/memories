@@ -5,5 +5,3 @@ import loadReducer from './loadReducer';
 const rootReducer = combineReducers({ authReducer, loadReducer });
 
 export default rootReducer;
-
-export type RootState = ReturnType<typeof rootReducer>;

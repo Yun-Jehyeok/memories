@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Page } from './styles'
+import React from 'react';
+import { Page } from './styles';
 
 const Exhibition = () => {
   return (
@@ -8,7 +8,7 @@ const Exhibition = () => {
         <div></div>
       </Page>
     </>
-  )
-}
+  );
+};
 
-export default Exhibition
+export default Exhibition;

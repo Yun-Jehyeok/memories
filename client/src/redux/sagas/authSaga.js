@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { all, call, put, takeEvery, fork } from 'redux-saga/effects';
-import { AuthAction, LoadUserAction, User } from '../actions';
 import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
@@ -13,11 +12,7 @@ import {
   USER_LOADING_SUCCESS,
 } from '../types';
 
-type Result = {
-  data: any;
-};
-
-const loginUserAPI = (loginData: User) => {
+const loginUserAPI = (loginData) => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -27,9 +22,9 @@ const loginUserAPI = (loginData: User) => {
   return axios.post('api/auth/login', loginData, config);
 };
 
-function* loginUser(loginaction: AuthAction) {
+function* loginUser(loginaction) {
   try {
-    const result: Result = yield call(loginUserAPI, loginaction.payload);
+    const result = yield call(loginUserAPI, loginaction.payload);
 
     yield put({
       type: LOGIN_SUCCESS,
@@ -48,7 +43,7 @@ function* watchLoginUser() {
 }
 
 // Register
-const registerUserAPI = (registerData: User) => {
+const registerUserAPI = (registerData) => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -58,9 +53,9 @@ const registerUserAPI = (registerData: User) => {
   return axios.post('api/user/register', registerData, config);
 };
 
-function* registerUser(action: AuthAction) {
+function* registerUser(action) {
   try {
-    const result: Result = yield call(registerUserAPI, action.payload);
+    const result = yield call(registerUserAPI, action.payload);
 
     yield put({
       type: REGISTER_SUCCESS,
@@ -79,7 +74,7 @@ function* watchregisterUser() {
 }
 
 // User Loading
-const userLoadingAPI = (token: null | String) => {
+const userLoadingAPI = (token) => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
@@ -90,9 +85,9 @@ const userLoadingAPI = (token: null | String) => {
   return axios.get('api/auth/user', config);
 };
 
-function* userLoading(action: LoadUserAction) {
+function* userLoading(action) {
   try {
-    const result: Result = yield call(userLoadingAPI, action.payload);
+    const result = yield call(userLoadingAPI, action.payload);
 
     yield put({
       type: USER_LOADING_SUCCESS,
