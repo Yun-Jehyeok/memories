@@ -1,6 +1,6 @@
-import React from "react";
-import { Logo, OutLink } from "../../assets/commonStyle/styles";
-import { Container, Header, Item, Wrap, Mask } from "./styles";
+import React from 'react';
+import { Logo, OutLink } from '../../assets/commonStyle/styles';
+import { Container, Header, Item, Wrap, Mask } from './styles';
 
 const Contact = () => {
   return (
@@ -8,7 +8,7 @@ const Contact = () => {
       <Logo />
       <Container>
         <Header>
-          <span style={{ color: "red" }}>C</span>ONTACT
+          <span style={{ color: 'red' }}>C</span>ONTACT
         </Header>
         <div>
           <Item>

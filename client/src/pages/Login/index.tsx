@@ -1,9 +1,9 @@
-import React, { useCallback } from "react";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { Logo } from "src/assets/commonStyle/styles";
-import useInput from "../../hooks/useInput";
-import { loginAction } from "../../redux/actions";
+import React, { useCallback } from 'react';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { Logo } from 'src/assets/commonStyle/styles';
+import useInput from '../../hooks/useInput';
+import { loginAction } from '../../redux/actions';
 import {
   Button,
   Container,
@@ -13,11 +13,11 @@ import {
   Label,
   LinkContainer,
   Wrap,
-} from "./styles";
+} from './styles';
 
 const Login = () => {
-  const [email, onChangeEmail] = useInput("");
-  const [password, onChangePassword] = useInput("");
+  const [email, onChangeEmail] = useInput('');
+  const [password, onChangePassword] = useInput('');
 
   const dispatch = useDispatch();
 
@@ -29,14 +29,14 @@ const Login = () => {
 
       dispatch(loginAction(user));
     },
-    [email, password]
+    [email, password],
   );
 
   return (
     <Wrap>
       <Logo />
       <Container>
-        <Header style={{ paddingTop: "14vh" }}>LOGIN</Header>
+        <Header style={{ paddingTop: '100px' }}>LOGIN</Header>
         <Form onSubmit={onSubmit}>
           <Label id="email-label">
             <div>
@@ -65,7 +65,7 @@ const Login = () => {
           <Button type="submit">Sign in</Button>
           <LinkContainer>
             <div>or</div>
-            <Link to="/signup" style={{ color: "#4a154b" }}>
+            <Link to="/signup" style={{ color: '#4a154b' }}>
               Register now
             </Link>
           </LinkContainer>
