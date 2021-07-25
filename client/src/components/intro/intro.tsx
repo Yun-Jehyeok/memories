@@ -6,7 +6,7 @@ const Intro = () => {
   return (
     <>
       <Page>
-        <div className="row" style={{ height: "80vh", margin: "0px" }}>
+        <div className="row" style={{ height: "50vh", margin: "0px" }}>
           <Info className="col align-self-center">
             <b>
               <br />
