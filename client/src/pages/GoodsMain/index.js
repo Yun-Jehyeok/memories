@@ -1,11 +1,19 @@
 import React from 'react';
 import pageimg from '../../assets/img/goodsPage_img.jpeg';
-import { Maintext, SectionBuy, Frame, Cards } from './styles';
+import GoodsNavbar from 'src/components/goodsNavbar/goodsNavbar';
+
+import {
+  faChevronRight,
+  faChevronLeft,
+} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Maintext, SectionBuy, Frame, Cards, Icons } from './styles';
 
 const GoodsMain = () => {
   return (
     <>
       <div>
+        <GoodsNavbar />
         <div style={{ width: '100%', height: '100vh' }}>
           <Maintext>
             Goods Page
@@ -41,18 +49,41 @@ const GoodsMain = () => {
                   </div>
                 </div>
                 <div style={{ order: 1 }}>
-                  <p>goods 2</p>
-                  <p>굿즈 2에 대한 설명입니다.</p>
+                  <div>
+                    <p>goods 2</p>
+                    <p>굿즈 2에 대한 설명입니다.</p>
+                  </div>
                 </div>
                 <div style={{ order: 2 }}>
-                  <p>goods 3</p>
-                  <p>굿즈 3에 대한 설명입니다.</p>
+                  <div>
+                    <p>goods 3</p>
+                    <p>굿즈 3에 대한 설명입니다.</p>
+                  </div>
                 </div>
                 <div style={{ order: 3 }}>
-                  <p>goods 4</p>
-                  <p>굿즈 4에 대한 설명입니다.</p>
+                  <div>
+                    <p>goods 4</p>
+                    <p>굿즈 4에 대한 설명입니다.</p>
+                  </div>
                 </div>
               </Cards>
+              <Icons>
+                <FontAwesomeIcon
+                  icon={faChevronLeft}
+                  style={{
+                    color: 'rgba(17, 19, 30, 0.2)',
+                    fontSize: '2em',
+                  }}
+                />
+                <FontAwesomeIcon
+                  icon={faChevronRight}
+                  style={{
+                    color: '#FBA904',
+                    fontSize: '2em',
+                    marginLeft: '20px',
+                  }}
+                />
+              </Icons>
             </div>
           </Frame>
         </SectionBuy>

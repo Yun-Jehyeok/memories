@@ -50,6 +50,12 @@ export const Frame = styled.div`
   }
 `;
 
+export const Icons = styled.div`
+  position: relative;
+  top: 450px;
+  left: 30px;
+`;
+
 export const Cards = styled.div`
   position: absolute;
   flex-direction: row;
@@ -67,6 +73,10 @@ export const Cards = styled.div`
     float: left;
   }
   & > div > div {
-    margin-left: 10px;
+    position: relative;
+    left: 40px;
+    top: 290px;
+    font-size: 18px;
+    font-weight: 300;
   }
 `;
