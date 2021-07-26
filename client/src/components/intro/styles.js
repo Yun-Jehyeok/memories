@@ -17,7 +17,7 @@ export const Redtext = styled.span`
 export const Info = styled.div`
 position: relative;
   color: black;
-  padding-top: 11.5%;
+  padding-top: 7%;
   padding-left: 10%;
   font-size: 3rem;
   & > a {
