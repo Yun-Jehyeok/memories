@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const useScript = () => {
-  const script = document.createElement('script')
+  const script = document.createElement('script');
 
   script.innerHTML = `
   var winScrollTop;
@@ -64,7 +64,7 @@ const useScript = () => {
       for (var i = 0; i < list.length; i++){
         list[i].style.color = '#A4A4A4';
       }
-      list[index].style.color = '#3498DA';
+      list[index].style.color = '#FF0000';
     }
 
     function menuBarActive(index){
@@ -87,17 +87,17 @@ const useScript = () => {
 
     $(function() {
       init();
-    })`
+    })`;
 
-  script.async = true
+  script.async = true;
 
   const element = () => {
-    document.body.appendChild(script)
+    document.body.appendChild(script);
     return () => {
-      document.body.removeChild(script)
-    }
-  }
-  setInterval(element, 500)
-}
+      document.body.removeChild(script);
+    };
+  };
+  setInterval(element, 500);
+};
 
-export default useScript
+export default useScript;
