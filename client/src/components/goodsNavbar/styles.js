@@ -8,7 +8,7 @@ export const Nav = styled.div`
   & > div {
     margin-right: 80px;
   }
-  & > div > a {
+  & > div > #goodsList {
     text-decoration: none;
     color: #000000;
     position: absolute;

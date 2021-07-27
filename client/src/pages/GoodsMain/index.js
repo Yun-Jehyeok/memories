@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import pageimg from '../../assets/img/goodsPage_img.jpeg';
 import GoodsNavbar from 'src/components/goodsNavbar/goodsNavbar';
+import GoodsPagenation from 'src/components/goodsPagenation/goodsPagenation';
 
 import {
   faChevronRight,
@@ -86,8 +87,9 @@ const GoodsMain = () => {
 
   return (
     <>
-      <div>
+      <div style={{ width: '100%', height: '300vh' }}>
         <GoodsNavbar />
+        <GoodsPagenation />
         <div style={{ width: '100%', height: '100vh' }}>
           <Maintext>
             Goods Page

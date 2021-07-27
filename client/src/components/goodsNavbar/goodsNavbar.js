@@ -7,7 +7,9 @@ const GoodsNavbar = () => {
   return (
     <Nav className="navBar">
       <div>
-        <a href="#">굿즈 보기</a>
+        <a href="#" id="goodsList">
+          굿즈 보기
+        </a>
         <FontAwesomeIcon
           className="nav-item"
           icon={faShoppingCart}

@@ -105,7 +105,7 @@ export const SectionDone = styled.div`
   }
   & > div {
     width: 60%;
-    margin: 50px 20% 0 20%;
+    margin: 60px 20% 0 20%;
   }
   & > div > div {
     float: left;
