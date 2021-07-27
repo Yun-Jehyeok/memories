@@ -1,7 +1,7 @@
-import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle } from '@fortawesome/free-solid-svg-icons'
-import { Container } from './styles'
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircle } from '@fortawesome/free-solid-svg-icons';
+import { Container } from './styles';
 
 const Pagenation = () => {
   return (
@@ -11,9 +11,10 @@ const Pagenation = () => {
         width: '97%',
         height: '14vh',
         background: 'transparent',
+        marginBottom: '30px',
       }}
     >
-      <Container className="nav_list float-end" style={{ margin: '5px' }}>
+      <Container className="nav_list float-end">
         <a id="intro_area_btn">
           <FontAwesomeIcon icon={faCircle} />
         </a>
@@ -28,7 +29,7 @@ const Pagenation = () => {
         </a>
       </Container>
     </div>
-  )
-}
+  );
+};
 
-export default Pagenation
+export default Pagenation;
