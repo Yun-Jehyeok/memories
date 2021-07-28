@@ -20,6 +20,11 @@ const UserSchema = new mongoose.Schema({
     enum: ["Master", "Visitor"],
     default: "Visitor",
   },
+  image: String,
+  cart: {
+    type: Array,
+    default: [],
+  },
   register_date: {
     type: Date,
     default: moment().format("MMMM DD, YYYY"),
