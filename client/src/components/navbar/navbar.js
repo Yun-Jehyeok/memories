@@ -1,13 +1,20 @@
-import React from 'react'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Navbar, Bar } from './styles'
-import { Logo } from '../../assets/commonStyle/styles'
+import React from 'react';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Navbar, Bar } from './styles';
+import { Logo } from '../../assets/commonStyle/styles';
 
 const Header = () => {
+  const onClickMenuBar = () => {
+    if (document.querySelector('.menuBar').style.top !== '0') {
+      document.querySelector('.menuBar').style.top = '0';
+    } else {
+      document.querySelector('.menuBar').style.top = '-100vh';
+    }
+  };
+
   return (
-    <Navbar
-      className="navBar fixed-top">
+    <Navbar className="navBar fixed-top">
       <Bar>
         <Logo />
         <FontAwesomeIcon
@@ -20,10 +27,11 @@ const Header = () => {
             margin: '30px',
             cursor: 'pointer',
           }}
+          onClick={onClickMenuBar}
         />
       </Bar>
     </Navbar>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

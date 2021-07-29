@@ -1,13 +1,17 @@
-import { OutLink } from "src/assets/commonStyle/styles";
-import styled from "styled-components";
+import { OutLink } from 'src/assets/commonStyle/styles';
+import styled from 'styled-components';
 
 export const Wrap = styled.div`
-  position: relative;
+  position: absolute;
   width: 100%;
   height: 100vh;
   background-color: #1a1a1a;
   color: white;
   overflow: hidden;
+  top: -100vh;
+  left: 0;
+  transition: all 1s ease;
+  z-index: 400;
 `;
 
 export const Container = styled.div`

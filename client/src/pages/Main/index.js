@@ -7,6 +7,7 @@ import { Body } from './styles';
 import useScript from '../../assets/animation/main';
 import Intro from 'src/components/intro/intro';
 import Exhibition from 'src/components/exhibition';
+import Contact from '../Contact';
 
 const Main = () => {
   useScript();
@@ -14,6 +15,7 @@ const Main = () => {
   return (
     <>
       <Body>
+        <Contact />
         <Header />
         <Intro />
         <History />
