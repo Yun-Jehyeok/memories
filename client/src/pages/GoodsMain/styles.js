@@ -13,6 +13,17 @@ export const Maintext = styled.p`
   }
 `;
 
+export const Background = styled.img`
+  width: 1180px;
+  height: 613px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  position: absolute;
+  top: 190px;
+  object-position: center top;
+  object-fit: cover;
+  z-index: 1;
+`;
+
 export const SectionBuy = styled.div`
   width: 100%;
   overflow: hidden;
