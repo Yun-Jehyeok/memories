@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Page = styled.div`
+  z-index: 2;
   width: 140px;
   height: 400px;
   margin-top: 40px;

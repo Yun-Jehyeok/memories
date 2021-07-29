@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import pageimg from '../../assets/img/goodsPage_img.jpeg';
-import GoodsNavbar from 'src/components/goodsNavbar/goodsNavbar';
-import GoodsPagenation from 'src/components/goodsPagenation/goodsPagenation';
+import GoodsNavbar from 'src/components/goods/goodsNavbar/goodsNavbar';
+import GoodsPagenation from 'src/components/goods/goodsPagenation/goodsPagenation';
 
 import {
   faChevronRight,
@@ -17,6 +17,7 @@ import {
   Icons,
   SectionDone,
   NumberCircle,
+  Background,
 } from './styles';
 
 const GoodsMain = () => {
@@ -95,19 +96,7 @@ const GoodsMain = () => {
             Goods Page
             <span>굿즈 페이지입니다.</span>
           </Maintext>
-          <img
-            src={pageimg}
-            alt="goodsMain"
-            style={{
-              width: '1180px',
-              height: '613px',
-              filter: 'drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)',
-              position: 'absolute',
-              top: '190px',
-              objectPosition: 'center top',
-              objectFit: 'cover',
-            }}
-          />
+          <Background src={pageimg} alt="goodsMain" />
         </div>
         <SectionBuy>
           <section>

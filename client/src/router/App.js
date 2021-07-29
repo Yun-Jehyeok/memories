@@ -6,10 +6,12 @@ import Main from '../pages/Main';
 import Signup from '../pages/Signup';
 import Contact from '../pages/Contact';
 import GoodsMain from '../pages/GoodsMain';
+import GoodsCollections from 'src/pages/GoodsCollections';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
+  const page = ['collections'];
   return (
     <Switch>
       <Route path="/" exact component={Main} />
@@ -17,6 +19,10 @@ const App = () => {
       <Route path="/signup" exact component={Signup} />
       <Route path="/contact" exact component={Contact} />
       <Route path="/goods" exact component={GoodsMain} />
+      <Route
+        path="/goods/collections"
+        render={() => <GoodsCollections page={page[0]} />}
+      />
     </Switch>
   );
 };
