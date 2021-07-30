@@ -36,6 +36,7 @@ const useScript = () => {
         offsetBottom[index] = $(obj).offset().top + $(obj).height();
         sectionList[index] = $(obj)
       });
+    }
 
     function checkInSection(){
       setValue();
