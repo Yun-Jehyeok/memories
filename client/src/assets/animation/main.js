@@ -31,8 +31,6 @@ const useScript = () => {
       });
       offsetBottom[4] = section.eq(0).offset().top + section.eq(0).height() - navbar.eq(0).height();
       offsetTop[4] = section.eq(1).offset().top - navbar.eq(0).height();
-      console.log(offsetTop);
-      console.log(offsetBottom);
     }
 
     function checkInSection(){
@@ -55,7 +53,6 @@ const useScript = () => {
     }
 
     function sectionActive(index){ //섹션의 인덱스값을 받음
-      console.log('section'+index);
       listActive(index);
     }
 

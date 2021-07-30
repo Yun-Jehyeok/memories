@@ -16,7 +16,7 @@ export const Wrap = styled.div`
 
 export const Container = styled.div`
   width: 40%;
-  padding-top: 7vh;
+  padding-top: 15vh;
   margin-left: 12%;
 `;
 

@@ -12,11 +12,28 @@ import Contact from '../Contact';
 const Main = () => {
   useScript();
 
+  var menuBar = document.querySelector('.menuBar');
+  let scrollTop = 0;
+
+  document.addEventListener('scroll', function () {
+    scrollTop = window.scrollY || document.documentElement.scrollTop;
+  });
+
+  const onClickMenuBar = () => {
+    if (!menuBar.classList.contains('on')) {
+      menuBar.style.top = scrollTop;
+      menuBar.classList.add('on');
+    } else {
+      menuBar.style.top = `${scrollTop - window.innerHeight}px`;
+      menuBar.classList.remove('on');
+    }
+  };
+
   return (
     <>
       <Body>
         <Contact />
-        <Header />
+        <Header onClickMenuBar={onClickMenuBar} />
         <Intro />
         <History />
         <Exhibition />
