@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Page = styled.div`
   background: #1a1a1a;
-  height: 100vh;
+  height: 101vh;
   width: 100%;
 `;
 export const Year = styled.div`
@@ -26,7 +26,7 @@ export const Redtext = styled.span`
 export const Info = styled.div`
   color: #ffffff;
   width: 80%;
-  & > Row > Col{
+  & > Row > Col {
     border: 0.5px solid white;
     position: absolute;
     bottom: 0;

@@ -4,10 +4,12 @@ export const Nav = styled.div`
   background-color: transparent;
   width: 100%;
   height: 10vh;
-  margin-top: 45px;
   z-index: 5;
   & > div {
-    margin-right: 80px;
+    height: 10vh;
+  }
+  & > div > .navItem {
+    margin-top: 45px;
   }
   & > div > .navLink {
     text-decoration: none;
@@ -24,13 +26,5 @@ export const Nav = styled.div`
       width: 100%;
       position: absolute;
     }
-  }
-  & > div > #memories {
-    right: 340px;
-  }
-  & .border {
-    border-bottom: 1.5px solid #fba904;
-    width: 100%;
-    position: absolute;
   }
 `;

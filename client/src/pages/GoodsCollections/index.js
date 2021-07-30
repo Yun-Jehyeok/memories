@@ -1,5 +1,5 @@
 import React from 'react';
-import GoodsNavbar from 'src/components/goods/goodsNavbar/goodsNavbar';
+import GoodsNavbar from 'src/components/shared/goodsNavbar/goodsNavbar';
 import collectionPage from '../../assets/img/collectionsPage.jpeg';
 
 import { faCircle } from '@fortawesome/free-solid-svg-icons';

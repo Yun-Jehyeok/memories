@@ -97,6 +97,14 @@ export const Cards = styled.div`
     font-size: 18px;
     font-weight: 300;
   }
+  & > div > div > a {
+    cursor: pointer;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    left: 230px;
+    top: -70px;
+  }
 `;
 
 export const SectionDone = styled.div`

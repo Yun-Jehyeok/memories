@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import pageimg from '../../assets/img/goodsPage_img.jpeg';
-import GoodsNavbar from 'src/components/goods/goodsNavbar/goodsNavbar';
-import GoodsPagenation from 'src/components/goods/goodsPagenation/goodsPagenation';
+import GoodsNavbar from 'src/components/shared/goodsNavbar/goodsNavbar';
+import GoodsPagenation from 'src/components/shared/goodsPagenation/goodsPagenation';
 
 import {
   faChevronRight,
   faChevronLeft,
   faCircle,
 } from '@fortawesome/free-solid-svg-icons';
+import { faArrowAltCircleRight } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   Maintext,
@@ -62,6 +63,15 @@ const GoodsMain = () => {
       <div>
         <p>{item.name}</p>
         <p>{item.content}</p>
+        <a href={`/goods/${item.id}`}>
+          <FontAwesomeIcon
+            icon={faArrowAltCircleRight}
+            style={{
+              fontSize: '2.5em',
+              color: '#A4A4A4',
+            }}
+          />
+        </a>
       </div>
     </div>
   ));

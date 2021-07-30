@@ -1,32 +1,20 @@
 import React from 'react';
 import { Nav } from './styles';
-import { faUser, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { Logo } from '../../../assets/commonStyle/styles';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const GoodsNavbar = (page) => {
   return (
     <Nav className="navBar">
       <div>
-        <a href="/" className="navLink" id="memories">
+        <Logo />
+        <a href="/" className="navLink navItem" id="memories">
           Memories
           <p></p>
         </a>
-        {page === 'collections' ? (
-          <a
-            href="/goods/collections"
-            className="navLink"
-            style={{ color: '#fba904' }}
-          >
-            Collections
-            <p className="border"></p>
-          </a>
-        ) : (
-          <a href="/goods/collections" className="navLink">
-            Collections
-            <p></p>
-          </a>
-        )}
-        <a>
+        <a href="/shopping" className="navItem">
           <FontAwesomeIcon
             className="nav-item"
             icon={faShoppingCart}
@@ -36,10 +24,11 @@ const GoodsNavbar = (page) => {
               color: '#A4A4A4',
               right: '90px',
               marginRight: '38px',
+              marginTop: '45px',
             }}
           />
         </a>
-        <a>
+        <a className="navItem">
           <FontAwesomeIcon
             className="nav-item"
             icon={faUser}
@@ -48,6 +37,7 @@ const GoodsNavbar = (page) => {
               position: 'absolute',
               right: '70px',
               color: '#A4A4A4',
+              marginTop: '45px',
             }}
           />
         </a>
