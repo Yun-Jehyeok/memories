@@ -8,6 +8,8 @@ export const Page = styled.div`
   float: right;
   background-color: transparent;
   overflow: hidden;
+  position: fixed;
+  left: 91%;
   & > div {
     position: relative;
     width: 140px;
@@ -29,6 +31,15 @@ export const Pagenum = styled.p`
   left: 65px;
   padding: 0;
   margin: 0;
+`;
+
+export const Pagenum_snd = styled.p`
+  position: relative;
+  font-size: 35px;
+  font-weight: 200;
+  color: #a4a4a4;
+  left: 68px;
+  top: 10px;
 `;
 
 export const PageBorder = styled.p`

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Header from '../../components/navbar/navbar';
+import Header from '../../components/shared/navbar/navbar';
 import History from '../../components/history/history';
-import Pagenation from '../../components/pagenation/pagenation';
+import Pagenation from '../../components/shared/pagenation/pagenation';
 import Involved from '../../components/involved/involved';
 import { Body } from './styles';
 import useScript from '../../assets/animation/main';
@@ -12,14 +12,11 @@ import Contact from '../Contact';
 const Main = () => {
   useScript();
 
-  var menuBar = document.querySelector('.menuBar');
+  var menuBar;
   let scrollTop = 0;
 
-  document.addEventListener('scroll', function () {
-    scrollTop = window.scrollY || document.documentElement.scrollTop;
-  });
-
   const onClickMenuBar = () => {
+    menuBar = document.querySelector('.menuBar');
     if (!menuBar.classList.contains('on')) {
       menuBar.style.top = scrollTop;
       menuBar.classList.add('on');

@@ -4,7 +4,7 @@ import { Container, Header, Item, Wrap, Mask } from './styles';
 
 const Contact = () => {
   return (
-    <Wrap className="menuBar">
+    <Wrap className="menuBar" id="menuBar">
       <Container>
         <Header>
           <span style={{ color: 'red' }}>C</span>ONTACT

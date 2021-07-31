@@ -6,6 +6,7 @@ import Main from '../pages/Main';
 import Signup from '../pages/Signup';
 import GoodsMain from '../pages/GoodsMain';
 import GoodsCollections from 'src/pages/GoodsCollections';
+import Shopping from 'src/pages/Shopping';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -17,10 +18,8 @@ const App = () => {
       <Route path="/login" exact component={Login} />
       <Route path="/signup" exact component={Signup} />
       <Route path="/goods" exact component={GoodsMain} />
-      <Route
-        path="/goods/collections"
-        render={() => <GoodsCollections page={page[0]} />}
-      />
+      <Route path="/goods/:goodsId" component={GoodsCollections} />
+      <Route path="/shopping" exact component={Shopping} />
     </Switch>
   );
 };
