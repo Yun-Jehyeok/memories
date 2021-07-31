@@ -10,7 +10,6 @@ export const Wrap = styled.div`
   overflow: hidden;
   top: -100vh;
   left: 0;
-  transition: all 1s ease;
   z-index: 400;
 `;
 

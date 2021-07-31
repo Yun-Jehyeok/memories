@@ -12,17 +12,28 @@ import Contact from '../Contact';
 const Main = () => {
   useScript();
 
-  var menuBar;
-  let scrollTop = 0;
+  document.addEventListener('scroll', function () {
+    if (!document.querySelector('.menuBar').classList.contains('on')) {
+      document.querySelector('.menuBar').style.top = `${
+        window.scrollY - window.innerHeight - 100
+      }px`;
+    }
+  });
 
   const onClickMenuBar = () => {
-    menuBar = document.querySelector('.menuBar');
+    let menuBar = document.querySelector('.menuBar');
     if (!menuBar.classList.contains('on')) {
-      menuBar.style.top = scrollTop;
+      menuBar.style.transition = 'all 1s ease';
+
+      menuBar.style.top = `${window.scrollY}px`;
       menuBar.classList.add('on');
     } else {
-      menuBar.style.top = `${scrollTop - window.innerHeight}px`;
+      menuBar.style.top = `${window.scrollY - window.innerHeight - 100}px`;
       menuBar.classList.remove('on');
+
+      setTimeout(() => {
+        menuBar.style.transition = '';
+      }, 1000);
     }
   };
 
