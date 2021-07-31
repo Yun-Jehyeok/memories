@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Page = styled.div`
-  background: white;
+  background: red;
   height: 100vh;
   width: 100%;
-`
+`;
