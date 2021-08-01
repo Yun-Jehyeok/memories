@@ -15,7 +15,7 @@ export const Nav = styled.div`
     text-decoration: none;
     color: #000000;
     position: absolute;
-    right: 210px;
+    right: 200px;
     font-size: 18px;
     -webkit-transition: color 0.4s;
   }
@@ -26,5 +26,11 @@ export const Nav = styled.div`
       width: 100%;
       position: absolute;
     }
+  }
+  & > div > #donation {
+    right: 330px;
+  }
+  & > div > .nav_active {
+    color: #fba904;
   }
 `;
