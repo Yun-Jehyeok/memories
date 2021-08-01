@@ -32,4 +32,7 @@ export const Card = styled.div`
   width: 33%;
   top: 150px;
   float: left;
+  & > div > p {
+    margin-top: 10px;
+  }
 `;

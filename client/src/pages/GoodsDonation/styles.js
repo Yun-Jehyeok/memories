@@ -14,7 +14,7 @@ export const SectionDone = styled.div`
     margin-top: 50px;
   }
   & > section > h2 {
-    font-size: 60px;
+    font-size: 50px;
     margin-bottom: 30px;
   }
   & > section > p {

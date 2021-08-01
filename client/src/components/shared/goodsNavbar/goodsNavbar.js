@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import { Nav } from './styles';
+import { Nav, Button } from './styles';
 import { Logo } from '../../../assets/commonStyle/styles';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
@@ -34,36 +34,40 @@ const GoodsNavbar = (nav) => {
           Memories
           <p></p>
         </Link>
-        <Link to="/shopping" className="navItem">
-          <FontAwesomeIcon
-            className="nav-item"
-            icon={faShoppingCart}
-            style={{
-              fontSize: '25px',
-              position: 'absolute',
-              color: '#A4A4A4',
-              right: '90px',
-              marginRight: '38px',
-              marginTop: '45px',
-            }}
-          />
-        </Link>
         {isAuthenticated ? (
-          <Link className="navItem">
-            <FontAwesomeIcon
-              className="nav-item"
-              icon={faUser}
-              style={{
-                fontSize: '25px',
-                position: 'absolute',
-                right: '70px',
-                color: '#A4A4A4',
-                marginTop: '45px',
-              }}
-            />
-          </Link>
+          <span>
+            <Link to="/shopping" className="navItem">
+              <FontAwesomeIcon
+                className="nav-item"
+                icon={faShoppingCart}
+                style={{
+                  fontSize: '25px',
+                  position: 'absolute',
+                  color: '#A4A4A4',
+                  right: '90px',
+                  marginRight: '38px',
+                  marginTop: '45px',
+                }}
+              />
+            </Link>
+            <Link className="navItem">
+              <FontAwesomeIcon
+                className="nav-item"
+                icon={faUser}
+                style={{
+                  fontSize: '25px',
+                  position: 'absolute',
+                  right: '70px',
+                  color: '#A4A4A4',
+                  marginTop: '45px',
+                }}
+              />
+            </Link>
+          </span>
         ) : (
-          <div></div>
+          <Link to="/login">
+            <Button>로그인</Button>
+          </Link>
         )}
       </div>
     </Nav>
