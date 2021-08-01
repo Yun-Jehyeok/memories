@@ -8,6 +8,7 @@ import useScript from '../../assets/animation/main';
 import Intro from 'src/components/intro/intro';
 import Exhibition from 'src/components/exhibition';
 import Contact from '../Contact';
+import { useSelector } from 'react-redux';
 
 const Main = () => {
   useScript();
