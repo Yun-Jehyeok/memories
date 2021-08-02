@@ -36,7 +36,7 @@ var upload = multer({ storage: storage }).single("file");
 
 // Upload Image
 // 서버의 multer library에 이미지 저장
-router.post("/uploadImage", auth, (req, res) => {
+router.post("/uploadImage", (req, res) => {
   upload(req, res, (err) => {
     if (err) return res.json({ success: false, err });
 
@@ -50,11 +50,14 @@ router.post("/uploadImage", auth, (req, res) => {
 
 // Upload Product
 // POST
-router.post("/uploadProduct", auth, (req, res) => {
+router.post("/uploadProduct", (req, res) => {
   const product = new Product(req.body);
 
   product.save((err) => {
-    if (err) return res.status(400).json({ success: false, err });
+    if (err) {
+      console.log(err);
+      return res.status(400).json({ success: false, err });
+    }
 
     return res.status(200).json({ success: true });
   });

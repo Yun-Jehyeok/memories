@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 const productSchema = mongoose.Schema(
   {
     writer: {
-      type: Schema.Types.ObjectId,
-      ref: "User",
+      type: String,
+      required: true,
     },
     title: {
       type: String,
@@ -17,6 +17,10 @@ const productSchema = mongoose.Schema(
     price: {
       type: Number,
       default: 0,
+    },
+    goods: {
+      type: Number,
+      default: 1,
     },
     images: {
       type: Array,

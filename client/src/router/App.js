@@ -10,6 +10,7 @@ import Shopping from 'src/pages/Shopping';
 import GoodsDonation from 'src/pages/GoodsDonation';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import UploadProduct from 'src/pages/UploadProduct/UploadProduct';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
       <Route path="/goods/:goodsId" component={GoodsCollections} />
       <Route path="/shopping" exact component={Shopping} />
       <Route path="/donation" exact component={GoodsDonation} />
+      <Route path="/product/upload" component={UploadProduct} />
     </Switch>
   );
 };
