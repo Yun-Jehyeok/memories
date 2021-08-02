@@ -2,7 +2,7 @@ import React from 'react';
 import { Logo, OutLink } from '../../assets/commonStyle/styles';
 import { Container, Header, Item, Wrap, Mask } from './styles';
 
-const Contact = () => {
+const MenuBar = () => {
   return (
     <Wrap className="menuBar" id="menuBar">
       <Container>
@@ -36,4 +36,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default MenuBar;

@@ -7,8 +7,7 @@ import { Body } from './styles';
 import useScript from '../../assets/animation/main';
 import Intro from 'src/components/intro/intro';
 import Exhibition from 'src/components/exhibition';
-import Contact from '../Contact';
-import { useSelector } from 'react-redux';
+import MenuBar from '../../components/MenuBar';
 
 const Main = () => {
   useScript();
@@ -41,7 +40,7 @@ const Main = () => {
   return (
     <>
       <Body>
-        <Contact />
+        <MenuBar />
         <Header onClickMenuBar={onClickMenuBar} />
         <Intro />
         <History />
