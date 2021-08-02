@@ -7,11 +7,25 @@ export const Img = styled.img.attrs({ src: `${LogoImg}` })`
   width: 3.5em;
 `;
 
-export function Logo() {
+export function Logo(page) {
   return (
-    <Link to="/">
-      <Img src={LogoImg} style={{ marginTop: '28px', marginLeft: '20px' }} />
-    </Link>
+    <span>
+      {page === 'goods' ? (
+        <Link to="/goods">
+          <Img
+            src={LogoImg}
+            style={{ marginTop: '28px', marginLeft: '20px' }}
+          />
+        </Link>
+      ) : (
+        <Link to="/">
+          <Img
+            src={LogoImg}
+            style={{ marginTop: '28px', marginLeft: '20px' }}
+          />
+        </Link>
+      )}
+    </span>
   );
 }
 

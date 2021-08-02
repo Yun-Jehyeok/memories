@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Page = styled.div`
   width: 100%;
-  height: 200vh;
+  height: 100vh;
 `;
 
 export const BuyArea = styled.section`
@@ -32,4 +32,7 @@ export const Card = styled.div`
   width: 33%;
   top: 150px;
   float: left;
+  & > div > p {
+    margin-top: 10px;
+  }
 `;

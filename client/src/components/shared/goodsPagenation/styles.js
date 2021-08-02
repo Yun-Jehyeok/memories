@@ -4,11 +4,10 @@ export const Page = styled.div`
   z-index: 2;
   width: 140px;
   height: 400px;
-  margin-top: 40px;
+  margin-top: 100px;
   float: right;
   background-color: transparent;
   overflow: hidden;
-  position: fixed;
   left: 91%;
   & > div {
     position: relative;

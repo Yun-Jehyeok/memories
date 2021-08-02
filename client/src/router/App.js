@@ -7,11 +7,11 @@ import Signup from '../pages/Signup';
 import GoodsMain from '../pages/GoodsMain';
 import GoodsCollections from 'src/pages/GoodsCollections';
 import Shopping from 'src/pages/Shopping';
+import GoodsDonation from 'src/pages/GoodsDonation';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
-  const page = ['collections'];
   return (
     <Switch>
       <Route path="/" exact component={Main} />
@@ -20,6 +20,7 @@ const App = () => {
       <Route path="/goods" exact component={GoodsMain} />
       <Route path="/goods/:goodsId" component={GoodsCollections} />
       <Route path="/shopping" exact component={Shopping} />
+      <Route path="/donation" exact component={GoodsDonation} />
     </Switch>
   );
 };
