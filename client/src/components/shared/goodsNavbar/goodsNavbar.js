@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import { Nav, Button } from './styles';
+import { Nav } from './styles';
+import { Btn } from '../../../assets/commonStyle/styles';
 import { Logo } from '../../../assets/commonStyle/styles';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
@@ -10,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const GoodsNavbar = (nav) => {
   const page = 'goods';
-  const { isAuthenticated } = useSelector((state) => state.auth);
+  const { isAuthenticated, userName } = useSelector((state) => state.auth);
   return (
     <Nav className="navBar">
       <div>
@@ -63,10 +64,28 @@ const GoodsNavbar = (nav) => {
                 }}
               />
             </Link>
+            <span
+              style={{
+                position: 'absolute',
+                right: '75px',
+                color: '#A4A4A4',
+                fontSize: '15px',
+              }}
+            >
+              {userName}님 오늘도 화이팅하세요!
+            </span>
           </span>
         ) : (
           <Link to="/login">
-            <Button>로그인</Button>
+            <Btn
+              style={{
+                position: 'absolute',
+                right: '50px',
+                marginTop: '36px',
+              }}
+            >
+              로그인
+            </Btn>
           </Link>
         )}
       </div>

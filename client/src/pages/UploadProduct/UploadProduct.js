@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+
+import { Btn } from 'src/assets/commonStyle/styles';
+import GoodsNavbar from 'src/components/shared/goodsNavbar/goodsNavbar';
 import FileUpload from './FileUpload';
 import Axios from 'axios';
 
@@ -69,49 +72,61 @@ function UploadProduct(props) {
   };
 
   return (
-    <div style={{ maxWidth: '700px', margin: '2rem auto' }}>
-      <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-        <h1 level={2}>Upload Product</h1>
-      </div>
+    <div style={{ width: '100%' }}>
+      <GoodsNavbar />
+      <div style={{ maxWidth: '1000px', margin: '2rem auto' }}>
+        <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
+          <h1 level={2}>Upload Product</h1>
+        </div>
 
-      <form onSubmit={onSubmit}>
-        {/* Drop zone */}
-        <FileUpload refreshFunction={updateImages} />
-        <br />
-        <br />
-        <label>Title</label>
-        <br />
-        <input
-          onChange={onTitleChange}
-          value={TitleValue}
-          style={{ width: '100%' }}
-        />
-        <br />
-        <br />
-        <label>Description</label>
-        <br />
-        <textarea
-          onChange={onDescriptionChange}
-          value={DescriptionValue}
-          style={{ width: '100%' }}
-        />
-        <br />
-        <br />
-        <label>Price</label>
-        <br />
-        <input onChange={onPriceChange} value={PriceValue} />
-        <br />
-        <select onChange={onGoodsSelectChange}>
-          {Goods.map((item) => (
-            <option key={item.key} value={item.key}>
-              {item.value}
-            </option>
-          ))}
-        </select>
-        <br />
-        <br />
-        <button onClick={onSubmit}>Submit</button>
-      </form>
+        <form onSubmit={onSubmit} className="row">
+          {/* Drop zone */}
+          <div className="col-4">
+            <FileUpload
+              refreshFunction={updateImages}
+              style={{ float: 'left' }}
+            />
+          </div>
+          <div className="col-8">
+            <br />
+            <br />
+            <label>Title</label>
+            <input
+              type="text"
+              class="form-control"
+              onChange={onTitleChange}
+              value={TitleValue}
+              style={{ width: '100%' }}
+            />
+            <br />
+            <br />
+            <label>Description</label>
+            <br />
+            <textarea
+              class="form-control"
+              onChange={onDescriptionChange}
+              value={DescriptionValue}
+              style={{ width: '100%' }}
+            />
+            <br />
+            <br />
+            <label>Price</label>
+            <br />
+            <input onChange={onPriceChange} value={PriceValue} />
+            <br />
+            <select onChange={onGoodsSelectChange}>
+              {Goods.map((item) => (
+                <option key={item.key} value={item.key}>
+                  {item.value}
+                </option>
+              ))}
+            </select>
+            <br />
+            <br />
+            <Btn onClick={onSubmit}>Submit</Btn>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
