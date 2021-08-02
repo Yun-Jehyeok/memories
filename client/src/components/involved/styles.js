@@ -4,7 +4,7 @@ export const Page = styled.div`
   width: 90%;
   position: absolute;
   left: 5%;
-  height: 101vh;
+  height: 90vh;
 `;
 
 export const Textpage = styled.div`
