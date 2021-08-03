@@ -34,13 +34,3 @@ export const Nav = styled.div`
     color: #fba904;
   }
 `;
-
-export const Button = styled.button`
-  background-color: #fba904;
-  color: #ffffff;
-  padding: 10px 30px;
-  position: absolute;
-  right: 50px;
-  margin-top: 36px;
-  border-radius: 5px;
-`;
