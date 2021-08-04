@@ -1,5 +1,6 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import Login from '../pages/Login';
 import Main from '../pages/Main';
@@ -13,11 +14,21 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import UploadGoods from 'src/pages/UploadGoods/UploadGoods';
 
 const App = () => {
+  const { isAuthenticated } = useSelector((state) => state.auth);
+
   return (
     <Switch>
       <Route path="/" exact component={Main} />
-      <Route path="/login" exact component={Login} />
-      <Route path="/signup" exact component={Signup} />
+      <Route
+        path="/login"
+        exact
+        render={() => (isAuthenticated ? <Redirect to="/" /> : <Login />)}
+      />
+      <Route
+        path="/signup"
+        exact
+        render={() => (isAuthenticated ? <Redirect to="/" /> : <Signup />)}
+      />
       <Route path="/goods" exact component={GoodsMain} />
       <Route path="/goods/:goodsId" exact component={GoodsDetail} />
       <Route path="/goods/shopping" exact component={Shopping} />
