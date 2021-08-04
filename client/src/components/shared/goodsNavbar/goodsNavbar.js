@@ -11,7 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const GoodsNavbar = (nav) => {
   const page = 'goods';
-  const { isAuthenticated, userName } = useSelector((state) => state.auth);
+  const { isAuthenticated, user } = useSelector((state) => state.auth);
   return (
     <Nav className="navBar">
       <div>
@@ -72,7 +72,7 @@ const GoodsNavbar = (nav) => {
                 fontSize: '15px',
               }}
             >
-              {userName}님 오늘도 화이팅하세요!
+              {user.name}님 오늘도 화이팅하세요!
             </span>
           </span>
         ) : (
