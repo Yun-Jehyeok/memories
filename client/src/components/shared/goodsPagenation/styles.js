@@ -5,10 +5,10 @@ export const Page = styled.div`
   width: 140px;
   height: 400px;
   margin-top: 100px;
-  float: right;
   background-color: transparent;
-  overflow: hidden;
-  left: 91%;
+  overflow-x: hidden;
+  left: 90.4%;
+  position: relative;
   & > div {
     position: relative;
     width: 140px;
