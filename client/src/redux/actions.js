@@ -1,4 +1,10 @@
-import { LOGIN_REQUEST, REGISTER_REQUEST, USER_LOADING_REQUEST } from './types';
+import axios from 'axios';
+import {
+  ADD_TO_CART_USER,
+  LOGIN_REQUEST,
+  REGISTER_REQUEST,
+  USER_LOADING_REQUEST,
+} from './types';
 
 export const loginAction = (user) => ({
   type: LOGIN_REQUEST,
@@ -14,3 +20,14 @@ export const loadUserAction = (token) => ({
   type: USER_LOADING_REQUEST,
   payload: token,
 });
+
+export function addToCart(_id) {
+  const request = axios
+    .post(`/api/user/addToCart?productId=${_id}`)
+    .then((response) => response.data);
+
+  return {
+    type: ADD_TO_CART_USER,
+    payload: request,
+  };
+}

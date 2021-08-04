@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const productSchema = mongoose.Schema(
   {
     writer: {
-      type: String,
+      type: Schema.Types.ObjectId,
       required: true,
     },
     title: {
