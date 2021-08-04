@@ -34,6 +34,22 @@ var upload = multer({ storage: storage }).single("file");
 //              Product Router
 ///////////////////////////////////////////////
 
+// Get Products
+router.get("/getProducts", async (req, res) => {
+  try {
+    const products = await Product.find();
+
+    if (!products)
+      return res
+        .status(400)
+        .json({ success: false, msg: "상품이 존재하지 않습니다." });
+
+    res.status(200).json({ success: true, products });
+  } catch (e) {
+    console.log(e);
+  }
+});
+
 // Upload Image
 // 서버의 multer library에 이미지 저장
 router.post("/uploadImage", (req, res) => {
@@ -66,16 +82,15 @@ router.post("/uploadProduct", (req, res) => {
 // Get Product By Id
 // GET
 router.get("/products_by_id", (req, res) => {
-  let type = req.query.type;
   let productIds = req.query.id;
 
-  if (type === "array") {
-  }
-
   Product.find({ _id: { $in: productIds } })
-    .populatae("writer")
+    .populate("writer")
     .exec((err, product) => {
-      if (err) return res.status(400).send(err);
+      if (err) {
+        console.log(err);
+        return res.status(400).send(err);
+      }
 
       return res.status(200).send(product);
     });

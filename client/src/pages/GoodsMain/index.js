@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 // image import //
@@ -8,8 +8,8 @@ import slide3 from '../../assets/img/involved_img.png';
 
 import GoodsNavbar from 'src/components/shared/goodsNavbar/goodsNavbar';
 import GoodsPagenation from 'src/components/shared/goodsPagenation/goodsPagenation';
-
 import { SlideBox, Slide, Page } from './styles';
+import Axios from 'axios';
 
 const GoodsMain = () => {
   var slideList = document.querySelector('.slide_list');
@@ -36,6 +36,22 @@ const GoodsMain = () => {
     curIndex = 2;
   };
 
+  const [Products, setProducts] = useState([]);
+
+  const getProducts = () => {
+    Axios.get('/api/product/getProducts').then((res) => {
+      if (res.data.success) {
+        setProducts(res.data.products);
+      } else {
+        alert('Failed to fetch products');
+      }
+    });
+  };
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
   return (
     <Page>
       <div>
@@ -49,15 +65,19 @@ const GoodsMain = () => {
           {/* slide list */}
           <SlideBox className="slide_box">
             <div className="slide_list">
-              <Link className="slide_content slide1" to="/goods/:goodsid">
-                <Slide src={slide1} alt="slide1" />
-              </Link>
-              <Link className="slide_content slide2" to="/goods/:goodsid">
-                <Slide src={slide2} alt="slide2" />
-              </Link>
-              <Link className="slide_content slide2" to="/goods/:goodsid">
-                <Slide src={slide3} alt="slide3" />
-              </Link>
+              {Products.map((product) => {
+                return (
+                  <div>
+                    <Link
+                      className="slide_content slide"
+                      key={product._id}
+                      to={`/goods/${product._id}`}
+                    >
+                      <Slide src={slide3} alt="goodsMain" />
+                    </Link>
+                  </div>
+                );
+              })}
             </div>
           </SlideBox>
         </div>

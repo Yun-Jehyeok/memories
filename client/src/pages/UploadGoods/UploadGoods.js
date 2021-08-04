@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-
 import { Btn } from 'src/assets/commonStyle/styles';
 import GoodsNavbar from 'src/components/shared/goodsNavbar/goodsNavbar';
 import FileUpload from './FileUpload';
 import Axios from 'axios';
+import { useSelector } from 'react-redux';
 
 const Goods = [
   { key: 1, value: 'Goods1' },
@@ -13,8 +12,7 @@ const Goods = [
 ];
 
 function UploadProduct(props) {
-  const { userId } = useSelector((state) => state.auth);
-
+  const { user } = useSelector((state) => state.auth);
   const [TitleValue, setTitleValue] = useState('');
   const [DescriptionValue, setDescriptionValue] = useState('');
   const [PriceValue, setPriceValue] = useState(0);
@@ -41,6 +39,8 @@ function UploadProduct(props) {
 
   const onSubmit = (e) => {
     e.preventDefault();
+
+    console.log(user);
 
     if (
       !TitleValue ||
@@ -82,15 +82,12 @@ function UploadProduct(props) {
         <form onSubmit={onSubmit} className="row">
           {/* Drop zone */}
           <div className="col-4">
-            <FileUpload
-              refreshFunction={updateImages}
-              style={{ float: 'left' }}
-            />
+            <FileUpload refreshFunction={updateImages} />
           </div>
           <div className="col-8">
             <br />
             <br />
-            <label>Title</label>
+            <label>상품명</label>
             <input
               type="text"
               class="form-control"
@@ -100,7 +97,7 @@ function UploadProduct(props) {
             />
             <br />
             <br />
-            <label>Description</label>
+            <label>설명</label>
             <br />
             <textarea
               class="form-control"
@@ -110,10 +107,13 @@ function UploadProduct(props) {
             />
             <br />
             <br />
-            <label>Price</label>
+            <label>가격(원)</label>
             <br />
-            <input onChange={onPriceChange} value={PriceValue} />
-            <br />
+            <input
+              onChange={onPriceChange}
+              value={PriceValue}
+              style={{ marginRight: '15px' }}
+            />
             <select onChange={onGoodsSelectChange}>
               {Goods.map((item) => (
                 <option key={item.key} value={item.key}>
@@ -123,7 +123,7 @@ function UploadProduct(props) {
             </select>
             <br />
             <br />
-            <Btn onClick={onSubmit}>Submit</Btn>
+            <Btn onClick={onSubmit}>등록하기</Btn>
           </div>
         </form>
       </div>

@@ -25,7 +25,7 @@ export const SlideBox = styled.div`
     width: 3544px;
     height: 590px;
   }
-  & > div > .slide_content {
+  & > div > div > .slide_content {
     width: 1180px;
     height: 590px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));

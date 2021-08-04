@@ -18,7 +18,7 @@ const GoodsNavbar = (nav) => {
         {Logo(page)}
         {nav === 'donation' ? (
           <Link
-            to="/donation"
+            to="/goods/donation"
             className="navLink navItem nav_active"
             id="donation"
           >
@@ -26,7 +26,7 @@ const GoodsNavbar = (nav) => {
             <p></p>
           </Link>
         ) : (
-          <Link to="/donation" className="navLink navItem" id="donation">
+          <Link to="/goods/donation" className="navLink navItem" id="donation">
             Donation
             <p></p>
           </Link>
@@ -37,7 +37,7 @@ const GoodsNavbar = (nav) => {
         </Link>
         {isAuthenticated ? (
           <span>
-            <Link to="/shopping" className="navItem">
+            <Link to="/goods/shopping" className="navItem">
               <FontAwesomeIcon
                 className="nav-item"
                 icon={faShoppingCart}
@@ -67,9 +67,10 @@ const GoodsNavbar = (nav) => {
             <span
               style={{
                 position: 'absolute',
-                right: '75px',
+                top: '10px',
+                right: '70px',
                 color: '#A4A4A4',
-                fontSize: '15px',
+                fontSize: '14px',
               }}
             >
               {user.name}님 오늘도 화이팅하세요!

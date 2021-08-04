@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import GoodsNavbar from 'src/components/shared/goodsNavbar/goodsNavbar';
 
@@ -6,23 +6,35 @@ import { faArrowAltCircleRight } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Box, PageHeader, BackgroundYellow, PageLink } from './styles';
 import { Page } from 'src/assets/commonStyle/styles';
+import Axios from 'axios';
 
-const GoodsCollections = (props) => {
+const GoodsDetail = (props) => {
+  const [Product, setProduct] = useState([]);
+  const goodsId = props.match.params.goodsId;
+
+  useEffect(() => {
+    Axios.get(`/api/product/products_by_id?id=${goodsId}&type=single`).then(
+      (res) => {
+        setProduct(res.data[0]);
+      },
+    );
+  }, []);
+
   return (
     <Page>
       {GoodsNavbar(props.page)}
       <BackgroundYellow></BackgroundYellow>
       <PageHeader>
         <div>
-          <p id="goodsTitle">Goods Name</p>
+          <p id="goodsTitle">{Product.title}</p>
         </div>
       </PageHeader>
       <Box>
         <div>
-          <img src="http://placehold.it/350x350" />
+          <img src={Product.images} />
           <p>
             상품 설명 : <br />
-            6. 25 전쟁을 모티브로 한 굿즈 입니다.
+            {Product.description}
           </p>
         </div>
       </Box>
@@ -45,4 +57,4 @@ const GoodsCollections = (props) => {
   );
 };
 
-export default GoodsCollections;
+export default GoodsDetail;
