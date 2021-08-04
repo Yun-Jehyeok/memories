@@ -22,12 +22,12 @@ const App = () => {
       <Route
         path="/login"
         exact
-        render={() => (isAuthenticated ? <Redirect to="/" /> : <Login />)}
+        render={() => (isAuthenticated ? <Redirect to="/goods" /> : <Login />)}
       />
       <Route
         path="/signup"
         exact
-        render={() => (isAuthenticated ? <Redirect to="/" /> : <Signup />)}
+        render={() => (isAuthenticated ? <Redirect to="/goods" /> : <Signup />)}
       />
       <Route path="/goods" exact component={GoodsMain} />
       <Route path="/goods/:goodsId" exact component={GoodsDetail} />
