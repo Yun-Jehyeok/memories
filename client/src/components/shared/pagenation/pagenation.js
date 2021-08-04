@@ -15,16 +15,16 @@ const Pagenation = () => {
       }}
     >
       <Container className="nav_list float-end">
-        <a id="intro_area_btn">
+        <a type="button" id="intro_area_btn">
           <FontAwesomeIcon icon={faCircle} />
         </a>
-        <a id="history_area_btn">
+        <a type="button" id="history_area_btn">
           <FontAwesomeIcon icon={faCircle} />
         </a>
-        <a id="exhibition_area_btn">
+        <a type="button" id="exhibition_area_btn">
           <FontAwesomeIcon icon={faCircle} />
         </a>
-        <a id="involved_area_btn">
+        <a type="button" id="involved_area_btn">
           <FontAwesomeIcon icon={faCircle} />
         </a>
       </Container>
