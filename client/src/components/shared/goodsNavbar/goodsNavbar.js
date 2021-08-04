@@ -51,7 +51,7 @@ const GoodsNavbar = (nav) => {
                 }}
               />
             </Link>
-            <Link className="navItem">
+            <Link className="navItem" to="/goods">
               <FontAwesomeIcon
                 className="nav-item"
                 icon={faUser}

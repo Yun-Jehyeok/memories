@@ -16,8 +16,6 @@ function FileUpload(props) {
       if (res.data.success) {
         setImages([...Images, res.data.image]);
         props.refreshFunction([...Images, res.data.image]);
-
-        console.log(res.data.image);
       } else {
         alert('Failed to save the Image in Server');
       }
@@ -63,7 +61,7 @@ function FileUpload(props) {
         }}
       >
         {Images.map((image, index) => (
-          <div onClick={() => onDelete(image)}>
+          <div onClick={() => onDelete(image)} key={index}>
             <img
               style={{ minWidth: '300px', width: '300px', height: '240px' }}
               src={`http://localhost:7000/${image}`}

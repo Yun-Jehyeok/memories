@@ -12,7 +12,6 @@ const Goods = [
 ];
 
 function UploadProduct(props) {
-  const { user } = useSelector((state) => state.auth);
   const [TitleValue, setTitleValue] = useState('');
   const [DescriptionValue, setDescriptionValue] = useState('');
   const [PriceValue, setPriceValue] = useState(0);
@@ -33,14 +32,11 @@ function UploadProduct(props) {
   };
 
   const updateImages = (newImages) => {
-    console.log(newImages);
     setImages(newImages);
   };
 
   const onSubmit = (e) => {
     e.preventDefault();
-
-    console.log(user);
 
     if (
       !TitleValue ||
@@ -90,7 +86,7 @@ function UploadProduct(props) {
             <label>상품명</label>
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               onChange={onTitleChange}
               value={TitleValue}
               style={{ width: '100%' }}
@@ -100,7 +96,7 @@ function UploadProduct(props) {
             <label>설명</label>
             <br />
             <textarea
-              class="form-control"
+              className="form-control"
               onChange={onDescriptionChange}
               value={DescriptionValue}
               style={{ width: '100%' }}
