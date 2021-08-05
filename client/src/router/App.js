@@ -30,7 +30,7 @@ const App = () => {
         render={() => (isAuthenticated ? <Redirect to="/goods" /> : <Signup />)}
       />
       <Route path="/goods" exact component={GoodsMain} />
-      <Route path="/goods/:goodsId" exact component={GoodsDetail} />
+      <Route path="/:goodsId" exact component={GoodsDetail} />
       <Route path="/goods/shopping" exact component={Shopping} />
       <Route path="/goods/donation" exact component={GoodsDonation} />
       <Route path="/goods/upload" component={UploadGoods} />

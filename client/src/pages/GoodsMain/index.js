@@ -12,30 +12,30 @@ import { SlideBox, Slide, Page } from './styles';
 import Axios from 'axios';
 
 const GoodsMain = () => {
+  // 애니메이션 //
+  const [num, setNum] = useState(0);
   var slideList = document.querySelector('.slide_list');
   var slideContents = document.querySelectorAll('.slide_content');
   var slideLen = slideContents.length;
+  var slideBtn = document.querySelectorAll('.slideBtn');
   const slideWidth = 1180;
-  const slideSpeed = 500;
+  const slideSpeed = 600;
 
-  var curIndex = 0;
-
-  const slideNext1 = () => {
+  const slideNext = (index) => {
+    setNum(index);
     slideList.style.transition = slideSpeed + 'ms';
-    slideList.style.transform = 'translateX(0px)';
-    curIndex = 0;
-  };
-  const slideNext2 = () => {
-    slideList.style.transition = slideSpeed + 'ms';
-    slideList.style.transform = 'translateX(-' + slideWidth + 'px)';
-    curIndex = 1;
-  };
-  const slideNext3 = () => {
-    slideList.style.transition = slideSpeed * (2 - curIndex) + 'ms';
-    slideList.style.transform = 'translateX(-' + slideWidth * 2 + 'px)';
-    curIndex = 2;
+    slideList.style.transform = 'translateX(-' + slideWidth * index + 'px)';
+    for (var i = 0; i < slideBtn.length; i++) {
+      slideBtn[i].style.color = '#a4a4a4';
+      slideBtn[i].style.fontWeight = '200';
+    }
+    slideBtn[index].style.color = '#000000';
+    slideBtn[index].style.fontWeight = '400';
+    slideBtn[index].style.transition = 'color 0.7s';
+    console.log(index);
   };
 
+  // 물품 가져오기 //
   const [Products, setProducts] = useState([]);
 
   const getProducts = () => {
@@ -57,27 +57,19 @@ const GoodsMain = () => {
       <div>
         <GoodsNavbar />
         <div className="slide_wrap">
-          <GoodsPagenation
-            slideNext1={slideNext1}
-            slideNext2={slideNext2}
-            slideNext3={slideNext3}
-          />
+          <GoodsPagenation slideNext={slideNext} />
           {/* slide list */}
           <SlideBox className="slide_box">
             <div className="slide_list">
-              {Products.map((product) => {
-                return (
-                  <div>
-                    <Link
-                      className="slide_content slide"
-                      key={product._id}
-                      to={`/goods/${product._id}`}
-                    >
-                      <Slide src={slide3} alt="goodsMain" />
-                    </Link>
-                  </div>
-                );
-              })}
+              <Link className="slide_content slide1" to="/goods/:goodsid">
+                <Slide src={slide1} alt="slide1" />
+              </Link>
+              <Link className="slide_content slide2" to="/goods/:goodsid">
+                <Slide src={slide2} alt="slide2" />
+              </Link>
+              <Link className="slide_content slide2" to="/goods/:goodsid">
+                <Slide src={slide3} alt="slide3" />
+              </Link>
             </div>
           </SlideBox>
         </div>
