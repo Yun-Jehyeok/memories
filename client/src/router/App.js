@@ -11,7 +11,7 @@ import Shopping from 'src/pages/Shopping';
 import GoodsDonation from 'src/pages/GoodsDonation';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import UploadGoods from 'src/pages/UploadGoods/UploadGoods';
+import UploadProduct from 'src/pages/UploadGoods/UploadGoods';
 
 const App = () => {
   const { isAuthenticated } = useSelector((state) => state.auth);
@@ -33,7 +33,7 @@ const App = () => {
       <Route path="/:goodsId" exact component={GoodsDetail} />
       <Route path="/goods/shopping" exact component={Shopping} />
       <Route path="/goods/donation" exact component={GoodsDonation} />
-      <Route path="/goods/upload" component={UploadGoods} />
+      <Route path="/goods/upload" exact component={UploadProduct} />
     </Switch>
   );
 };
