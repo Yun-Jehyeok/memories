@@ -14,7 +14,6 @@ import Axios from 'axios';
 const GoodsMain = () => {
   var slideList = document.querySelector('.slide_list');
   var slideContents = document.querySelectorAll('.slide_content');
-  var slideLen = slideContents.length;
   const slideWidth = 1180;
   const slideSpeed = 500;
 
@@ -67,7 +66,7 @@ const GoodsMain = () => {
             <div className="slide_list">
               {Products.map((product) => {
                 return (
-                  <div>
+                  <div key={product._id}>
                     <Link
                       className="slide_content slide"
                       key={product._id}

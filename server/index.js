@@ -21,6 +21,9 @@ app.use(
 app.use(morgan("dev"));
 app.use(express.json());
 
+// node.js 서버에 있는 이미지를 클라이언트에서 보여주기 위해 필요
+app.use("/uploads", express.static("uploads"));
+
 const { MONGO_URI, PORT } = config;
 
 mongoose

@@ -8,16 +8,12 @@ const router = express.Router();
 
 var storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    // 이미지 파일을 루트 폴더의 uploads 폴더에 저장
     cb(null, "uploads/");
   },
   filename: (req, file, cb) => {
-    // 파일 이름 정의
-    // 날짜_파일 이름 으로 저장
     cb(null, `${Date.now()}_${file.originalname}`);
   },
   fileFilter: (req, file, cb) => {
-    // jpg, png 파일만 저장 가능하도록 필터링
     const ext = path.extname(file.originalname);
 
     if (ext !== ".jpg" || ext !== ".png") {
@@ -83,19 +79,14 @@ router.post("/uploadProduct", (req, res) => {
 
 // Get Product By Id
 // GET
-router.get("/products_by_id", (req, res) => {
-  let productIds = req.query.id;
+router.get("/products_by_id", async (req, res) => {
+  try {
+    const product = await Product.findById(req.query.id).populate("writer");
 
-  Product.find({ _id: { $in: productIds } })
-    .populate("writer")
-    .exec((err, product) => {
-      if (err) {
-        console.log(err);
-        return res.status(400).send(err);
-      }
-
-      return res.status(200).send(product);
-    });
+    return res.status(200).send(product);
+  } catch (e) {
+    console.error(e);
+  }
 });
 
 module.exports = router;
