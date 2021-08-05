@@ -5,7 +5,7 @@ const productSchema = mongoose.Schema(
   {
     writer: {
       type: Schema.Types.ObjectId,
-      required: true,
+      ref: "User",
     },
     title: {
       type: String,

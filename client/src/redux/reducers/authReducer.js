@@ -75,6 +75,7 @@ const authReducer = (state = initialState, action) => {
         isAuthenticated: true,
         isLoading: false,
         user: action.payload,
+        userRole: action.payload.role,
       };
     case USER_LOADING_FAILURE:
       return {

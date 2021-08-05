@@ -61,15 +61,19 @@ const GoodsMain = () => {
           {/* slide list */}
           <SlideBox className="slide_box">
             <div className="slide_list">
-              <Link className="slide_content slide1" to="/goods/:goodsid">
-                <Slide src={slide1} alt="slide1" />
-              </Link>
-              <Link className="slide_content slide2" to="/goods/:goodsid">
-                <Slide src={slide2} alt="slide2" />
-              </Link>
-              <Link className="slide_content slide2" to="/goods/:goodsid">
-                <Slide src={slide3} alt="slide3" />
-              </Link>
+              {Products.map((product) => {
+                return (
+                  <div key={product._id}>
+                    <Link
+                      className="slide_content slide"
+                      key={product._id}
+                      to={`/goods/${product._id}`}
+                    >
+                      <Slide src={slide3} alt="goodsMain" />
+                    </Link>
+                  </div>
+                );
+              })}
             </div>
           </SlideBox>
         </div>

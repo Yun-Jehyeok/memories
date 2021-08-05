@@ -14,7 +14,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import UploadProduct from 'src/pages/UploadGoods/UploadGoods';
 
 const App = () => {
-  const { isAuthenticated } = useSelector((state) => state.auth);
+  const { isAuthenticated, userRole } = useSelector((state) => state.auth);
 
   return (
     <Switch>
