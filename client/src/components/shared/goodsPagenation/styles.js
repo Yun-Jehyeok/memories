@@ -15,12 +15,6 @@ export const Page = styled.div`
     right: 0;
     margint-top: 10px;
   }
-  & > div > div {
-    position: absolute;
-    width: 60px;
-    left: 0px;
-    border-bottom: 3px solid #000000;
-  }
 `;
 
 export const Pagenum = styled.p`
@@ -30,6 +24,12 @@ export const Pagenum = styled.p`
   left: 65px;
   padding: 0;
   margin: 0;
+  & > div {
+    position: absolute;
+    width: 60px;
+    left: -55px;
+    border-bottom: 3px solid #000000;
+  }
 `;
 
 export const Pagenum_snd = styled.p`
@@ -39,6 +39,14 @@ export const Pagenum_snd = styled.p`
   color: #a4a4a4;
   left: 68px;
   top: 10px;
+  & > div {
+    position: absolute;
+    width: 60px;
+    left: -55px;
+    top: 57px;
+    border-bottom: 3px solid #000000;
+    z-index: 4;
+  }
 `;
 
 export const PageBorder = styled.p`
