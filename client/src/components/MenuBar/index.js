@@ -1,6 +1,5 @@
 import React from 'react';
-import { Logo, OutLink } from '../../assets/commonStyle/styles';
-import { Container, Header, Item, Wrap, Mask } from './styles';
+import { Container, Header, Item, Wrap, Mask, ItemLink } from './styles';
 
 const MenuBar = () => {
   return (
@@ -12,22 +11,22 @@ const MenuBar = () => {
         <div>
           <Item>
             <li>
-              <OutLink href="#">
-                <span>EMAIL</span>
+              <ItemLink to="/goods">
+                <span>굿즈 사러 가기</span>
                 <Mask></Mask>
-              </OutLink>
+              </ItemLink>
             </li>
             <li>
-              <OutLink href="http://github.com/Yun-Jehyeok/no_name">
+              <ItemLink to="/goods">
                 <span>GITHUB</span>
                 <Mask></Mask>
-              </OutLink>
+              </ItemLink>
             </li>
             <li>
-              <OutLink href="https://open.kakao.com/o/siDcC6nd">
+              <ItemLink to="/goods">
                 <span>KAKAO TALK</span>
                 <Mask></Mask>
-              </OutLink>
+              </ItemLink>
             </li>
           </Item>
         </div>

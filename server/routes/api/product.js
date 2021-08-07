@@ -2,8 +2,6 @@ const express = require("express");
 const { Product } = require("../../models/product");
 const multer = require("multer");
 
-const { auth } = require("../../middleware/auth");
-
 const router = express.Router();
 
 var storage = multer.diskStorage({
@@ -83,7 +81,9 @@ router.get("/products_by_id", async (req, res) => {
   try {
     const product = await Product.findById(req.query.id).populate("writer");
 
-    return res.status(200).send(product);
+    console.log(product);
+
+    return res.status(200).send(product.images);
   } catch (e) {
     console.error(e);
   }

@@ -5,7 +5,7 @@ const productSchema = mongoose.Schema(
   {
     writer: {
       type: Schema.Types.ObjectId,
-      ref: "User",
+      ref: "user",
     },
     title: {
       type: String,
@@ -39,6 +39,6 @@ const productSchema = mongoose.Schema(
   { timestamps: true }
 );
 
-const Product = mongoose.model("Product", productSchema);
+const Product = mongoose.model("product", productSchema);
 
 module.exports = { Product };

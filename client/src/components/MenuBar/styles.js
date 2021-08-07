@@ -1,4 +1,4 @@
-import { OutLink } from 'src/assets/commonStyle/styles';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Wrap = styled.div`
@@ -27,26 +27,27 @@ export const Header = styled.div`
 export const Item = styled.ul`
   list-style: none;
   padding: 0;
+`;
 
-  ${OutLink} {
-    display: inline-block;
-    font-size: 9vh;
+export const ItemLink = styled(Link)`
+  display: inline-block;
+  font-size: 9vh;
+  color: white;
+  transition: transform 0.5s;
+  text-decoration: none;
+  font-weight: bold;
+  margin-bottom: 2vh;
+
+  &:hover {
+    transform: translateX(10px);
+    -webkit-transform: translateX(10px);
+    -moz-transform: translateX(10px);
+    -o-transform: translateX(10px);
+    -ms-transform: translateX(10px);
     color: white;
-    transition: transform 0.5s;
-    text-decoration: none;
-    font-weight: bold;
-    margin-bottom: 2vh;
 
-    &:hover {
-      transform: translateX(10px);
-      -webkit-transform: translateX(10px);
-      -moz-transform: translateX(10px);
-      -o-transform: translateX(10px);
-      -ms-transform: translateX(10px);
-
-      & span:nth-child(2) {
-        width: 103%;
-      }
+    & span:nth-child(2) {
+      width: 103%;
     }
   }
 `;

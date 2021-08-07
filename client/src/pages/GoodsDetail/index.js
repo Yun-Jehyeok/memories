@@ -14,7 +14,7 @@ const GoodsDetail = (props) => {
 
   useEffect(() => {
     Axios.get(`/api/product/products_by_id?id=${goodsId}`).then((res) => {
-      setProduct(res.data[0]);
+      setProduct(res.data);
     });
   }, []);
 
