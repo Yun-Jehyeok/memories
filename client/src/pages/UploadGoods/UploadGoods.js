@@ -17,6 +17,7 @@ function UploadProduct(props) {
   const [PriceValue, setPriceValue] = useState(0);
   const [GoodsValue, setGoodsValue] = useState(1);
   const [Images, setImages] = useState([]);
+  const { user } = useSelector((state) => state.auth);
 
   const onTitleChange = (e) => {
     setTitleValue(e.currentTarget.value);
@@ -49,7 +50,7 @@ function UploadProduct(props) {
     }
 
     const variables = {
-      writer: 'Master',
+      writer: user._id,
       title: TitleValue,
       description: DescriptionValue,
       price: PriceValue,

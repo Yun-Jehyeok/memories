@@ -13,11 +13,9 @@ const GoodsDetail = (props) => {
   const goodsId = props.match.params.goodsId;
 
   useEffect(() => {
-    Axios.get(`/api/product/products_by_id?id=${goodsId}&type=single`).then(
-      (res) => {
-        setProduct(res.data[0]);
-      },
-    );
+    Axios.get(`/api/product/products_by_id?id=${goodsId}`).then((res) => {
+      setProduct(res.data);
+    });
   }, []);
 
   return (

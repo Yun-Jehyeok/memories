@@ -14,7 +14,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import UploadProduct from 'src/pages/UploadGoods/UploadGoods';
 
 const App = () => {
-  const { isAuthenticated } = useSelector((state) => state.auth);
+  const { isAuthenticated, userRole } = useSelector((state) => state.auth);
 
   return (
     <Switch>
@@ -30,10 +30,10 @@ const App = () => {
         render={() => (isAuthenticated ? <Redirect to="/goods" /> : <Signup />)}
       />
       <Route path="/goods" exact component={GoodsMain} />
-      <Route path="/:goodsId" exact component={GoodsDetail} />
       <Route path="/goods/shopping" exact component={Shopping} />
       <Route path="/goods/donation" exact component={GoodsDonation} />
       <Route path="/goods/upload" exact component={UploadProduct} />
+      <Route path="/goods/:goodsId" exact component={GoodsDetail} />
     </Switch>
   );
 };

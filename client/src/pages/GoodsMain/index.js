@@ -65,13 +65,15 @@ const GoodsMain = () => {
             <div className="slide_list">
               {Products.map((product) => {
                 return (
-                  <Link
-                    className="slide_content slide"
-                    key={product._id}
-                    to={`/goods/${product._id}`}
-                  >
-                    <Slide src={product.image} alt="goodsMain" />
-                  </Link>
+                  <div key={product._id}>
+                    <Link
+                      className="slide_content slide"
+                      key={product._id}
+                      to={`/goods/${product._id}`}
+                    >
+                      <Slide src={slide3} alt="goodsMain" />
+                    </Link>
+                  </div>
                 );
               })}
             </div>
