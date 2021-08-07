@@ -14,15 +14,17 @@ import Axios from 'axios';
 const GoodsMain = () => {
   // 애니메이션 //
   const [num, setNum] = useState(0);
-  var slideList = document.querySelector('.slide_list');
-  var slideContents = document.querySelectorAll('.slide_content');
-  var slideLen = slideContents.length;
-  var slideBtn = document.querySelectorAll('.slideBtn');
+  var slideList;
+  var slideContents;
+  var slideBtn;
   const slideWidth = 1180;
   const slideSpeed = 600;
 
   const slideNext = (index) => {
     setNum(index);
+    slideList = document.querySelector('.slide_list');
+    slideContents = document.querySelectorAll('.slide_content');
+    slideBtn = document.querySelectorAll('.slideBtn');
     slideList.style.transition = slideSpeed + 'ms';
     slideList.style.transform = 'translateX(-' + slideWidth * index + 'px)';
     for (var i = 0; i < slideBtn.length; i++) {
