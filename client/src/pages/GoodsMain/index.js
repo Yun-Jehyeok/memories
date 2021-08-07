@@ -32,7 +32,6 @@ const GoodsMain = () => {
     slideBtn[index].style.color = '#000000';
     slideBtn[index].style.fontWeight = '400';
     slideBtn[index].style.transition = 'color 0.7s';
-    console.log(index);
   };
 
   // 물품 가져오기 //
