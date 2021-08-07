@@ -14,15 +14,17 @@ import Axios from 'axios';
 const GoodsMain = () => {
   // 애니메이션 //
   const [num, setNum] = useState(0);
-  var slideList = document.querySelector('.slide_list');
-  var slideContents = document.querySelectorAll('.slide_content');
-  var slideLen = slideContents.length;
-  var slideBtn = document.querySelectorAll('.slideBtn');
+  var slideList;
+  var slideContents;
+  var slideBtn;
   const slideWidth = 1180;
   const slideSpeed = 600;
 
   const slideNext = (index) => {
     setNum(index);
+    slideList = document.querySelector('.slide_list');
+    slideContents = document.querySelectorAll('.slide_content');
+    slideBtn = document.querySelectorAll('.slideBtn');
     slideList.style.transition = slideSpeed + 'ms';
     slideList.style.transform = 'translateX(-' + slideWidth * index + 'px)';
     for (var i = 0; i < slideBtn.length; i++) {
@@ -61,15 +63,17 @@ const GoodsMain = () => {
           {/* slide list */}
           <SlideBox className="slide_box">
             <div className="slide_list">
-              <Link className="slide_content slide1" to="/goods/:goodsid">
-                <Slide src={slide1} alt="slide1" />
-              </Link>
-              <Link className="slide_content slide2" to="/goods/:goodsid">
-                <Slide src={slide2} alt="slide2" />
-              </Link>
-              <Link className="slide_content slide2" to="/goods/:goodsid">
-                <Slide src={slide3} alt="slide3" />
-              </Link>
+              {Products.map((product) => {
+                return (
+                  <Link
+                    className="slide_content slide"
+                    key={product._id}
+                    to={`/goods/${product._id}`}
+                  >
+                    <Slide src={product.image} alt="goodsMain" />
+                  </Link>
+                );
+              })}
             </div>
           </SlideBox>
         </div>
