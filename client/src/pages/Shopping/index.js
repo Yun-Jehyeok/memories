@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import GoodsNavbar from 'src/components/shared/goodsNavbar/goodsNavbar';
+import GoodsNavbar from 'components/shared/goodsNavbar/goodsNavbar';
 
 // styles //
 import { Page, BuyArea, CardArea } from './styles';

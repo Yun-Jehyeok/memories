@@ -1,5 +1,5 @@
-import { loadUserAction } from 'src/redux/actions';
-import store from '../../store';
+import { loadUserAction } from 'redux/actions';
+import store from 'store';
 
 const loadUser = () => {
   try {

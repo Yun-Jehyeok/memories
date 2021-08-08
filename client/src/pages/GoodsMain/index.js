@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import GoodsNavbar from 'src/components/shared/goodsNavbar/goodsNavbar';
-import GoodsPagenation from 'src/components/shared/goodsPagenation/goodsPagenation';
+import GoodsNavbar from 'components/shared/goodsNavbar/goodsNavbar';
+import GoodsPagenation from 'components/shared/goodsPagenation/goodsPagenation';
 import { SlideBox, Slide, Page } from './styles';
 import Axios from 'axios';
 

@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import { Nav } from './styles';
-import { Btn } from '../../../assets/commonStyle/styles';
-import { Logo } from '../../../assets/commonStyle/styles';
+import { Btn } from 'assets/commonStyle/styles';
+import { Logo } from 'assets/commonStyle/styles';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

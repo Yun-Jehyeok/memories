@@ -2,7 +2,7 @@ import React, { createElement, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
-import GoodsNavbar from 'src/components/shared/goodsNavbar/goodsNavbar';
+import GoodsNavbar from 'components/shared/goodsNavbar/goodsNavbar';
 
 // icons //
 import { faArrowAltCircleRight } from '@fortawesome/free-regular-svg-icons';
@@ -14,7 +14,7 @@ import {
 } from '@ant-design/icons';
 
 import { Box, PageHeader, BackgroundYellow, PageLink } from './styles';
-import { Page } from 'src/assets/commonStyle/styles';
+import { Page } from 'assets/commonStyle/styles';
 
 const GoodsDetail = (props) => {
   const [Product, setProduct] = useState([]);

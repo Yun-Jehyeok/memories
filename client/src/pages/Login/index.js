@@ -1,10 +1,9 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Logo } from 'src/assets/commonStyle/styles';
-import useInput from '../../hooks/useInput';
-import { loginAction } from '../../redux/actions';
-import { useSelector } from 'react-redux';
+import { Logo } from 'assets/commonStyle/styles';
+import useInput from 'hooks/useInput';
+import { loginAction } from 'redux/actions';
 import {
   Button,
   Container,
