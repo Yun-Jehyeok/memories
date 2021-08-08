@@ -29,7 +29,7 @@ const GoodsDetail = (props) => {
       userId: userId,
       productId: goodsId,
     };
-    console.log(body);
+
     if (userId === '') {
       alert('로그인을 하세요.');
     } else if (action === '') {
@@ -59,10 +59,10 @@ const GoodsDetail = (props) => {
     Axios.get(`/api/product/products_by_id?id=${goodsId}`).then((res) => {
       setProduct(res.data);
     });
+
     Axios.get(`api/product/${goodsId}/like/getLike`).then((res) => {
       // 좋아요가 있을 때
       if (res.data.getLike) {
-        console.log(res);
         const all_like = res.data.likes;
         setLikes(all_like.length);
         all_like.map((like) => {
@@ -87,7 +87,10 @@ const GoodsDetail = (props) => {
       </PageHeader>
       <Box>
         <div>
-          <img src={Product.images} />
+          <img
+            src={`http://localhost:7000/${Product.images}`}
+            style={{ width: '500px', height: '500px' }}
+          />
           {/* description */}
           <p>
             상품 설명 : <br />
