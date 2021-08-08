@@ -89,6 +89,17 @@ router.get('/products_by_id', async (req, res) => {
 //                   Like
 ///////////////////////////////////////////////
 
+// getlike
+router.get('/:id/like/getlike', async (req, res) => {
+  try {
+    const likes = await Like.find({ productId: req.params.id });
+    return res.status(200).json({ getLike: true, likes: likes });
+  } catch (e) {
+    return res.status(400).json({ getLike: false, e });
+  }
+});
+
+// uplike
 router.post('/:id/like/uplike', async (req, res) => {
   try {
     let { productId, userId } = req.body;
@@ -98,14 +109,14 @@ router.post('/:id/like/uplike', async (req, res) => {
     });
     return res.status(200).json({ upLike: true });
   } catch (e) {
-    console.error(e);
     return res.status(400).json({ upLike: false, e });
   }
 });
 
+//unlike
 router.post('/:id/like/unlike', async (req, res) => {
   try {
-    Like.findOneAndDelete({
+    await Like.remove({
       userId: req.body.userId,
       productId: req.body.productId,
     });
