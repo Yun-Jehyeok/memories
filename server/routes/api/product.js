@@ -62,13 +62,10 @@ router.post('/uploadImage', (req, res) => {
 // Upload Product
 // POST
 router.post('/uploadProduct', (req, res) => {
-  console.log(req.body);
-
   const product = new Product(req.body);
 
   product.save((err) => {
     if (err) {
-      console.log(err);
       return res.status(400).json({ success: false, err });
     }
 
@@ -81,8 +78,6 @@ router.post('/uploadProduct', (req, res) => {
 router.get('/products_by_id', async (req, res) => {
   try {
     const product = await Product.findById(req.query.id).populate('writer');
-
-    console.log(product);
 
     return res.status(200).send(product.images);
   } catch (e) {
