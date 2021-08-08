@@ -1,9 +1,9 @@
-import React, { useCallback, useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { Logo } from "src/assets/commonStyle/styles";
-import useInput from "../../hooks/useInput";
-import { registerAction } from "../../redux/actions";
+import React, { useCallback, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { Logo } from 'src/assets/commonStyle/styles';
+import useInput from '../../hooks/useInput';
+import { registerAction } from '../../redux/actions';
 import {
   Button,
   Form,
@@ -14,13 +14,13 @@ import {
   Wrap,
   Container,
   Error,
-} from "../Login/styles";
+} from '../Login/styles';
 
 const Signup = () => {
-  const [email, onChangeEmail] = useInput("");
-  const [name, onChangeName] = useInput("");
-  const [password, setPassword] = useState("");
-  const [passwordCheck, setPasswordCheck] = useState("");
+  const [email, onChangeEmail] = useInput('');
+  const [name, onChangeName] = useInput('');
+  const [password, setPassword] = useState('');
+  const [passwordCheck, setPasswordCheck] = useState('');
 
   // password === password-check?
   const [passwordCheckError, setPasswordCheckError] = useState(false);
@@ -32,7 +32,7 @@ const Signup = () => {
       setPassword(e.target.value);
       setPasswordCheckError(e.target.value !== passwordCheck);
     },
-    [passwordCheck]
+    [passwordCheck],
   );
 
   const onChangePasswordCheck = useCallback(
@@ -40,7 +40,7 @@ const Signup = () => {
       setPasswordCheck(e.target.value);
       setPasswordCheckError(e.target.value !== password);
     },
-    [password]
+    [password],
   );
 
   const onSubmit = useCallback(
@@ -51,7 +51,7 @@ const Signup = () => {
 
       dispatch(registerAction(newUser));
     },
-    [email, password]
+    [email, password],
   );
 
   return (
@@ -112,7 +112,7 @@ const Signup = () => {
           <Button type="submit">Sign up</Button>
           <LinkContainer>
             <div>or</div>
-            <Link to="/login" style={{ color: "#4a154b" }}>
+            <Link to="/login" style={{ color: '#4a154b' }}>
               Sign in
             </Link>
           </LinkContainer>
