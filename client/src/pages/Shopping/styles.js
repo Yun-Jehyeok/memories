@@ -27,12 +27,10 @@ export const BuyArea = styled.section`
   }
 `;
 
-export const Card = styled.div`
+export const CardArea = styled.div`
   position: relative;
-  width: 33%;
-  top: 150px;
+  width: 20%;
+  top: 130px;
   float: left;
-  & > div > p {
-    margin-top: 10px;
-  }
+  margin: 0px 45px 0px 25px;
 `;
