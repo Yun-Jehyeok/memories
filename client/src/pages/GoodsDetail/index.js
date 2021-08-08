@@ -19,8 +19,8 @@ import { Page } from 'src/assets/commonStyle/styles';
 const GoodsDetail = (props) => {
   const [Product, setProduct] = useState([]);
   const goodsId = props.match.params.goodsId;
-  const [likes, setLikes] = useState(0);
-  const [action, setAction] = useState(null);
+  const [likes, setLikes] = useState(0); // 모든 사용자
+  const [action, setAction] = useState(''); // 로그인한 사용자가
 
   const { userId } = useSelector((state) => state.auth);
 
@@ -29,11 +29,12 @@ const GoodsDetail = (props) => {
       userId: userId,
       productId: goodsId,
     };
-    if (userId === null) {
+    console.log(body);
+    if (userId === '') {
       alert('로그인을 하세요.');
-    } else if (action === null) {
+    } else if (action === '') {
       Axios.post(`/api/product/${goodsId}/like/uplike`, body).then((res) => {
-        if (res.data.uplike) {
+        if (res.data.upLike) {
           setAction('liked');
           setLikes((prev) => prev + 1);
           alert('좋아요를 눌렀습니다.');
@@ -43,8 +44,8 @@ const GoodsDetail = (props) => {
       });
     } else if (action === 'liked') {
       Axios.post(`/api/product/${goodsId}/like/unlike`, body).then((res) => {
-        if (res.data.unlike) {
-          setAction(null);
+        if (res.data.unLike) {
+          setAction('');
           setLikes((prev) => prev - 1);
           alert('좋아요가 취소되었습니다.');
         } else {
@@ -61,6 +62,7 @@ const GoodsDetail = (props) => {
     Axios.get(`api/product/${goodsId}/like/getLike`).then((res) => {
       // 좋아요가 있을 때
       if (res.data.getLike) {
+        console.log(res);
         const all_like = res.data.likes;
         setLikes(all_like.length);
         all_like.map((like) => {
