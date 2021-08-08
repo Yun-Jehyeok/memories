@@ -48,7 +48,7 @@ const Signup = () => {
       e.preventDefault();
 
       const newUser = { name, email, password };
-      console.log(newUser);
+
       dispatch(registerAction(newUser));
     },
     [email, password],
