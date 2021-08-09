@@ -8,7 +8,9 @@ export const Page = styled.div`
 export const BuyArea = styled.section`
   position: relative;
   top: 90px;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid #e8e8e8;
+  width: 90%;
+  margin: 5% 5% 10px 5%;
   & span {
     position: relative;
     bottom: 12px;
@@ -32,5 +34,5 @@ export const CardArea = styled.div`
   width: 20%;
   top: 130px;
   float: left;
-  margin: 0px 45px 0px 25px;
+  margin: 0px 25px 0px 45px;
 `;

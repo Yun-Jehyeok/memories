@@ -4,6 +4,14 @@ import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { Row } from 'reactstrap';
 import { Page, Year, Text, Redtext, Info, Column } from './styles';
 
+// json 파일 //
+import AprilRevolution from 'file/419.json';
+import MayRevolution from 'file/518.json';
+import JuneWar from 'file/625.json';
+import ModernIncidient from 'file/근현대.json';
+import VietnamWar from 'file/월남전.json';
+import JapanOccupation from 'file/일제강점기.json';
+
 const History = () => {
   const [count, setCount] = useState(50);
   const onCountUp = () => {
@@ -12,6 +20,17 @@ const History = () => {
   const onCountDown = () => {
     setCount(count - 1);
   };
+
+  const AprilArrayData = AprilRevolution.map((incident, index) => {
+    return (
+      <Row key={index[0]}>
+        <Column className="col-2" style={{ paddingLeft: '20px' }}>
+          {incident.date.slice(5, 7)}월 {incident.date.slice(8, 10)}일
+        </Column>
+        <Column className="col-10">{incident.description}</Column>
+      </Row>
+    );
+  });
 
   return (
     <Page className="page_section" id="history_area">
@@ -49,13 +68,13 @@ const History = () => {
               className="col-2"
               style={{
                 paddingLeft: '20px',
-                borderTop: '1px solid white',
                 paddingTop: '10px',
               }}
             >
+              <p></p>
               6월 25일
             </Column>
-            <Column className="col-10" style={{ paddingTop: '10px' }}>
+            <Column className="col-10" style={{ paddingTop: '28px' }}>
               북한군 전면 남침
             </Column>
           </Row>

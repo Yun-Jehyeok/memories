@@ -38,4 +38,7 @@ export const Info = styled.div`
 export const Column = styled.div`
   text-align: left;
   font-size: 1.3rem;
+  & > p {
+    border-top: 1px solid white;
+  }
 `;

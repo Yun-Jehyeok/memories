@@ -5,6 +5,9 @@ import {
   REGISTER_REQUEST,
   REGISTER_SUCCESS,
   REGISTER_FAILURE,
+  LOGOUT_REQUEST,
+  LOGOUT_SUCCESS,
+  LOGOUT_FAILURE,
   USER_LOADING_REQUEST,
   USER_LOADING_SUCCESS,
   USER_LOADING_FAILURE,
@@ -27,6 +30,7 @@ const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_REQUEST:
     case REGISTER_REQUEST:
+    case LOGOUT_REQUEST:
       return {
         ...state,
         errorMsg: '',
@@ -50,6 +54,7 @@ const authReducer = (state = initialState, action) => {
 
     case LOGIN_FAILURE:
     case REGISTER_FAILURE:
+    case LOGOUT_FAILURE:
       localStorage.removeItem('token');
 
       return {
@@ -63,7 +68,17 @@ const authReducer = (state = initialState, action) => {
         userRole: null,
         errorMsg: action.payload.data.msg,
       };
-
+    case LOGOUT_SUCCESS:
+      localStorage.removeItem('token');
+      return {
+        token: null,
+        user: null,
+        userId: null,
+        isAuthenticated: false,
+        isLoading: false,
+        userRole: null,
+        errorMsg: '',
+      };
     case USER_LOADING_REQUEST:
       return {
         ...state,
