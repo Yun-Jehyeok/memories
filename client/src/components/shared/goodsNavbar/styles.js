@@ -15,8 +15,8 @@ export const Nav = styled.div`
     text-decoration: none;
     color: #000000;
     position: absolute;
-    right: 200px;
-    font-size: 18px;
+    right: 190px;
+    font-size: 16px;
     -webkit-transition: color 0.4s;
   }
   & > div > .navLink:hover {
@@ -28,9 +28,19 @@ export const Nav = styled.div`
     }
   }
   & > div > #donation {
-    right: 330px;
+    right: 305px;
   }
   & > div > .nav_active {
     color: #fba904;
+  }
+`;
+
+export const ShoppingArea = styled.span`
+  & > span {
+    position: absolute;
+    top: 10px;
+    right: 60px;
+    color: #a4a4a4;
+    font-size: 14px;
   }
 `;

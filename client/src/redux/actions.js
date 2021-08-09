@@ -3,6 +3,7 @@ import {
   ADD_TO_CART_USER,
   LOGIN_REQUEST,
   REGISTER_REQUEST,
+  LOGOUT_REQUEST,
   USER_LOADING_REQUEST,
 } from './types';
 
@@ -13,6 +14,11 @@ export const loginAction = (user) => ({
 
 export const registerAction = (user) => ({
   type: REGISTER_REQUEST,
+  payload: user,
+});
+
+export const logoutAction = (user) => ({
+  type: LOGOUT_REQUEST,
   payload: user,
 });
 

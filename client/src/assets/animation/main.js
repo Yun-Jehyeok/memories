@@ -45,7 +45,7 @@ const useScript = () => {
 
     function menuBarActive(index){
       var Bar = document.getElementById('Menu_bar');
-      if (index === 1){
+      if (index === 1 || index === 2){
         Bar.style.color = '#FFFFFF';
       } else {
         Bar.style.color = '#000000';

@@ -7,6 +7,9 @@ import {
   REGISTER_SUCCESS,
   REGISTER_FAILURE,
   REGISTER_REQUEST,
+  LOGOUT_REQUEST,
+  LOGOUT_SUCCESS,
+  LOGOUT_FAILURE,
   USER_LOADING_REQUEST,
   USER_LOADING_FAILURE,
   USER_LOADING_SUCCESS,
@@ -105,10 +108,27 @@ function* watchuserLoading() {
   yield takeEvery(USER_LOADING_REQUEST, userLoading);
 }
 
+// Logout
+function* logout() {
+  try {
+    yield put({
+      type: LOGOUT_SUCCESS,
+    });
+  } catch (e) {
+    yield put({
+      type: LOGOUT_FAILURE,
+    });
+  }
+}
+function* watchlogout() {
+  yield takeEvery(LOGOUT_REQUEST, logout);
+}
+
 export default function* authSaga() {
   yield all([
     fork(watchLoginUser),
     fork(watchregisterUser),
     fork(watchuserLoading),
+    fork(watchlogout),
   ]);
 }
