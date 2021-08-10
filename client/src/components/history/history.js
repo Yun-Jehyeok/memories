@@ -8,6 +8,7 @@ import { Page, Year, Text, Redtext, Info, Column } from './styles';
 import RevolutionFile from 'file/eventfile.json';
 
 const History = () => {
+  const century = [19, 20];
   const year = [
     48,
     49,
@@ -26,18 +27,30 @@ const History = () => {
     75,
     79,
     80,
+    10, // 17
+    15,
   ];
+  const [cent, setCent] = useState(0);
   const [count, setCount] = useState(10);
   const onCountUp = () => {
     setCount(count + 1);
     if (count === 16) {
+      setCent(1);
+    }
+    // 리셋
+    if (count === 18) {
       setCount(0);
+      setCent(0);
     }
   };
   const onCountDown = () => {
     setCount(count - 1);
     if (count === 0) {
-      setCount(16);
+      setCount(18);
+      setCent(1);
+    }
+    if (count === 17) {
+      setCent(0);
     }
   };
 
@@ -75,7 +88,7 @@ const History = () => {
               />
             </button>
             <Text>
-              19
+              {century[cent]}
               <Redtext>{year[count]}</Redtext>
             </Text>
             <button onClick={onCountUp}>
