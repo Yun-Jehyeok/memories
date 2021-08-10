@@ -9,6 +9,9 @@ import GoodsMain from '../pages/GoodsMain';
 import GoodsDetail from 'src/pages/GoodsDetail';
 import Shopping from 'src/pages/Shopping';
 import GoodsDonation from 'src/pages/GoodsDonation';
+import five_page from 'src/pages/518Main';
+import four_page from 'src/pages/419Main';
+import six_page from 'src/pages/625Main';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UploadProduct from 'src/pages/UploadGoods/UploadGoods';
@@ -34,6 +37,9 @@ const App = () => {
       <Route path="/goods/donation" exact component={GoodsDonation} />
       <Route path="/goods/upload" exact component={UploadProduct} />
       <Route path="/goods/:goodsId" exact component={GoodsDetail} />
+      <Route path="/518main" exact component={five_page} />
+      <Route path="/419main" exact component={four_page} />
+      <Route path="/625main" exact component={six_page} />
     </Switch>
   );
 };

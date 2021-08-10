@@ -1,17 +1,15 @@
 import React from 'react';
-import { CursorProvider } from 'react-cursor-custom';
 import { Page, Text, Box } from './styles';
 
 const Exhibition = () => {
   return (
     <>
-      <CursorProvider>
+      <div>
         <Page className="page_section" id="exhibition_area">
           <Text className="content_main" style={{ margin: '0px' }}>
             <div>
               <center>EXHIBITION</center>
             </div>
-
             <center_abs>
               <div
                 className="abstract"
@@ -29,7 +27,7 @@ const Exhibition = () => {
                 </>
               </div>
             </center_abs>
-            <a href="">
+            <a href="/518main">
               <Box
                 className="length"
                 style={{
@@ -40,58 +38,67 @@ const Exhibition = () => {
                 }}
               ></Box>
             </a>
-            <Box
-              className="length"
-              style={{
-                left: '57%',
+            <a href="">
+              <Box
+                className="length"
+                style={{
+                  left: '57%',
 
-                width: '270px',
-                height: '360px',
-              }}
-            ></Box>
-            <Box
-              className="square"
-              style={{
-                left: '80%',
-                bottom: '18%',
-                width: '240px',
-                height: '240px',
-              }}
-            ></Box>
-            <Box
-              className="width_2"
-              style={{
-                left: '71%',
-                bottom: '55%',
-                width: '360px',
-                height: '270px',
-              }}
-            ></Box>
-
-            <Box
-              className="width"
-              style={{
-                left: '12%',
-                bottom: '55%',
-                width: '360px',
-                height: '270px',
-              }}
-            ></Box>
-            <Box
-              className="length_2"
-              style={{
-                left: '43%',
-                bottom: '64%',
-                width: '320px',
-                height: '200px',
-              }}
-            ></Box>
+                  width: '270px',
+                  height: '360px',
+                }}
+              ></Box>
+            </a>
+            <a href="">
+              <Box
+                className="square"
+                style={{
+                  left: '80%',
+                  bottom: '18%',
+                  width: '240px',
+                  height: '240px',
+                }}
+              ></Box>
+            </a>
+            <a href="">
+              <Box
+                className="width_2"
+                style={{
+                  left: '71%',
+                  bottom: '55%',
+                  width: '360px',
+                  height: '270px',
+                }}
+              ></Box>
+            </a>
+            <a href="/625main">
+              <Box
+                className="width"
+                style={{
+                  left: '12%',
+                  bottom: '55%',
+                  width: '360px',
+                  height: '270px',
+                }}
+              ></Box>
+            </a>
+            <a href="/419main">
+              <Box
+                className="length_2"
+                style={{
+                  left: '43%',
+                  bottom: '64%',
+                  width: '320px',
+                  height: '200px',
+                }}
+              ></Box>
+            </a>
             <ex_abs>
               <div
                 className="ex_abs"
                 style={{
                   paddingLeft: '1200px',
-                  paddingTop: '250px',
+                  paddingTop: '255px',
                 }}
               >
                 국가를 위해
@@ -103,7 +110,7 @@ const Exhibition = () => {
             </ex_abs>
           </Text>
         </Page>
-      </CursorProvider>
+      </div>
     </>
   );
 };

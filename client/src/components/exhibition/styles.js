@@ -24,10 +24,6 @@ export const Text = styled.div`
   }
 `;
 export const Box = styled.div`
-  .cursor-grow {
-    transform: scale(2);
-    background-color: var(--color-texta);
-  }
   position: absolute;
 
   border: 1px solid white;
