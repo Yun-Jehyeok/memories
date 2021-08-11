@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import LogoImg from '../img/Logo.png';
 
 export const Img = styled.img.attrs({ src: `${LogoImg}` })`
-  margin: 15px 0 0 15px;
+  margin: 23px 0 0 20px;
   width: 3.5em;
 `;
 
@@ -12,17 +12,11 @@ export function Logo(page) {
     <span>
       {page === 'goods' ? (
         <Link to="/goods">
-          <Img
-            src={LogoImg}
-            style={{ marginTop: '23px', marginLeft: '20px' }}
-          />
+          <Img />
         </Link>
       ) : (
         <Link to="/">
-          <Img
-            src={LogoImg}
-            style={{ marginTop: '23px', marginLeft: '20px' }}
-          />
+          <Img />
         </Link>
       )}
     </span>
