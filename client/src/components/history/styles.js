@@ -26,16 +26,14 @@ export const Redtext = styled.span`
 export const Info = styled.div`
   color: #ffffff;
   width: 80%;
-  & > Row > Col {
-    border: 0.5px solid white;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 10px;
+  & > p {
+    border-top: 1px solid white;
+    width: 95px;
+    margin-left: 35px;
   }
 `;
 
 export const Column = styled.div`
   text-align: left;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 `;

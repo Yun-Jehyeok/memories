@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Btn } from 'src/assets/commonStyle/styles';
-import GoodsNavbar from 'src/components/shared/goodsNavbar/goodsNavbar';
+import { Btn } from 'assets/commonStyle/styles';
+import GoodsNavbar from 'components/shared/goodsNavbar/goodsNavbar';
 import FileUpload from './FileUpload';
 import Axios from 'axios';
 import { useSelector } from 'react-redux';

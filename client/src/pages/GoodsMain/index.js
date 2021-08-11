@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-// image import //
-import slide1 from '../../assets/img/goodsPage_img.jpeg';
-import slide2 from '../../assets/img/taegeuggi.png';
-import slide3 from '../../assets/img/involved_img.png';
-
-import GoodsNavbar from 'src/components/shared/goodsNavbar/goodsNavbar';
-import GoodsPagenation from 'src/components/shared/goodsPagenation/goodsPagenation';
+import GoodsNavbar from 'components/shared/goodsNavbar/goodsNavbar';
+import GoodsPagenation from 'components/shared/goodsPagenation/goodsPagenation';
 import { SlideBox, Slide, Page } from './styles';
 import Axios from 'axios';
 
@@ -34,7 +29,6 @@ const GoodsMain = () => {
     slideBtn[index].style.color = '#000000';
     slideBtn[index].style.fontWeight = '400';
     slideBtn[index].style.transition = 'color 0.7s';
-    console.log(index);
   };
 
   // 물품 가져오기 //
@@ -71,7 +65,10 @@ const GoodsMain = () => {
                       key={product._id}
                       to={`/goods/${product._id}`}
                     >
-                      <Slide src={slide3} alt="goodsMain" />
+                      <Slide
+                        src={`http://localhost:7000/${product.images}`}
+                        alt="goodsMain"
+                      />
                     </Link>
                   </div>
                 );

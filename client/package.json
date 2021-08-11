@@ -26,6 +26,7 @@
     "bootstrap": "^5.0.2",
     "bootstrap-icons": "^1.5.0",
     "connected-react-router": "^6.9.1",
+    "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
     "history": "^5.0.0",
     "jquery": "^3.6.0",
@@ -47,8 +48,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "cross-env NODE_PATH=src react-scripts start",
+    "build": "cross-env NODE_PATH=src react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -75,7 +76,7 @@
     "@types/react-motion": "0.0.31",
     "@types/styled-components": "^5.1.11",
     "i": "^0.3.6",
-    "npm": "^7.19.1",
+    "npm": "^7.20.5",
     "styled-component": "^2.8.0"
   }
 }

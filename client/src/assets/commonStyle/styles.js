@@ -14,14 +14,14 @@ export function Logo(page) {
         <Link to="/goods">
           <Img
             src={LogoImg}
-            style={{ marginTop: '28px', marginLeft: '20px' }}
+            style={{ marginTop: '23px', marginLeft: '20px' }}
           />
         </Link>
       ) : (
         <Link to="/">
           <Img
             src={LogoImg}
-            style={{ marginTop: '28px', marginLeft: '20px' }}
+            style={{ marginTop: '23px', marginLeft: '20px' }}
           />
         </Link>
       )}

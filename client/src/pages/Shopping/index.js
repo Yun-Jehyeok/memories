@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import GoodsNavbar from 'src/components/shared/goodsNavbar/goodsNavbar';
+import GoodsNavbar from 'components/shared/goodsNavbar/goodsNavbar';
 
 // styles //
 import { Page, BuyArea, CardArea } from './styles';
@@ -21,9 +21,9 @@ const Shopping = () => {
   };
 
   const goods_buy_item = [
-    { id: '1', src: 'http://placehold.it/250x300', title: '시계' },
-    { id: '2', src: 'http://placehold.it/250x300', title: '물건' },
-    { id: '3', src: 'http://placehold.it/250x300', title: '꽃' },
+    { id: '1', src: 'http://placehold.it/250x250', title: '시계' },
+    { id: '2', src: 'http://placehold.it/250x250', title: '물건' },
+    { id: '3', src: 'http://placehold.it/250x250', title: '꽃' },
   ];
 
   const goods = goods_buy_item.map((item) => (
