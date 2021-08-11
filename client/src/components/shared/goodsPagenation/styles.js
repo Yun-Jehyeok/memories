@@ -4,7 +4,7 @@ export const Page = styled.div`
   z-index: 2;
   width: 140px;
   height: 400px;
-  margin-top: 100px;
+  margin-top: 30px;
   background-color: transparent;
   overflow-x: hidden;
   left: 90.4%;
