@@ -8,13 +8,14 @@ const Pagenation = () => {
     <div
       className="fixed-bottom"
       style={{
-        width: '97%',
+        width: '5%',
         height: '14vh',
         background: 'transparent',
         marginBottom: '30px',
+        marginLeft: '96%',
       }}
     >
-      <Container className="nav_list float-end">
+      <Container className="nav_list">
         <a type="button" id="intro_area_btn">
           <FontAwesomeIcon icon={faCircle} />
         </a>
