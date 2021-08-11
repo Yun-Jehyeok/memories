@@ -1,6 +1,6 @@
 import React from 'react';
-import background from '../../assets/img/involved_page.png';
-import involve from '../../assets/img/taegeuggi.png';
+import background from 'assets/img/involved_page.png';
+import involve from 'assets/img/taegeuggi.png';
 import { Textpage, Page, Box } from './styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight } from '@fortawesome/free-solid-svg-icons';

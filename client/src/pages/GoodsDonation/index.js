@@ -1,6 +1,6 @@
 import React from 'react';
 import { Page, NumberCircle, SectionDone } from './styles';
-import GoodsNavbar from 'src/components/shared/goodsNavbar/goodsNavbar';
+import GoodsNavbar from 'components/shared/goodsNavbar/goodsNavbar';
 
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

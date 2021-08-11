@@ -1,9 +1,9 @@
 import React, { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { Logo } from 'src/assets/commonStyle/styles';
-import useInput from '../../hooks/useInput';
-import { registerAction } from '../../redux/actions';
+import { Logo } from 'assets/commonStyle/styles';
+import useInput from 'hooks/useInput';
+import { registerAction } from 'redux/actions';
 import {
   Button,
   Form,

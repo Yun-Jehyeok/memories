@@ -2,19 +2,19 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import Login from '../pages/Login';
-import Main from '../pages/Main';
-import Signup from '../pages/Signup';
-import GoodsMain from '../pages/GoodsMain';
-import GoodsDetail from 'src/pages/GoodsDetail';
-import Shopping from 'src/pages/Shopping';
-import GoodsDonation from 'src/pages/GoodsDonation';
-import five_page from 'src/pages/518Main';
-import four_page from 'src/pages/419Main';
-import six_page from 'src/pages/625Main';
+import Login from 'pages/Login';
+import Main from 'pages/Main';
+import Signup from 'pages/Signup';
+import GoodsMain from 'pages/GoodsMain';
+import GoodsDetail from 'pages/GoodsDetail';
+import Shopping from 'pages/Shopping';
+import GoodsDonation from 'pages/GoodsDonation';
+import five_page from 'pages/518Main';
+import four_page from 'pages/419Main';
+import six_page from 'pages/625Main';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import UploadProduct from 'src/pages/UploadGoods/UploadGoods';
+import UploadProduct from 'pages/UploadGoods/UploadGoods';
 
 const App = () => {
   const { isAuthenticated, userRole } = useSelector((state) => state.auth);
