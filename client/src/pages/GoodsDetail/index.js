@@ -5,15 +5,19 @@ import Axios from 'axios';
 import GoodsNavbar from 'components/shared/goodsNavbar/goodsNavbar';
 
 // icons //
-import { faArrowAltCircleRight } from '@fortawesome/free-regular-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   HeartFilled,
   HeartOutlined,
   ShareAltOutlined,
 } from '@ant-design/icons';
 
-import { Box, PageHeader, BackgroundYellow, PageLink } from './styles';
+import {
+  Box,
+  PageHeader,
+  BackgroundYellow,
+  PageLink,
+  RightCircle,
+} from './styles';
 import { Page } from 'assets/commonStyle/styles';
 
 const GoodsDetail = (props) => {
@@ -116,16 +120,7 @@ const GoodsDetail = (props) => {
       <PageLink>
         <Link to="/goods" className="LinkItem">
           <span>다른 굿즈 보기</span>
-          <FontAwesomeIcon
-            icon={faArrowAltCircleRight}
-            style={{
-              position: 'relative',
-              color: '#000000',
-              fontSize: '45px',
-              marginLeft: '10px',
-              top: '10px',
-            }}
-          />
+          <RightCircle />
         </Link>
       </PageLink>
     </Page>

@@ -1,35 +1,27 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
-import { Container } from './styles';
+import { Page, Container } from './styles';
 
 const Pagenation = () => {
   return (
-    <div
-      className="fixed-bottom"
-      style={{
-        width: '5%',
-        height: '14vh',
-        background: 'transparent',
-        marginBottom: '30px',
-        marginLeft: '96%',
-      }}
-    >
+    <Page className="fixed-bottom">
       <Container className="nav_list">
-        <a type="button" id="intro_area_btn">
+        <Link type="button" id="intro_area_btn">
           <FontAwesomeIcon icon={faCircle} />
-        </a>
-        <a type="button" id="history_area_btn">
+        </Link>
+        <Link type="button" id="history_area_btn">
           <FontAwesomeIcon icon={faCircle} />
-        </a>
-        <a type="button" id="exhibition_area_btn">
+        </Link>
+        <Link type="button" id="exhibition_area_btn">
           <FontAwesomeIcon icon={faCircle} />
-        </a>
-        <a type="button" id="involved_area_btn">
+        </Link>
+        <Link type="button" id="involved_area_btn">
           <FontAwesomeIcon icon={faCircle} />
-        </a>
+        </Link>
       </Container>
-    </div>
+    </Page>
   );
 };
 

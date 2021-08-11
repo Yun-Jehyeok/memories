@@ -1,9 +1,6 @@
 import styled from 'styled-components';
-
-export const Page = styled.div`
-  width: 100%;
-  height: 100vh;
-`;
+import { faCircle } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const SectionDone = styled.div`
   width: 100%;
@@ -54,4 +51,9 @@ export const NumberCircle = styled.div`
     top: -20px;
     color: #ffffff;
   }
+`;
+
+export const Circle = styled(FontAwesomeIcon).attrs({ icon: faCircle })`
+  color: #fba904;
+  font-size: 45px;
 `;

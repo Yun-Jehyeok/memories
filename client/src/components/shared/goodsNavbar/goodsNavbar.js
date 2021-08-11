@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { LOGOUT_REQUEST } from 'redux/types';
 
-import { Nav, ShoppingArea } from './styles';
-import { Btn } from 'assets/commonStyle/styles';
+// style component //
+import { Nav, ShoppingArea, UserDropdown, Shopping, Login } from './styles';
 import { Logo } from 'assets/commonStyle/styles';
-import { ShoppingOutlined, UserOutlined } from '@ant-design/icons';
+
+// icon //
+import { UserOutlined } from '@ant-design/icons';
 import { Menu, Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 
@@ -61,48 +63,20 @@ const GoodsNavbar = (nav) => {
         {isAuthenticated ? (
           <ShoppingArea>
             <Link to="/goods/shopping" className="navItem">
-              <ShoppingOutlined
-                className="nav-item"
-                style={{
-                  fontSize: '25px',
-                  position: 'absolute',
-                  color: '#A4A4A4',
-                  right: '80px',
-                  marginRight: '38px',
-                  marginTop: '45px',
-                }}
-              />
+              <Shopping className="nav-item" />
             </Link>
             <Dropdown overlay={menu}>
-              <a
+              <UserDropdown
                 className="ant-dropdown-link"
                 onClick={(e) => e.preventDefault()}
-                style={{
-                  fontSize: '25px',
-                  position: 'absolute',
-                  color: '#A4A4A4',
-                  right: '35px',
-                  marginRight: '30px',
-                  marginTop: '33px',
-                }}
               >
                 <UserOutlined />
-              </a>
+              </UserDropdown>
             </Dropdown>
             <span>{user.name}님 오늘도 화이팅하세요!</span>
           </ShoppingArea>
         ) : (
-          <Link to="/login">
-            <Btn
-              style={{
-                position: 'absolute',
-                right: '50px',
-                marginTop: '36px',
-              }}
-            >
-              로그인
-            </Btn>
-          </Link>
+          <Login />
         )}
       </div>
     </Nav>
