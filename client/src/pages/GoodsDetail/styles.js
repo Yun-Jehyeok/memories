@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { RightCircleOutlined } from '@ant-design/icons';
 
 export const PageHeader = styled.div`
   background: transparent;
@@ -56,4 +57,16 @@ export const PageLink = styled.div`
     font-size: 20px;
     font-weight: 400;
   }
+  & > .LinkItem > span {
+    position: relative;
+    top: 30px;
+  }
+`;
+
+export const RightCircle = styled(RightCircleOutlined)`
+  position: relative;
+  color: #000000;
+  font-size: 40px;
+  margin-left: 10px;
+  top: 10px;
 `;
