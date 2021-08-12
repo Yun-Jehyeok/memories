@@ -73,7 +73,9 @@ const GoodsNavbar = (nav) => {
                 <UserOutlined />
               </UserDropdown>
             </Dropdown>
-            <span>{user.name}님 오늘도 화이팅하세요!</span>
+            <span>
+              <b>{user.name}</b>님 오늘도 화이팅하세요!
+            </span>
           </ShoppingArea>
         ) : (
           <Login />

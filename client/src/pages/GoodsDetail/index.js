@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import GoodsNavbar from 'components/shared/goodsNavbar/goodsNavbar';
 
+import { Button } from 'antd';
 // icons //
 import {
   HeartFilled,
@@ -11,22 +12,25 @@ import {
   ShareAltOutlined,
 } from '@ant-design/icons';
 
-import {
-  Box,
-  PageHeader,
-  BackgroundYellow,
-  PageLink,
-  RightCircle,
-} from './styles';
+import { Box, DescriptionBox, PageLink, RightCircle } from './styles';
 import { Page } from 'assets/commonStyle/styles';
 
 const GoodsDetail = (props) => {
   const [Product, setProduct] = useState([]);
-  const goodsId = props.match.params.goodsId;
+  const [DescriptionButtonClick, setDescriptionButtonClick] = useState(true);
   const [likes, setLikes] = useState(0); // 모든 사용자
   const [action, setAction] = useState(''); // 로그인한 사용자가
 
   const { userId } = useSelector((state) => state.auth);
+
+  const goodsId = props.match.params.goodsId;
+
+  const DescriptionClick = () => {
+    setDescriptionButtonClick(true);
+  };
+  const CommentClick = () => {
+    setDescriptionButtonClick(false);
+  };
 
   const onLikeClick = () => {
     const body = {
@@ -83,46 +87,93 @@ const GoodsDetail = (props) => {
   return (
     <Page>
       {GoodsNavbar(props.page)}
-      <BackgroundYellow></BackgroundYellow>
-      <PageHeader>
-        <div>
-          <p id="goodsTitle">{Product.title}</p>
-        </div>
-      </PageHeader>
-      <Box>
-        <div>
-          <img
-            src={`http://localhost:7000/${Product.images}`}
-            style={{ width: '500px', height: '500px' }}
-          />
-          {/* description */}
-          <p>
-            상품 설명 : <br />
-            {Product.description}
-          </p>
-          {/* Like, Share */}
-          <p>
-            <span>
-              <span onClick={onLikeClick} style={{ cursor: 'pointer' }}>
-                {createElement(
-                  action === 'liked' ? HeartFilled : HeartOutlined,
-                )}
-              </span>
-              {likes}명
-            </span>
-            <span>
-              <ShareAltOutlined />
-              공유하기
-            </span>
-          </p>
-        </div>
-      </Box>
-      <PageLink>
-        <Link to="/goods" className="LinkItem">
-          <span>다른 굿즈 보기</span>
-          <RightCircle />
-        </Link>
-      </PageLink>
+      <DescriptionBox>
+        <Box>
+          <div>
+            <div style={{ marginRight: '10%' }}>
+              <img
+                src={`http://localhost:7000/${Product.images}`}
+                style={{ width: '50vh', height: '50vh' }}
+              />
+
+              {/* Like, Share */}
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  marginTop: '10px',
+                }}
+              >
+                <span style={{ marginRight: '10px' }}>
+                  <span
+                    onClick={onLikeClick}
+                    style={{
+                      cursor: 'pointer',
+                      marginRight: '5px',
+                    }}
+                  >
+                    {createElement(
+                      action === 'liked' ? HeartFilled : HeartOutlined,
+                    )}
+                  </span>
+                  {likes}명
+                </span>
+                <span>
+                  <ShareAltOutlined style={{ marginRight: '5px' }} />
+                  공유하기
+                </span>
+              </div>
+            </div>
+            {/* description */}
+            <div style={{ marginRight: '10%' }}>
+              <div
+                style={{
+                  marginBottom: '10px',
+                }}
+              >
+                <Button
+                  type={DescriptionButtonClick ? 'primary' : 'default'}
+                  style={{ width: '100px', marginRight: '5px' }}
+                  onClick={DescriptionClick}
+                >
+                  상품 설명
+                </Button>
+                <Button
+                  type={DescriptionButtonClick ? 'default' : 'primary'}
+                  style={{ width: '100px' }}
+                  onClick={CommentClick}
+                >
+                  후기
+                </Button>
+              </div>
+              <div style={{ fontSize: '1.5rem' }}>
+                <b>상품명 : {Product.title}</b>
+              </div>
+              <br />
+              {Product.description}
+              <br />
+              <div
+                style={{
+                  marginTop: '40px',
+                  display: 'flex',
+                  justifyContent: 'center',
+                }}
+              >
+                <Button type="primary" style={{ marginRight: '10px' }}>
+                  장바구니에 담기
+                </Button>
+                <Button type="primary">구매하기</Button>
+              </div>
+            </div>
+          </div>
+        </Box>
+        <PageLink>
+          <Link to="/goods" className="LinkItem">
+            <span>다른 굿즈 보기</span>
+            <RightCircle />
+          </Link>
+        </PageLink>
+      </DescriptionBox>
     </Page>
   );
 };
