@@ -1,5 +1,6 @@
 import React from 'react';
 import { Page, Text, Box } from './styles';
+import { CursorProvider } from 'react-cursor-custom';
 
 const Exhibition = () => {
   return (

@@ -12,7 +12,7 @@ const GoodsMain = () => {
   var slideList;
   var slideContents;
   var slideBtn;
-  const slideWidth = 1180;
+  const slideWidth = 1250;
   const slideSpeed = 600;
 
   const slideNext = (index) => {

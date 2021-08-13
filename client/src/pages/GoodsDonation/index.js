@@ -1,9 +1,7 @@
 import React from 'react';
-import { Page, NumberCircle, SectionDone } from './styles';
+import { NumberCircle, SectionDone, Circle } from './styles';
+import { Page } from 'assets/commonStyle/styles';
 import GoodsNavbar from 'components/shared/goodsNavbar/goodsNavbar';
-
-import { faCircle } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const GoodsDonation = () => {
   const nav = 'donation';
@@ -37,13 +35,7 @@ const GoodsDonation = () => {
   const donation = donation_item.map((item) => (
     <div key={item.id}>
       <NumberCircle>
-        <FontAwesomeIcon
-          icon={faCircle}
-          style={{
-            color: '#FBA904',
-            fontSize: '50px',
-          }}
-        />
+        <Circle />
         <span>{item.id}</span>
       </NumberCircle>
       <span>{item.title}</span>

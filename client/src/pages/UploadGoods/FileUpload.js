@@ -2,6 +2,7 @@ import { Icon } from 'antd';
 import React, { useState } from 'react';
 import Dropzone from 'react-dropzone';
 import Axios from 'axios';
+import { Drop, ImageZone } from './styles';
 
 function FileUpload(props) {
   const [Images, setImages] = useState([]);
@@ -36,40 +37,22 @@ function FileUpload(props) {
     <div>
       <Dropzone onDrop={onDrop} multiple={false} maxSize={800000000}>
         {({ getRootProps, getInputProps }) => (
-          <div
-            style={{
-              width: '300px',
-              height: '240px',
-              border: '1px solid lightgray',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-            {...getRootProps()}
-          >
+          <Drop {...getRootProps()}>
             <input {...getInputProps()} />
             <Icon type="plus" style={{ fontSize: '3rem' }} />
-          </div>
+          </Drop>
         )}
       </Dropzone>
-      <div
-        style={{
-          display: 'flex',
-          width: '300px',
-          height: '240px',
-          overflowX: 'scroll',
-        }}
-      >
+      <ImageZone>
         {Images.map((image, index) => (
           <div onClick={() => onDelete(image)} key={index}>
             <img
-              style={{ minWidth: '300px', width: '300px', height: '240px' }}
               src={`http://localhost:7000/${image}`}
               alt={`productImg-${index}`}
             />
           </div>
         ))}
-      </div>
+      </ImageZone>
     </div>
   );
 }

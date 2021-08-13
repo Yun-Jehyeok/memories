@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { ShoppingOutlined } from '@ant-design/icons';
+import { Btn } from 'assets/commonStyle/styles';
 
 export const Nav = styled.div`
   background-color: transparent;
@@ -44,3 +47,41 @@ export const ShoppingArea = styled.span`
     font-size: 14px;
   }
 `;
+
+export const Shopping = styled(ShoppingOutlined)`
+  font-size: 25px;
+  position: absolute;
+  color: #a4a4a4;
+  right: 80px;
+  margin: 45px 38px 0 0;
+  &:hover {
+    color: #fba904;
+  }
+`;
+
+export const UserDropdown = styled(Link)`
+  font-size: 25px;
+  position: absolute;
+  color: #a4a4a4;
+  right: 35px;
+  margin-right: 30px;
+  margin-top: 33px;
+  &:hover {
+    color: #fba904;
+  }
+`;
+
+// Login Area //
+export const LoginBtn = styled(Btn)`
+  position: absolute;
+  right: 50px;
+  margin-top: 36px;
+`;
+
+export function Login() {
+  return (
+    <Link to="/login">
+      <LoginBtn>로그인</LoginBtn>
+    </Link>
+  );
+}

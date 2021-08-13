@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { Row } from 'reactstrap';
-import { Page, Year, Text, Redtext, Info, Column } from './styles';
+import {
+  Page,
+  HistorySection,
+  Year,
+  Text,
+  Redtext,
+  Info,
+  Column,
+  ChevronDown,
+  ChevronUp,
+} from './styles';
 
 // json 파일 //
 import RevolutionFile from 'file/eventfile.json';
@@ -37,7 +45,6 @@ const History = () => {
     if (count === 16) {
       setCent(1);
     }
-    // 리셋
     if (count === 18) {
       setCount(0);
       setCent(0);
@@ -71,31 +78,18 @@ const History = () => {
 
   return (
     <Page className="page_section" id="history_area">
-      <div
-        className="row justify-content-md-center"
-        style={{
-          height: '100vh',
-          margin: '0',
-          width: '100%',
-        }}
-      >
+      <HistorySection className="row justify-content-md-center">
         <Year className="col align-self-center">
           <div className="float-end">
             <button type="button" onClick={onCountDown}>
-              <FontAwesomeIcon
-                icon={faChevronUp}
-                style={{ color: '#FF0000', fontSize: '2em' }}
-              />
+              <ChevronUp />
             </button>
             <Text>
               {century[cent]}
               <Redtext>{year[count]}</Redtext>
             </Text>
             <button onClick={onCountUp}>
-              <FontAwesomeIcon
-                icon={faChevronDown}
-                style={{ color: '#FF0000', fontSize: '2em' }}
-              />
+              <ChevronDown />
             </button>
           </div>
         </Year>
@@ -103,7 +97,7 @@ const History = () => {
           <p></p>
           {ArrayData}
         </Info>
-      </div>
+      </HistorySection>
     </Page>
   );
 };
