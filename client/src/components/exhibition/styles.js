@@ -25,6 +25,6 @@ export const Text = styled.div`
 `;
 export const Box = styled.div`
   position: absolute;
-
+  z-index: 300;
   border: 1px solid white;
 `;

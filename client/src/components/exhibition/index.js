@@ -38,7 +38,7 @@ const Exhibition = () => {
                 }}
               ></Box>
             </a>
-            <a href="">
+            <a href="vet_page">
               <Box
                 className="length"
                 style={{
@@ -49,7 +49,7 @@ const Exhibition = () => {
                 }}
               ></Box>
             </a>
-            <a href="">
+            <a href="/thousand_page">
               <Box
                 className="square"
                 style={{
@@ -60,7 +60,7 @@ const Exhibition = () => {
                 }}
               ></Box>
             </a>
-            <a href="">
+            <a href="/jap_page">
               <Box
                 className="width_2"
                 style={{
@@ -93,6 +93,7 @@ const Exhibition = () => {
                 }}
               ></Box>
             </a>
+
             <ex_abs>
               <div
                 className="ex_abs"

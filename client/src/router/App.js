@@ -12,7 +12,9 @@ import GoodsDonation from 'pages/GoodsDonation';
 import five_page from 'pages/518Main';
 import four_page from 'pages/419Main';
 import six_page from 'pages/625Main';
-
+import jap_page from 'pages/Jap_occupation';
+import thousand_page from 'pages/2000Main';
+import vet_page from 'pages/vetMain';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UploadProduct from 'pages/UploadGoods/UploadGoods';
 
@@ -40,6 +42,9 @@ const App = () => {
       <Route path="/518main" exact component={five_page} />
       <Route path="/419main" exact component={four_page} />
       <Route path="/625main" exact component={six_page} />
+      <Route path="/jap_page" exact component={jap_page} />
+      <Route path="/thousand_page" exact component={thousand_page} />
+      <Route path="/vet_page" exact component={vet_page} />
     </Switch>
   );
 };
