@@ -8,16 +8,16 @@ const Pagenation = () => {
   return (
     <Page className="fixed-bottom">
       <Container className="nav_list">
-        <Link type="button" id="intro_area_btn">
+        <Link className="icon" type="button" id="intro_area_btn">
           <FontAwesomeIcon icon={faCircle} />
         </Link>
-        <Link type="button" id="history_area_btn">
+        <Link className="icon" type="button" id="history_area_btn">
           <FontAwesomeIcon icon={faCircle} />
         </Link>
-        <Link type="button" id="exhibition_area_btn">
+        <Link className="icon" type="button" id="exhibition_area_btn">
           <FontAwesomeIcon icon={faCircle} />
         </Link>
-        <Link type="button" id="involved_area_btn">
+        <Link className="icon" type="button" id="involved_area_btn">
           <FontAwesomeIcon icon={faCircle} />
         </Link>
       </Container>

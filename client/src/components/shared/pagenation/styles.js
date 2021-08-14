@@ -12,8 +12,8 @@ export const Container = styled.div`
   width: 20px;
   padding-bottom: 8px;
   margin: 5px;
-  & > a {
-    color: #e0e0e0;
+  & > .icon {
+    color: #2d2d2d;
     fontsize: 1.1em;
     margin: 2px;
     cursor: pointer;
