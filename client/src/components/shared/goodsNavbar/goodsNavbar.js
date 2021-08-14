@@ -4,15 +4,22 @@ import { useDispatch, useSelector } from 'react-redux';
 import { LOGOUT_REQUEST } from 'redux/types';
 
 // style component //
-import { Nav, ShoppingArea, UserDropdown, Shopping, Login } from './styles';
+import {
+  NavContainer,
+  ShoppingArea,
+  UserDropdown,
+  Login,
+  FlexBoxContainer,
+  MenuContainer,
+} from './styles';
 import { Logo } from 'assets/commonStyle/styles';
 
 // icon //
 import { UserOutlined } from '@ant-design/icons';
-import { Menu, Dropdown } from 'antd';
+import { Menu, Dropdown, Badge, Icon } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 
-const GoodsNavbar = (nav) => {
+const GoodsNavbar = () => {
   const page = 'goods';
   const { isAuthenticated, user } = useSelector((state) => state.auth);
 
@@ -37,51 +44,42 @@ const GoodsNavbar = (nav) => {
       </Menu.Item>
     </Menu>
   );
+
   return (
-    <Nav className="navBar">
-      <div>
-        {Logo(page)}
-        {nav === 'donation' ? (
-          <Link
-            to="/goods/donation"
-            className="navLink navItem nav_active"
-            id="donation"
-          >
-            Donation
-            <p></p>
-          </Link>
-        ) : (
-          <Link to="/goods/donation" className="navLink navItem" id="donation">
-            Donation
-            <p></p>
-          </Link>
-        )}
-        <Link to="/" className="navLink navItem" id="memories">
-          Memories
-          <p></p>
-        </Link>
-        {isAuthenticated ? (
-          <ShoppingArea>
-            <Link to="/goods/shopping" className="navItem">
-              <Shopping className="nav-item" />
-            </Link>
-            <Dropdown overlay={menu}>
-              <UserDropdown
-                className="ant-dropdown-link"
-                onClick={(e) => e.preventDefault()}
-              >
-                <UserOutlined />
-              </UserDropdown>
-            </Dropdown>
-            <span>
-              <b>{user.name}</b>님 오늘도 화이팅하세요!
-            </span>
-          </ShoppingArea>
-        ) : (
-          <Login />
-        )}
-      </div>
-    </Nav>
+    <NavContainer>
+      <FlexBoxContainer>
+        <div>
+          <b>{user.name}</b>님 오늘도 화이팅하세요!
+        </div>
+        <div>{Logo(page)}</div>
+        <MenuContainer>
+          <Link to="/goods/donation">Donation</Link>
+          <Link to="/">Memories</Link>
+          {isAuthenticated ? (
+            <ShoppingArea>
+              <Link to="/goods/shopping">
+                <Badge count="0">
+                  <Icon
+                    type="shopping-cart"
+                    style={{ fontSize: 30, marginBottom: 3 }}
+                  />
+                </Badge>
+              </Link>
+              <Dropdown overlay={menu}>
+                <UserDropdown
+                  className="ant-dropdown-link"
+                  onClick={(e) => e.preventDefault()}
+                >
+                  <UserOutlined />
+                </UserDropdown>
+              </Dropdown>
+            </ShoppingArea>
+          ) : (
+            <Login />
+          )}
+        </MenuContainer>
+      </FlexBoxContainer>
+    </NavContainer>
   );
 };
 
