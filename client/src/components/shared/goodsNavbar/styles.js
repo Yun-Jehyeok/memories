@@ -3,56 +3,70 @@ import { Link } from 'react-router-dom';
 import { ShoppingOutlined } from '@ant-design/icons';
 import { Btn } from 'assets/commonStyle/styles';
 
-export const Nav = styled.div`
+export const NavContainer = styled.div`
   background-color: transparent;
   width: 100%;
   height: 10vh;
-  z-index: 5;
-  & > div {
-    height: 10vh;
-  }
-  & > div > .navItem {
-    margin-top: 45px;
-  }
-  & > div > .navLink {
+
+  & a {
+    display: inline-block;
+    margin-right: 20px;
+    color: black;
     text-decoration: none;
-    color: #000000;
-    position: absolute;
-    right: 190px;
-    font-size: 16px;
-    -webkit-transition: color 0.4s;
-  }
-  & > div > .navLink:hover {
-    color: #fba904;
-    & > p {
-      border-bottom: 1.5px solid #fba904;
-      width: 100%;
-      position: absolute;
-    }
-  }
-  & > div > #donation {
-    right: 305px;
-  }
-  & > div > .nav_active {
-    color: #fba904;
   }
 `;
 
-export const ShoppingArea = styled.span`
-  & > span {
+export const FlexBoxContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  & > div:nth-child(1) {
     position: absolute;
     top: 10px;
-    right: 60px;
+    right: 20px;
     color: #a4a4a4;
     font-size: 14px;
   }
 `;
 
+export const MenuContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 23px;
+  align-items: center;
+
+  & > a {
+    display: inline-block;
+    font-size: 18px;
+
+    &:hover {
+      color: #fba904;
+      border-bottom: 1px solid #fba904;
+    }
+  }
+`;
+
+export const ShoppingArea = styled.div`
+  display: inline-block;
+
+  & > a:nth-child(1) {
+    font-size: 25px;
+    color: #a4a4a4;
+
+    & > span > i {
+      font-size: 30;
+      margin-bottom: 3;
+
+      &:hover {
+        color: #fba904;
+      }
+    }
+  }
+`;
+
 export const Shopping = styled(ShoppingOutlined)`
   font-size: 25px;
-  position: absolute;
   color: #a4a4a4;
-  right: 80px;
   margin: 45px 38px 0 0;
   &:hover {
     color: #fba904;
@@ -61,21 +75,19 @@ export const Shopping = styled(ShoppingOutlined)`
 
 export const UserDropdown = styled(Link)`
   font-size: 25px;
-  position: absolute;
-  color: #a4a4a4;
-  right: 35px;
-  margin-right: 30px;
-  margin-top: 33px;
-  &:hover {
-    color: #fba904;
+
+  & > span {
+    color: #a4a4a4;
+
+    &:hover {
+      color: #fba904;
+    }
   }
 `;
 
 // Login Area //
 export const LoginBtn = styled(Btn)`
-  position: absolute;
-  right: 50px;
-  margin-top: 36px;
+  display: inline-block;
 `;
 
 export function Login() {
