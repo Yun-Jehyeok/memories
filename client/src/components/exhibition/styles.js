@@ -10,7 +10,7 @@ export const Text = styled.div`
 
   color: rgba(255, 255, 255, 0.6);
   & > div > center {
-    padding-top: 218px;
+    padding-top: 250px;
     padding-left: 100px;
     font-size: 72px;
   }
@@ -19,12 +19,12 @@ export const Text = styled.div`
     line-height: 1em;
   }
   & > ex_abs {
-    font-size: 30px;
+    font-size: 25px;
     padding-top: 300px;
   }
 `;
 export const Box = styled.div`
   position: absolute;
-
+  z-index: 300;
   border: 1px solid white;
 `;
