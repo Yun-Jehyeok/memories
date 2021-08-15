@@ -1,10 +1,9 @@
-import axios from 'axios';
 import {
-  ADD_TO_CART_USER,
   LOGIN_REQUEST,
   REGISTER_REQUEST,
   LOGOUT_REQUEST,
   USER_LOADING_REQUEST,
+  ADD_TO_CART_USER_REQUEST,
 } from './types';
 
 export const loginAction = (user) => ({
@@ -22,18 +21,12 @@ export const logoutAction = (user) => ({
   payload: user,
 });
 
-export const loadUserAction = (token) => ({
+export const loadUserAction = () => ({
   type: USER_LOADING_REQUEST,
-  payload: token,
+  payload: localStorage.getItem('token'),
 });
 
-export function addToCart(_id, token) {
-  const request = axios
-    .post(`/api/user/addToCart?productId=${_id}`, token)
-    .then((response) => response.data);
-
-  return {
-    type: ADD_TO_CART_USER,
-    payload: request,
-  };
-}
+export const addToCartRequest = (data) => ({
+  type: ADD_TO_CART_USER_REQUEST,
+  payload: data,
+});

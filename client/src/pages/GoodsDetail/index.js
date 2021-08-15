@@ -16,7 +16,7 @@ import { Box, DescriptionBox, PageLink, RightCircle } from './styles';
 import { Page } from 'assets/commonStyle/styles';
 import { Form, FormGroup, Input, Row } from 'reactstrap';
 
-import { addToCart } from 'redux/actions';
+import { addToCart, addToCartRequest } from 'redux/actions';
 
 const GoodsDetail = (props) => {
   const [Product, setProduct] = useState([]);
@@ -90,7 +90,12 @@ const GoodsDetail = (props) => {
   }, []);
 
   const addToCartHandler = () => {
-    dispatch(addToCart(goodsId, localStorage.getItem('token')));
+    const data = {
+      _id: goodsId,
+      token: localStorage.getItem('token'),
+    };
+
+    dispatch(addToCartRequest(data));
   };
 
   return (

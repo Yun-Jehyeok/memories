@@ -3,7 +3,7 @@ import store from 'store';
 
 const loadUser = () => {
   try {
-    store.dispatch(loadUserAction(localStorage.getItem('token')));
+    store.dispatch(loadUserAction());
   } catch (e) {
     console.log(e);
   }

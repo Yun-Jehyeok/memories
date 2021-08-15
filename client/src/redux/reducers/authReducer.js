@@ -11,7 +11,9 @@ import {
   USER_LOADING_REQUEST,
   USER_LOADING_SUCCESS,
   USER_LOADING_FAILURE,
-  ADD_TO_CART_USER,
+  ADD_TO_CART_USER_REQUEST,
+  ADD_TO_CART_USER_SUCCESS,
+  ADD_TO_CART_USER_FAILURE,
 } from '../types';
 
 const initialState = {
@@ -92,7 +94,8 @@ const authReducer = (state = initialState, action) => {
         isAuthenticated: true,
         isLoading: false,
         user: action.payload,
-        userRole: action.payload.role,
+        userId: action.payload._id,
+        userName: action.payload.name,
       };
     case USER_LOADING_FAILURE:
       return {
@@ -103,10 +106,18 @@ const authReducer = (state = initialState, action) => {
         userRole: '',
       };
 
-    case ADD_TO_CART_USER:
+    case ADD_TO_CART_USER_REQUEST:
+      return {
+        ...state,
+      };
+    case ADD_TO_CART_USER_SUCCESS:
       return {
         ...state,
         cart: action.payload,
+      };
+    case ADD_TO_CART_USER_FAILURE:
+      return {
+        ...state,
       };
 
     default:

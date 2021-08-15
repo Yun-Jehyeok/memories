@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ButtonWhite, Date, Desc } from './styles';
-import { Modal, Button } from 'antd';
+import { Modal } from 'antd';
 
 const HistoryModal = (props) => {
   const [visible, setVisible] = useState(false);
