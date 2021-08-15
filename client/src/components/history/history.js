@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Row } from 'reactstrap';
+import { Col, Row } from 'reactstrap';
 import {
   Page,
   HistorySection,
@@ -11,6 +11,7 @@ import {
   ChevronDown,
   ChevronUp,
 } from './styles';
+import HistoryModal from './historyModal';
 
 // json 파일 //
 import RevolutionFile from 'file/eventfile.json';
@@ -39,7 +40,7 @@ const History = () => {
     15,
   ];
   const [cent, setCent] = useState(0);
-  const [count, setCount] = useState(10);
+  const [count, setCount] = useState(2);
   const onCountUp = () => {
     setCount(count + 1);
     if (count === 16) {
@@ -65,7 +66,7 @@ const History = () => {
     event.date.includes(year[count]),
   );
 
-  const ArrayData = printData.map((event, index) => {
+  const ArrayData = printData.slice(0, 9).map((event, index) => {
     return (
       <Row key={index}>
         <Column className="col-3 text-center" style={{ paddingLeft: '20px' }}>
@@ -96,6 +97,11 @@ const History = () => {
         <Info className="col align-self-center" id="infomation">
           <p></p>
           {ArrayData}
+          <Row>
+            <Column className="col-12 text-center">
+              <HistoryModal printData={printData} />
+            </Column>
+          </Row>
         </Info>
       </HistorySection>
     </Page>

@@ -11,7 +11,6 @@ export const Box = styled.div`
     padding-top: 50px;
     padding-left: 60px;
     display: flex;
-    justify-content: space-between;
   }
 `;
 

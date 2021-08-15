@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import { Button } from 'antd';
 
 export const Page = styled.div`
   background: #1a1a1a;
@@ -57,4 +58,22 @@ export const ChevronDown = styled(FontAwesomeIcon).attrs({
 export const ChevronUp = styled(FontAwesomeIcon).attrs({ icon: faChevronUp })`
   color: #ff0000;
   font-size: 2em;
+`;
+
+export const ButtonWhite = styled(Button)`
+  background-color: transparent;
+  color: #ffffff;
+  margin: 15px 0 0 180px;
+  &:hover {
+    background-color: transparent;
+  }
+`;
+
+export const Date = styled.span`
+  color: #a4a4a4;
+`;
+
+export const Desc = styled.span`
+  color: #2d2d2d;
+  margin-left: 12px;
 `;

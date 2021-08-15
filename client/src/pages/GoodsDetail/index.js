@@ -14,6 +14,7 @@ import {
 
 import { Box, DescriptionBox, PageLink, RightCircle } from './styles';
 import { Page } from 'assets/commonStyle/styles';
+import { Form, FormGroup, Input, Row } from 'reactstrap';
 
 const GoodsDetail = (props) => {
   const [Product, setProduct] = useState([]);
@@ -146,24 +147,64 @@ const GoodsDetail = (props) => {
                   후기
                 </Button>
               </div>
-              <div style={{ fontSize: '1.5rem' }}>
-                <b>상품명 : {Product.title}</b>
-              </div>
-              <br />
-              {Product.description}
-              <br />
-              <div
-                style={{
-                  marginTop: '40px',
-                  display: 'flex',
-                  justifyContent: 'center',
-                }}
-              >
-                <Button type="primary" style={{ marginRight: '10px' }}>
-                  장바구니에 담기
-                </Button>
-                <Button type="primary">구매하기</Button>
-              </div>
+              {DescriptionButtonClick ? (
+                <div>
+                  <div style={{ fontSize: '1.5rem', marginBottom: '5px' }}>
+                    <b>상품명 : {Product.title}</b>
+                  </div>
+                  <div style={{ marginBottom: '10px' }}>
+                    <b>가격 : </b>
+                    {Product.price}원
+                  </div>
+                  {Product.description}
+                  <br />
+                  <div
+                    style={{
+                      marginTop: '40px',
+                      display: 'flex',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    <Button type="primary" style={{ marginRight: '10px' }}>
+                      장바구니에 담기
+                    </Button>
+                    <Button type="primary">구매하기</Button>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <div style={{ marginTop: '20px' }}>
+                    Comment Comment Comment Comment Comment Comment Comment
+                  </div>
+                  <div>
+                    Comment Comment Comment Comment Comment Comment Comment
+                  </div>
+                  <div>
+                    Comment Comment Comment Comment Comment Comment Comment
+                  </div>
+                  <div>
+                    Comment Comment Comment Comment Comment Comment Comment
+                  </div>
+                  <div>
+                    Comment Comment Comment Comment Comment Comment Comment
+                  </div>
+                  <br />
+                  <Form>
+                    <FormGroup>
+                      <Row>
+                        <div>Make Comment</div>
+                        <Input
+                          type="textarea"
+                          name="commentInput"
+                          id="commentInput"
+                          placeholder="Comment"
+                        />
+                        <Button color="primary">Submit</Button>
+                      </Row>
+                    </FormGroup>
+                  </Form>
+                </div>
+              )}
             </div>
           </div>
         </Box>

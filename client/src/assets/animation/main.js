@@ -38,7 +38,7 @@ const useScript = () => {
     function listActive(index){
       var list = document.querySelectorAll('.nav_list > a');
       for (var i = 0; i < list.length; i++){
-        list[i].style.color = '#A4A4A4';
+        list[i].style.color = '#2D2D2D';
       }
       list[index].style.color = '#FF0000';
     }
@@ -53,16 +53,16 @@ const useScript = () => {
     }
 
     $('#intro_area_btn').on('click', function(){
-      $('html, body').animate({scrollTop: offsetTop[0]+1}, 200);
+      $('html, body').animate({scrollTop: offsetTop[0]+1}, 100);
     });
     $('#history_area_btn').on('click', function(){
-      $('html, body').animate({scrollTop: offsetTop[1]+1}, 200);
+      $('html, body').animate({scrollTop: offsetTop[1]+1}, 100);
     });
     $('#exhibition_area_btn').on('click', function(){
-      $('html, body').animate({scrollTop: offsetTop[2]+1}, 200);
+      $('html, body').animate({scrollTop: offsetTop[2]+1}, 100);
     });
     $('#involved_area_btn').on('click', function(){
-      $('html, body').animate({scrollTop: offsetTop[3]}, 200);
+      $('html, body').animate({scrollTop: offsetTop[3]+1}, 100);
     });
     
     function init() {
