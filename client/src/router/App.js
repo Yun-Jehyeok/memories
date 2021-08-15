@@ -9,12 +9,12 @@ import GoodsMain from 'pages/GoodsMain';
 import GoodsDetail from 'pages/GoodsDetail';
 import Shopping from 'pages/Shopping';
 import GoodsDonation from 'pages/GoodsDonation';
-import five_page from 'pages/518Main';
-import four_page from 'pages/419Main';
-import six_page from 'pages/625Main';
-import jap_page from 'pages/JapMain';
-import thousand_page from 'pages/2000Main';
-import vet_page from 'pages/vetMain';
+import five_page from 'pages/exhb_page/518Main';
+import four_page from 'pages/exhb_page/419Main';
+import six_page from 'pages/exhb_page/625Main';
+import jap_page from 'pages/exhb_page/JapMain';
+import thousand_page from 'pages/exhb_page/2000Main';
+import vet_page from 'pages/exhb_page/vetMain';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import UploadProduct from 'pages/UploadGoods/UploadGoods';
 

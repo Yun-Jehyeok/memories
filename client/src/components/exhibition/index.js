@@ -1,6 +1,7 @@
 import React from 'react';
 import { Page, Text, Box } from './styles';
 import { CursorProvider } from 'react-cursor-custom';
+import { Link } from 'react-router-dom';
 
 const Exhibition = () => {
   return (
@@ -28,7 +29,7 @@ const Exhibition = () => {
                 </>
               </div>
             </center_abs>
-            <a href="/518main">
+            <Link to="/518main">
               <Box
                 className="length"
                 style={{
@@ -38,8 +39,8 @@ const Exhibition = () => {
                   height: '360px',
                 }}
               ></Box>
-            </a>
-            <a href="vet_page">
+            </Link>
+            <Link to="vet_page">
               <Box
                 className="length"
                 style={{
@@ -49,8 +50,8 @@ const Exhibition = () => {
                   height: '360px',
                 }}
               ></Box>
-            </a>
-            <a href="/thousand_page">
+            </Link>
+            <Link to="/thousand_page">
               <Box
                 className="square"
                 style={{
@@ -60,8 +61,8 @@ const Exhibition = () => {
                   height: '240px',
                 }}
               ></Box>
-            </a>
-            <a href="/jap_page">
+            </Link>
+            <Link to="/jap_page">
               <Box
                 className="width_2"
                 style={{
@@ -71,8 +72,8 @@ const Exhibition = () => {
                   height: '270px',
                 }}
               ></Box>
-            </a>
-            <a href="/625main">
+            </Link>
+            <Link to="/625main">
               <Box
                 className="width"
                 style={{
@@ -82,8 +83,8 @@ const Exhibition = () => {
                   height: '270px',
                 }}
               ></Box>
-            </a>
-            <a href="/419main">
+            </Link>
+            <Link to="/419main">
               <Box
                 className="length_2"
                 style={{
@@ -93,7 +94,7 @@ const Exhibition = () => {
                   height: '200px',
                 }}
               ></Box>
-            </a>
+            </Link>
 
             <ex_abs>
               <div
