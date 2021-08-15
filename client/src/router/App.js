@@ -12,7 +12,7 @@ import GoodsDonation from 'pages/GoodsDonation';
 import five_page from 'pages/518Main';
 import four_page from 'pages/419Main';
 import six_page from 'pages/625Main';
-import jap_page from 'pages/Jap_occupation';
+import jap_page from 'pages/JapMain';
 import thousand_page from 'pages/2000Main';
 import vet_page from 'pages/vetMain';
 import 'bootstrap/dist/css/bootstrap.min.css';
