@@ -1,20 +1,21 @@
-const express = require("express");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const { User } = require("../../models/user");
-const config = require("../../config/index");
+const express = require('express');
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const { User } = require('../../models/user');
+const config = require('../../config/index');
+const { auth } = require('../../middleware/auth');
 
 const { JWT_SECRET } = config;
 
 const router = express.Router();
 
 // GET ALL USERS / GET
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const users = await User.find();
 
     if (!users)
-      return res.status(400).json({ msg: "유저가 존재하지 않습니다." });
+      return res.status(400).json({ msg: '유저가 존재하지 않습니다.' });
 
     res.status(200).json(users);
   } catch (e) {
@@ -23,17 +24,17 @@ router.get("/", async (req, res) => {
 });
 
 // REGISTER / POST
-router.post("/register", (req, res) => {
+router.post('/register', (req, res) => {
   const { name, email, password } = req.body;
 
-  if (!name) return res.status(400).json({ msg: "이름을 작성해주세요." });
+  if (!name) return res.status(400).json({ msg: '이름을 작성해주세요.' });
   else if (!email)
-    return res.status(400).json({ msg: "이메일을 작성해주세요." });
+    return res.status(400).json({ msg: '이메일을 작성해주세요.' });
   else if (!password)
-    return res.status(400).json({ msg: "비밀번호를 작성해주세요." });
+    return res.status(400).json({ msg: '비밀번호를 작성해주세요.' });
 
   User.findOne({ email }).then((user) => {
-    if (user) return res.status(400).json({ msg: "이미 존재하는 유저입니다." });
+    if (user) return res.status(400).json({ msg: '이미 존재하는 유저입니다.' });
 
     const newUser = new User({
       name,
@@ -62,7 +63,7 @@ router.post("/register", (req, res) => {
                   email: user.email,
                 },
               });
-            }
+            },
           );
         });
       });
@@ -70,4 +71,47 @@ router.post("/register", (req, res) => {
   });
 });
 
+router.post('/addToCart', auth, (req, res) => {
+  User.find({ _id: req.user.id }, (err, userInfo) => {
+    let duplicate = false;
+
+    userInfo.cart.forEach((cartInfo) => {
+      if (cartInfo.id === req.query.productId) {
+        duplicate = true;
+      }
+    });
+
+    if (duplicate) {
+      User.findOneAndUpdate(
+        { _id: req.user.id, 'cart.id': req.query.productId },
+        { $inc: { 'cart.$.quantity': 1 } },
+        { new: true },
+        () => {
+          if (err) return res.json({ success: false, err });
+
+          res.status(200).json(userInfo.cart);
+        },
+      );
+    } else {
+      User.findOneAndUpdate(
+        { _id: req.user.id },
+        {
+          $push: {
+            cart: {
+              id: req.query.productId,
+              quantity: 1,
+              date: Date.now(),
+            },
+          },
+        },
+        { new: true },
+        (err, userInfo) => {
+          if (err) return res.json({ success: false, err });
+
+          res.status(200).json(userInfo.cart);
+        },
+      );
+    }
+  });
+});
 module.exports = router;

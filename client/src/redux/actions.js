@@ -27,9 +27,9 @@ export const loadUserAction = (token) => ({
   payload: token,
 });
 
-export function addToCart(_id) {
+export function addToCart(_id, token) {
   const request = axios
-    .post(`/api/user/addToCart?productId=${_id}`)
+    .post(`/api/user/addToCart?productId=${_id}`, token)
     .then((response) => response.data);
 
   return {

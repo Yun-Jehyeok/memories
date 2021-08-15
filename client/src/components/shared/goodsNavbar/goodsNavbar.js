@@ -21,7 +21,7 @@ import { DownOutlined } from '@ant-design/icons';
 
 const GoodsNavbar = () => {
   const page = 'goods';
-  const { isAuthenticated, user } = useSelector((state) => state.auth);
+  const { isAuthenticated, userName } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
 
@@ -49,7 +49,7 @@ const GoodsNavbar = () => {
     <NavContainer>
       <FlexBoxContainer>
         <div>
-          <b>{user.name}</b>님 오늘도 화이팅하세요!
+          <b>{userName}</b>님 오늘도 화이팅하세요!
         </div>
         <div>{Logo(page)}</div>
         <MenuContainer>

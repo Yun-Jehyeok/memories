@@ -15,5 +15,5 @@ export const USER_LOADING_REQUEST = 'USER_LOADING_REQUEST';
 export const USER_LOADING_SUCCESS = 'USER_LOADING_SUCCESS';
 export const USER_LOADING_FAILURE = 'USER_LOADING_FAILURE';
 
-export const AUTH_USER = 'auth_user';
-export const ADD_TO_CART_USER = 'add_to_cart_user';
+export const AUTH_USER = 'AUTH_USER';
+export const ADD_TO_CART_USER = 'ADD_TO_CART_USER';

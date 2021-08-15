@@ -1,5 +1,5 @@
 import React, { createElement, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import GoodsNavbar from 'components/shared/goodsNavbar/goodsNavbar';
@@ -16,6 +16,8 @@ import { Box, DescriptionBox, PageLink, RightCircle } from './styles';
 import { Page } from 'assets/commonStyle/styles';
 import { Form, FormGroup, Input, Row } from 'reactstrap';
 
+import { addToCart } from 'redux/actions';
+
 const GoodsDetail = (props) => {
   const [Product, setProduct] = useState([]);
   const [DescriptionButtonClick, setDescriptionButtonClick] = useState(true);
@@ -25,6 +27,8 @@ const GoodsDetail = (props) => {
   const { userId } = useSelector((state) => state.auth);
 
   const goodsId = props.match.params.goodsId;
+
+  const dispatch = useDispatch();
 
   const DescriptionClick = () => {
     setDescriptionButtonClick(true);
@@ -84,6 +88,10 @@ const GoodsDetail = (props) => {
       }
     });
   }, []);
+
+  const addToCartHandler = () => {
+    dispatch(addToCart(goodsId, localStorage.getItem('token')));
+  };
 
   return (
     <Page>
@@ -165,7 +173,11 @@ const GoodsDetail = (props) => {
                       justifyContent: 'center',
                     }}
                   >
-                    <Button type="primary" style={{ marginRight: '10px' }}>
+                    <Button
+                      type="primary"
+                      style={{ marginRight: '10px' }}
+                      onClick={addToCartHandler}
+                    >
                       장바구니에 담기
                     </Button>
                     <Button type="primary">구매하기</Button>

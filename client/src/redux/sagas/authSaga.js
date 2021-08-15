@@ -81,11 +81,14 @@ const userLoadingAPI = (token) => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
-      'x-auth-token': `${token ? token : null}`,
     },
   };
 
-  return axios.get('api/auth/user', config);
+  if (token) {
+    config.headers['x-auth-token'] = token;
+  }
+
+  return axios.get('api/auth/user', config, token);
 };
 
 function* userLoading(action) {

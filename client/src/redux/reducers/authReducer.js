@@ -11,6 +11,7 @@ import {
   USER_LOADING_REQUEST,
   USER_LOADING_SUCCESS,
   USER_LOADING_FAILURE,
+  ADD_TO_CART_USER,
 } from '../types';
 
 const initialState = {
@@ -24,6 +25,7 @@ const initialState = {
   userRole: '',
   errorMsg: '',
   successMsg: '',
+  cart: [],
 };
 
 const authReducer = (state = initialState, action) => {
@@ -99,6 +101,12 @@ const authReducer = (state = initialState, action) => {
         isAuthenticated: false,
         isLoading: false,
         userRole: '',
+      };
+
+    case ADD_TO_CART_USER:
+      return {
+        ...state,
+        cart: action.payload,
       };
 
     default:
