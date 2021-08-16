@@ -15,7 +15,6 @@ export const Bar = styled.div`
 export const MenuBar = styled(FontAwesomeIcon).attrs({ icon: faBars })`
   color: #000000;
   font-size: 2.4em;
-  float: right;
-  margin: 30px;
+  margin-right: 100px;
   cursor: pointer;
 `;

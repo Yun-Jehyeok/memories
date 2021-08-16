@@ -1,13 +1,14 @@
 import React from 'react';
 import { Navbar, Bar, MenuBar } from './styles';
 import { Logo } from 'assets/commonStyle/styles';
+import MenuIcon from 'assets/animation/Menubar';
 
 const Header = (props) => {
   return (
     <Navbar className="navBar fixed-top">
       <Bar>
         <Logo />
-        <MenuBar id="Menu_bar" onClick={props.onClickMenuBar} />
+        <MenuIcon onClickMenuBar={props.onClickMenuBar} />
       </Bar>
     </Navbar>
   );

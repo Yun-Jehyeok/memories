@@ -90,12 +90,7 @@ const GoodsDetail = (props) => {
   }, []);
 
   const addToCartHandler = () => {
-    const data = {
-      _id: goodsId,
-      token: localStorage.getItem('token'),
-    };
-
-    dispatch(addToCartRequest(data));
+    dispatch(addToCartRequest(goodsId));
   };
 
   return (

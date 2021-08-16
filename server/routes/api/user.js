@@ -49,7 +49,7 @@ router.post('/register', (req, res) => {
         newUser.password = hash;
         newUser.save().then((user) => {
           jwt.sign(
-            { id: user.id },
+            { id: user.name },
             JWT_SECRET,
             { expiresIn: 3600 },
             (err, token) => {
@@ -71,8 +71,8 @@ router.post('/register', (req, res) => {
   });
 });
 
-router.post('/addToCart', auth, (req, res) => {
-  User.find({ _id: req.user.id }, (err, userInfo) => {
+router.post('/addToCart', auth, async (req, res) => {
+  User.findOne({ _id: req.user.id }, (err, userInfo) => {
     let duplicate = false;
 
     userInfo.cart.forEach((cartInfo) => {
@@ -88,7 +88,6 @@ router.post('/addToCart', auth, (req, res) => {
         { new: true },
         () => {
           if (err) return res.json({ success: false, err });
-
           res.status(200).json(userInfo.cart);
         },
       );
@@ -107,11 +106,11 @@ router.post('/addToCart', auth, (req, res) => {
         { new: true },
         (err, userInfo) => {
           if (err) return res.json({ success: false, err });
-
           res.status(200).json(userInfo.cart);
         },
       );
     }
   });
 });
+
 module.exports = router;
