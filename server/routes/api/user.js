@@ -71,8 +71,8 @@ router.post('/register', (req, res) => {
   });
 });
 
-router.post('/addToCart', auth, async (req, res) => {
-  User.findOne({ _id: req.user.id }, (err, userInfo) => {
+router.post('/addToCart', auth, (req, res) => {
+  User.findOne({ _id: req.user._id }, (err, userInfo) => {
     let duplicate = false;
 
     userInfo.cart.forEach((cartInfo) => {
@@ -83,7 +83,7 @@ router.post('/addToCart', auth, async (req, res) => {
 
     if (duplicate) {
       User.findOneAndUpdate(
-        { _id: req.user.id, 'cart.id': req.query.productId },
+        { _id: req.user._id, 'cart.id': req.query.productId },
         { $inc: { 'cart.$.quantity': 1 } },
         { new: true },
         () => {
@@ -93,7 +93,7 @@ router.post('/addToCart', auth, async (req, res) => {
       );
     } else {
       User.findOneAndUpdate(
-        { _id: req.user.id },
+        { _id: req.user._id },
         {
           $push: {
             cart: {
