@@ -131,18 +131,8 @@ function* watchlogout() {
 }
 
 // Add to cart
-const addToCartAPI = (data) => {
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  };
-
-  if (data.token) {
-    config.headers['x-auth-token'] = data.token;
-  }
-
-  return axios.post(`/api/user/addToCart?productId=${data._id}`, config);
+const addToCartAPI = (productId) => {
+  return axios.post(`/api/user/addToCart?productId=${productId}`);
 };
 
 function* addToCart(action) {

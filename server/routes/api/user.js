@@ -72,7 +72,7 @@ router.post('/register', (req, res) => {
 });
 
 router.post('/addToCart', auth, (req, res) => {
-  User.find({ _id: req.user.id }, (err, userInfo) => {
+  User.findOne({ _id: req.user._id }, (err, userInfo) => {
     let duplicate = false;
 
     userInfo.cart.forEach((cartInfo) => {
@@ -83,18 +83,17 @@ router.post('/addToCart', auth, (req, res) => {
 
     if (duplicate) {
       User.findOneAndUpdate(
-        { _id: req.user.id, 'cart.id': req.query.productId },
+        { _id: req.user._id, 'cart.id': req.query.productId },
         { $inc: { 'cart.$.quantity': 1 } },
         { new: true },
         () => {
           if (err) return res.json({ success: false, err });
-
           res.status(200).json(userInfo.cart);
         },
       );
     } else {
       User.findOneAndUpdate(
-        { _id: req.user.id },
+        { _id: req.user._id },
         {
           $push: {
             cart: {
@@ -107,11 +106,11 @@ router.post('/addToCart', auth, (req, res) => {
         { new: true },
         (err, userInfo) => {
           if (err) return res.json({ success: false, err });
-
           res.status(200).json(userInfo.cart);
         },
       );
     }
   });
 });
+
 module.exports = router;

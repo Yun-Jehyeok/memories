@@ -26,7 +26,7 @@ export const loadUserAction = () => ({
   payload: localStorage.getItem('token'),
 });
 
-export const addToCartRequest = (data) => ({
+export const addToCartRequest = (id) => ({
   type: ADD_TO_CART_USER_REQUEST,
-  payload: data,
+  payload: id,
 });
