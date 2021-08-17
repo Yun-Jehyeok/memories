@@ -49,7 +49,7 @@ router.post('/register', (req, res) => {
         newUser.password = hash;
         newUser.save().then((user) => {
           jwt.sign(
-            { id: user.id },
+            { id: user.name },
             JWT_SECRET,
             { expiresIn: 3600 },
             (err, token) => {
