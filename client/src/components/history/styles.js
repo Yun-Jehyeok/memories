@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
-import { Button } from 'antd';
+import { Button, Select } from 'antd';
 
 export const Page = styled.div`
   background: #1a1a1a;
@@ -25,8 +25,15 @@ export const Year = styled.div`
   }
 `;
 
+export const Sel = styled(Select).attrs({
+  bordered: false,
+})`
+  background-color: transparent;
+  width: 120px;
+`;
+
 export const Text = styled.p`
-  font-size: 14rem;
+  font-size: 13.5rem;
 `;
 
 export const Redtext = styled.span`
@@ -63,7 +70,7 @@ export const ChevronUp = styled(FontAwesomeIcon).attrs({ icon: faChevronUp })`
 export const ButtonWhite = styled(Button)`
   background-color: transparent;
   color: #ffffff;
-  margin: 15px 0 0 180px;
+  margin: 15px 0 0 220px;
   &:hover {
     background-color: transparent;
   }

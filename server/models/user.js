@@ -1,5 +1,5 @@
-const moment = require("moment");
-const mongoose = require("mongoose");
+const moment = require('moment');
+const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
   name: {
@@ -24,12 +24,16 @@ const UserSchema = new mongoose.Schema({
     type: Array,
     default: [],
   },
+  history: {
+    type: Array,
+    default: [],
+  },
   register_date: {
     type: Date,
-    default: moment().format("MMMM DD, YYYY"),
+    default: moment().format('MMMM DD, YYYY'),
   },
 });
 
-const User = mongoose.model("user", UserSchema);
+const User = mongoose.model('user', UserSchema);
 
 module.exports = { User };

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Col, Row } from 'reactstrap';
+import { Row } from 'reactstrap';
 import {
   Page,
   HistorySection,
@@ -10,69 +10,62 @@ import {
   Column,
   ChevronDown,
   ChevronUp,
+  Sel,
 } from './styles';
 import HistoryModal from './historyModal';
+import { Select } from 'antd';
 
 // json 파일 //
 import RevolutionFile from 'file/eventfile.json';
 
 const History = () => {
-  const century = [19, 20];
-  const year = [
-    48,
-    49,
-    50,
-    51,
-    52,
-    53,
-    60,
-    61,
-    64,
-    65,
-    66,
-    71,
-    72,
-    73,
-    75,
-    79,
-    80,
-    10, // 17
-    15,
-  ];
-  const [cent, setCent] = useState(0);
-  const [count, setCount] = useState(2);
+  const [option, setOption] = useState('all');
+  const [count, setCount] = useState(0);
+
+  // sort //
+  var Yearfilter = RevolutionFile.filter((category) => {
+    return option === 'all' ? category : category.event.includes(option);
+  }).map((category) => {
+    return category.date.slice(0, 4);
+  });
+  const set1 = new Set(Yearfilter);
+  const yearoption = [...set1];
+
+  // count //
   const onCountUp = () => {
     setCount(count + 1);
-    if (count === 16) {
-      setCent(1);
-    }
-    if (count === 18) {
+    if (count === yearoption.length - 1) {
       setCount(0);
-      setCent(0);
     }
   };
   const onCountDown = () => {
     setCount(count - 1);
     if (count === 0) {
-      setCount(18);
-      setCent(1);
-    }
-    if (count === 17) {
-      setCent(0);
+      setCount(yearoption.length - 1);
     }
   };
+  const { Option } = Select;
 
-  var printData = RevolutionFile.filter((event) =>
-    event.date.includes(year[count]),
+  const handleChange = (value) => {
+    setOption(value);
+  };
+  const onSelect = (value) => {
+    setOption(value);
+  };
+
+  var printData = RevolutionFile.filter((category) =>
+    category.date.includes(yearoption[count]),
   );
 
-  const ArrayData = printData.slice(0, 9).map((event, index) => {
+  const ArrayData = printData.slice(0, 8).map((event, index) => {
     return (
       <Row key={index}>
         <Column className="col-3 text-center" style={{ paddingLeft: '20px' }}>
           {event.date.slice(5, 7)}월 {event.date.slice(8, 10)}일
         </Column>
-        <Column className="col-9">{event.description}</Column>
+        <Column className="col-9" style={{ width: '50%' }}>
+          {event.description}
+        </Column>
       </Row>
     );
   });
@@ -81,19 +74,34 @@ const History = () => {
     <Page className="page_section" id="history_area">
       <HistorySection className="row justify-content-md-center">
         <Year className="col align-self-center">
+          <Sel
+            defaultValue="all"
+            style={{ width: '120px' }}
+            onChange={handleChange}
+            onSelect={onSelect}
+          >
+            <Option value="all">전체</Option>
+            <Option value="419">4.19혁명</Option>
+            <Option value="625">6.25전쟁</Option>
+            <Option value="월남전">월남전</Option>
+            <Option value="518">5.18민주화운동</Option>
+            <Option value="근현대">근현대</Option>
+          </Sel>
+          {/* 년도 표시 */}
           <div className="float-end">
             <button type="button" onClick={onCountDown}>
               <ChevronUp />
             </button>
             <Text>
-              {century[cent]}
-              <Redtext>{year[count]}</Redtext>
+              {yearoption[count].slice(0, 2)}
+              <Redtext>{yearoption[count].slice(2, 4)}</Redtext>
             </Text>
             <button onClick={onCountUp}>
               <ChevronDown />
             </button>
           </div>
         </Year>
+        {/* 데이터 표시 */}
         <Info className="col align-self-center" id="infomation">
           <p></p>
           {ArrayData}

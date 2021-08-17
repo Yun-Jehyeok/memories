@@ -13,6 +13,9 @@ import {
   USER_LOADING_REQUEST,
   USER_LOADING_FAILURE,
   USER_LOADING_SUCCESS,
+  ADD_TO_CART_USER_REQUEST,
+  ADD_TO_CART_USER_SUCCESS,
+  ADD_TO_CART_USER_FAILURE,
 } from '../types';
 
 const loginUserAPI = (loginData) => {
@@ -81,9 +84,12 @@ const userLoadingAPI = (token) => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
-      'x-auth-token': `${token ? token : null}`,
     },
   };
+
+  if (token) {
+    config.headers['x-auth-token'] = token;
+  }
 
   return axios.get('api/auth/user', config);
 };
@@ -124,11 +130,37 @@ function* watchlogout() {
   yield takeEvery(LOGOUT_REQUEST, logout);
 }
 
+// Add to cart
+const addToCartAPI = (productId) => {
+  return axios.post(`/api/user/addToCart?productId=${productId}`);
+};
+
+function* addToCart(action) {
+  try {
+    const result = yield call(addToCartAPI, action.payload);
+
+    yield put({
+      type: ADD_TO_CART_USER_SUCCESS,
+      payload: result.data,
+    });
+  } catch (e) {
+    yield put({
+      type: ADD_TO_CART_USER_FAILURE,
+      payload: e.response,
+    });
+  }
+}
+
+function* watchaddToCart() {
+  yield takeEvery(ADD_TO_CART_USER_REQUEST, addToCart);
+}
+
 export default function* authSaga() {
   yield all([
     fork(watchLoginUser),
     fork(watchregisterUser),
     fork(watchuserLoading),
     fork(watchlogout),
+    fork(watchaddToCart),
   ]);
 }

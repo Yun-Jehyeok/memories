@@ -32,7 +32,6 @@ const useScript = () => {
 
     function sectionActive(index){ //섹션의 인덱스값을 받음
       listActive(index);
-      menuBarActive(index);
     }
 
     function listActive(index){
@@ -41,15 +40,6 @@ const useScript = () => {
         list[i].style.color = '#2D2D2D';
       }
       list[index].style.color = '#FF0000';
-    }
-
-    function menuBarActive(index){
-      var Bar = document.getElementById('Menu_bar');
-      if (index === 1 || index === 2){
-        Bar.style.color = '#FFFFFF';
-      } else {
-        Bar.style.color = '#000000';
-      }
     }
 
     $('#intro_area_btn').on('click', function(){

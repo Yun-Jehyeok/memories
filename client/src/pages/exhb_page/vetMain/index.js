@@ -1,6 +1,5 @@
 import React from 'react';
 import { Page } from './styles';
-import { Link } from 'react-router-dom';
 
 const vet_page = () => {
   return (

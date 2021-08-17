@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ButtonWhite, Date, Desc } from './styles';
-import { Modal, Button } from 'antd';
+import { Modal } from 'antd';
 
 const HistoryModal = (props) => {
   const [visible, setVisible] = useState(false);
@@ -22,20 +22,12 @@ const HistoryModal = (props) => {
 
   return (
     <div>
-      {props.printData.length >= 10 ? (
+      {props.printData.length >= 8 ? (
         <div>
           <ButtonWhite type="button" onClick={ModalToggle}>
             ...더보기
           </ButtonWhite>
-          <Modal
-            visible={visible}
-            onCancel={ModalToggle}
-            footer={[
-              <Button key="back" onClick={ModalToggle}>
-                뒤로가기
-              </Button>,
-            ]}
-          >
+          <Modal visible={visible} onCancel={ModalToggle} footer={null}>
             {ModalData}
           </Modal>
         </div>
