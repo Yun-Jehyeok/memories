@@ -16,7 +16,7 @@ import { Box, DescriptionBox, PageLink, RightCircle } from './styles';
 import { Page } from 'assets/commonStyle/styles';
 import { Form, FormGroup, Input, Row } from 'reactstrap';
 
-import { addToCart, addToCartRequest } from 'redux/actions';
+import { addToCartRequest } from 'redux/actions';
 
 const GoodsDetail = (props) => {
   const [Product, setProduct] = useState([]);
@@ -90,7 +90,12 @@ const GoodsDetail = (props) => {
   }, []);
 
   const addToCartHandler = () => {
-    dispatch(addToCartRequest(goodsId));
+    const data = {
+      goodsId: goodsId,
+      userId: userId
+    }
+
+    dispatch(addToCartRequest(data));
   };
 
   return (
@@ -211,7 +216,7 @@ const GoodsDetail = (props) => {
                           id="commentInput"
                           placeholder="Comment"
                         />
-                        <Button color="primary">Submit</Button>
+                        <Button type="primary">Submit</Button>
                       </Row>
                     </FormGroup>
                   </Form>

@@ -131,8 +131,8 @@ function* watchlogout() {
 }
 
 // Add to cart
-const addToCartAPI = (productId) => {
-  return axios.post(`/api/user/addToCart?productId=${productId}`);
+const addToCartAPI = (data) => {
+  return axios.post(`/api/user/addToCart?productId=${data.productId}&userId=${data.userId}`);
 };
 
 function* addToCart(action) {
