@@ -8,6 +8,7 @@ import useScript from 'assets/animation/main';
 import Intro from 'components/intro/intro';
 import Exhibition from 'components/exhibition';
 import MenuBar from 'components/MenuBar';
+import $ from 'jquery';
 
 const Main = () => {
   useScript();
@@ -36,6 +37,29 @@ const Main = () => {
       }, 1000);
     }
   };
+
+  window.addEventListener(
+    'wheel',
+    function (e) {
+      e.preventDefault();
+    },
+    { passive: false },
+  );
+
+  var $html = $('html');
+  var page = 1;
+  $(window).on('wheel', function (e) {
+    if ($html.is(':animated')) return;
+    if (e.originalEvent.deltaY > 0) {
+      if (page === 4) return;
+      page += 1;
+    } else if (e.originalEvent.deltaY < 0) {
+      if (page === 1) return;
+      page -= 1;
+    }
+    var posTop = (page - 1) * $(window).height();
+    $html.animate({ scrollTop: posTop + 1 }, 100);
+  });
 
   return (
     <>

@@ -10,6 +10,31 @@ const useScript = () => {
     var offsetTop = [];
     var offsetBottom = [];
 
+    // $("html, body").on('mousewheel', function(e){
+    //   e.preventDefault();
+    //   var m = e.originalEvent.wheelDelta;
+    //   var sb = $('#intro_area').height();
+    //   if (m > 1 && scrollEvent == false && count >= 1){
+    //     console.log(count);
+    //     scrollEvent = true;
+    //     count--;
+    //     $("html, body").stop().animate({scrollTop: sb*count}, {
+    //       duration:100, complete: function(){
+    //         scrollEvent = false;
+    //       }
+    //     });
+    //   } else if (m < 1 && scrollEvent == false && count < 3){
+    //     console.log(count);
+    //     scrollEvent = true;
+    //     count++;
+    //     $("html, body").stop().animate({scrollTop: sb*count}, {
+    //       duration:100, complete: function(){
+    //         scrollEvent = false;
+    //       }
+    //     });
+    //   }
+    // });
+
     function setValue() {
       winScrollTop = $(window).scrollTop(); // 스크롤 화면 길이 구하기!!
       section.each(function(index, obj) { //모든 섹션의 top, bottom값 구하기
