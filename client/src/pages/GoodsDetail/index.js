@@ -69,7 +69,7 @@ const GoodsDetail = (props) => {
   };
 
   useEffect(() => {
-    Axios.get(`/api/product/products_by_id?id=${goodsId}`).then((res) => {
+    Axios.get(`/api/product/products_by_id?id=${goodsId}&type=single`).then((res) => {
       setProduct(res.data);
     });
 

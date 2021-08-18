@@ -7,7 +7,7 @@ import Main from 'pages/Main';
 import Signup from 'pages/Signup';
 import GoodsMain from 'pages/GoodsMain';
 import GoodsDetail from 'pages/GoodsDetail';
-import Shopping from 'pages/Shopping';
+import Cart from 'pages/Cart';
 import GoodsDonation from 'pages/GoodsDonation';
 import five_page from 'pages/exhb_page/518Main';
 import four_page from 'pages/exhb_page/419Main';
@@ -15,8 +15,9 @@ import six_page from 'pages/exhb_page/625Main';
 import jap_page from 'pages/exhb_page/JapMain';
 import thousand_page from 'pages/exhb_page/2000Main';
 import vet_page from 'pages/exhb_page/vetMain';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import UploadProduct from 'pages/UploadGoods/UploadGoods';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   const { isAuthenticated } = useSelector((state) => state.auth);
@@ -35,7 +36,7 @@ const App = () => {
         render={() => (isAuthenticated ? <Redirect to="/goods" /> : <Signup />)}
       />
       <Route path="/goods" exact component={GoodsMain} />
-      <Route path="/goods/shopping" exact component={Shopping} />
+      <Route path="/goods/cart" exact component={Cart} />
       <Route path="/goods/donation" exact component={GoodsDonation} />
       <Route path="/goods/upload" exact component={UploadProduct} />
       <Route path="/goods/:goodsId" exact component={GoodsDetail} />

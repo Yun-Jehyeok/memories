@@ -57,8 +57,8 @@ const GoodsNavbar = () => {
           <Link to="/">Memories</Link>
           {isAuthenticated ? (
             <ShoppingArea>
-              <Link to="/goods/shopping">
-                <Badge count="0">
+              <Link to="/goods/cart">
+                <Badge count={1}>
                   <Icon
                     type="shopping-cart"
                     style={{ fontSize: 30, marginBottom: 3 }}

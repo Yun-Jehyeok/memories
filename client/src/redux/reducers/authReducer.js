@@ -14,6 +14,7 @@ import {
   ADD_TO_CART_USER_REQUEST,
   ADD_TO_CART_USER_SUCCESS,
   ADD_TO_CART_USER_FAILURE,
+  GET_CART_ITEMS_USER
 } from '../types';
 
 const initialState = {
@@ -28,6 +29,7 @@ const initialState = {
   errorMsg: '',
   successMsg: '',
   cart: [],
+  cartDetail: []
 };
 
 const authReducer = (state = initialState, action) => {
@@ -120,6 +122,12 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
       };
+    
+    case GET_CART_ITEMS_USER:
+      return {
+        ...state,
+        cartDetail: action.payload
+      }
 
     default:
       return state;

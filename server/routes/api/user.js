@@ -72,6 +72,7 @@ router.post('/register', (req, res) => {
 });
 
 router.post('/addToCart', (req, res) => {
+  console.log(req.query)
   User.findOne({ _id: req.query.userId }, (err, userInfo) => {
     let duplicate = false;
 

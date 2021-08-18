@@ -77,8 +77,20 @@ router.post('/uploadProduct', (req, res) => {
 // GET
 router.get('/products_by_id', async (req, res) => {
   try {
-    const product = await Product.findById(req.query.id).populate('writer');
+    let type = req.query.type;
+    let productIds = req.query.id;
 
+    if (type === 'array') {
+      let ids = req.query.id.split(',');
+
+      productIds = [];
+      productIds = ids.map(item => {
+        return item
+      })
+    }
+
+    const product = await Product.find({ '_id': { $in: productIds }}).populate('writer');
+    
     return res.status(200).send(product);
   } catch (e) {
     console.error(e);
