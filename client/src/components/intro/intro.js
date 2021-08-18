@@ -3,7 +3,7 @@ import { Page, Info } from './styles';
 
 const Intro = () => {
   return (
-    <Page className="page_section" id="intro_area">
+    <Page className="page_section section" id="intro_area">
       <div className="row" style={{ height: '50vh', margin: '0px' }}>
         <Info className="col align-self-center">
           <b>

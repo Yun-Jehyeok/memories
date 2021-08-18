@@ -10,31 +10,6 @@ const useScript = () => {
     var offsetTop = [];
     var offsetBottom = [];
 
-    // $("html, body").on('mousewheel', function(e){
-    //   e.preventDefault();
-    //   var m = e.originalEvent.wheelDelta;
-    //   var sb = $('#intro_area').height();
-    //   if (m > 1 && scrollEvent == false && count >= 1){
-    //     console.log(count);
-    //     scrollEvent = true;
-    //     count--;
-    //     $("html, body").stop().animate({scrollTop: sb*count}, {
-    //       duration:100, complete: function(){
-    //         scrollEvent = false;
-    //       }
-    //     });
-    //   } else if (m < 1 && scrollEvent == false && count < 3){
-    //     console.log(count);
-    //     scrollEvent = true;
-    //     count++;
-    //     $("html, body").stop().animate({scrollTop: sb*count}, {
-    //       duration:100, complete: function(){
-    //         scrollEvent = false;
-    //       }
-    //     });
-    //   }
-    // });
-
     function setValue() {
       winScrollTop = $(window).scrollTop(); // 스크롤 화면 길이 구하기!!
       section.each(function(index, obj) { //모든 섹션의 top, bottom값 구하기
@@ -50,8 +25,6 @@ const useScript = () => {
         sectionActive(1);
       } else if (winScrollTop >= offsetTop[2] && offsetBottom[2] >= winScrollTop ){
         sectionActive(2);
-      } if (winScrollTop >= offsetTop[3] && offsetBottom[3] >= winScrollTop){
-        sectionActive(3);
       }
     }
 
@@ -68,16 +41,13 @@ const useScript = () => {
     }
 
     $('#intro_area_btn').on('click', function(){
-      $('html, body').animate({scrollTop: offsetTop[0]+1}, 100);
+      $('html, body').animate({scrollTop: offsetTop[0]+1}, 10);
     });
     $('#history_area_btn').on('click', function(){
-      $('html, body').animate({scrollTop: offsetTop[1]+1}, 100);
+      $('html, body').animate({scrollTop: offsetTop[1]+1}, 10);
     });
     $('#exhibition_area_btn').on('click', function(){
-      $('html, body').animate({scrollTop: offsetTop[2]+1}, 100);
-    });
-    $('#involved_area_btn').on('click', function(){
-      $('html, body').animate({scrollTop: offsetTop[3]+1}, 100);
+      $('html, body').animate({scrollTop: offsetTop[2]+1}, 10);
     });
     
     function init() {

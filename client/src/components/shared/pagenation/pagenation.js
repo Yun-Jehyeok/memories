@@ -17,9 +17,6 @@ const Pagenation = () => {
         <Link className="icon" type="button" id="exhibition_area_btn">
           <FontAwesomeIcon icon={faCircle} />
         </Link>
-        <Link className="icon" type="button" id="involved_area_btn">
-          <FontAwesomeIcon icon={faCircle} />
-        </Link>
       </Container>
     </Page>
   );
