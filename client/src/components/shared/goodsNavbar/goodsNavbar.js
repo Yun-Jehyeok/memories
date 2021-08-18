@@ -48,26 +48,30 @@ const GoodsNavbar = () => {
   return (
     <NavContainer>
       <FlexBoxContainer>
-        <div>
-          <b>{userName}</b>님 오늘도 화이팅하세요!
-        </div>
         <div>{Logo(page)}</div>
         <MenuContainer>
-          <Link to="/goods/donation">Donation</Link>
-          <Link to="/">Memories</Link>
+          <Link to="/goods/donation" className="nav-item nav-border">
+            DONATIONS
+          </Link>
+          <Link to="/" className="nav-item nav-border">
+            MEMORIES
+          </Link>
           {isAuthenticated ? (
             <ShoppingArea>
+              <div>
+                <b>{userName}</b>님 오늘도 화이팅하세요!
+              </div>
               <Link to="/goods/cart">
                 <Badge count={1}>
                   <Icon
                     type="shopping-cart"
-                    style={{ fontSize: 30, marginBottom: 3 }}
+                    style={{ fontSize: 24, marginBottom: 3 }}
                   />
                 </Badge>
               </Link>
               <Dropdown overlay={menu}>
                 <UserDropdown
-                  className="ant-dropdown-link"
+                  className="ant-dropdown-link nav-item"
                   onClick={(e) => e.preventDefault()}
                 >
                   <UserOutlined />
@@ -75,7 +79,14 @@ const GoodsNavbar = () => {
               </Dropdown>
             </ShoppingArea>
           ) : (
-            <Login />
+            <div>
+              <Link to="/login" className="nav-item nav-border">
+                LOGIN
+              </Link>
+              <Link to="/signup" className="nav-item nav-border">
+                SIGNUP
+              </Link>
+            </div>
           )}
         </MenuContainer>
       </FlexBoxContainer>

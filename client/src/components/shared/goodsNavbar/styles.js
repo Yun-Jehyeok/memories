@@ -20,14 +20,6 @@ export const NavContainer = styled.div`
 export const FlexBoxContainer = styled.div`
   display: flex;
   justify-content: space-between;
-
-  & > div:nth-child(1) {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    color: #a4a4a4;
-    font-size: 14px;
-  }
 `;
 
 export const MenuContainer = styled.div`
@@ -36,9 +28,21 @@ export const MenuContainer = styled.div`
   margin-top: 23px;
   align-items: center;
 
-  & > a {
+  & a {
     display: inline-block;
-    font-size: 18px;
+
+    &:hover {
+      color: #fba904;
+    }
+  }
+  & .nav-item {
+    color: #a4a4a4;
+    font-weight: 400;
+    font-size: 14px;
+    margin-right: 30px;
+  }
+  & .nav-border {
+    display: inline-block;
 
     &:hover {
       color: #fba904;
@@ -63,38 +67,21 @@ export const ShoppingArea = styled.div`
       }
     }
   }
-`;
-
-export const Shopping = styled(ShoppingOutlined)`
-  font-size: 25px;
-  color: #a4a4a4;
-  margin: 45px 38px 0 0;
-  &:hover {
-    color: #fba904;
+  & > div:nth-child(1) {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #a4a4a4;
+    font-size: 14px;
   }
 `;
 
 export const UserDropdown = styled(Link)`
-  font-size: 25px;
-
   & > span {
     color: #a4a4a4;
-
+    font-size: 24px;
     &:hover {
       color: #fba904;
     }
   }
 `;
-
-// Login Area //
-export const LoginBtn = styled(Btn)`
-  display: inline-block;
-`;
-
-export function Login() {
-  return (
-    <Link to="/login">
-      <LoginBtn>로그인</LoginBtn>
-    </Link>
-  );
-}

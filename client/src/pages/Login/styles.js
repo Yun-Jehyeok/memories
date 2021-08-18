@@ -31,6 +31,13 @@ export const Header = styled.header`
   padding-top: 45px;
 `;
 
+export const Text = styled.p`
+  text-align: center;
+  font-weight: 300;
+  margin-top: -40px;
+  color: #4a154b;
+`;
+
 export const Form = styled.form`
   margin: 0 auto;
   width: 80%;
@@ -50,6 +57,7 @@ export const Label = styled.label`
     font-weight: 700;
     cursor: pointer;
     line-height: 1.46666667;
+    color: #000000;
   }
 `;
 
@@ -73,6 +81,24 @@ export const Input = styled.input`
   &::placeholder {
     color: #8977ad;
   }
+`;
+
+export const Box = styled.div`
+  border: 1px solid #e0e0e0;
+  width: 100%;
+  height: 180px;
+  padding: 10px;
+  color: #000000;
+  overflow-y: scroll;
+  font-weight: 200;
+  font-size: 15px;
+  margin-bottom: 5px;
+`;
+
+export const CheckText = styled.div`
+  font-size: 14px;
+  color: #000000;
+  display: inline;
 `;
 
 export const Button = styled.button`

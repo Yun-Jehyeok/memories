@@ -36,7 +36,7 @@ const MenuIcon = (props) => {
   };
 
   return (
-    <span style={{ float: 'right', margin: '20px 30px 0 0', color: '#FF0000' }}>
+    <span style={{ float: 'right', margin: '25px 30px 0 0', color: '#FF0000' }}>
       <Lottie
         id="Menu_bar"
         options={lottieOptions}
@@ -45,8 +45,8 @@ const MenuIcon = (props) => {
         isClickToPauseDisabled={false}
         speed={1.5}
         style={{
-          width: '65px',
-          height: '65px',
+          width: '55px',
+          height: '55px',
           position: 'absolute',
           color: '#ffffff',
         }}
@@ -54,10 +54,11 @@ const MenuIcon = (props) => {
       <button
         onClick={handleClick}
         style={{
-          width: '65px',
-          height: '65px',
+          width: '55px',
+          height: '55px',
           position: 'relative',
           background: 'transparent',
+          border: 'none',
         }}
       ></button>
     </span>
