@@ -12,13 +12,13 @@ import MenuBar from 'components/MenuBar';
 const Main = () => {
   useScript();
 
-  document.addEventListener('scroll', function () {
-    if (!document.querySelector('.menuBar').classList.contains('on')) {
-      document.querySelector('.menuBar').style.top = `${
-        window.scrollY - window.innerHeight - 100
-      }px`;
-    }
-  });
+  // document.addEventListener('scroll', function () {
+  //   if (!document.querySelector('.menuBar').classList.contains('on')) {
+  //     document.querySelector('.menuBar').style.top = `${
+  //       window.scrollY - window.innerHeight - 100
+  //     }px`;
+  //   }
+  // });
 
   const onClickMenuBar = () => {
     let menuBar = document.querySelector('.menuBar');
