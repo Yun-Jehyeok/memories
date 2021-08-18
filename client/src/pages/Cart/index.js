@@ -26,12 +26,17 @@ const Cart = () => {
           cartItems.push(items.id)
         });
 
-        dispatch(getCartItems(cartItems, user.cart))
+        const data = {
+          cartItems: cartItems,
+          userCart: user.cart
+        }
+
+        dispatch(getCartItems(data))
 
         setItem(cartDetail)
       }
     }
-  }, [user]);
+  }, [user, cartDetail, dispatch]);
 
   const [select, setSelect] = useState('none');
 
@@ -43,28 +48,14 @@ const Cart = () => {
     }
   };
 
-  const goods_buy_item = [
-    { id: '1', src: 'http://placehold.it/250x250', title: '시계' },
-    { id: '2', src: 'http://placehold.it/250x250', title: '물건' },
-    { id: '3', src: 'http://placehold.it/250x250', title: '꽃' },
-  ];
-
-  // const goods = cartDetail && cartDetail.map((item) => (
-  //   <CardArea>
-  //     {select === 'selected' ? <Checkbox color="default" /> : <></>}
-  //     <Card hoverable className="text-center" cover={<img src="http://placehold.it/250x250" />}>
-  //       <Meta title={item.title} />
-  //     </Card>
-  //   </CardArea>
-  // ))
-  // const goods = goods_buy_item.map((item) => (
-  //   <CardArea>
-  //     {select === 'selected' ? <Checkbox color="default" /> : <></>}
-  //     <Card hoverable className="text-center" cover={<img src={item.src} />}>
-  //       <Meta title={item.title} />
-  //     </Card>
-  //   </CardArea>
-  // ));
+  const goods = cartDetail && cartDetail.map((item) => (
+    <CardArea key={item._id}>
+      {select === 'selected' ? <Checkbox color="default" /> : <></>}
+      <Card hoverable className="text-center" cover={<img src={`http://localhost:7000/${item.images}`} alt="productImage" />}>
+        <Meta title={item.title} />
+      </Card>
+    </CardArea>
+  ))
 
   return (
     <Page>
@@ -75,7 +66,7 @@ const Cart = () => {
         </span>
         <span id="buy">구매하기</span>
       </BuyArea>
-      {Item}
+      {goods}
       <section id="profile"></section>
     </Page>
   );

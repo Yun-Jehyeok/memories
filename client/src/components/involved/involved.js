@@ -58,6 +58,7 @@ const Involved = () => {
           <div className="col-sm-8">
             <img
               src={involve}
+              alt="img"
               style={{
                 width: '53%',
                 position: 'absolute',

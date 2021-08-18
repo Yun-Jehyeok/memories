@@ -8,7 +8,6 @@ import {
   NavContainer,
   ShoppingArea,
   UserDropdown,
-  Login,
   FlexBoxContainer,
   MenuContainer,
 } from './styles';

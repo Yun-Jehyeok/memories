@@ -4,10 +4,8 @@ import {
   LOGOUT_REQUEST,
   USER_LOADING_REQUEST,
   ADD_TO_CART_USER_REQUEST,
-  GET_CART_ITEMS_USER
+  GET_CART_ITEMS_USER_REQUEST
 } from './types';
-
-import axios from 'axios';
 
 export const loginAction = (user) => ({
   type: LOGIN_REQUEST,
@@ -34,22 +32,7 @@ export const addToCartRequest = (data) => ({
   payload: data,
 });
 
-export const getCartItems = (cartItems, userCart) => {
-  const request = axios.get(`/api/product/products_by_id?id=${cartItems}&type=array`)
-    .then(res => {
-      userCart.forEach(cartItem => {
-        res.data.forEach((productDetail, ind) => {
-          if(cartItem.id === productDetail._id) {
-            res.data[ind].quantity = cartItem.quantity;
-          }
-        })
-      })
-
-      return res.data
-    });
-
-  return {
-    type: GET_CART_ITEMS_USER,
-    payload: request
-  }
-}
+export const getCartItems = (data) => ({
+  type: GET_CART_ITEMS_USER_REQUEST,
+  payload: data
+})

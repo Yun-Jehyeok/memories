@@ -10,7 +10,6 @@ import {
   CheckText,
   Button,
 } from 'pages/Login/styles';
-import { services } from './services';
 
 const SignupCheck = (props) => {
   const onChangeConditions = (e) => {

@@ -39,7 +39,7 @@ const Exhibition = () => {
                 }}
               ></Box>
             </Link>
-            <Link to="vet_page">
+            <Link to="/vet_page">
               <Box
                 className="length"
                 style={{

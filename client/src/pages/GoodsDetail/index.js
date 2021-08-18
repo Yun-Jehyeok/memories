@@ -87,7 +87,7 @@ const GoodsDetail = (props) => {
         alert('데이터 오류');
       }
     });
-  }, []);
+  });
 
   const addToCartHandler = () => {
     const data = {
@@ -106,8 +106,9 @@ const GoodsDetail = (props) => {
           <div>
             <div style={{ marginRight: '10%' }}>
               <img
-                src={`http://localhost:7000/${Product.images}`}
+                src={`http://localhost:7000/${Product[0].images}`}
                 style={{ width: '50vh', height: '50vh' }}
+                alt="productImage"
               />
 
               {/* Like, Share */}
@@ -163,13 +164,13 @@ const GoodsDetail = (props) => {
               {DescriptionButtonClick ? (
                 <div>
                   <div style={{ fontSize: '1.5rem', marginBottom: '5px' }}>
-                    <b>상품명 : {Product.title}</b>
+                    <b>상품명 : {Product[0].title}</b>
                   </div>
                   <div style={{ marginBottom: '10px' }}>
                     <b>가격 : </b>
-                    {Product.price}원
+                    {Product[0].price}원
                   </div>
-                  {Product.description}
+                  {Product[0].description}
                   <br />
                   <div
                     style={{

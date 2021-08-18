@@ -54,7 +54,7 @@ const Signup = () => {
 
       dispatch(registerAction(newUser));
     },
-    [email, password],
+    [name, email, password, dispatch],
   );
 
   return (

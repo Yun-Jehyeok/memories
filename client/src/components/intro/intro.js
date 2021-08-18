@@ -17,12 +17,12 @@ const Intro = () => {
             <br />
             사람은 크고 작고
           </b>
-          <a>
+          <div>
             <br />
             <div>Text - Double click to edit Text - Double </div>
             <div>click to edit Text - Double click to edit </div>
             <div>Text - Double click to edit</div>
-          </a>
+          </div>
         </Info>
       </div>
     </Page>

@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { ShoppingOutlined } from '@ant-design/icons';
-import { Btn } from 'assets/commonStyle/styles';
-import { useState } from 'react';
 
 export const NavContainer = styled.div`
   background-color: transparent;

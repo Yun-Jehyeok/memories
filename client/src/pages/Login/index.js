@@ -29,7 +29,7 @@ const Login = () => {
 
       dispatch(loginAction(user));
     },
-    [email, password],
+    [email, password, dispatch],
   );
 
   return (

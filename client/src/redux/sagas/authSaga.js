@@ -16,6 +16,9 @@ import {
   ADD_TO_CART_USER_REQUEST,
   ADD_TO_CART_USER_SUCCESS,
   ADD_TO_CART_USER_FAILURE,
+  GET_CART_ITEMS_USER_SUCCESS,
+  GET_CART_ITEMS_USER_FAILURE,
+  GET_CART_ITEMS_USER_REQUEST,
 } from '../types';
 
 const loginUserAPI = (loginData) => {
@@ -155,6 +158,42 @@ function* watchaddToCart() {
   yield takeEvery(ADD_TO_CART_USER_REQUEST, addToCart);
 }
 
+// Get Cart Item
+const getCartItemAPI = (data) => {
+  return axios.get(`/api/product/products_by_id?id=${data.cartItems}&type=array`)
+  .then(res => {
+    data.userCart.forEach(cartItem => {
+      res.data.forEach((productDetail, ind) => {
+        if(cartItem.id === productDetail._id) {
+          res.data[ind].quantity = cartItem.quantity;
+        }
+      })
+    })
+
+    return res.data
+  });
+};
+
+function* getCartItem(action) {
+  try {
+    const result = yield call(getCartItemAPI, action.payload);
+
+    yield put({
+      type: GET_CART_ITEMS_USER_SUCCESS,
+      payload: result,
+    });
+  } catch (e) {
+    yield put({
+      type: GET_CART_ITEMS_USER_FAILURE,
+      payload: e.response,
+    });
+  }
+}
+
+function* watchgetCartItem() {
+  yield takeEvery(GET_CART_ITEMS_USER_REQUEST, getCartItem);
+}
+
 export default function* authSaga() {
   yield all([
     fork(watchLoginUser),
@@ -162,5 +201,6 @@ export default function* authSaga() {
     fork(watchuserLoading),
     fork(watchlogout),
     fork(watchaddToCart),
+    fork(watchgetCartItem)
   ]);
 }
