@@ -4,6 +4,7 @@ import {
   LOGOUT_REQUEST,
   USER_LOADING_REQUEST,
   ADD_TO_CART_USER_REQUEST,
+  GET_CART_ITEMS_USER_REQUEST
 } from './types';
 
 export const loginAction = (user) => ({
@@ -26,7 +27,12 @@ export const loadUserAction = () => ({
   payload: localStorage.getItem('token'),
 });
 
-export const addToCartRequest = (id) => ({
+export const addToCartRequest = (data) => ({
   type: ADD_TO_CART_USER_REQUEST,
-  payload: id,
+  payload: data,
 });
+
+export const getCartItems = (data) => ({
+  type: GET_CART_ITEMS_USER_REQUEST,
+  payload: data
+})

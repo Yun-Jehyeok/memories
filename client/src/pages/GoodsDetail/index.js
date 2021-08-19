@@ -16,7 +16,7 @@ import { Box, DescriptionBox, PageLink, RightCircle } from './styles';
 import { Page } from 'assets/commonStyle/styles';
 import { Form, FormGroup, Input, Row } from 'reactstrap';
 
-import { addToCart, addToCartRequest } from 'redux/actions';
+import { addToCartRequest } from 'redux/actions';
 
 const GoodsDetail = (props) => {
   const [Product, setProduct] = useState([]);
@@ -69,7 +69,7 @@ const GoodsDetail = (props) => {
   };
 
   useEffect(() => {
-    Axios.get(`/api/product/products_by_id?id=${goodsId}`).then((res) => {
+    Axios.get(`/api/product/products_by_id?id=${goodsId}&type=single`).then((res) => {
       setProduct(res.data);
     });
 
@@ -87,10 +87,15 @@ const GoodsDetail = (props) => {
         alert('데이터 오류');
       }
     });
-  }, []);
+  });
 
   const addToCartHandler = () => {
-    dispatch(addToCartRequest(goodsId));
+    const data = {
+      goodsId: goodsId,
+      userId: userId
+    }
+
+    dispatch(addToCartRequest(data));
   };
 
   return (
@@ -101,8 +106,9 @@ const GoodsDetail = (props) => {
           <div>
             <div style={{ marginRight: '10%' }}>
               <img
-                src={`http://localhost:7000/${Product.images}`}
+                src={`http://localhost:7000/${Product[0].images}`}
                 style={{ width: '50vh', height: '50vh' }}
+                alt="productImage"
               />
 
               {/* Like, Share */}
@@ -158,13 +164,13 @@ const GoodsDetail = (props) => {
               {DescriptionButtonClick ? (
                 <div>
                   <div style={{ fontSize: '1.5rem', marginBottom: '5px' }}>
-                    <b>상품명 : {Product.title}</b>
+                    <b>상품명 : {Product[0].title}</b>
                   </div>
                   <div style={{ marginBottom: '10px' }}>
                     <b>가격 : </b>
-                    {Product.price}원
+                    {Product[0].price}원
                   </div>
-                  {Product.description}
+                  {Product[0].description}
                   <br />
                   <div
                     style={{
@@ -211,7 +217,7 @@ const GoodsDetail = (props) => {
                           id="commentInput"
                           placeholder="Comment"
                         />
-                        <Button color="primary">Submit</Button>
+                        <Button type="primary">Submit</Button>
                       </Row>
                     </FormGroup>
                   </Form>

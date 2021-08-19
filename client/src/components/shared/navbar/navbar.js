@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Bar, MenuBar } from './styles';
+import { Navbar, Bar } from './styles';
 import { Logo } from 'assets/commonStyle/styles';
 import MenuIcon from 'assets/animation/Menubar';
 

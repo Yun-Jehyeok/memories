@@ -75,14 +75,25 @@ router.post('/uploadProduct', (req, res) => {
 
 // Get Product By Id
 // GET
-router.get('/products_by_id', async (req, res) => {
-  try {
-    const product = await Product.findById(req.query.id).populate('writer');
+router.get("/products_by_id", (req, res) => {
+  let type = req.query.type
+  let productIds = req.query.id
 
-    return res.status(200).send(product);
-  } catch (e) {
-    console.error(e);
+  if (type === "array") {
+      let ids = req.query.id.split(',');
+      productIds = [];
+      productIds = ids.map(item => {
+          return item
+      })
   }
+
+  Product.find({ '_id': { $in: productIds } })
+      .populate('writer')
+      .exec((err, product) => {
+          if (err) return res.status(400).send(err)
+
+          return res.status(200).send(product)
+      })
 });
 
 ///////////////////////////////////////////////
