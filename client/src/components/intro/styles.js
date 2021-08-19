@@ -1,21 +1,13 @@
 import styled from 'styled-components';
 
 export const Page = styled.div`
-  background: white;
+  background: #ffffff;
   height: 100vh;
   width: 100%;
 `;
 
-export const Text = styled.p`
-  font-size: 14rem;
-`;
-
-export const Redtext = styled.span`
-  color: #ff0000;
-`;
-
 export const Info = styled.div`
-position: relative;
+  position: relative;
   color: black;
   padding-top: 7%;
   padding-left: 10%;
@@ -25,7 +17,7 @@ position: relative;
     font-size: 20px;
     text-decoration: none;
         color: black;
-  & >red {
+  & > .red {
     color: red;
         }
 `;
