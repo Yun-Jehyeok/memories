@@ -37,6 +37,7 @@ const GoodsDetail = (props) => {
     setDescriptionButtonClick(false);
   };
 
+  // Axios 쓴 부분들 전부다 리덕스 사용하게 바꿔야될듯 에러 존나뜨네 진짜
   const onLikeClick = () => {
     const body = {
       userId: userId,
@@ -73,21 +74,21 @@ const GoodsDetail = (props) => {
       setProduct(res.data);
     });
 
-    Axios.get(`api/product/${goodsId}/like/getLike`).then((res) => {
-      // 좋아요가 있을 때
-      if (res.data.getLike) {
-        const all_like = res.data.likes;
-        setLikes(all_like.length);
-        all_like.map((like) => {
-          if (like.userId === userId) {
-            setAction('liked');
-          }
-        });
-      } else {
-        alert('데이터 오류');
-      }
-    });
-  });
+    // Axios.get(`api/product/${goodsId}/like/getLike`).then((res) => {
+    //   // 좋아요가 있을 때
+    //   if (res.data.getLike) {
+    //     const all_like = res.data.likes;
+    //     setLikes(all_like.length);
+    //     all_like.map((like) => {
+    //       if (like.userId === userId) {
+    //         setAction('liked');
+    //       }
+    //     });
+    //   } else {
+    //     alert('데이터 오류');
+    //   }
+    // });
+  }, [goodsId]);
 
   const addToCartHandler = () => {
     const data = {
