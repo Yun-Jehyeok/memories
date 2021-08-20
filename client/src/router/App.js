@@ -48,7 +48,7 @@ const App = () => {
         component={Auth(GoodsDonation, null)}
       />
       <Route path="/goods/upload" exact component={Auth(UploadProduct, true)} />
-      <Route path="/goods/:goodsId" exact component={Auth(GoodsDetail, null)} />
+      <Route path="/goods/:goodsId" exact component={(GoodsDetail, null)} />
     </Switch>
   );
 };
