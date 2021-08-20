@@ -22,7 +22,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
   // 메인페이지는 인증이 아예 필요 없기 때문에 추가하지 않음
-  
   // true / 인증된 사용자만 접근 가능
   // false / 인증되지 않은 사용자만 접근 가능
   // null / 인증 상관 없음
@@ -43,7 +42,11 @@ const App = () => {
       <Route path="/signup" exact component={Auth(Signup, false)} />
       <Route path="/goods" exact component={Auth(GoodsMain, null)} />
       <Route path="/goods/cart" exact component={Auth(Cart, true)} />
-      <Route path="/goods/donation" exact component={Auth(GoodsDonation, null)} />
+      <Route
+        path="/goods/donation"
+        exact
+        component={Auth(GoodsDonation, null)}
+      />
       <Route path="/goods/upload" exact component={Auth(UploadProduct, true)} />
       <Route path="/goods/:goodsId" exact component={(GoodsDetail, null)} />
     </Switch>

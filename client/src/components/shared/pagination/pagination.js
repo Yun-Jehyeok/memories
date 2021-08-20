@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import { Page, Container } from './styles';
 
-const Pagenation = () => {
+const Pagination = () => {
   return (
     <Page className="fixed-bottom">
       <Container className="nav_list">
@@ -17,12 +17,9 @@ const Pagenation = () => {
         <Link className="icon" type="button" id="exhibition_area_btn">
           <FontAwesomeIcon icon={faCircle} />
         </Link>
-        <Link className="icon" type="button" id="involved_area_btn">
-          <FontAwesomeIcon icon={faCircle} />
-        </Link>
       </Container>
     </Page>
   );
 };
 
-export default Pagenation;
+export default Pagination;

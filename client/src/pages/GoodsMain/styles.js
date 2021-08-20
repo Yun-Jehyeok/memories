@@ -6,12 +6,10 @@ export const Page = styled.div`
   overflow: hidden;
 
   & > div {
-    position: absolute;
     width: 100%;
     height: 100vh;
   }
   & > div > .slide_wrap {
-    position: absolute;
     width: 100%;
     height: 85vh;
     bottom: 0;
@@ -19,11 +17,11 @@ export const Page = styled.div`
 `;
 
 export const SlideBox = styled.div`
-  width: 1250px;
-  height: 590px;
+  width: 1200px;
+  height: 550px;
   position: absolute;
-  left: 0;
-  bottom: 0;
+  left: 30px;
+  top: 120px;
   overflow: hidden;
   & > div {
     width: 3544px;
