@@ -4,8 +4,9 @@ export const Page = styled.div`
   width: 5%;
   height: 14vh;
   background: transparent;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   margin-left: 96%;
+  z-index: 200;
 `;
 
 export const Container = styled.div`

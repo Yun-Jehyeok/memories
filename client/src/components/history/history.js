@@ -71,7 +71,7 @@ const History = () => {
   });
 
   return (
-    <Page className="page_section" id="history_area">
+    <Page className="page_section section" id="history_area">
       <HistorySection className="row justify-content-md-center">
         <Year className="col align-self-center">
           <Sel

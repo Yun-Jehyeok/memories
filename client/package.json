@@ -28,7 +28,9 @@
     "connected-react-router": "^6.9.1",
     "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
+    "fullpage.js": "2.9.6",
     "history": "^5.0.0",
+    "iscroll": "^5.2.0",
     "jquery": "^3.6.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
@@ -50,10 +52,10 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "cross-env NODE_PATH=src react-scripts start",
-    "build": "cross-env NODE_PATH=src react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "cross-env NODE_PATH=src react-app-rewired start",
+    "build": "cross-env NODE_PATH=src react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject"
   },
   "eslintConfig": {
     "extends": [
@@ -79,6 +81,7 @@
     "@types/styled-components": "^5.1.11",
     "i": "^0.3.6",
     "npm": "^7.20.5",
+    "react-app-rewired": "^2.1.8",
     "styled-component": "^2.8.0"
   }
 }

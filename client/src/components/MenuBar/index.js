@@ -11,19 +11,19 @@ const MenuBar = () => {
         <div>
           <Item>
             <li>
-              <ItemLink to="/goods">
+              <ItemLink href="/goods">
                 <span>굿즈 사러 가기</span>
                 <Mask></Mask>
               </ItemLink>
             </li>
             <li>
-              <ItemLink to="/goods">
+              <ItemLink href="/goods">
                 <span>GITHUB</span>
                 <Mask></Mask>
               </ItemLink>
             </li>
             <li>
-              <ItemLink to="/goods">
+              <ItemLink href="/goods">
                 <span>KAKAO TALK</span>
                 <Mask></Mask>
               </ItemLink>
