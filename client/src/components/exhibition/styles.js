@@ -4,6 +4,7 @@ export const Page = styled.div`
   background: #1a1a1a;
   height: 100vh;
   width: 100%;
+  margin: 0;
 `;
 export const Text = styled.div`
   position: absolute;
