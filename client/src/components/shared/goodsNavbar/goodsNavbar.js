@@ -33,15 +33,21 @@ const GoodsNavbar = () => {
     });
   }, [dispatch]);
 
+  console.log(isAuthenticated);
+
   const menu = (
     <Menu>
       <Menu.Item icon={<DownOutlined />}>
-        <Link
-          to={`/goods/${user._id}/mypage`}
-          style={{ textDecoration: 'none' }}
-        >
-          마이페이지
-        </Link>
+        {isAuthenticated ? (
+          <Link
+            to={`/goods/${user._id}/mypage`}
+            style={{ textDecoration: 'none' }}
+          >
+            마이페이지
+          </Link>
+        ) : (
+          <></>
+        )}
       </Menu.Item>
       <Menu.Item>
         <span onClick={LogOut} style={{ textDecoration: 'none' }}>
