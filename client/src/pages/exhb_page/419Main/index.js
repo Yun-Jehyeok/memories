@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import FourModal from './419Modal';
+import { Container } from './styles';
+
 const four_page = () => {
   return (
-    <div className="419page">
+    <Container>
       <FourModal />
-    </div>
+    </Container>
   );
 };
 
