@@ -64,9 +64,7 @@ function FourModal() {
             </IconBox>
           </div>
           <div>
-            <p style={{ fontSize: '20px' }}>
-              <b>{ItemDetail.title}</b>
-            </p>
+            <b>{ItemDetail.title}</b>
             <p>{ItemDetail.description}</p>
           </div>
         </ModalBox>

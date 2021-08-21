@@ -1,6 +1,7 @@
 import React from 'react';
 import { Page, Text, Box } from './styles';
 import { Link } from 'react-router-dom';
+import four_pic from 'assets/img/person/ahnbyeonha.png';
 
 const Exhibition = () => {
   return (
@@ -92,7 +93,9 @@ const Exhibition = () => {
                   width: '320px',
                   height: '200px',
                 }}
-              ></Box>
+              >
+                <img src={four_pic} style={{ width: '100%', height: '100%' }} />
+              </Box>
             </Link>
 
             <ex_abs>

@@ -1,26 +1,28 @@
 import styled from 'styled-components';
-export const age = styled.div`
-  color: #1f1f1f;
+export const Explain = styled.div`
+  display: inline-block;
+  position: fixed;
+  font-size: 9vh;
+  z-index: 50px;
 `;
 export const ItemContainer = styled.div`
   width: 100%;
-  height: 400px;
+  height: 450px;
   position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
+  top: 20%;
 `;
 
 export const Item = styled.div`
   z-index: 200px;
+  vertical-align: center;
   display: inline-block;
   width: 300px;
   height: 450px;
   overflow: hidden;
-  margin-left: 5%;
-  margin-bottom: 5%;
+  margin-left: 8%;
+  margin-bottom: 10%;
   background-color: white;
   box-shadow: -20px 20px 10px black;
-  white-space: normal;
   cursor: pointer;
   & img {
     width: 100%;
@@ -41,7 +43,7 @@ export const ModalBox = styled.div`
   & > div:nth-child(1) {
     margin-right: 30px;
     & > img {
-      width: 350px;
+      width: 300px;
       height: 300px;
     }
   }
@@ -55,8 +57,5 @@ export const IconBox = styled.div`
     margin-right: 8px;
     font-size: 20px;
     cursor: pointer;
-  }
-  & > span:nth-child(4) {
-    margin-right: 0;
   }
 `;
