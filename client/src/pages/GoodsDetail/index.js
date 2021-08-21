@@ -16,7 +16,7 @@ import { Box, DescriptionBox, PageLink, RightCircle } from './styles';
 import { Page } from 'assets/commonStyle/styles';
 import { Form, FormGroup, Input, Row } from 'reactstrap';
 
-import { addToCartRequest } from 'redux/actions';
+import { addToCartRequest, getGoodsDetail } from 'redux/actions';
 
 const GoodsDetail = (props) => {
   const [Product, setProduct] = useState([]);
@@ -25,6 +25,9 @@ const GoodsDetail = (props) => {
   const [action, setAction] = useState(''); // 로그인한 사용자가
 
   const { userId } = useSelector((state) => state.auth);
+  const { images, title, price, description } = useSelector(
+    (state) => state.post,
+  );
 
   const goodsId = props.match.params.goodsId;
 
@@ -37,6 +40,7 @@ const GoodsDetail = (props) => {
     setDescriptionButtonClick(false);
   };
 
+  // Axios 쓴 부분들 전부다 리덕스 사용하게 바꿔야될듯 에러 존나뜨네 진짜
   const onLikeClick = () => {
     const body = {
       userId: userId,
@@ -69,9 +73,7 @@ const GoodsDetail = (props) => {
   };
 
   useEffect(() => {
-    Axios.get(`/api/product/products_by_id?id=${goodsId}&type=single`).then((res) => {
-      setProduct(res.data);
-    });
+    dispatch(getGoodsDetail(goodsId));
 
     Axios.get(`api/product/${goodsId}/like/getLike`).then((res) => {
       // 좋아요가 있을 때
@@ -87,13 +89,13 @@ const GoodsDetail = (props) => {
         alert('데이터 오류');
       }
     });
-  });
+  }, [goodsId]);
 
   const addToCartHandler = () => {
     const data = {
       goodsId: goodsId,
-      userId: userId
-    }
+      userId: userId,
+    };
 
     dispatch(addToCartRequest(data));
   };
@@ -106,7 +108,7 @@ const GoodsDetail = (props) => {
           <div>
             <div style={{ marginRight: '10%' }}>
               <img
-                src={`http://localhost:7000/${Product[0].images}`}
+                src={`http://localhost:7000/${images[0]}`}
                 style={{ width: '50vh', height: '50vh' }}
                 alt="productImage"
               />
@@ -164,13 +166,13 @@ const GoodsDetail = (props) => {
               {DescriptionButtonClick ? (
                 <div>
                   <div style={{ fontSize: '1.5rem', marginBottom: '5px' }}>
-                    <b>상품명 : {Product[0].title}</b>
+                    <b>상품명 : {title}</b>
                   </div>
                   <div style={{ marginBottom: '10px' }}>
                     <b>가격 : </b>
-                    {Product[0].price}원
+                    {price}원
                   </div>
-                  {Product[0].description}
+                  {description}
                   <br />
                   <div
                     style={{

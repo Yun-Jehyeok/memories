@@ -1,11 +1,10 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Wrap = styled.div`
   position: absolute;
   width: 100%;
   height: 100vh;
-  background-color: #1a1a1a;
+  background-color: #2d2d2d;
   color: white;
   overflow: hidden;
   top: -100vh;
@@ -29,7 +28,7 @@ export const Item = styled.ul`
   padding: 0;
 `;
 
-export const ItemLink = styled(Link)`
+export const ItemLink = styled.a`
   display: inline-block;
   font-size: 9vh;
   color: white;

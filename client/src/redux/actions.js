@@ -4,7 +4,8 @@ import {
   LOGOUT_REQUEST,
   USER_LOADING_REQUEST,
   ADD_TO_CART_USER_REQUEST,
-  GET_CART_ITEMS_USER_REQUEST
+  GET_CART_ITEMS_USER_REQUEST,
+  POST_DETAIL_LOADING_REQUEST,
 } from './types';
 
 export const loginAction = (user) => ({
@@ -34,5 +35,10 @@ export const addToCartRequest = (data) => ({
 
 export const getCartItems = (data) => ({
   type: GET_CART_ITEMS_USER_REQUEST,
-  payload: data
-})
+  payload: data,
+});
+
+export const getGoodsDetail = (goodsId) => ({
+  type: POST_DETAIL_LOADING_REQUEST,
+  payload: goodsId,
+});

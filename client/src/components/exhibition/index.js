@@ -5,9 +5,13 @@ import four_pic from 'assets/img/person/ahnbyeonha.png';
 
 const Exhibition = () => {
   return (
-    <>
+    <div
+      className="page_section section"
+      id="exhibition_area"
+      style={{ width: '100%', height: '100vh' }}
+    >
       <div>
-        <Page className="page_section" id="exhibition_area">
+        <Page>
           <Text className="content_main" style={{ margin: '0px' }}>
             <div>
               <center>EXHIBITION</center>
@@ -29,7 +33,7 @@ const Exhibition = () => {
                 </>
               </div>
             </center_abs>
-            <Link to="/518main">
+            <a href="/518main">
               <Box
                 className="length"
                 style={{
@@ -39,8 +43,8 @@ const Exhibition = () => {
                   height: '360px',
                 }}
               ></Box>
-            </Link>
-            <Link to="/vet_page">
+            </a>
+            <a href="/vet_page">
               <Box
                 className="length"
                 style={{
@@ -50,8 +54,8 @@ const Exhibition = () => {
                   height: '360px',
                 }}
               ></Box>
-            </Link>
-            <Link to="/thousand_page">
+            </a>
+            <a href="/thousand_page">
               <Box
                 className="square"
                 style={{
@@ -61,8 +65,8 @@ const Exhibition = () => {
                   height: '240px',
                 }}
               ></Box>
-            </Link>
-            <Link to="/jap_page">
+            </a>
+            <a href="/jap_page">
               <Box
                 className="width_2"
                 style={{
@@ -72,8 +76,8 @@ const Exhibition = () => {
                   height: '270px',
                 }}
               ></Box>
-            </Link>
-            <Link to="/625main">
+            </a>
+            <a href="/625main">
               <Box
                 className="width"
                 style={{
@@ -83,8 +87,8 @@ const Exhibition = () => {
                   height: '270px',
                 }}
               ></Box>
-            </Link>
-            <Link to="/419main">
+            </a>
+            <a href="/419main">
               <Box
                 className="length_2"
                 style={{
@@ -96,7 +100,7 @@ const Exhibition = () => {
               >
                 <img src={four_pic} style={{ width: '100%', height: '100%' }} />
               </Box>
-            </Link>
+            </a>
 
             <ex_abs>
               <div
@@ -116,7 +120,7 @@ const Exhibition = () => {
           </Text>
         </Page>
       </div>
-    </>
+    </div>
   );
 };
 
