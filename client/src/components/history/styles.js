@@ -7,6 +7,8 @@ export const Page = styled.div`
   background: #1a1a1a;
   height: 100vh;
   width: 100%;
+  margin: 0;
+  border-bottom: 10px solid #1a1a1a;
 `;
 
 export const HistorySection = styled.div`
@@ -34,10 +36,19 @@ export const Sel = styled(Select).attrs({
 
 export const Text = styled.p`
   font-size: 13.5rem;
+  -webkit-box-reflect: below -45px linear-gradient(transparent, rgba(255, 255, 255, 0.1));
+  transition: 0.3s;
+  &:hover {
+    text-shadow: 0 0 10px #2d2d2d;
+  }
 `;
 
 export const Redtext = styled.span`
   color: #ff0000;
+  transition: 0.3s;
+  &:hover {
+    text-shadow: 0 0 10px #ff0000;
+  }
 `;
 
 export const Info = styled.div`

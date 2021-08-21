@@ -1,12 +1,21 @@
 import styled from 'styled-components';
+
+export const Container = styled.div`
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+  white-space: nowrap;
+`;
+
 export const age = styled.div`
   color: #1f1f1f;
 `;
+
 export const ItemContainer = styled.div`
   width: 100%;
   height: 400px;
   position: absolute;
-  top: 50%;
+  top: 45%;
   transform: translate(0, -50%);
 `;
 
@@ -19,7 +28,7 @@ export const Item = styled.div`
   margin-left: 5%;
   margin-bottom: 5%;
   background-color: white;
-  box-shadow: -20px 20px 10px black;
+  box-shadow: -20px 20px 10px #a4a4a4;
   white-space: normal;
   cursor: pointer;
   & img {
