@@ -17,6 +17,7 @@ import jap_page from 'pages/exhb_page/JapMain';
 import thousand_page from 'pages/exhb_page/2000Main';
 import vet_page from 'pages/exhb_page/vetMain';
 import UploadProduct from 'pages/UploadGoods/UploadGoods';
+import Mypage from 'pages/Mypage';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -49,6 +50,11 @@ const App = () => {
       />
       <Route path="/goods/upload" exact component={Auth(UploadProduct, true)} />
       <Route path="/goods/:goodsId" exact component={Auth(GoodsDetail, null)} />
+      <Route
+        path="/goods/:userId/mypage"
+        exact
+        component={Auth(Mypage, true)}
+      />
     </Switch>
   );
 };

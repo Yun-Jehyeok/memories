@@ -36,7 +36,6 @@ export const Sel = styled(Select).attrs({
 
 export const Text = styled.p`
   font-size: 13.5rem;
-  -webkit-box-reflect: below -45px linear-gradient(transparent, rgba(255, 255, 255, 0.1));
   transition: 0.3s;
   &:hover {
     text-shadow: 0 0 10px #2d2d2d;
@@ -64,6 +63,12 @@ export const Info = styled.div`
 export const Column = styled.div`
   text-align: left;
   font-size: 1.1rem;
+`;
+
+export const Yeartext = styled.div`
+  & > .year_animate {
+    font-size: 1.2em;
+  }
 `;
 
 export const ChevronDown = styled(FontAwesomeIcon).attrs({
