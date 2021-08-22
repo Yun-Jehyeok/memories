@@ -31,9 +31,11 @@ export const OutLink = styled.a.attrs({
 export const Btn = styled.button`
   background-color: #fba904;
   color: #ffffff;
-  padding: 10px 30px;
+  padding: 8px 18px;
   border-radius: 5px;
   border: none;
+  font-weight: 400;
+  font-size: 15px;
 `;
 
 export const Page = styled.div`

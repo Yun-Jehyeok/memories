@@ -20,7 +20,9 @@ import { DownOutlined } from '@ant-design/icons';
 
 const GoodsNavbar = () => {
   const page = 'goods';
-  const { isAuthenticated, userName } = useSelector((state) => state.auth);
+  const { isAuthenticated, userName, user } = useSelector(
+    (state) => state.auth,
+  );
 
   const dispatch = useDispatch();
 
@@ -31,10 +33,21 @@ const GoodsNavbar = () => {
     });
   }, [dispatch]);
 
+  console.log(isAuthenticated);
+
   const menu = (
     <Menu>
       <Menu.Item icon={<DownOutlined />}>
-        <Link style={{ textDecoration: 'none' }}>마이페이지</Link>
+        {isAuthenticated ? (
+          <Link
+            to={`/goods/${user._id}/mypage`}
+            style={{ textDecoration: 'none' }}
+          >
+            마이페이지
+          </Link>
+        ) : (
+          <></>
+        )}
       </Menu.Item>
       <Menu.Item>
         <span onClick={LogOut} style={{ textDecoration: 'none' }}>
@@ -60,7 +73,7 @@ const GoodsNavbar = () => {
               <div>
                 <b>{userName}</b>님 오늘도 화이팅하세요!
               </div>
-              <Link to="/goods/cart">
+              <Link to="/goods/cart" className="nav-item">
                 <Badge count={1}>
                   <Icon
                     type="shopping-cart"
