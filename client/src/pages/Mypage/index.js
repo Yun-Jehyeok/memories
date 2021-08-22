@@ -1,4 +1,7 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
+
 import GoodsNavbar from 'components/shared/goodsNavbar/goodsNavbar';
 import { Page } from 'assets/commonStyle/styles';
 import {
@@ -17,6 +20,7 @@ const Mypage = () => {
   const { userName } = useSelector((state) => state.auth);
   return (
     <Page>
+      <Helmet title={`기억들 - ${userName}님의 마이페이지`} />
       <Background>
         <GoodsNavbar />
         <Box>
@@ -24,16 +28,17 @@ const Mypage = () => {
             <div>🌸 {userName} 님의 프로필</div>
             <div>
               <p>
-                <b>생년 월일</b>:
+                <b>가입일</b> :
               </p>
               <p>
-                <b>주소</b>:
+                <b>주소</b> :
               </p>
               <p>
-                <b>닉네임</b>: {userName}
+                <b>닉네임</b> : {userName}
               </p>
             </div>
             <BtnContainer>
+              {/* <Link to={``}></Link> */}
               <Btn>프로필 편집</Btn>
               <Btn>비밀번호 변경</Btn>
             </BtnContainer>

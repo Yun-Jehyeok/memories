@@ -16,7 +16,10 @@ import {
   ADD_TO_CART_USER_FAILURE,
   GET_CART_ITEMS_USER_REQUEST,
   GET_CART_ITEMS_USER_SUCCESS,
-  GET_CART_ITEMS_USER_FAILURE
+  GET_CART_ITEMS_USER_FAILURE,
+  PROFILE_EDIT_REQUEST,
+  PROFILE_EDIT_SUCCESS,
+  PROFILE_EDIT_FAILURE,
 } from '../types';
 
 const initialState = {
@@ -31,7 +34,7 @@ const initialState = {
   errorMsg: '',
   successMsg: '',
   cart: [],
-  cartDetail: []
+  cartDetail: [],
 };
 
 const authReducer = (state = initialState, action) => {
@@ -124,20 +127,20 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
       };
-    
+
     case GET_CART_ITEMS_USER_REQUEST:
       return {
         ...state,
-      }
+      };
     case GET_CART_ITEMS_USER_SUCCESS:
       return {
         ...state,
-        cartDetail: action.payload
-      }
+        cartDetail: action.payload,
+      };
     case GET_CART_ITEMS_USER_FAILURE:
       return {
-        ...state
-      }
+        ...state,
+      };
 
     default:
       return state;
