@@ -20,6 +20,9 @@ import {
   PROFILE_EDIT_REQUEST,
   PROFILE_EDIT_SUCCESS,
   PROFILE_EDIT_FAILURE,
+  PROFILE_UPLOAD_REQUEST,
+  PROFILE_UPLOAD_SUCCESS,
+  PROFILE_UPLOAD_FAILURE,
 } from '../types';
 
 const initialState = {
@@ -35,6 +38,8 @@ const initialState = {
   successMsg: '',
   cart: [],
   cartDetail: [],
+  address: '',
+  registerDate: '',
 };
 
 const authReducer = (state = initialState, action) => {
@@ -142,6 +147,34 @@ const authReducer = (state = initialState, action) => {
         ...state,
       };
 
+    // PROFILE //
+    case PROFILE_UPLOAD_REQUEST:
+      return {
+        ...state,
+      };
+    case PROFILE_UPLOAD_SUCCESS:
+      return {
+        ...state,
+        registerDate: action.payload.register_date,
+        userName: action.payload.name,
+        address: action.payload.address,
+      };
+    case PROFILE_EDIT_REQUEST:
+      return {
+        ...state,
+      };
+    case PROFILE_EDIT_SUCCESS:
+      return {
+        ...state,
+        userName: action.payload.name,
+        address: action.payload.address,
+      };
+    case PROFILE_UPLOAD_FAILURE:
+    case PROFILE_EDIT_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+      };
     default:
       return state;
   }
