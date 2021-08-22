@@ -3,7 +3,6 @@ import { Switch, Route } from 'react-router-dom';
 
 import Auth from 'hoc/auth';
 
-import Login from 'pages/Login';
 import Main from 'pages/Main';
 import Signup from 'pages/Signup';
 import GoodsMain from 'pages/GoodsMain';
@@ -39,7 +38,6 @@ const App = () => {
       <Route path="/vet_page" exact component={vet_page} />
 
       {/* 굿즈 페이지 */}
-      <Route path="/login" exact component={Auth(Login, false)} />
       <Route path="/signup" exact component={Auth(Signup, false)} />
       <Route path="/goods" exact component={Auth(GoodsMain, null)} />
       <Route path="/goods/cart" exact component={Auth(Cart, true)} />

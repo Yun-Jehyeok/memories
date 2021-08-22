@@ -17,6 +17,7 @@ import { Logo } from 'assets/commonStyle/styles';
 import { UserOutlined } from '@ant-design/icons';
 import { Menu, Dropdown, Badge, Icon } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
+import LoginModal from 'components/LoginModal/LoginModal';
 
 const GoodsNavbar = () => {
   const page = 'goods';
@@ -92,9 +93,7 @@ const GoodsNavbar = () => {
             </ShoppingArea>
           ) : (
             <div>
-              <Link to="/login" className="nav-item nav-border">
-                LOGIN
-              </Link>
+              <LoginModal />
               <Link to="/signup" className="nav-item nav-border">
                 SIGNUP
               </Link>
