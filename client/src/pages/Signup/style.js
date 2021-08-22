@@ -3,10 +3,9 @@ import styled from 'styled-components';
 export const SignUpContainer = styled.div`
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  white-space: nowrap;
   display: flex;
   justify-content: center;
+  background: rgba(254, 232, 171, 0.3);
 `;
 
 export const Wrap = styled.div`
@@ -16,7 +15,7 @@ export const Wrap = styled.div`
   transform: translate(0, -50%);
   background-color: white;
   border-radius: 10px;
-  box-shadow: -14px 35px 10px #47b3bf;
+  box-shadow: -14px 35px 10px gray;
 `;
 
 export const FormContainer = styled.div`

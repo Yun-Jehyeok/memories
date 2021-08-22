@@ -16,11 +16,22 @@ const SignupCheck = (props) => {
 
   return (
     <FormContainer>
-      <h1>Memories</h1>
+      <h1 style={{ paddingTop: '20px' }}>Memories</h1>
       <div>기억들을 찾아주셔서 감사합니다.</div>
-      <Form onSubmit={checkSubmit}>
+      <Form onSubmit={checkSubmit} style={{ paddingBottom: '20px' }}>
         <span>이용약관</span>
-        <div>
+        <div
+          style={{
+            border: '1px solid #e0e0e0',
+            width: '100%',
+            height: '50vh',
+            padding: '10px',
+            overflowY: 'scroll',
+            fontWeight: '200',
+            fontSize: '15px',
+            marginBottom: '5px',
+          }}
+        >
           <b>제1조(목적)</b>
           <br />
           <br /> 이 약관은 memories회사(전자상거래 사업자)가 운영하는 memories
@@ -347,7 +358,9 @@ const SignupCheck = (props) => {
           onChange={onChangeConditions}
         />
         <span>이용약관에 동의합니다.</span>
-        <Button type="submit">다음</Button>
+        <Button type="submit" onClick={checkSubmit}>
+          다음
+        </Button>
       </Form>
     </FormContainer>
   );
