@@ -1,15 +1,29 @@
 import styled from 'styled-components';
+
 export const Explain = styled.div`
   display: inline-block;
   position: fixed;
   font-size: 9vh;
   z-index: 50px;
+  margin-left: 35%;
 `;
+export const Container = styled.div`
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+  white-space: nowrap;
+`;
+
+export const age = styled.div`
+  color: #1f1f1f;
+`;
+
 export const ItemContainer = styled.div`
   width: 100%;
   height: 450px;
   position: absolute;
-  top: 20%;
+  top: 45%;
+  transform: translate(0, -50%);
 `;
 
 export const Item = styled.div`
@@ -22,7 +36,8 @@ export const Item = styled.div`
   margin-left: 8%;
   margin-bottom: 10%;
   background-color: white;
-  box-shadow: -20px 20px 10px black;
+  box-shadow: -20px 20px 10px #a4a4a4;
+  white-space: normal;
   cursor: pointer;
   & img {
     width: 100%;

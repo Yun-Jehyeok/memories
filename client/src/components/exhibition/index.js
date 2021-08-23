@@ -1,6 +1,5 @@
 import React from 'react';
 import { Page, Text, Box } from './styles';
-import { Link } from 'react-router-dom';
 import four_pic from 'assets/img/person/ahnbyeonha.png';
 const Exhibition = () => {
   return (
@@ -10,7 +9,6 @@ const Exhibition = () => {
       style={{ width: '100%', height: '100vh' }}
     >
       <div>
-        npn
         <Page>
           <Text className="content_main" style={{ margin: '0px' }}>
             <div>

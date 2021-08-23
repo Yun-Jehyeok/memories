@@ -47,9 +47,11 @@ const History = () => {
   const { Option } = Select;
 
   const handleChange = (value) => {
+    setCount(0);
     setOption(value);
   };
   const onSelect = (value) => {
+    setCount(0);
     setOption(value);
   };
 

@@ -7,22 +7,11 @@ const Intro = () => {
       <div className="row">
         <Info className="col align-self-center">
           <b>
+            <span className="red" style={{ color: 'red' }}></span>
             <br />
-            <span className="red" style={{ color: 'red' }}>
-              이것
-            </span>
-            이야말로
-            <br />
-            무한한 가치를 가진 것이다
-            <br />
-            사람은 크고 작고
+            국가 유공자분들을 위한 전시회
+            <br />⌜ 기억들 ⌟ 입니다.
           </b>
-          <div>
-            <br />
-            <div>Text - Double click to edit Text - Double </div>
-            <div>click to edit Text - Double click to edit </div>
-            <div>Text - Double click to edit</div>
-          </div>
         </Info>
       </div>
     </Page>
