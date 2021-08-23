@@ -1,137 +1,117 @@
 import React, { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { Logo } from 'assets/commonStyle/styles';
-import useInput from 'hooks/useInput';
 import { registerAction } from 'redux/actions';
 import SignupCheck from './SignupCheck';
-import {
-  Button,
-  Form,
-  Input,
-  Label,
-  Header,
-  LinkContainer,
-  Wrap,
-  Container,
-  Error,
-} from '../Login/styles';
+import { FormContainer, SignUpContainer, Wrap } from './style';
+import { Button, Form, Input } from 'antd';
 
 const Signup = () => {
-  const [email, onChangeEmail] = useInput('');
-  const [name, onChangeName] = useInput('');
-  const [password, setPassword] = useState('');
-  const [passwordCheck, setPasswordCheck] = useState('');
+  const [form, setValues] = useState({
+    name: '',
+    email: '',
+    password: '',
+    passwordCheck: '',
+  });
+
   const [conditions, setConditions] = useState(false);
   const [check, setCheck] = useState(false);
 
-  // password === password-check?
-  const [passwordCheckError, setPasswordCheckError] = useState(false);
-
   const dispatch = useDispatch();
 
-  const onChangePassword = useCallback(
-    (e) => {
-      setPassword(e.target.value);
-      setPasswordCheckError(e.target.value !== passwordCheck);
-    },
-    [passwordCheck],
-  );
-
-  const onChangePasswordCheck = useCallback(
-    (e) => {
-      setPasswordCheck(e.target.value);
-      setPasswordCheckError(e.target.value !== password);
-    },
-    [password],
-  );
+  const onChange = (e) => {
+    setValues({
+      ...form,
+      [e.target.name]: e.target.value,
+    });
+  };
 
   const onSubmit = useCallback(
     (e) => {
       e.preventDefault();
 
-      const newUser = { name, email, password };
+      const { name, email, password, passwordCheck } = form;
 
-      dispatch(registerAction(newUser));
+      if (password !== passwordCheck) {
+        alert('비밀번호와 비밀번호 확인은 같아야 합니다.');
+      } else {
+        const user = { name, email, password };
+
+        dispatch(registerAction(user));
+      }
     },
-    [name, email, password, dispatch],
+    [form, dispatch],
   );
 
   return (
-    <Wrap>
+    <div>
       <Logo />
-      {check ? (
-        <Container>
-          <Header>REGISTER</Header>
-          <Form onSubmit={onSubmit}>
-            <Label id="email-label">
-              <div>
-                <Input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="Input your email"
-                  value={email}
-                  onChange={onChangeEmail}
-                />
-              </div>
-            </Label>
-            <Label id="name-label">
-              <div>
-                <Input
-                  type="text"
-                  id="name"
-                  name="name"
-                  placeholder="Input your name"
-                  value={name}
-                  onChange={onChangeName}
-                />
-              </div>
-            </Label>
-            <Label id="password-label">
-              <div>
-                <Input
-                  type="password"
-                  id="password"
-                  name="password"
-                  placeholder="Input your password"
-                  value={password}
-                  onChange={onChangePassword}
-                />
-              </div>
-            </Label>
-            <Label id="password-check-label">
-              <div>
-                <Input
-                  type="password"
-                  id="password-check"
-                  name="password-check"
-                  placeholder="Input your password one more time"
-                  value={passwordCheck}
-                  onChange={onChangePasswordCheck}
-                />
-              </div>
-              {passwordCheckError && (
-                <Error>비밀번호가 일치하지 않습니다.</Error>
-              )}
-            </Label>
-            <Button type="submit">Sign up</Button>
-            <LinkContainer>
-              <div>or</div>
-              <Link to="/login" style={{ color: '#4a154b' }}>
-                Sign in
-              </Link>
-            </LinkContainer>
-          </Form>
-        </Container>
-      ) : (
-        <SignupCheck
-          conditions={conditions}
-          setConditions={setConditions}
-          setCheck={setCheck}
-        />
-      )}
-    </Wrap>
+      <SignUpContainer>
+        <Wrap>
+          {check ? (
+            <FormContainer>
+              <h1>REGISTER</h1>
+              <Form onSubmit={onSubmit}>
+                <Form.Item label="NAME" style={{ marginBottom: '0px' }}>
+                  <Input
+                    type="name"
+                    name="name"
+                    id="name"
+                    placeholder="Name"
+                    onChange={onChange}
+                  />
+                </Form.Item>
+                <Form.Item label="EMAIL" style={{ marginBottom: '0px' }}>
+                  <Input
+                    type="email"
+                    name="email"
+                    id="email"
+                    placeholder="Email"
+                    onChange={onChange}
+                  />
+                </Form.Item>
+
+                <Form.Item label="PASSWORD" style={{ marginBottom: '0px' }}>
+                  <Input.Password
+                    type="password"
+                    name="password"
+                    id="password"
+                    placeholder="Password"
+                    onChange={onChange}
+                  />
+                </Form.Item>
+
+                <Form.Item label="PASSWORD CHECK">
+                  <Input.Password
+                    type="password"
+                    name="passwordCheck"
+                    id="passwordCheck"
+                    placeholder="Password Check"
+                    onChange={onChange}
+                  />
+                </Form.Item>
+
+                <Form.Item>
+                  <Button
+                    style={{ width: '100%' }}
+                    type="primary"
+                    onClick={onSubmit}
+                  >
+                    회원가입
+                  </Button>
+                </Form.Item>
+              </Form>
+            </FormContainer>
+          ) : (
+            <SignupCheck
+              conditions={conditions}
+              setConditions={setConditions}
+              setCheck={setCheck}
+            />
+          )}
+        </Wrap>
+      </SignUpContainer>
+    </div>
   );
 };
 

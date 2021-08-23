@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import FourModal from './419Modal';
 import { Explain, Container } from './styles';
 const four_page = () => {

@@ -19,7 +19,6 @@ import { Form, FormGroup, Input, Row } from 'reactstrap';
 import { addToCartRequest, getGoodsDetail } from 'redux/actions';
 
 const GoodsDetail = (props) => {
-  const [Product, setProduct] = useState([]);
   const [DescriptionButtonClick, setDescriptionButtonClick] = useState(true);
   const [likes, setLikes] = useState(0); // 모든 사용자
   const [action, setAction] = useState(''); // 로그인한 사용자가
@@ -89,7 +88,7 @@ const GoodsDetail = (props) => {
         alert('데이터 오류');
       }
     });
-  }, [goodsId]);
+  }, [goodsId, userId, dispatch]);
 
   const addToCartHandler = () => {
     const data = {

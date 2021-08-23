@@ -34,7 +34,7 @@ function FourModal() {
   const Items = dummyArr.map((item) => (
     <Item key={item.id} onClick={() => showModal(item)}>
       <div>
-        <img src={item.image} />
+        <img src={item.image} alt={item.title} />
       </div>
       <div>
         <h3>{item.title}</h3>
@@ -55,7 +55,7 @@ function FourModal() {
       >
         <ModalBox>
           <div>
-            <img src={ItemDetail.image} />
+            <img src={ItemDetail.image} alt={ItemDetail.title} />
             <IconBox>
               <HeartOutlined />
               <RobotOutlined />

@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 export const NavContainer = styled.div`
   background-color: transparent;
   width: 100%;
-  height: 10vh;
+  height: 15vh;
+  z-index: 300;
 
   & a {
     display: inline-block;
@@ -35,8 +36,8 @@ export const MenuContainer = styled.div`
   & .nav-item {
     color: #a4a4a4;
     font-weight: 400;
-    font-size: 14px;
-    margin-right: 30px;
+    font-size: 15px;
+    margin-right: 35px;
   }
   & .nav-border {
     display: inline-block;

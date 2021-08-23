@@ -8,6 +8,7 @@ import {
   Redtext,
   Info,
   Column,
+  Yeartext,
   ChevronDown,
   ChevronUp,
   Sel,
@@ -90,10 +91,13 @@ const History = () => {
             <Option value="근현대">근현대</Option>
           </Sel>
           {/* 년도 표시 */}
-          <div className="float-end">
+          <Yeartext className="float-end">
             <button type="button" onClick={onCountDown}>
               <ChevronUp />
             </button>
+            <Redtext className="year_animate">
+              {count === 0 ? <></> : yearoption[count - 1].slice(2, 4)}
+            </Redtext>
             <Text>
               {yearoption[count].slice(0, 2)}
               <Redtext>{yearoption[count].slice(2, 4)}</Redtext>
@@ -101,7 +105,14 @@ const History = () => {
             <button onClick={onCountUp}>
               <ChevronDown />
             </button>
-          </div>
+            <Redtext className="year_animate">
+              {count === yearoption.length - 1 ? (
+                <></>
+              ) : (
+                yearoption[count + 1].slice(2, 4)
+              )}
+            </Redtext>
+          </Yeartext>
         </Year>
         {/* 데이터 표시 */}
         <Info className="col align-self-center" id="infomation">
