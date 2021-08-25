@@ -16,7 +16,7 @@ import {
   ADD_TO_CART_USER_FAILURE,
   GET_CART_ITEMS_USER_REQUEST,
   GET_CART_ITEMS_USER_SUCCESS,
-  GET_CART_ITEMS_USER_FAILURE
+  GET_CART_ITEMS_USER_FAILURE,
 } from '../types';
 
 const initialState = {
@@ -31,7 +31,7 @@ const initialState = {
   errorMsg: '',
   successMsg: '',
   cart: [],
-  cartDetail: []
+  cartDetail: [],
 };
 
 const authReducer = (state = initialState, action) => {
@@ -124,20 +124,23 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
       };
-    
+
     case GET_CART_ITEMS_USER_REQUEST:
       return {
         ...state,
-      }
+        isLoading: true,
+      };
     case GET_CART_ITEMS_USER_SUCCESS:
       return {
         ...state,
-        cartDetail: action.payload
-      }
+        cartDetail: action.payload,
+        isLoading: false,
+      };
     case GET_CART_ITEMS_USER_FAILURE:
       return {
-        ...state
-      }
+        ...state,
+        isLoading: false,
+      };
 
     default:
       return state;

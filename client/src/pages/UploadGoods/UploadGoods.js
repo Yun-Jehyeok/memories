@@ -61,7 +61,7 @@ function UploadProduct(props) {
     Axios.post('/api/product/uploadProduct', variables).then((res) => {
       if (res.data.success) {
         alert('Product Successfully Uploaded');
-        props.history.push('/');
+        props.history.push('/goods');
       } else {
         alert('Failed to upload Product');
       }
