@@ -113,16 +113,6 @@ router.post('/addToCart', (req, res) => {
   });
 });
 
-// profile get
-router.get('/:id', async (req, res, next) => {
-  try {
-    const profile = await User.findById(req.params.id);
-    res.json(profile);
-  } catch (e) {
-    console.log(e);
-  }
-});
-
 // profile edit action
 router.post('/:id/edit', async (req, res, next) => {
   const { address, name, id } = req.body;

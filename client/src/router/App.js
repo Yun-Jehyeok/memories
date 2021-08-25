@@ -17,6 +17,7 @@ import thousand_page from 'pages/exhb_page/2000Main';
 import vet_page from 'pages/exhb_page/vetMain';
 import UploadProduct from 'pages/UploadGoods/UploadGoods';
 import Mypage from 'pages/Mypage';
+import ProfileEdit from 'pages/Mypage/ProfileEdit';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -52,6 +53,11 @@ const App = () => {
         path="/goods/:userId/mypage"
         exact
         component={Auth(Mypage, true)}
+      />
+      <Route
+        path="/goods/:userId/mypage/edit"
+        exact
+        component={Auth(ProfileEdit, true)}
       />
     </Switch>
   );

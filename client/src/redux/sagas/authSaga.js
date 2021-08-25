@@ -23,9 +23,6 @@ import {
   PROFILE_EDIT_REQUEST,
   PROFILE_EDIT_SUCCESS,
   PROFILE_EDIT_FAILURE,
-  PROFILE_UPLOAD_REQUEST,
-  PROFILE_UPLOAD_SUCCESS,
-  PROFILE_UPLOAD_FAILURE,
 } from '../types';
 
 const loginUserAPI = (loginData) => {
@@ -206,48 +203,26 @@ function* watchgetCartItem() {
 
 // PROFILE //
 
-const loadProfileAPI = (payload) => {
-  return axios.get(`/api/user/${payload}`);
-};
-
-function* loadProfile(action) {
-  try {
-    const result = yield call(loadProfileAPI, action.payload);
-
-    yield put({
-      type: PROFILE_UPLOAD_SUCCESS,
-      payload: result.data,
-    });
-  } catch (e) {
-    yield put({
-      type: PROFILE_UPLOAD_FAILURE,
-      payload: e,
-    });
-
-    yield put(push('/'));
-  }
-}
-
-function* watchloadProfile() {
-  yield takeEvery(PROFILE_UPLOAD_REQUEST, loadProfile);
-}
-
 const ProfileEditAPI = (payload) => {
   const config = {
     headers: {
       'Content-Type': 'application/json',
     },
   };
-  return axios.post(`api/user/${payload.id}/edit`, payload, config);
+  console.log(payload.userId);
+  return axios.post(`/api/user/${payload.userId}/edit`, payload, config);
 };
 
 function* ProfileEdit(action) {
   try {
     const result = yield call(ProfileEditAPI, action.payload);
+    console.log(result.data.userId);
     yield put({
       type: PROFILE_EDIT_SUCCESS,
       payload: result.data,
     });
+
+    yield put(push(`/goods/${result.data.userId}/mypage`));
   } catch (e) {
     yield put({
       type: PROFILE_EDIT_FAILURE,
@@ -271,7 +246,6 @@ export default function* authSaga() {
     fork(watchaddToCart),
     fork(watchgetCartItem),
     // Profile //
-    fork(watchloadProfile),
     fork(watchProfileEdit),
   ]);
 }

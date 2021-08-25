@@ -34,8 +34,6 @@ const GoodsNavbar = () => {
     });
   }, [dispatch]);
 
-  console.log(isAuthenticated);
-
   const menu = (
     <Menu>
       <Menu.Item icon={<DownOutlined />}>
