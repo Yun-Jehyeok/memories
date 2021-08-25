@@ -1,6 +1,6 @@
 import React from 'react';
 import { Page, Text, Box } from './styles';
-import four_pic from 'assets/img/person/ahnbyeonha.png';
+import four_pic from 'assets/img/518signature.png';
 const Exhibition = () => {
   return (
     <div
