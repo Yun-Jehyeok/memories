@@ -39,26 +39,13 @@ const App = () => {
       <Route path="/vet_page" exact component={vet_page} />
 
       {/* 굿즈 페이지 */}
-      <Route path="/signup" exact component={Auth(Signup, false)} />
-      <Route path="/goods" exact component={Auth(GoodsMain, null)} />
-      <Route path="/goods/cart" exact component={Auth(Cart, true)} />
-      <Route
-        path="/goods/donation"
-        exact
-        component={Auth(GoodsDonation, null)}
-      />
-      <Route path="/goods/upload" exact component={Auth(UploadProduct, true)} />
-      <Route path="/goods/:goodsId" exact component={Auth(GoodsDetail, null)} />
-      <Route
-        path="/goods/:userId/mypage"
-        exact
-        component={Auth(Mypage, true)}
-      />
-      <Route
-        path="/goods/:userId/mypage/edit"
-        exact
-        component={Auth(ProfileEdit, true)}
-      />
+      <Route path="/signup" exact component={Signup} />
+      <Route path="/goods" exact component={GoodsMain} />
+      <Route path="/goods/cart" exact component={Cart} />
+      <Route path="/goods/donation" exact component={GoodsDonation} />
+      <Route path="/goods/upload" exact component={UploadProduct} />
+      <Route path="/goods/:goodsId" exact component={GoodsDetail} />
+      <Route path="/goods/:userId/mypage" exact component={Mypage} />
     </Switch>
   );
 };

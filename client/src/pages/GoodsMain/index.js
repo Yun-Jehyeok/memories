@@ -67,6 +67,7 @@ const GoodsMain = () => {
                       key={product._id}
                       to={`/goods/${product._id}`}
                     >
+                      {console.log(product)}
                       <Slide
                         src={`http://localhost:7000/${product.images}`}
                         alt="goodsMain"

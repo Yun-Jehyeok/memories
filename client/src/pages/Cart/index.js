@@ -1,21 +1,80 @@
 import React, { useEffect, useState } from 'react';
 import GoodsNavbar from 'components/shared/goodsNavbar/goodsNavbar';
-import { Link } from 'react-router-dom';
 
 // styles //
-import { Page, BuyArea, CardArea } from './styles';
-import Checkbox from '@material-ui/core/Checkbox';
-import { Card } from 'antd';
+import { Page } from './styles';
+import { Table, Icon, Button } from 'antd';
 import 'antd/dist/antd.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getCartItems } from 'redux/actions';
 
-const { Meta } = Card;
+const columns = [
+  {
+    title: '',
+    dataIndex: 'image',
+    key: 'image',
+    align: 'center',
+    width: 80,
+    render: (image) => (
+      <img
+        src={`http://localhost:7000/${image}`}
+        style={{ width: '100px', height: '100px' }}
+      />
+    ),
+  },
+  {
+    title: '상품명',
+    dataIndex: 'title',
+    key: 'title',
+    width: 80,
+    align: 'center',
+  },
+  {
+    title: '상품정보',
+    dataIndex: 'description',
+    key: 'description',
+    width: 400,
+    align: 'center',
+  },
+  {
+    title: '상품금액',
+    dataIndex: 'price',
+    key: 'price',
+    align: 'center',
+    width: 80,
+    render: (price) => <div>{price} 원</div>,
+  },
+];
+
+const data = [];
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const { user, cartDetail } = useSelector((state) => state.auth);
+  const { user, cartDetail, isLoading } = useSelector((state) => state.auth);
   const [Total, setTotal] = useState(0);
+  const [checkStrictly, setCheckStrictly] = useState(false);
+
+  const rowSelection = {
+    onChange: (selectedRowKeys, selectedRows) => {},
+    onSelect: (record, selected, selectedRows) => {
+      let total = 0;
+
+      selectedRows.map((item) => {
+        total += item.price;
+      });
+
+      setTotal(total);
+    },
+    onSelectAll: (selected, selectedRows, changeRows) => {
+      let total = 0;
+
+      selectedRows.map((item) => {
+        total += item.price;
+      });
+
+      setTotal(total);
+    },
+  };
 
   useEffect(() => {
     let cartItems = [];
@@ -34,67 +93,58 @@ const Cart = () => {
         dispatch(getCartItems(data));
       }
     }
-  }, []);
-
-  const [select, setSelect] = useState('none');
-
-  const onSelect = () => {
-    if (select === 'selected') {
-      setSelect('none');
-    } else {
-      setSelect('selected');
-    }
-  };
+  }, [user, dispatch]);
 
   useEffect(() => {
-    if (cartDetail && cartDetail.length > 0) {
-      calculateTotal(cartDetail);
-    }
-  }, [cartDetail]);
-
-  const calculateTotal = (cartDetail) => {
-    let total = 0;
-
-    cartDetail.map((item) => {
-      total += parseInt(item.price, 10) * item.quantity;
-    });
-
-    setTotal(total);
-  };
-
-  const goods =
     cartDetail &&
-    cartDetail.map((item) => (
-      <CardArea key={item._id}>
-        {select === 'selected' ? <Checkbox color="default" /> : <></>}
-        <Link to={`/goods/${item._id}`}>
-          <Card
-            hoverable
-            className="text-center"
-            cover={
-              <img
-                src={`http://localhost:7000/${item.images}`}
-                alt="productImage"
-              />
-            }
-          >
-            <Meta title={item.title} />
-          </Card>
-        </Link>
-      </CardArea>
-    ));
+      cartDetail.map((item) => {
+        data.push({
+          key: `${item._id}`,
+          image: item.images,
+          title: item.title,
+          description: item.description,
+          price: item.price,
+        });
+      });
+  }, [cartDetail, data]);
 
   return (
     <Page>
       <GoodsNavbar />
-      <BuyArea className="text-end">
-        <span id="select" onClick={onSelect}>
-          선택
-        </span>
-        <span id="buy">구매하기</span>
-      </BuyArea>
-      {goods}
-      <div>결제 총 금액: {Total}원</div>
+      <div style={{ fontSize: '32px', marginLeft: '5%', marginBottom: '30px' }}>
+        <Icon type="shopping-cart" style={{ marginRight: '10px' }} />
+        장바구니
+      </div>
+      {isLoading ? (
+        ''
+      ) : (
+        <Table
+          columns={columns}
+          dataSource={data}
+          pagination={{ position: ['none', 'none'] }}
+          rowSelection={{ ...rowSelection, checkStrictly }}
+          footer={() => (
+            <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+              결제 총 금액: {Total}
+            </div>
+          )}
+          bordered
+          style={{ width: '90%', marginLeft: '5%' }}
+        />
+      )}
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'flex-end',
+          marginRight: '5%',
+          marginTop: '24px',
+        }}
+      >
+        <Button type="primary" style={{ width: '80px' }}>
+          구매하기
+        </Button>
+      </div>
+
       <section id="profile"></section>
     </Page>
   );

@@ -17,8 +17,8 @@ var storage = multer.diskStorage({
   fileFilter: (req, file, cb) => {
     const ext = path.extname(file.originalname);
 
-    if (ext !== '.jpg' || ext !== '.png') {
-      return cb(res.status(400).end('only jpg, png are allowed'), false);
+    if (ext !== '.jpg' || ext !== '.png' || ext !== '.jpeg') {
+      return cb(res.status(400).end('only jpg, png, jpeg are allowed'), false);
     }
 
     cb(null, true);
@@ -77,7 +77,7 @@ router.post('/uploadProduct', (req, res) => {
 
 // Get Product By Id
 // GET
-router.get('/products_by_id', (req, res) => {
+router.get('/products_by_id', async (req, res) => {
   let type = req.query.type;
   let productIds = req.query.id;
 
@@ -89,7 +89,7 @@ router.get('/products_by_id', (req, res) => {
     });
   }
 
-  Product.find({ _id: { $in: productIds } })
+  await Product.find({ _id: { $in: productIds } })
     .populate('writer')
     .exec((err, product) => {
       if (err) return res.status(400).send(err);
