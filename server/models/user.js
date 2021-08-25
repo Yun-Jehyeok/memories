@@ -19,6 +19,18 @@ const UserSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  comments: [
+    {
+      product_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'product',
+      },
+      comment_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'comment',
+      },
+    },
+  ],
   image: String,
   cart: {
     type: Array,
