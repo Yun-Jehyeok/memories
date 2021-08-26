@@ -135,7 +135,9 @@ function* watchlogout() {
 
 // Add to cart
 const addToCartAPI = (data) => {
-  return axios.post(`/api/user/addToCart?productId=${data.goodsId}&userId=${data.userId}`);
+  return axios.post(
+    `/api/user/addToCart?productId=${data.goodsId}&userId=${data.userId}`,
+  );
 };
 
 function* addToCart(action) {
@@ -160,18 +162,19 @@ function* watchaddToCart() {
 
 // Get Cart Item
 const getCartItemAPI = (data) => {
-  return axios.get(`/api/product/products_by_id?id=${data.cartItems}&type=array`)
-  .then(res => {
-    data.userCart.forEach(cartItem => {
-      res.data.forEach((productDetail, ind) => {
-        if(cartItem.id === productDetail._id) {
-          res.data[ind].quantity = cartItem.quantity;
-        }
-      })
-    })
+  return axios
+    .get(`/api/product/products_by_id?id=${data.cartItems}&type=array`)
+    .then((res) => {
+      data.userCart.forEach((cartItem) => {
+        res.data.forEach((productDetail, ind) => {
+          if (cartItem.id === productDetail._id) {
+            res.data[ind].quantity = cartItem.quantity;
+          }
+        });
+      });
 
-    return res.data
-  });
+      return res.data;
+    });
 };
 
 function* getCartItem(action) {
@@ -201,6 +204,6 @@ export default function* authSaga() {
     fork(watchuserLoading),
     fork(watchlogout),
     fork(watchaddToCart),
-    fork(watchgetCartItem)
+    fork(watchgetCartItem),
   ]);
 }

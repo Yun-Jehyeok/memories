@@ -3,8 +3,6 @@ import styled from 'styled-components';
 export const Background = styled.div`
   width: 100%;
   height: 100vh;
-  position: absolute;
-  top: 0;
   background: rgba(254, 232, 171, 0.3);
 `;
 

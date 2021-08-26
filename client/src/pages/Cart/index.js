@@ -125,7 +125,7 @@ const Cart = () => {
           rowSelection={{ ...rowSelection, checkStrictly }}
           footer={() => (
             <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-              결제 총 금액: {Total}
+              결제 총 금액: {Total} 원
             </div>
           )}
           bordered
