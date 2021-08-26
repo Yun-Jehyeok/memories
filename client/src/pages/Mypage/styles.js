@@ -43,8 +43,8 @@ export const BtnContainer = styled.div`
   text-align: center;
   margin: 50px 10% 0 10%;
 
-  & > button:nth-child(1) {
-    margin-right: 7%;
+  & > button:nth-child(2) {
+    margin-left: 7%;
   }
 `;
 

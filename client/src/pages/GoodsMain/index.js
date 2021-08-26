@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
 import GoodsNavbar from 'components/shared/goodsNavbar/goodsNavbar';
@@ -50,6 +51,7 @@ const GoodsMain = () => {
 
   return (
     <Page>
+      <Helmet title="기억들 - 굿즈" />
       <div>
         <GoodsNavbar />
         <div className="slide_wrap">

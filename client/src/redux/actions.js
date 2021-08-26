@@ -6,6 +6,7 @@ import {
   ADD_TO_CART_USER_REQUEST,
   GET_CART_ITEMS_USER_REQUEST,
   POST_DETAIL_LOADING_REQUEST,
+  PROFILE_EDIT_REQUEST,
 } from './types';
 
 export const loginAction = (user) => ({
@@ -41,4 +42,9 @@ export const getCartItems = (data) => ({
 export const getGoodsDetail = (goodsId) => ({
   type: POST_DETAIL_LOADING_REQUEST,
   payload: goodsId,
+});
+
+export const editProfile = (data) => ({
+  type: PROFILE_EDIT_REQUEST,
+  payload: data,
 });
