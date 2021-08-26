@@ -44,6 +44,10 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: moment().format('MMMM DD, YYYY'),
   },
+  address: {
+    type: String,
+    required: false,
+  },
 });
 
 const User = mongoose.model('user', UserSchema);
