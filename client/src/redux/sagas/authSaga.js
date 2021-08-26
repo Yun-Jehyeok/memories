@@ -62,7 +62,6 @@ const registerUserAPI = (registerData) => {
       'Content-Type': 'application/json',
     },
   };
-
   return axios.post('api/user/register', registerData, config);
 };
 
@@ -127,6 +126,8 @@ function* logout() {
     yield put({
       type: LOGOUT_SUCCESS,
     });
+
+    yield put(push(`/goods`));
   } catch (e) {
     yield put({
       type: LOGOUT_FAILURE,
@@ -209,14 +210,18 @@ const ProfileEditAPI = (payload) => {
       'Content-Type': 'application/json',
     },
   };
-  console.log(payload.userId);
+  const token = payload.token;
+  if (token) {
+    config.headers['x-auth-token'] = token;
+  }
+  console.log(payload);
   return axios.post(`/api/user/${payload.userId}/edit`, payload, config);
 };
 
 function* ProfileEdit(action) {
   try {
     const result = yield call(ProfileEditAPI, action.payload);
-    console.log(result.data.userId);
+    console.log(result);
     yield put({
       type: PROFILE_EDIT_SUCCESS,
       payload: result.data,

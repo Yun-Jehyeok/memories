@@ -30,7 +30,7 @@ const Exhibition = () => {
               </>
             </div>
           </center_abs>
-          <a href="/518main">
+          <a href="/518main/exhibitDetail">
             <Box
               className="length"
               style={{
@@ -40,7 +40,7 @@ const Exhibition = () => {
               }}
             ></Box>
           </a>
-          <a href="/vet_page">
+          <a href="/vet_page/exhibitDetail">
             <Box
               className="length"
               style={{
@@ -50,7 +50,7 @@ const Exhibition = () => {
               }}
             ></Box>
           </a>
-          <a href="/thousand_page">
+          <a href="/thousand_page/exhibitDetail">
             <Box
               className="square"
               style={{
@@ -61,7 +61,7 @@ const Exhibition = () => {
               }}
             ></Box>
           </a>
-          <a href="/jap_page">
+          <a href="/jap_page/exhibitDetail">
             <Box
               className="width_2"
               style={{
@@ -72,7 +72,7 @@ const Exhibition = () => {
               }}
             ></Box>
           </a>
-          <a href="/625main">
+          <a href="/625main/exhibitDetail">
             <Box
               className="width"
               style={{
@@ -83,7 +83,7 @@ const Exhibition = () => {
               }}
             ></Box>
           </a>
-          <a href="/419main">
+          <a href="/419main/exhibitDetail">
             <Box
               className="length_2"
               style={{
