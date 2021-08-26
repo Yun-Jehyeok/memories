@@ -17,7 +17,7 @@ import { Btn } from 'assets/commonStyle/styles';
 import {} from '../../redux/types';
 
 const Mypage = (props) => {
-  const { userName, address, user } = useSelector((state) => state.auth);
+  const { userName, user } = useSelector((state) => state.auth);
 
   const userId = props.match.params.userId;
 
@@ -34,7 +34,7 @@ const Mypage = (props) => {
                 <b>가입일</b> : {String(user.register_date).substring(0, 10)}
               </p>
               <p>
-                <b>주소</b> : {address}
+                <b>주소</b> : {user.address}
               </p>
               <p>
                 <b>닉네임</b> : {userName}

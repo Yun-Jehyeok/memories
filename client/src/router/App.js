@@ -31,12 +31,7 @@ const App = () => {
     <Switch>
       {/* 메인 페이지 */}
       <Route path="/" exact component={Main} />
-      <Route path="/518main" exact component={five_page} />
-      <Route path="/419main" exact component={four_page} />
-      <Route path="/625main" exact component={six_page} />
-      <Route path="/jap_page" exact component={jap_page} />
-      <Route path="/thousand_page" exact component={thousand_page} />
-      <Route path="/vet_page" exact component={vet_page} />
+      <Route path="/:exhibtionId/exhibitDetail" component={four_page} />
 
       {/* 굿즈 페이지 */}
       <Route path="/signup" exact component={Signup} />
@@ -46,6 +41,7 @@ const App = () => {
       <Route path="/goods/upload" exact component={UploadProduct} />
       <Route path="/goods/:goodsId" exact component={GoodsDetail} />
       <Route path="/goods/:userId/mypage" exact component={Mypage} />
+      <Route path="/goods/:userId/mypage/edit" exact component={ProfileEdit} />
     </Switch>
   );
 };

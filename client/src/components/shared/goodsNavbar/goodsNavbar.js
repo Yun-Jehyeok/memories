@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { LOGOUT_REQUEST } from 'redux/types';
+import { push } from 'react-router-redux';
 
 // style component //
 import {
@@ -32,6 +33,7 @@ const GoodsNavbar = () => {
     dispatch({
       type: LOGOUT_REQUEST,
     });
+    dispatch(push('/goods'));
   }, [dispatch]);
 
   const menu = (
