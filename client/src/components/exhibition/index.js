@@ -1,6 +1,7 @@
 import React from 'react';
 import { Page, Text, Box } from './styles';
-import four_pic from 'assets/img/518signature.png';
+import five_pic from 'assets/img/518signature.png';
+import six_pic from 'assets/img/625signature.png';
 const Exhibition = () => {
   return (
     <div
@@ -84,9 +85,11 @@ const Exhibition = () => {
                   width: '360px',
                   height: '270px',
                 }}
-              ></Box>
+              >
+                <img src={six_pic} style={{ width: '100%', height: '100%' }} />
+              </Box>
             </a>
-            <a href="/419main">
+            <a href="/518main">
               <Box
                 className="length_2"
                 style={{
@@ -96,7 +99,7 @@ const Exhibition = () => {
                   height: '200px',
                 }}
               >
-                <img src={four_pic} style={{ width: '100%', height: '100%' }} />
+                <img src={five_pic} style={{ width: '100%', height: '100%' }} />
               </Box>
             </a>
 
