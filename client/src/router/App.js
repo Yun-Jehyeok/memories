@@ -9,11 +9,8 @@ import GoodsMain from 'pages/GoodsMain';
 import GoodsDetail from 'pages/GoodsDetail';
 import Cart from 'pages/Cart';
 import GoodsDonation from 'pages/GoodsDonation';
-import five_page from 'pages/exhb_page/419Main';
-import four_page from 'pages/exhb_page/518Main';
-import six_page from 'pages/exhb_page/625Main';
-import thousand_page from 'pages/exhb_page/2000Main';
-import vet_page from 'pages/exhb_page/vetMain';
+import five_page from 'pages/exhb_page/518Main';
+import four_page from 'pages/exhb_page/419Main';
 import UploadProduct from 'pages/UploadGoods/UploadGoods';
 import Mypage from 'pages/Mypage';
 import ProfileEdit from 'pages/Mypage/ProfileEdit';
@@ -32,9 +29,6 @@ const App = () => {
       <Route path="/" exact component={Main} />
       <Route path="/518main" exact component={five_page} />
       <Route path="/419main" exact component={four_page} />
-      <Route path="/625main" exact component={six_page} />
-      <Route path="/thousand_page" exact component={thousand_page} />
-      <Route path="/vet_page" exact component={vet_page} />
 
       {/* 굿즈 페이지 */}
       <Route path="/signup" exact component={Signup} />

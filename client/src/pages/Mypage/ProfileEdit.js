@@ -18,12 +18,12 @@ import { Btn } from 'assets/commonStyle/styles';
 import { editProfile } from 'redux/actions';
 
 const ProfileEdit = (props) => {
-  const { userName, address } = useSelector((state) => state.auth);
+  const { userName, user } = useSelector((state) => state.auth);
   const userId = props.match.params.userId;
 
   const [form, setValues] = useState({
     name: `${userName}`,
-    address: `${address}`,
+    address: `${user.address}`,
   });
 
   const onChange = (e) => {
@@ -41,7 +41,6 @@ const ProfileEdit = (props) => {
     const { name, address } = form;
     const token = localStorage.getItem('token');
     const body = { name, address, token, userId };
-    console.log(body);
     dispatch(editProfile(body));
   };
 
@@ -57,7 +56,8 @@ const ProfileEdit = (props) => {
               <Form onSubmit={onSubmit}>
                 <FormGroup>
                   <p>
-                    <b>가입일</b> : {}
+                    <b>가입일</b> :{' '}
+                    {String(user.register_date).substring(0, 10)}
                   </p>
                 </FormGroup>
                 <FormGroup>

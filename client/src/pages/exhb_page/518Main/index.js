@@ -1,17 +1,20 @@
 import React from 'react';
-import FiveModal from './518Modal';
-import { Explain, Container } from './styles';
+import { Page } from './styles';
+
 const five_page = () => {
   return (
-    <div className="detali_page_pr" /*가운데정렬 미정*/>
-      <Explain>
-        <b>PHOTO ALBUM</b>
-      </Explain>
-
-      <Container>
-        <FiveModal />
-      </Container>
-    </div>
+    <Page className="page_section">
+      ;
+      <div
+        className="518page"
+        style={{
+          textAlign: 'center',
+        }}
+      >
+        <h1 style={{ color: 'white' }}>419페이지입니다.</h1>
+      </div>
+      ;
+    </Page>
   );
 };
 
