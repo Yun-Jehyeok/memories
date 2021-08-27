@@ -46,7 +46,7 @@ const columns = [
   },
 ];
 
-const data = [];
+let dataArray = [];
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -98,7 +98,7 @@ const Cart = () => {
   useEffect(() => {
     cartDetail &&
       cartDetail.map((item) => {
-        data.push({
+        dataArray.push({
           key: `${item._id}`,
           image: item.images,
           title: item.title,
@@ -106,7 +106,7 @@ const Cart = () => {
           price: item.price,
         });
       });
-  }, [cartDetail, data]);
+  }, [cartDetail, dataArray]);
 
   return (
     <Page>
@@ -120,12 +120,12 @@ const Cart = () => {
       ) : (
         <Table
           columns={columns}
-          dataSource={data}
+          dataSource={dataArray}
           pagination={{ position: ['none', 'none'] }}
           rowSelection={{ ...rowSelection, checkStrictly }}
           footer={() => (
             <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-              결제 총 금액: {Total}
+              결제 총 금액: {Total} 원
             </div>
           )}
           bordered

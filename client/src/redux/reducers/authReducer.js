@@ -17,6 +17,9 @@ import {
   GET_CART_ITEMS_USER_REQUEST,
   GET_CART_ITEMS_USER_SUCCESS,
   GET_CART_ITEMS_USER_FAILURE,
+  PROFILE_EDIT_REQUEST,
+  PROFILE_EDIT_SUCCESS,
+  PROFILE_EDIT_FAILURE,
 } from '../types';
 
 const initialState = {
@@ -32,6 +35,8 @@ const initialState = {
   successMsg: '',
   cart: [],
   cartDetail: [],
+  address: '',
+  registerDate: '',
 };
 
 const authReducer = (state = initialState, action) => {
@@ -39,6 +44,7 @@ const authReducer = (state = initialState, action) => {
     case LOGIN_REQUEST:
     case REGISTER_REQUEST:
     case LOGOUT_REQUEST:
+    case PROFILE_EDIT_REQUEST:
       return {
         ...state,
         errorMsg: '',
@@ -142,6 +148,19 @@ const authReducer = (state = initialState, action) => {
         isLoading: false,
       };
 
+    case PROFILE_EDIT_SUCCESS:
+      return {
+        ...state,
+        isAuthenticated: true,
+        isLoading: false,
+        userName: action.payload.name,
+        address: action.payload.address,
+      };
+    case PROFILE_EDIT_FAILURE:
+      return {
+        ...state,
+        error: action.payload,
+      };
     default:
       return state;
   }

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import GoodsNavbar from 'components/shared/goodsNavbar/goodsNavbar';
+import Comment from 'components/comment/Comment';
 
 import { Button } from 'antd';
 // icons //
@@ -14,7 +15,6 @@ import {
 
 import { Box, DescriptionBox, PageLink, RightCircle } from './styles';
 import { Page } from 'assets/commonStyle/styles';
-import { Form, FormGroup, Input, Row } from 'reactstrap';
 
 import { addToCartRequest, getGoodsDetail } from 'redux/actions';
 
@@ -191,38 +191,7 @@ const GoodsDetail = (props) => {
                   </div>
                 </div>
               ) : (
-                <div>
-                  <div style={{ marginTop: '20px' }}>
-                    Comment Comment Comment Comment Comment Comment Comment
-                  </div>
-                  <div>
-                    Comment Comment Comment Comment Comment Comment Comment
-                  </div>
-                  <div>
-                    Comment Comment Comment Comment Comment Comment Comment
-                  </div>
-                  <div>
-                    Comment Comment Comment Comment Comment Comment Comment
-                  </div>
-                  <div>
-                    Comment Comment Comment Comment Comment Comment Comment
-                  </div>
-                  <br />
-                  <Form>
-                    <FormGroup>
-                      <Row>
-                        <div>Make Comment</div>
-                        <Input
-                          type="textarea"
-                          name="commentInput"
-                          id="commentInput"
-                          placeholder="Comment"
-                        />
-                        <Button type="primary">Submit</Button>
-                      </Row>
-                    </FormGroup>
-                  </Form>
-                </div>
+                <Comment />
               )}
             </div>
           </div>

@@ -2,6 +2,9 @@ import React from 'react';
 import { Page, Text, Box } from './styles';
 import five_pic from 'assets/img/518signature.png';
 import six_pic from 'assets/img/625signature.png';
+import vet_pic from 'assets/img/vetsignature.png';
+import twothousand_pic from 'assets/img/2000signature.png';
+import four_pic from 'assets/img/419signature.jpg';
 const Exhibition = () => {
   return (
     <div
@@ -32,7 +35,7 @@ const Exhibition = () => {
                 </>
               </div>
             </center_abs>
-            <a href="/518main">
+            <a href="/419main">
               <Box
                 className="length"
                 style={{
@@ -41,41 +44,40 @@ const Exhibition = () => {
                   width: '270px',
                   height: '360px',
                 }}
-              ></Box>
+              >
+                <img src={four_pic} style={{ width: '100%', height: '100%' }} />
+              </Box>
             </a>
             <a href="/vet_page">
               <Box
                 className="length"
                 style={{
-                  left: '57%',
-
-                  width: '270px',
+                  left: '80%',
+                  bottom: '40%',
+                  width: '280px',
                   height: '360px',
                 }}
-              ></Box>
+              >
+                <img src={vet_pic} style={{ width: '100%', height: '100%' }} />
+              </Box>
             </a>
             <a href="/thousand_page">
               <Box
                 className="square"
                 style={{
-                  left: '80%',
-                  bottom: '18%',
-                  width: '240px',
-                  height: '240px',
+                  left: '57%',
+                  bottom: '1%',
+                  width: '280px',
+                  height: '360px',
                 }}
-              ></Box>
+              >
+                <img
+                  src={twothousand_pic}
+                  style={{ width: '100%', height: '100%' }}
+                />
+              </Box>
             </a>
-            <a href="/jap_page">
-              <Box
-                className="width_2"
-                style={{
-                  left: '71%',
-                  bottom: '55%',
-                  width: '360px',
-                  height: '270px',
-                }}
-              ></Box>
-            </a>
+
             <a href="/625main">
               <Box
                 className="width"
@@ -89,13 +91,13 @@ const Exhibition = () => {
                 <img src={six_pic} style={{ width: '100%', height: '100%' }} />
               </Box>
             </a>
-            <a href="/518main">
+            <a href="/518Main">
               <Box
                 className="length_2"
                 style={{
-                  left: '43%',
+                  left: '46%',
                   bottom: '64%',
-                  width: '320px',
+                  width: '380px',
                   height: '200px',
                 }}
               >
@@ -107,8 +109,9 @@ const Exhibition = () => {
               <div
                 className="ex_abs"
                 style={{
-                  paddingLeft: '1200px',
-                  paddingTop: '255px',
+                  paddingLeft: '1120px',
+                  paddingTop: '220px',
+                  fontSize: '32px',
                 }}
               >
                 국가를 위해

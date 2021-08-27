@@ -9,7 +9,7 @@ import {
   RobotOutlined,
 } from '@ant-design/icons';
 
-function FourModal() {
+function FiveModal() {
   const [isModalVisible, setisModalVisible] = useState(false);
   const [ItemDetail, setItemDetail] = useState({
     image: '',
@@ -73,4 +73,4 @@ function FourModal() {
   );
 }
 
-export default FourModal;
+export default FiveModal;

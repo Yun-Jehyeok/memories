@@ -3,8 +3,6 @@ import styled from 'styled-components';
 export const Background = styled.div`
   width: 100%;
   height: 100vh;
-  position: absolute;
-  top: 0;
   background: rgba(254, 232, 171, 0.3);
 `;
 
@@ -43,8 +41,8 @@ export const BtnContainer = styled.div`
   text-align: center;
   margin: 50px 10% 0 10%;
 
-  & > button:nth-child(1) {
-    margin-right: 7%;
+  & > button:nth-child(2) {
+    margin-left: 7%;
   }
 `;
 

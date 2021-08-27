@@ -113,4 +113,21 @@ router.post('/addToCart', (req, res) => {
   });
 });
 
+// profile edit action
+router.post('/:id/edit', async (req, res, next) => {
+  const { address, name, id } = req.body;
+  try {
+    const modified_profile = await User.findByIdAndUpdate(
+      id,
+      { address, name },
+      { new: true },
+    );
+
+    res.json(modified_profile);
+  } catch (e) {
+    console.log(e);
+    next(e);
+  }
+});
+
 module.exports = router;

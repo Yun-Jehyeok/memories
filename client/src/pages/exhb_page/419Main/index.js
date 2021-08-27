@@ -1,18 +1,21 @@
 import React from 'react';
-import FourModal from './419Modal';
-import { Explain, Container } from './styles';
-const four_page = () => {
-  return (
-    <div className="detali_page_pr" /*가운데정렬 미정*/>
-      <Explain>
-        <b>PHOTO ALBUM</b>
-      </Explain>
+import { Page } from './styles';
 
-      <Container>
-        <FourModal />
-      </Container>
-    </div>
+const five_page = () => {
+  return (
+    <Page className="page_section">
+      ;
+      <div
+        className="518page"
+        style={{
+          textAlign: 'center',
+        }}
+      >
+        <h1 style={{ color: 'white' }}>419페이지입니다.</h1>
+      </div>
+      ;
+    </Page>
   );
 };
 
-export default four_page;
+export default five_page;
