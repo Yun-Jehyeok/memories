@@ -5,6 +5,7 @@ import six_pic from 'assets/img/625signature.png';
 import vet_pic from 'assets/img/vetsignature.png';
 import twothousand_pic from 'assets/img/2000signature.png';
 import four_pic from 'assets/img/419signature.jpg';
+
 const Exhibition = () => {
   return (
     <div
@@ -40,7 +41,6 @@ const Exhibition = () => {
                 className="length"
                 style={{
                   left: '12%',
-
                   width: '270px',
                   height: '360px',
                 }}

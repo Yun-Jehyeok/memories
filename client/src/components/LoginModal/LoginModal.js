@@ -1,7 +1,7 @@
 import React, { useState, useCallback } from 'react';
 import { Modal, Form, Button, Input } from 'antd';
-import { useDispatch, useSelector } from 'react-redux';
-import { loginAction, logoutAction } from 'redux/actions';
+import { useDispatch } from 'react-redux';
+import { loginAction } from 'redux/actions';
 import { Link } from 'react-router-dom';
 
 function LoginModal() {

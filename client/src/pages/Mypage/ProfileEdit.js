@@ -23,7 +23,7 @@ const ProfileEdit = (props) => {
 
   const [form, setValues] = useState({
     name: `${userName}`,
-    address: `${user.address}`,
+    address: `${user.address ? user.address : 'No Address'}`,
   });
 
   const onChange = (e) => {
@@ -39,8 +39,8 @@ const ProfileEdit = (props) => {
     await e.preventDefault();
 
     const { name, address } = form;
-    const token = localStorage.getItem('token');
-    const body = { name, address, token, userId };
+    const body = { name, address, userId };
+
     dispatch(editProfile(body));
   };
 

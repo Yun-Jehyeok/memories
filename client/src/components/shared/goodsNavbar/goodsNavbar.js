@@ -37,11 +37,11 @@ const GoodsNavbar = () => {
     dispatch(push('/goods'));
   }, [dispatch]);
 
-  useEffect(() => {
-    if (user.cart) {
-      setCartCount(user.cart.length);
-    }
-  }, [user]);
+  // useEffect(() => {
+  //   if (user.cart) {
+  //     setCartCount(user.cart.length);
+  //   }
+  // }, [user]);
 
   const menu = (
     <Menu>

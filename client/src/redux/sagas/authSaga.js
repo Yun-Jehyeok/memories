@@ -205,23 +205,15 @@ function* watchgetCartItem() {
 // PROFILE //
 
 const ProfileEditAPI = (payload) => {
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  };
-  const token = payload.token;
-  if (token) {
-    config.headers['x-auth-token'] = token;
-  }
   console.log(payload);
-  return axios.post(`/api/user/${payload.userId}/edit`, payload, config);
+
+  return axios.post(`/api/user/${payload.userId}/edit`, payload);
 };
 
 function* ProfileEdit(action) {
   try {
     const result = yield call(ProfileEditAPI, action.payload);
-    console.log(result);
+
     yield put({
       type: PROFILE_EDIT_SUCCESS,
       payload: result.data,

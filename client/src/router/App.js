@@ -38,6 +38,7 @@ const App = () => {
       <Route path="/goods/upload" exact component={UploadProduct} />
       <Route path="/goods/:goodsId" exact component={GoodsDetail} />
       <Route path="/goods/:userId/mypage" exact component={Mypage} />
+      <Route path="/goods/:userId/mypage/edit" exact component={ProfileEdit} />
     </Switch>
   );
 };
