@@ -19,8 +19,6 @@ import {} from '../../redux/types';
 const Mypage = (props) => {
   const { userName, user } = useSelector((state) => state.auth);
 
-  const userId = props.match.params.userId;
-
   return (
     <Page>
       <Helmet title={`기억들 - ${userName}님의 마이페이지`} />
@@ -41,7 +39,7 @@ const Mypage = (props) => {
               </p>
             </div>
             <BtnContainer>
-              <Link to={`/goods/${userId}/mypage/edit`}>
+              <Link to={`/goods/${user._id}/mypage/edit`}>
                 <Btn>프로필 편집</Btn>
               </Link>
               <Btn>비밀번호 변경</Btn>

@@ -5,6 +5,7 @@ import parkgwanhyun from 'assets/img/person/parkgwanhyun.png';
 import parkseunghee from 'assets/img/person/parkseunghee.jpg';
 import yunhanbong from 'assets/img/person/yunhanbong.jpg';
 import yunsangwon from 'assets/img/person/yunsangwon.jpg';
+
 export const dummyArr = [
   {
     id: 0,

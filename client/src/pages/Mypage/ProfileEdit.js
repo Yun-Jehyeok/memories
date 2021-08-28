@@ -17,9 +17,8 @@ import { Btn } from 'assets/commonStyle/styles';
 
 import { editProfile } from 'redux/actions';
 
-const ProfileEdit = (props) => {
+const ProfileEdit = () => {
   const { userName, user } = useSelector((state) => state.auth);
-  const userId = props.match.params.userId;
 
   const [form, setValues] = useState({
     name: `${userName}`,
@@ -39,6 +38,7 @@ const ProfileEdit = (props) => {
     await e.preventDefault();
 
     const { name, address } = form;
+    const userId = user._id;
     const body = { name, address, userId };
 
     dispatch(editProfile(body));

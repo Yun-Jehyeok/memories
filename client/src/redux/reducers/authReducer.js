@@ -44,14 +44,12 @@ const authReducer = (state = initialState, action) => {
     case LOGIN_REQUEST:
     case REGISTER_REQUEST:
     case LOGOUT_REQUEST:
-    case PROFILE_EDIT_REQUEST:
       return {
         ...state,
         errorMsg: '',
         isLoading: true,
       };
 
-    case PROFILE_EDIT_SUCCESS:
     case LOGIN_SUCCESS:
     case REGISTER_SUCCESS:
       localStorage.setItem('token', action.payload.token);
@@ -149,10 +147,23 @@ const authReducer = (state = initialState, action) => {
         isLoading: false,
       };
 
+    case PROFILE_EDIT_REQUEST:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case PROFILE_EDIT_SUCCESS:
+      return {
+        ...state,
+        address: action.payload.address,
+        userName: action.payload.name,
+        userId: action.payload._id,
+        isLoading: false,
+      };
     case PROFILE_EDIT_FAILURE:
       return {
         ...state,
-        error: action.payload,
+        isLoading: false,
       };
     default:
       return state;
