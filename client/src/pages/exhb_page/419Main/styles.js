@@ -7,10 +7,10 @@ export const Explain = styled.div`
   z-index: 50px;
   margin-left: 35%;
 `;
+
 export const Container = styled.div`
   width: 100%;
   height: 100vh;
-  overflow-x: hidden;
   white-space: nowrap;
 `;
 
@@ -20,10 +20,10 @@ export const age = styled.div`
 
 export const ItemContainer = styled.div`
   width: 100%;
-  height: 450px;
-  position: absolute;
-  top: 51%;
-  transform: translate(0, -50%);
+  height: 100vh;
+  position: relative;
+  transform: translate(0, 20%);
+  overflow-y: hidden;
 `;
 
 export const Item = styled.div`
@@ -32,14 +32,13 @@ export const Item = styled.div`
   display: inline-block;
   width: 300px;
   height: 450px;
-  overflow: hidden;
   margin-left: 8%;
   margin-bottom: 10%;
-  background-color: white;
+  background-color: transparent;
   white-space: normal;
   cursor: pointer;
   & > div:nth-child(1) {
-    border: 4px solid #f3c04d;
+    border: 4px solid #2d2d2d;
   }
   & img {
     width: 100%;
@@ -51,11 +50,13 @@ export const Item = styled.div`
     padding: 30px;
     padding-top: 20px;
     text-align: center;
-    & > h3 {
+    & > h4 {
       margin-bottom: 20px;
+      color: #ffffff;
     }
     & > div {
       font-size: 12px;
+      color: #ffffff;
     }
   }
 `;

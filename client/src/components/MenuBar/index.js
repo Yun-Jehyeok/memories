@@ -18,7 +18,7 @@ const MenuBar = () => {
             </li>
             <li>
               <ItemLink href="/goods">
-                <span>GITHUB</span>
+                <span>문의하기</span>
                 <Mask></Mask>
               </ItemLink>
             </li>
