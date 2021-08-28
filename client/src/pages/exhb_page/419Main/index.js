@@ -1,12 +1,18 @@
 import React from 'react';
-import FourModal from './419Modal';
-import { Container } from './styles';
+import FiveModal from './518Modal';
+import { Container, Explain } from './styles';
 
 const ExhibitDetail = () => {
   return (
-    <Container>
-      <FourModal />
-    </Container>
+    <div className="detali_page_pr" /*가운데정렬 미정*/>
+      <Explain>
+        <b>PHOTO ALBUM</b>
+      </Explain>
+
+      <Container>
+        <FiveModal />
+      </Container>
+    </div>
   );
 };
 
