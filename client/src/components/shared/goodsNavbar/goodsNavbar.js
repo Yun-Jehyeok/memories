@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { LOGOUT_REQUEST } from 'redux/types';
@@ -25,6 +25,7 @@ const GoodsNavbar = () => {
   const { isAuthenticated, userName, user } = useSelector(
     (state) => state.auth,
   );
+  const [cartCount, setCartCount] = useState(0);
 
   const dispatch = useDispatch();
 
@@ -35,6 +36,12 @@ const GoodsNavbar = () => {
     });
     dispatch(push('/goods'));
   }, [dispatch]);
+
+  useEffect(() => {
+    if (user.cart) {
+      setCartCount(user.cart.length);
+    }
+  }, [user]);
 
   const menu = (
     <Menu>
@@ -75,7 +82,7 @@ const GoodsNavbar = () => {
                 <b>{userName}</b>님 오늘도 화이팅하세요!
               </div>
               <Link to="/goods/cart" className="nav-item">
-                <Badge count={1}>
+                <Badge count={cartCount}>
                   <Icon
                     type="shopping-cart"
                     style={{ fontSize: 24, marginBottom: 3 }}

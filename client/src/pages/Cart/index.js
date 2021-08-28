@@ -11,13 +11,13 @@ import { getCartItems } from 'redux/actions';
 const columns = [
   {
     title: '',
-    dataIndex: 'image',
-    key: 'image',
+    dataIndex: 'images',
+    key: 'images',
     align: 'center',
     width: 80,
-    render: (image) => (
+    render: (images) => (
       <img
-        src={`http://localhost:7000/${image}`}
+        src={`http://localhost:7000/${images[0]}`}
         style={{ width: '100px', height: '100px' }}
       />
     ),
@@ -45,8 +45,6 @@ const columns = [
     render: (price) => <div>{price} 원</div>,
   },
 ];
-
-let dataArray = [];
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -95,19 +93,6 @@ const Cart = () => {
     }
   }, [user, dispatch]);
 
-  useEffect(() => {
-    cartDetail &&
-      cartDetail.map((item) => {
-        dataArray.push({
-          key: `${item._id}`,
-          image: item.images,
-          title: item.title,
-          description: item.description,
-          price: item.price,
-        });
-      });
-  }, [cartDetail, dataArray]);
-
   return (
     <Page>
       <GoodsNavbar />
@@ -120,7 +105,7 @@ const Cart = () => {
       ) : (
         <Table
           columns={columns}
-          dataSource={dataArray}
+          dataSource={cartDetail}
           pagination={{ position: ['none', 'none'] }}
           rowSelection={{ ...rowSelection, checkStrictly }}
           footer={() => (
