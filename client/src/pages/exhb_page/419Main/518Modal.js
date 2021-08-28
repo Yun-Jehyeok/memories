@@ -9,7 +9,7 @@ import {
   RobotOutlined,
 } from '@ant-design/icons';
 
-function FourModal() {
+function FiveModal() {
   const [isModalVisible, setisModalVisible] = useState(false);
   const [ItemDetail, setItemDetail] = useState({
     image: '',
@@ -64,9 +64,7 @@ function FourModal() {
             </IconBox>
           </div>
           <div>
-            <p style={{ fontSize: '20px' }}>
-              <b>{ItemDetail.title}</b>
-            </p>
+            <b>{ItemDetail.title}</b>
             <p>{ItemDetail.description}</p>
           </div>
         </ModalBox>
@@ -75,4 +73,4 @@ function FourModal() {
   );
 }
 
-export default FourModal;
+export default FiveModal;

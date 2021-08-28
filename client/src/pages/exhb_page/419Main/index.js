@@ -1,13 +1,18 @@
 import React from 'react';
-import FourModal from './419Modal';
-import { Container } from './styles';
-
-const four_page = () => {
+import FiveModal from './518Modal';
+import { Explain, Container } from './styles';
+const five_page = () => {
   return (
-    <Container>
-      <FourModal />
-    </Container>
+    <div className="detali_page_pr" /*가운데정렬 미정*/>
+      <Explain>
+        <b>PHOTO ALBUM</b>
+      </Explain>
+
+      <Container>
+        <FiveModal />
+      </Container>
+    </div>
   );
 };
 
-export default four_page;
+export default five_page;
