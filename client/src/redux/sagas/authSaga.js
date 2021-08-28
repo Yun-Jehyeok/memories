@@ -203,7 +203,6 @@ function* watchgetCartItem() {
 }
 
 // PROFILE //
-
 const ProfileEditAPI = (payload) => {
   return axios.post(`/api/user/${payload.userId}/edit`, payload);
 };
