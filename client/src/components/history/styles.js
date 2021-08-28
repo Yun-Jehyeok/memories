@@ -37,17 +37,15 @@ export const Sel = styled(Select).attrs({
 export const Text = styled.p`
   font-size: 13.5rem;
   transition: 0.3s;
-  &:hover {
-    text-shadow: 0 0 10px #2d2d2d;
-  }
 `;
 
 export const Redtext = styled.span`
   color: #ff0000;
   transition: 0.3s;
-  &:hover {
-    text-shadow: 0 0 10px #ff0000;
-  }
+`;
+
+export const Filptext = styled.span`
+  font-size: 30px;
 `;
 
 export const Info = styled.div`
@@ -87,9 +85,6 @@ export const ButtonWhite = styled(Button)`
   background-color: transparent;
   color: #ffffff;
   margin: 15px 0 0 220px;
-  &:hover {
-    background-color: transparent;
-  }
 `;
 
 export const Date = styled.span`

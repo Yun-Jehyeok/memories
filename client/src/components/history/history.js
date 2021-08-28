@@ -6,6 +6,7 @@ import {
   Year,
   Text,
   Redtext,
+  Filptext,
   Info,
   Column,
   Yeartext,
@@ -95,23 +96,23 @@ const History = () => {
             <button type="button" onClick={onCountDown}>
               <ChevronUp />
             </button>
-            <Redtext className="year_animate">
-              {count === 0 ? <></> : yearoption[count - 1].slice(2, 4)}
-            </Redtext>
             <Text>
               {yearoption[count].slice(0, 2)}
+              <Filptext className="year_animate">
+                {count === 0 ? <></> : yearoption[count - 1].slice(2, 4)}
+              </Filptext>
               <Redtext>{yearoption[count].slice(2, 4)}</Redtext>
+              <Filptext className="year_animate">
+                {count === yearoption.length - 1 ? (
+                  <></>
+                ) : (
+                  yearoption[count + 1].slice(2, 4)
+                )}
+              </Filptext>
             </Text>
             <button onClick={onCountUp}>
               <ChevronDown />
             </button>
-            <Redtext className="year_animate">
-              {count === yearoption.length - 1 ? (
-                <></>
-              ) : (
-                yearoption[count + 1].slice(2, 4)
-              )}
-            </Redtext>
           </Yeartext>
         </Year>
         {/* 데이터 표시 */}

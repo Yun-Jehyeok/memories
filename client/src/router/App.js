@@ -9,12 +9,7 @@ import GoodsMain from 'pages/GoodsMain';
 import GoodsDetail from 'pages/GoodsDetail';
 import Cart from 'pages/Cart';
 import GoodsDonation from 'pages/GoodsDonation';
-import five_page from 'pages/exhb_page/518Main';
-import four_page from 'pages/exhb_page/419Main';
-import six_page from 'pages/exhb_page/625Main';
-import jap_page from 'pages/exhb_page/JapMain';
-import thousand_page from 'pages/exhb_page/2000Main';
-import vet_page from 'pages/exhb_page/vetMain';
+import ExhibitDetail from 'pages/exhb_page/419Main';
 import UploadProduct from 'pages/UploadGoods/UploadGoods';
 import Mypage from 'pages/Mypage';
 import ProfileEdit from 'pages/Mypage/ProfileEdit';
@@ -31,7 +26,10 @@ const App = () => {
     <Switch>
       {/* 메인 페이지 */}
       <Route path="/" exact component={Main} />
-      <Route path="/:exhibtionId/exhibitDetail" component={four_page} />
+      <Route
+        path="/:exhibtionId/exhibitDetail"
+        render={() => <ExhibitDetail />}
+      />
 
       {/* 굿즈 페이지 */}
       <Route path="/signup" exact component={Signup} />

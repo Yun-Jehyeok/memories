@@ -9,9 +9,10 @@ export const Page = styled.div`
 export const Info = styled.div`
   position: relative;
   color: black;
-  padding-top: 7%;
+  padding-top: 20%;
   padding-left: 10%;
   font-size: 3rem;
+  z-index: 30;
   & > a {
     margin-top : -30px;
     font-size: 20px;

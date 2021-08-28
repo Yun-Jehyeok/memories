@@ -2,7 +2,7 @@ import React from 'react';
 import FourModal from './419Modal';
 import { Container } from './styles';
 
-const four_page = () => {
+const ExhibitDetail = () => {
   return (
     <Container>
       <FourModal />
@@ -10,4 +10,4 @@ const four_page = () => {
   );
 };
 
-export default four_page;
+export default ExhibitDetail;
