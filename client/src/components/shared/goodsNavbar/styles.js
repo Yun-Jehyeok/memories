@@ -28,9 +28,11 @@ export const MenuContainer = styled.div`
 
   & a {
     display: inline-block;
+    transition-duration: 0.5s;
 
     &:hover {
       color: #fba904;
+      transition-duration: 0.5s;
     }
   }
   & .nav-item {
