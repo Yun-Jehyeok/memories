@@ -37,7 +37,6 @@ export const Item = styled.div`
   margin-bottom: 10%;
   background-color: white;
   white-space: normal;
-  border: 1px solid black;
   cursor: pointer;
   & > div:nth-child(1) {
     border: 4px solid #f3c04d;
