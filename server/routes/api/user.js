@@ -122,7 +122,6 @@ router.post('/:id/edit', async (req, res, next) => {
       { address, name },
       { new: true },
     );
-
     res.json(modified_profile);
   } catch (e) {
     console.log(e);

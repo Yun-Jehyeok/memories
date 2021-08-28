@@ -35,7 +35,7 @@ const Exhibition = () => {
                 </>
               </div>
             </center_abs>
-            <a href="/419main">
+            <a href="/419main/exhibitDetail">
               <Box
                 className="length"
                 style={{
@@ -48,7 +48,7 @@ const Exhibition = () => {
                 <img src={four_pic} style={{ width: '100%', height: '100%' }} />
               </Box>
             </a>
-            <a href="/vet_page">
+            <a href="/vet_page/exhibitDetail">
               <Box
                 className="length"
                 style={{
@@ -61,7 +61,7 @@ const Exhibition = () => {
                 <img src={vet_pic} style={{ width: '100%', height: '100%' }} />
               </Box>
             </a>
-            <a href="/thousand_page">
+            <a href="/thousand_page/exhibitDetail">
               <Box
                 className="square"
                 style={{
@@ -78,7 +78,7 @@ const Exhibition = () => {
               </Box>
             </a>
 
-            <a href="/625main">
+            <a href="/625main/exhibitDetail">
               <Box
                 className="width"
                 style={{
@@ -91,7 +91,7 @@ const Exhibition = () => {
                 <img src={six_pic} style={{ width: '100%', height: '100%' }} />
               </Box>
             </a>
-            <a href="/518Main">
+            <a href="/518Main/exhibitDetail">
               <Box
                 className="length_2"
                 style={{

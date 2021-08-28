@@ -1,7 +1,8 @@
 import React from 'react';
 import FiveModal from './518Modal';
-import { Explain, Container } from './styles';
-const five_page = () => {
+import { Container, Explain } from './styles';
+
+const ExhibitDetail = () => {
   return (
     <div className="detali_page_pr" /*가운데정렬 미정*/>
       <Explain>
@@ -15,4 +16,4 @@ const five_page = () => {
   );
 };
 
-export default five_page;
+export default ExhibitDetail;
