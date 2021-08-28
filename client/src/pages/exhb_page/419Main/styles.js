@@ -36,19 +36,26 @@ export const Item = styled.div`
   margin-left: 8%;
   margin-bottom: 10%;
   background-color: white;
-  box-shadow: -20px 20px 10px #a4a4a4;
   white-space: normal;
-  border: 1px solid black;
   cursor: pointer;
+  & > div:nth-child(1) {
+    border: 4px solid #f3c04d;
+  }
   & img {
     width: 100%;
-    height: 300px;
+    height: 350px;
+    object-position: center top;
+    object-fit: cover;
   }
   & > div:nth-child(2) {
     padding: 30px;
     padding-top: 20px;
+    text-align: center;
     & > h3 {
       margin-bottom: 20px;
+    }
+    & > div {
+      font-size: 12px;
     }
   }
 `;

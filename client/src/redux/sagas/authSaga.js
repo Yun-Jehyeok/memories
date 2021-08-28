@@ -68,7 +68,7 @@ const registerUserAPI = (registerData) => {
 function* registerUser(action) {
   try {
     const result = yield call(registerUserAPI, action.payload);
-
+    console.log(result.data);
     yield put({
       type: REGISTER_SUCCESS,
       payload: result.data,
@@ -219,7 +219,7 @@ function* ProfileEdit(action) {
       payload: result.data,
     });
 
-    yield put(push(`/goods/${result.data.userId}/mypage`));
+    yield put(push(`/goods`));
   } catch (e) {
     yield put({
       type: PROFILE_EDIT_FAILURE,
