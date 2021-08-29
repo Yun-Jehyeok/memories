@@ -38,9 +38,9 @@ const GoodsNavbar = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    // if (user.cart) {
-    //   setCartCount(user.cart.length);
-    // }
+    if (user.cart) {
+      setCartCount(1);
+    }
   }, [user]);
 
   const menu = (

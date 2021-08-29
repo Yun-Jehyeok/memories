@@ -48,6 +48,18 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+  likes: [
+    {
+      product_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'product',
+      },
+      like_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Like',
+      },
+    },
+  ],
 });
 
 const User = mongoose.model('user', UserSchema);

@@ -114,11 +114,19 @@ router.get('/:id/like/getlike', async (req, res) => {
 
 // uplike
 router.post('/:id/like/uplike', async (req, res) => {
+  let { productId, userId } = req.body;
+  const newLike = await Like.create({
+    userId,
+    productId,
+  });
   try {
-    let { productId, userId } = req.body;
-    const newLike = await Like.create({
-      userId,
-      productId,
+    await User.findByIdAndUpdate(userId, {
+      $push: {
+        likes: {
+          product_id: productId,
+          like_id: newLike._id,
+        },
+      },
     });
     return res.status(200).json({ upLike: true });
   } catch (e) {
@@ -132,6 +140,9 @@ router.post('/:id/like/unlike', async (req, res) => {
     await Like.remove({
       userId: req.body.userId,
       productId: req.body.productId,
+    });
+    await User.findByIdAndUpdate(userId, {
+      $pull: { likes: { product_id: productId } },
     });
     return res.status(200).json({ unLike: true });
   } catch (e) {
