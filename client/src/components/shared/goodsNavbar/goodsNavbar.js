@@ -37,11 +37,11 @@ const GoodsNavbar = () => {
     dispatch(push('/goods'));
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   if (user.cart) {
-  //     setCartCount(user.cart.length);
-  //   }
-  // }, [user]);
+  useEffect(() => {
+    if (user.cart) {
+      setCartCount(user.cart.length);
+    }
+  }, [user]);
 
   const menu = (
     <Menu>
@@ -81,14 +81,14 @@ const GoodsNavbar = () => {
               <div>
                 <b>{userName}</b>님 오늘도 화이팅하세요!
               </div>
-              <Link to="/goods/cart" className="nav-item">
+              <a href="/goods/cart" className="nav-item">
                 <Badge count={cartCount}>
                   <Icon
                     type="shopping-cart"
                     style={{ fontSize: 24, marginBottom: 3 }}
                   />
                 </Badge>
-              </Link>
+              </a>
               <Dropdown overlay={menu}>
                 <UserDropdown
                   className="ant-dropdown-link nav-item"

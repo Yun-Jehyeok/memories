@@ -3,10 +3,13 @@ import GoodsNavbar from 'components/shared/goodsNavbar/goodsNavbar';
 
 // styles //
 import { Page } from './styles';
-import { Table, Icon, Button } from 'antd';
+import { Table, Icon } from 'antd';
 import 'antd/dist/antd.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { getCartItems } from 'redux/actions';
+import { getCartItems, onSuccessBuy } from 'redux/actions';
+
+import Paypal from 'components/Paypal/Paypal';
+import Axios from 'axios';
 
 const columns = [
   {
@@ -51,6 +54,8 @@ const Cart = () => {
   const { user, cartDetail, isLoading } = useSelector((state) => state.auth);
   const [Total, setTotal] = useState(0);
   const [checkStrictly, setCheckStrictly] = useState(false);
+  const [ShowTotal, setShowTotal] = useState(false);
+  const [ShowSuccess, setShowSuccess] = useState(false);
 
   const rowSelection = {
     onChange: (selectedRowKeys, selectedRows) => {},
@@ -93,6 +98,27 @@ const Cart = () => {
     }
   }, [user, dispatch]);
 
+  const transactionSuccess = (data) => {
+    dispatch(
+      onSuccessBuy({
+        cartDetail: cartDetail,
+        paymentData: data,
+      }),
+    ).then((response) => {
+      if (response.payload.success) {
+        setShowSuccess(true);
+        setShowTotal(false);
+      }
+    });
+  };
+
+  const transactionError = () => {
+    console.log('Paypal Error');
+  };
+  const transactionCanceled = () => {
+    console.log('transaction canceled');
+  };
+
   return (
     <Page>
       <GoodsNavbar />
@@ -125,9 +151,12 @@ const Cart = () => {
           marginTop: '24px',
         }}
       >
-        <Button type="primary" style={{ width: '80px' }}>
-          구매하기
-        </Button>
+        <Paypal
+          toPay={Total}
+          onSuccess={transactionSuccess}
+          transactionError={transactionError}
+          transactionCanceled={transactionCanceled}
+        />
       </div>
 
       <section id="profile"></section>

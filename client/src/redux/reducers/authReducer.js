@@ -20,6 +20,7 @@ import {
   PROFILE_EDIT_REQUEST,
   PROFILE_EDIT_SUCCESS,
   PROFILE_EDIT_FAILURE,
+  ON_SUCCESS_BUY_USER,
 } from '../types';
 
 const initialState = {
@@ -164,6 +165,13 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
+      };
+
+    case ON_SUCCESS_BUY_USER:
+      return {
+        ...state,
+        cart: action.payload.cart,
+        cartDetail: action.payload.cartDetail,
       };
     default:
       return state;

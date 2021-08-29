@@ -7,7 +7,10 @@ import {
   GET_CART_ITEMS_USER_REQUEST,
   POST_DETAIL_LOADING_REQUEST,
   PROFILE_EDIT_REQUEST,
+  ON_SUCCESS_BUY_USER,
 } from './types';
+
+import axios from 'axios';
 
 export const loginAction = (user) => ({
   type: LOGIN_REQUEST,
@@ -48,3 +51,14 @@ export const editProfile = (data) => ({
   type: PROFILE_EDIT_REQUEST,
   payload: data,
 });
+
+export function onSuccessBuy(data) {
+  const request = axios
+    .post(`/api/user/successBuy`, data)
+    .then((response) => response.data);
+
+  return {
+    type: ON_SUCCESS_BUY_USER,
+    payload: request,
+  };
+}
