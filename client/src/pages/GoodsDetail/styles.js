@@ -19,7 +19,7 @@ export const DescriptionBox = styled.div`
   top: 15vh;
   width: 100%;
   height: 85vh;
-  background: #feefc6;
+  background: rgba(254, 232, 171, 0.3);
 `;
 
 export const PageLink = styled.div`
