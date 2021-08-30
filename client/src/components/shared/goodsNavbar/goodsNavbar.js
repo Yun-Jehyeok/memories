@@ -25,8 +25,7 @@ const GoodsNavbar = () => {
   const { isAuthenticated, userName, user } = useSelector(
     (state) => state.auth,
   );
-  const [cartCount, setCartCount] = useState(0);
-
+  const [badgeCount, setBadgeCount] = useState(0);
   const dispatch = useDispatch();
 
   const LogOut = useCallback(() => {
@@ -38,8 +37,10 @@ const GoodsNavbar = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (user.cart) {
-      setCartCount(user.cart.length);
+    if (user && user.cart) {
+      if (user.cart.length > 0) {
+        setBadgeCount(user.cart.length);
+      }
     }
   }, [user]);
 
@@ -79,10 +80,10 @@ const GoodsNavbar = () => {
           {isAuthenticated ? (
             <ShoppingArea>
               <div>
-                <b>{userName}</b>님 오늘도 화이팅하세요!
+                <b>{userName}</b>님 오늘도 화이팅하세요!ß
               </div>
               <a href="/goods/cart" className="nav-item">
-                <Badge count={cartCount}>
+                <Badge count={badgeCount}>
                   <Icon
                     type="shopping-cart"
                     style={{ fontSize: 24, marginBottom: 3 }}

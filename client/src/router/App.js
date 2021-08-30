@@ -1,8 +1,6 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import Auth from 'hoc/auth';
-
 import Main from 'pages/Main';
 import Signup from 'pages/Signup';
 import GoodsMain from 'pages/GoodsMain';

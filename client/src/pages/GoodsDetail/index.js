@@ -17,13 +17,15 @@ import { Box, DescriptionBox, PageLink, RightCircle } from './styles';
 import { Page } from 'assets/commonStyle/styles';
 
 import { addToCartRequest, getGoodsDetail } from 'redux/actions';
+import { COMMENT_DELETE_REQUEST } from 'redux/types';
 
 const GoodsDetail = (props) => {
   const [DescriptionButtonClick, setDescriptionButtonClick] = useState(true);
   const [likes, setLikes] = useState(0); // 모든 사용자
   const [action, setAction] = useState(''); // 로그인한 사용자가
 
-  const { userId } = useSelector((state) => state.auth);
+  const { comments } = useSelector((state) => state.comment);
+  const { userId, userName } = useSelector((state) => state.auth);
   const { images, title, price, description } = useSelector(
     (state) => state.post,
   );
@@ -99,101 +101,164 @@ const GoodsDetail = (props) => {
     dispatch(addToCartRequest(data));
   };
 
+  const onCommentDeleteClick = (commentId) => {
+    dispatch({
+      type: COMMENT_DELETE_REQUEST,
+      payload: {
+        userId: userId,
+        commentId: commentId,
+        postId: goodsId,
+        token: localStorage.getItem('token'),
+      },
+    });
+  };
+
   return (
     <Page>
       {GoodsNavbar(props.page)}
       <DescriptionBox>
         <Box>
-          <div>
-            <div style={{ marginRight: '10%' }}>
-              <img
-                src={`http://localhost:7000/${images[0]}`}
-                style={{ width: '50vh', height: '50vh' }}
-                alt="productImage"
-              />
+          <div style={{ marginRight: '5%', width: '340px' }}>
+            <img
+              src={`http://localhost:7000/${images[0]}`}
+              style={{ width: '340px', height: '340px' }}
+              alt="productImage"
+            />
 
-              {/* Like, Share */}
-              <div
-                style={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  marginTop: '10px',
-                }}
-              >
-                <span style={{ marginRight: '10px' }}>
-                  <span
-                    onClick={onLikeClick}
-                    style={{
-                      cursor: 'pointer',
-                      marginRight: '5px',
-                    }}
-                  >
-                    {createElement(
-                      action === 'liked' ? HeartFilled : HeartOutlined,
-                    )}
-                  </span>
-                  {likes}명
+            {/* Like, Share */}
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'center',
+                marginTop: '10px',
+              }}
+            >
+              <span style={{ marginRight: '10px' }}>
+                <span
+                  onClick={onLikeClick}
+                  style={{
+                    cursor: 'pointer',
+                    marginRight: '5px',
+                  }}
+                >
+                  {createElement(
+                    action === 'liked' ? HeartFilled : HeartOutlined,
+                  )}
                 </span>
-                <span>
-                  <ShareAltOutlined style={{ marginRight: '5px' }} />
-                  공유하기
-                </span>
-              </div>
+                {likes}명
+              </span>
+              <span>
+                <ShareAltOutlined style={{ marginRight: '5px' }} />
+                공유하기
+              </span>
             </div>
-            {/* description */}
-            <div style={{ marginRight: '10%' }}>
-              <div
-                style={{
-                  marginBottom: '10px',
-                }}
+          </div>
+          {/* description */}
+          <div style={{ marginRight: '5%', width: '620px', height: '100%' }}>
+            <div
+              style={{
+                marginBottom: '10px',
+              }}
+            >
+              <Button
+                type={DescriptionButtonClick ? 'primary' : 'default'}
+                style={{ width: '100px', marginRight: '5px' }}
+                onClick={DescriptionClick}
               >
-                <Button
-                  type={DescriptionButtonClick ? 'primary' : 'default'}
-                  style={{ width: '100px', marginRight: '5px' }}
-                  onClick={DescriptionClick}
-                >
-                  상품 설명
-                </Button>
-                <Button
-                  type={DescriptionButtonClick ? 'default' : 'primary'}
-                  style={{ width: '100px' }}
-                  onClick={CommentClick}
-                >
-                  후기
-                </Button>
-              </div>
-              {DescriptionButtonClick ? (
-                <div>
-                  <div style={{ fontSize: '1.5rem', marginBottom: '5px' }}>
-                    <b>상품명 : {title}</b>
-                  </div>
-                  <div style={{ marginBottom: '10px' }}>
-                    <b>가격 : </b>
-                    {price}원
-                  </div>
-                  {description}
-                  <br />
-                  <div
-                    style={{
-                      marginTop: '40px',
-                      display: 'flex',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    <Button
-                      type="primary"
-                      style={{ marginRight: '10px' }}
-                      onClick={addToCartHandler}
-                    >
-                      장바구니에 담기
-                    </Button>
-                    <Button type="primary">구매하기</Button>
-                  </div>
+                상품 설명
+              </Button>
+              <Button
+                type={DescriptionButtonClick ? 'default' : 'primary'}
+                style={{ width: '100px' }}
+                onClick={CommentClick}
+              >
+                후기
+              </Button>
+            </div>
+            {DescriptionButtonClick ? (
+              <div>
+                <div style={{ fontSize: '1.5rem', marginBottom: '5px' }}>
+                  <b>상품명 : {title}</b>
                 </div>
-              ) : (
-                <Comment />
-              )}
-            </div>
+                <div style={{ marginBottom: '10px' }}>
+                  <b>가격 : </b>
+                  {price}원
+                </div>
+                {description}
+                <br />
+                <div
+                  style={{
+                    marginTop: '40px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <Button
+                    type="primary"
+                    style={{ marginRight: '10px' }}
+                    onClick={addToCartHandler}
+                  >
+                    장바구니에 담기
+                  </Button>
+                  <Button type="primary">구매하기</Button>
+                </div>
+              </div>
+            ) : (
+              <div>
+                <div
+                  id="comment-scroll"
+                  style={{
+                    width: '640px',
+                    height: '200px',
+                    overflowY: 'scroll',
+                    padding: '8px',
+                  }}
+                >
+                  {Array.isArray(comments)
+                    ? comments.map(
+                        ({ contents, creator, date, _id, creatorName }) => (
+                          <div key={_id} style={{ marginBottom: '16px' }}>
+                            <div>
+                              <div style={{ fontSize: '1.1rem' }}>
+                                <b>{creatorName ? creatorName : creator}</b>
+                                &nbsp;•
+                                <span
+                                  style={{ color: 'gray', fontSize: '0.8em' }}
+                                >
+                                  &nbsp;{date}
+                                </span>
+                              </div>
+                            </div>
+                            <div
+                              style={{
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                              }}
+                            >
+                              <div>
+                                <div>{contents}</div>
+                              </div>
+                              {creator === userId && userId ? (
+                                <div>
+                                  <span
+                                    style={{ cursor: 'pointer' }}
+                                    onClick={() => onCommentDeleteClick(_id)}
+                                  >
+                                    삭제
+                                  </span>
+                                </div>
+                              ) : (
+                                ''
+                              )}
+                            </div>
+                          </div>
+                        ),
+                      )
+                    : 'Creator'}
+                </div>
+                <Comment id={goodsId} userId={userId} userName={userName} />
+              </div>
+            )}
           </div>
         </Box>
         <PageLink>
