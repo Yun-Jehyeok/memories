@@ -211,50 +211,60 @@ const GoodsDetail = (props) => {
                     width: '640px',
                     height: '200px',
                     overflowY: 'scroll',
-                    padding: '8px',
+                    padding: '16px',
                   }}
                 >
-                  {Array.isArray(comments)
-                    ? comments.map(
-                        ({ contents, creator, date, _id, creatorName }) => (
-                          <div key={_id} style={{ marginBottom: '16px' }}>
-                            <div>
-                              <div style={{ fontSize: '1.1rem' }}>
-                                <b>{creatorName ? creatorName : creator}</b>
-                                &nbsp;•
-                                <span
-                                  style={{ color: 'gray', fontSize: '0.8em' }}
-                                >
-                                  &nbsp;{date}
-                                </span>
-                              </div>
-                            </div>
-                            <div
-                              style={{
-                                display: 'flex',
-                                justifyContent: 'space-between',
-                              }}
-                            >
-                              <div>
-                                <div>{contents}</div>
-                              </div>
-                              {creator === userId && userId ? (
-                                <div>
-                                  <span
-                                    style={{ cursor: 'pointer' }}
-                                    onClick={() => onCommentDeleteClick(_id)}
-                                  >
-                                    삭제
-                                  </span>
-                                </div>
-                              ) : (
-                                ''
-                              )}
+                  {comments.length > 0 ? (
+                    comments.map(
+                      ({ contents, creator, date, _id, creatorName }) => (
+                        <div key={_id} style={{ marginBottom: '16px' }}>
+                          <div>
+                            <div style={{ fontSize: '1.1rem' }}>
+                              <b>{creatorName ? creatorName : creator}</b>
+                              &nbsp;•
+                              <span
+                                style={{ color: 'gray', fontSize: '0.8em' }}
+                              >
+                                &nbsp;{date}
+                              </span>
                             </div>
                           </div>
-                        ),
-                      )
-                    : 'Creator'}
+                          <div
+                            style={{
+                              display: 'flex',
+                              justifyContent: 'space-between',
+                            }}
+                          >
+                            <div>
+                              <div>{contents}</div>
+                            </div>
+                            {creator === userId && userId ? (
+                              <div>
+                                <span
+                                  style={{ cursor: 'pointer' }}
+                                  onClick={() => onCommentDeleteClick(_id)}
+                                >
+                                  삭제
+                                </span>
+                              </div>
+                            ) : (
+                              ''
+                            )}
+                          </div>
+                        </div>
+                      ),
+                    )
+                  ) : (
+                    <div
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        lineHeight: '150px',
+                      }}
+                    >
+                      아직 작성된 댓글이 없습니다
+                    </div>
+                  )}
                 </div>
                 <Comment id={goodsId} userId={userId} userName={userName} />
               </div>

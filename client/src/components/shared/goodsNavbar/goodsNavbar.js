@@ -80,7 +80,7 @@ const GoodsNavbar = () => {
           {isAuthenticated ? (
             <ShoppingArea>
               <div>
-                <b>{userName}</b>님 오늘도 화이팅하세요!ß
+                <b>{userName}</b>님 오늘도 화이팅하세요!
               </div>
               <a href="/goods/cart" className="nav-item">
                 <Badge count={badgeCount}>
