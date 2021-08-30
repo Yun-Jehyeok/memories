@@ -40,6 +40,7 @@
     "react-dropzone": "^11.3.4",
     "react-helmet": "^6.1.0",
     "react-image-gallery": "^1.2.6",
+    "react-js-pagination": "^3.0.3",
     "react-lottie": "^1.2.3",
     "react-paypal-express-checkout": "^1.0.5",
     "react-redux": "^7.2.4",

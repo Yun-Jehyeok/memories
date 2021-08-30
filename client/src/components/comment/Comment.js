@@ -46,10 +46,12 @@ function Comment({ id, userId, userName }) {
 
   return (
     <>
-      <Form onSubmit={onSubmit}>
+      <Form
+        onSubmit={onSubmit}
+        style={{ width: '100%', marginLeft: '2%', marginTop: '24px' }}
+      >
         <FormGroup>
           <Row>
-            <div>Make Comment</div>
             <Input
               innerRef={resetValue}
               type="textarea"
@@ -59,7 +61,7 @@ function Comment({ id, userId, userName }) {
               placeholder="Comment"
             />
 
-            <Button color="primary" block>
+            <Button color="primary" block style={{ marginTop: '16px' }}>
               Submit
             </Button>
           </Row>

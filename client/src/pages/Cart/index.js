@@ -40,6 +40,13 @@ const columns = [
     align: 'center',
   },
   {
+    title: '수량',
+    dataIndex: 'quantity',
+    key: 'quantity',
+    width: 80,
+    align: 'center',
+  },
+  {
     title: '상품금액',
     dataIndex: 'price',
     key: 'price',
@@ -63,7 +70,7 @@ const Cart = () => {
       let total = 0;
 
       selectedRows.map((item) => {
-        total += item.price;
+        total += item.price * item.quantity;
       });
 
       setTotal(total);
@@ -72,7 +79,7 @@ const Cart = () => {
       let total = 0;
 
       selectedRows.map((item) => {
-        total += item.price;
+        total += item.price * item.quantity;
       });
 
       setTotal(total);

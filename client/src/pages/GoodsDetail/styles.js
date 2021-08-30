@@ -7,11 +7,10 @@ export const Box = styled.div`
   background: #ffffff;
   margin: 8vh 10% 0 10%;
   overflow: hidden;
-  & > div {
-    padding-top: 50px;
-    padding-left: 60px;
-    display: flex;
-  }
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 50px;
+  padding-left: 60px;
 `;
 
 export const DescriptionBox = styled.div`

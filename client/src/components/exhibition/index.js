@@ -15,8 +15,13 @@ const Exhibition = () => {
     >
       <div>
         <Page>
-          <Text className="content_main" style={{ margin: '0px' }}>
-            <div>
+          <Text className="content_main">
+            <div
+              style={{
+                marginTop: '250px',
+                marginLeft: '650px',
+              }}
+            >
               <center>EXHIBITION</center>
             </div>
             <center_abs>
@@ -24,8 +29,8 @@ const Exhibition = () => {
                 className="abstract"
                 style={{
                   position: 'absolute',
-                  paddingLeft: '510px',
-                  paddingTop: '50px',
+                  marginLeft: '510px',
+                  marginTop: '50px',
                 }}
               >
                 <>
@@ -95,7 +100,7 @@ const Exhibition = () => {
               <Box
                 className="length_2"
                 style={{
-                  left: '46%',
+                  left: '45%',
                   bottom: '64%',
                   width: '380px',
                   height: '200px',
@@ -109,16 +114,21 @@ const Exhibition = () => {
               <div
                 className="ex_abs"
                 style={{
-                  paddingLeft: '1120px',
-                  paddingTop: '220px',
+                  display: 'inline-flex',
+                  marginLeft: '1120px',
+                  marginTop: '220px',
                   fontSize: '32px',
                 }}
               >
-                국가를 위해
-                <br />
-                헌신한 분들을 위한
-                <br />
-                전시회
+                <>
+                  <div>
+                    국가를 위해
+                    <br />
+                    헌신한 분들을 위한
+                    <br />
+                    전시회
+                  </div>
+                </>
               </div>
             </ex_abs>
           </Text>

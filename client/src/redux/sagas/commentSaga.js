@@ -18,7 +18,7 @@ import {
 
 // Load Comments
 const loadCommentsAPI = (payload) => {
-  return axios.get(`/api/post/${payload}/comments`);
+  return axios.get(`/api/product/${payload}/comments`);
 };
 
 function* loadComments(action) {
@@ -43,7 +43,7 @@ function* watchloadComments() {
 
 // Upload Comment
 const uploadCommentAPI = (payload) => {
-  return axios.post(`/api/post/${payload.id}/comments`, payload);
+  return axios.post(`/api/product/${payload.id}/comments`, payload);
 };
 
 function* uploadComment(action) {
@@ -85,7 +85,7 @@ const deleteCommentAPI = (payload) => {
   }
 
   return axios.delete(
-    `/api/post/comment/${payload.commentId}`,
+    `/api/product/comment/${payload.commentId}`,
     payload,
     config,
   );
