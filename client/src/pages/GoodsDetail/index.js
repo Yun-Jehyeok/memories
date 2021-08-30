@@ -4,16 +4,17 @@ import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import GoodsNavbar from 'components/shared/goodsNavbar/goodsNavbar';
 import Comment from 'components/comment/Comment';
-import SharingModal from 'components/SharingModal/SharingModal';
 
 import { Button } from 'antd';
 // icons //
 import { HeartFilled, HeartOutlined } from '@ant-design/icons';
+
 import { Box, DescriptionBox, PageLink, RightCircle } from './styles';
 import { Page } from 'assets/commonStyle/styles';
 
 import { addToCartRequest, getGoodsDetail } from 'redux/actions';
 import { COMMENT_DELETE_REQUEST } from 'redux/types';
+import SharingModal from 'components/SharingModal/SharingModal';
 
 const GoodsDetail = (props) => {
   const [DescriptionButtonClick, setDescriptionButtonClick] = useState(true);
@@ -144,7 +145,7 @@ const GoodsDetail = (props) => {
                 {likes}명
               </span>
               <span>
-              <SharingModal goodsId={goodsId} />
+                <SharingModal goodsId={goodsId} />
               </span>
             </div>
           </div>
