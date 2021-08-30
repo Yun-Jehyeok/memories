@@ -88,6 +88,7 @@ router.post('/addToCart', (req, res) => {
         { new: true },
         () => {
           if (err) return res.json({ success: false, err });
+          console.log(userInfo.cart);
           res.status(200).json(userInfo.cart);
         },
       );
@@ -106,6 +107,8 @@ router.post('/addToCart', (req, res) => {
         { new: true },
         (err, userInfo) => {
           if (err) return res.json({ success: false, err });
+
+          console.log(userInfo.cart);
           res.status(200).json(userInfo.cart);
         },
       );

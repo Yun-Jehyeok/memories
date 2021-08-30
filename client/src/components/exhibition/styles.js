@@ -12,24 +12,28 @@ export const Text = styled.div`
   color: rgba(255, 255, 255, 0.6);
 
   & > div > center {
-    padding-top: 250px;
-    padding-left: 250px;
+    display: inline-block;
     font-size: 72px;
     &: hover {
+      transition: all 0.5s;
+
       color: white;
     }
   }
   & > center_abs {
     font-size: 72px;
     line-height: 1em;
+    transition: all 0.5s;
+
     &: hover {
+      transition: all 0.5s;
+
       color: white;
     }
   }
   & > ex_abs {
-    font-size: 25px;
-    padding-top: 280px;
     &: hover {
+      transition: all 0.5s;
       color: white;
     }
   }
@@ -40,7 +44,7 @@ export const Box = styled.div`
   border: 1px solid white;
   &: hover {
     border: 5px solid black;
-
+    transition: all 0.3s;
     background-color: #000000;
   }
 `;
