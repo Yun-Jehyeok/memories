@@ -21,6 +21,9 @@ import {
   PROFILE_EDIT_SUCCESS,
   PROFILE_EDIT_FAILURE,
   ON_SUCCESS_BUY_USER,
+  CHANGE_PASSWORD_REQUEST,
+  CHANGE_PASSWORD_SUCCESS,
+  CHANGE_PASSWORD_FAILURE,
 } from '../types';
 
 const initialState = {
@@ -42,6 +45,7 @@ const initialState = {
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
+    case CHANGE_PASSWORD_REQUEST:
     case LOGIN_REQUEST:
     case REGISTER_REQUEST:
     case LOGOUT_REQUEST:
@@ -49,6 +53,13 @@ const authReducer = (state = initialState, action) => {
         ...state,
         errorMsg: '',
         isLoading: true,
+      };
+
+    case CHANGE_PASSWORD_SUCCESS:
+      return {
+        ...state,
+        isPasswordChange: true,
+        isLoading: false,
       };
 
     case LOGIN_SUCCESS:
@@ -81,6 +92,13 @@ const authReducer = (state = initialState, action) => {
         isLoading: false,
         userRole: null,
         errorMsg: action.payload.data.msg,
+      };
+    case CHANGE_PASSWORD_FAILURE:
+      return {
+        ...state,
+        isPasswordChange: false,
+        errorMsg: action.payload.data.msg,
+        isLoading: false,
       };
     case LOGOUT_SUCCESS:
       localStorage.removeItem('token');

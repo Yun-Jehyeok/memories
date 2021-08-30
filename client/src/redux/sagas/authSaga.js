@@ -23,6 +23,9 @@ import {
   PROFILE_EDIT_REQUEST,
   PROFILE_EDIT_SUCCESS,
   PROFILE_EDIT_FAILURE,
+  CHANGE_PASSWORD_REQUEST,
+  CHANGE_PASSWORD_SUCCESS,
+  CHANGE_PASSWORD_FAILURE,
 } from '../types';
 
 const loginUserAPI = (loginData) => {
@@ -229,6 +232,37 @@ function* watchProfileEdit() {
   yield takeEvery(PROFILE_EDIT_REQUEST, ProfileEdit);
 }
 
+// change PW
+const findPasswordAPI = (findpasswordData) => {
+  const config = {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  };
+  return axios.post('api/user/changepassword', findpasswordData, config);
+};
+
+function* findPassword(action) {
+  const result = yield call(findPasswordAPI, action.payload);
+  try {
+    yield put({
+      type: CHANGE_PASSWORD_SUCCESS,
+      payload: result.data,
+    });
+    console.log('비번 바꾸기 saga');
+  } catch (e) {
+    yield put({
+      type: CHANGE_PASSWORD_FAILURE,
+      payload: e.response,
+    });
+    console.log('비번 바꾸기 실패 saga');
+  }
+}
+
+function* watchfindPassword() {
+  yield takeEvery(CHANGE_PASSWORD_REQUEST, findPassword);
+}
+
 export default function* authSaga() {
   yield all([
     // Auth //
@@ -242,5 +276,6 @@ export default function* authSaga() {
 
     // Profile //
     fork(watchProfileEdit),
+    fork(watchfindPassword),
   ]);
 }

@@ -4,15 +4,11 @@ import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import GoodsNavbar from 'components/shared/goodsNavbar/goodsNavbar';
 import Comment from 'components/comment/Comment';
+import SharingModal from 'components/SharingModal/SharingModal';
 
 import { Button } from 'antd';
 // icons //
-import {
-  HeartFilled,
-  HeartOutlined,
-  ShareAltOutlined,
-} from '@ant-design/icons';
-
+import { HeartFilled, HeartOutlined } from '@ant-design/icons';
 import { Box, DescriptionBox, PageLink, RightCircle } from './styles';
 import { Page } from 'assets/commonStyle/styles';
 
@@ -148,8 +144,7 @@ const GoodsDetail = (props) => {
                 {likes}명
               </span>
               <span>
-                <ShareAltOutlined style={{ marginRight: '5px' }} />
-                공유하기
+              <SharingModal goodsId={goodsId} />
               </span>
             </div>
           </div>
