@@ -115,7 +115,8 @@ router.get('/:id/like/getlike', async (req, res) => {
 
 // uplike
 router.post('/:id/like/uplike', async (req, res) => {
-  let { productId, userId } = req.body;
+  let { userId } = req.body;
+  const productId = req.params.id;
   const newLike = await Like.create({
     userId,
     productId,
@@ -137,17 +138,19 @@ router.post('/:id/like/uplike', async (req, res) => {
 
 //unlike
 router.post('/:id/like/unlike', async (req, res) => {
+  const userId = req.body.userId;
+  const productId = req.params.id;
   try {
     await Like.remove({
-      userId: req.body.userId,
-      productId: req.body.productId,
+      userId: userId,
+      productId: productId,
     });
     await User.findByIdAndUpdate(userId, {
       $pull: { likes: { product_id: productId } },
     });
     return res.status(200).json({ unLike: true });
   } catch (e) {
-    console.error(e);
+    console.log(e);
     return res.status(400).json({ unLike: false, e });
   }
 });

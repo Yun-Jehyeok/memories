@@ -59,6 +59,7 @@ const GoodsDetail = (props) => {
       });
     } else if (action === 'liked') {
       Axios.post(`/api/product/${goodsId}/like/unlike`, body).then((res) => {
+        console.log(res.data);
         if (res.data.unLike) {
           setAction('');
           setLikes((prev) => prev - 1);
