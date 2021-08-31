@@ -1,5 +1,5 @@
 import React from 'react';
-import { Page, Text, Box } from './styles';
+import { Page, Text, Box, ExBox } from './styles';
 import five_pic from 'assets/img/518signature.png';
 import six_pic from 'assets/img/625signature.png';
 import vet_pic from 'assets/img/vetsignature.png';
@@ -41,7 +41,19 @@ const Exhibition = () => {
                 </>
               </div>
             </center_abs>
+
             <a href="/419main/exhibitDetail">
+              <ExBox
+                className="ex_419"
+                style={{
+                  left: '12%',
+                  width: '270px',
+                  height: '360px',
+                  textAlign: 'center',
+                }}
+              >
+                419혁명
+              </ExBox>
               <Box
                 className="length"
                 style={{
@@ -50,10 +62,27 @@ const Exhibition = () => {
                   height: '360px',
                 }}
               >
-                <img src={four_pic} style={{ width: '100%', height: '100%' }} />
+                <img
+                  src={four_pic}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
               </Box>
             </a>
+
             <a href="/vet_page/exhibitDetail">
+              <ExBox
+                className="ex_vet"
+                style={{
+                  left: '80%',
+                  bottom: '40%',
+                  width: '280px',
+                  height: '360px',
+                  textAlign: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                월남전
+              </ExBox>
               <Box
                 className="length"
                 style={{
@@ -63,10 +92,25 @@ const Exhibition = () => {
                   height: '360px',
                 }}
               >
-                <img src={vet_pic} style={{ width: '100%', height: '100%' }} />
+                <img
+                  src={vet_pic}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
               </Box>
             </a>
             <a href="/thousand_page/exhibitDetail">
+              <ExBox
+                className="ex_thousand"
+                style={{
+                  left: '57%',
+                  bottom: '1%',
+                  width: '280px',
+                  height: '360px',
+                  textAlign: 'center',
+                }}
+              >
+                근현대
+              </ExBox>
               <Box
                 className="square"
                 style={{
@@ -78,12 +122,24 @@ const Exhibition = () => {
               >
                 <img
                   src={twothousand_pic}
-                  style={{ width: '100%', height: '100%' }}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
               </Box>
             </a>
 
             <a href="/625main/exhibitDetail">
+              <ExBox
+                className="ex_625"
+                style={{
+                  left: '12%',
+                  bottom: '55%',
+                  width: '360px',
+                  height: '270px',
+                  textAlign: 'center',
+                }}
+              >
+                625전쟁
+              </ExBox>
               <Box
                 className="width"
                 style={{
@@ -93,10 +149,25 @@ const Exhibition = () => {
                   height: '270px',
                 }}
               >
-                <img src={six_pic} style={{ width: '100%', height: '100%' }} />
+                <img
+                  src={six_pic}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
               </Box>
             </a>
             <a href="/518Main/exhibitDetail">
+              <ExBox
+                className="ex_518"
+                style={{
+                  left: '45%',
+                  bottom: '64%',
+                  width: '380px',
+                  height: '200px',
+                  textAlign: 'center',
+                }}
+              >
+                518민주화
+              </ExBox>
               <Box
                 className="length_2"
                 style={{
@@ -106,7 +177,10 @@ const Exhibition = () => {
                   height: '200px',
                 }}
               >
-                <img src={five_pic} style={{ width: '100%', height: '100%' }} />
+                <img
+                  src={five_pic}
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                />
               </Box>
             </a>
 
