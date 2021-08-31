@@ -207,14 +207,13 @@ const authReducer = (state = initialState, action) => {
     case UPLIKE_SUCCESS:
       return {
         ...state,
-        likes: action.payload,
+        likes: [action.payload.like_id],
       };
     case UPLIKE_FAILURE:
       return {
         ...state,
       };
     case UNLIKE_SUCCESS:
-      window.location.reload();
       return {
         ...state,
       };

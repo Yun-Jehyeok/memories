@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import GoodsNavbar from 'components/shared/goodsNavbar/goodsNavbar';
 import ChangepwModal from 'components/ChangepwModal/ChangepwModal';
 
+import { Card, Col, Row } from 'antd';
 import { Page } from 'assets/commonStyle/styles';
 import {
   Background,
@@ -13,13 +14,12 @@ import {
   Profile,
   BtnContainer,
   UserBox,
-  Card,
+  Cardarea,
 } from './styles';
 import { Btn } from 'assets/commonStyle/styles';
-import {} from '../../redux/types';
 
 const Mypage = (props) => {
-  const { userName, user } = useSelector((state) => state.auth);
+  const { userName, user, likes } = useSelector((state) => state.auth);
 
   return (
     <Page>
@@ -48,15 +48,23 @@ const Mypage = (props) => {
             </BtnContainer>
           </Profile>
           <UserBox>
-            <Card>
+            <Cardarea>
               <p>✔️ 최근 본 상품</p>
-            </Card>
-            <Card>
+            </Cardarea>
+            <Cardarea>
               <p>✔️ 마음에 들어한 상품</p>
-            </Card>
-            <Card>
+              {console.log(likes)}
+              {likes.map((like, index) => {
+                return (
+                  <Col key={index}>
+                    <Card title="">{like._id}</Card>
+                  </Col>
+                );
+              })}
+            </Cardarea>
+            <Cardarea>
               <p>✔️ 내 문의 글</p>
-            </Card>
+            </Cardarea>
           </UserBox>
         </Box>
       </Background>

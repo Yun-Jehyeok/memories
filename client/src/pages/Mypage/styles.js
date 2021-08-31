@@ -55,7 +55,7 @@ export const UserBox = styled.div`
   border-radius: 10px;
 `;
 
-export const Card = styled.div`
+export const Cardarea = styled.div`
   width: 90%;
   margin: 20px 5% 0 5%;
   height: 25%;

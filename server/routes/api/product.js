@@ -130,7 +130,9 @@ router.post('/:id/like/uplike', async (req, res) => {
         },
       },
     });
-    return res.status(200).json({ upLike: true });
+    return res
+      .status(200)
+      .json({ upLike: true, product_id: productId, like_id: newLike._id });
   } catch (e) {
     return res.status(400).json({ upLike: false, e });
   }
@@ -226,6 +228,44 @@ router.delete('/comment/:id', async (req, res) => {
   );
 
   return res.json({ success: true });
+});
+
+///////////////////////////////////////////////
+//                   Views
+///////////////////////////////////////////////
+
+// get Views
+router.get('/:id/views', async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id);
+    const result = product.views;
+
+    res.json(result);
+  } catch (e) {
+    res.json(e);
+  }
+});
+
+// up Views
+router.post('/:id/views', async (req, res) => {
+  const userId = req.body.userId;
+  const productId = req.params.id;
+
+  try {
+    await Product.findByIdAndUpdate(productId, {
+      views: views + 1,
+    });
+
+    await User.findByIdAndUpdate(userId, {
+      $push: {
+        views: { product_id: productId },
+      },
+    });
+
+    res.json({ success: true });
+  } catch (e) {
+    res.json(e);
+  }
 });
 
 module.exports = router;
