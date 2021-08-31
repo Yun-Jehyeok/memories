@@ -1,5 +1,6 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 import Main from 'pages/Main';
 import Signup from 'pages/Signup';
@@ -20,6 +21,7 @@ const App = () => {
   // false / 인증되지 않은 사용자만 접근 가능
   // null / 인증 상관 없음
 
+  const { isProfileChange } = useSelector((state) => state.auth);
   return (
     <Switch>
       {/* 메인 페이지 */}
@@ -37,7 +39,17 @@ const App = () => {
       <Route path="/goods/upload" exact component={UploadProduct} />
       <Route path="/goods/:goodsId" exact component={GoodsDetail} />
       <Route path="/goods/:userId/mypage" exact component={Mypage} />
-      <Route path="/goods/:userId/mypage/edit" exact component={ProfileEdit} />
+      <Route
+        path="/goods/:userId/mypage/edit"
+        exact
+        render={() =>
+          isProfileChange ? (
+            <Redirect to="/goods/:userId/mypage" />
+          ) : (
+            <ProfileEdit />
+          )
+        }
+      />
     </Switch>
   );
 };

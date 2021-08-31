@@ -26,6 +26,12 @@ import {
   CHANGE_PASSWORD_REQUEST,
   CHANGE_PASSWORD_SUCCESS,
   CHANGE_PASSWORD_FAILURE,
+  UPLIKE_REQUEST,
+  UPLIKE_SUCCESS,
+  UPLIKE_FAILURE,
+  UNLIKE_REQUEST,
+  UNLIKE_SUCCESS,
+  UNLIKE_FAILURE,
 } from '../types';
 
 const loginUserAPI = (loginData) => {
@@ -249,18 +255,69 @@ function* findPassword(action) {
       type: CHANGE_PASSWORD_SUCCESS,
       payload: result.data,
     });
-    console.log('비번 바꾸기 saga');
   } catch (e) {
     yield put({
       type: CHANGE_PASSWORD_FAILURE,
       payload: e.response,
     });
-    console.log('비번 바꾸기 실패 saga');
   }
 }
 
 function* watchfindPassword() {
   yield takeEvery(CHANGE_PASSWORD_REQUEST, findPassword);
+}
+
+// upLike
+const upLikeAPI = (payload) => {
+  return axios.post(`/api/product/${payload.productId}/like/uplike`, payload);
+};
+
+function* upLike(action) {
+  const result = yield call(upLikeAPI, action.payload);
+  try {
+    console.log(result.data);
+    if (result.data.upLike) {
+      yield put({
+        type: UPLIKE_SUCCESS,
+        payload: result.data,
+      });
+    }
+  } catch (e) {
+    yield put({
+      type: UPLIKE_FAILURE,
+      payload: e.response,
+    });
+  }
+}
+
+function* watchupLike() {
+  yield takeEvery(UPLIKE_REQUEST, upLike);
+}
+
+// unLike
+const unLikeAPI = (payload) => {
+  return axios.post(`/api/product/${payload.productId}/like/unlike`, payload);
+};
+
+function* unLike(action) {
+  const result = yield call(unLikeAPI, action.payload);
+  try {
+    if (result.data.unLike) {
+      yield put({
+        type: UNLIKE_SUCCESS,
+        payload: result.data,
+      });
+    }
+  } catch (e) {
+    yield put({
+      type: UNLIKE_FAILURE,
+      payload: e.response,
+    });
+  }
+}
+
+function* watchunLike() {
+  yield takeEvery(UNLIKE_REQUEST, unLike);
 }
 
 export default function* authSaga() {
@@ -277,5 +334,9 @@ export default function* authSaga() {
     // Profile //
     fork(watchProfileEdit),
     fork(watchfindPassword),
+
+    // Like //
+    fork(watchupLike),
+    fork(watchunLike),
   ]);
 }

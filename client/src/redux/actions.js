@@ -9,6 +9,8 @@ import {
   POST_DETAIL_LOADING_REQUEST,
   PROFILE_EDIT_REQUEST,
   ON_SUCCESS_BUY_USER,
+  UPLIKE_REQUEST,
+  UNLIKE_REQUEST,
 } from './types';
 
 import axios from 'axios';
@@ -67,4 +69,14 @@ export function onSuccessBuy(data) {
 export const changePassword = (user) => ({
   type: CHANGE_PASSWORD_REQUEST,
   payload: user,
+});
+
+export const upLikeAction = (data) => ({
+  type: UPLIKE_REQUEST,
+  payload: data,
+});
+
+export const unLikeAction = (data) => ({
+  type: UNLIKE_REQUEST,
+  payload: data,
 });

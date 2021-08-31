@@ -12,7 +12,12 @@ import { HeartFilled, HeartOutlined } from '@ant-design/icons';
 import { Box, DescriptionBox, PageLink, RightCircle } from './styles';
 import { Page } from 'assets/commonStyle/styles';
 
-import { addToCartRequest, getGoodsDetail } from 'redux/actions';
+import {
+  addToCartRequest,
+  getGoodsDetail,
+  upLikeAction,
+  unLikeAction,
+} from 'redux/actions';
 import { COMMENT_DELETE_REQUEST } from 'redux/types';
 import SharingModal from 'components/SharingModal/SharingModal';
 
@@ -38,7 +43,7 @@ const GoodsDetail = (props) => {
     setDescriptionButtonClick(false);
   };
 
-  // Axios 쓴 부분들 전부다 리덕스 사용하게 바꿔야될듯 에러 존나뜨네 진짜
+  // 좋아요 기능 - 리덕스로 수정 //
   const onLikeClick = () => {
     const body = {
       userId: userId,
@@ -48,26 +53,23 @@ const GoodsDetail = (props) => {
     if (userId === '') {
       alert('로그인을 하세요.');
     } else if (action === '') {
-      Axios.post(`/api/product/${goodsId}/like/uplike`, body).then((res) => {
-        if (res.data.upLike) {
-          setAction('liked');
-          setLikes((prev) => prev + 1);
-          alert('좋아요를 눌렀습니다.');
-        } else {
-          alert(res.data.err);
-        }
-      });
+      try {
+        dispatch(upLikeAction(body));
+      } catch (e) {
+        alert(e);
+      }
+      setAction('liked');
+      setLikes((prev) => prev + 1);
+      alert('좋아요를 눌렀습니다.');
     } else if (action === 'liked') {
-      Axios.post(`/api/product/${goodsId}/like/unlike`, body).then((res) => {
-        console.log(res.data);
-        if (res.data.unLike) {
-          setAction('');
-          setLikes((prev) => prev - 1);
-          alert('좋아요가 취소되었습니다.');
-        } else {
-          alert(res.data.err);
-        }
-      });
+      try {
+        dispatch(unLikeAction(body));
+      } catch (e) {
+        alert(e);
+      }
+      setAction('');
+      setLikes((prev) => prev - 1);
+      alert('좋아요가 취소되었습니다.');
     }
   };
 

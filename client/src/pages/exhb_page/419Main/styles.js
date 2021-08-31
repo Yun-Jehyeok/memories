@@ -6,6 +6,7 @@ export const Explain = styled.div`
   font-size: 9vh;
   z-index: 50px;
   margin-left: 35%;
+  color: #1a1a1a;
 `;
 
 export const Container = styled.div`
@@ -38,7 +39,7 @@ export const Item = styled.div`
   white-space: normal;
   cursor: pointer;
   & > div:nth-child(1) {
-    border: 4px solid #2d2d2d;
+    border: 4px solid #a4a4a4;
   }
   & img {
     width: 100%;
@@ -52,11 +53,11 @@ export const Item = styled.div`
     text-align: center;
     & > h4 {
       margin-bottom: 20px;
-      color: #ffffff;
+      color: #a4a4a4;
     }
     & > div {
       font-size: 12px;
-      color: #ffffff;
+      color: #a4a4a4;
     }
   }
 `;
