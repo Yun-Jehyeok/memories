@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import GoodsNavbar from 'components/shared/goodsNavbar/goodsNavbar';
+import ChangepwModal from 'components/ChangepwModal/ChangepwModal';
+
 import { Page } from 'assets/commonStyle/styles';
 import {
   Background,
@@ -42,7 +44,7 @@ const Mypage = (props) => {
               <Link to={`/goods/${user._id}/mypage/edit`}>
                 <Btn>프로필 편집</Btn>
               </Link>
-              <Btn>비밀번호 변경</Btn>
+              <ChangepwModal />
             </BtnContainer>
           </Profile>
           <UserBox>

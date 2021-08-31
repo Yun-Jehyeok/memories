@@ -3,6 +3,7 @@ import {
   REGISTER_REQUEST,
   LOGOUT_REQUEST,
   USER_LOADING_REQUEST,
+  CHANGE_PASSWORD_REQUEST,
   ADD_TO_CART_USER_REQUEST,
   GET_CART_ITEMS_USER_REQUEST,
   POST_DETAIL_LOADING_REQUEST,
@@ -62,3 +63,8 @@ export function onSuccessBuy(data) {
     payload: request,
   };
 }
+
+export const changePassword = (user) => ({
+  type: CHANGE_PASSWORD_REQUEST,
+  payload: user,
+});
