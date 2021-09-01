@@ -11,7 +11,7 @@ import {
   Profile,
   BtnContainer,
   UserBox,
-  Card,
+  Cardarea,
 } from './styles';
 import { Btn } from 'assets/commonStyle/styles';
 
@@ -95,15 +95,15 @@ const ProfileEdit = () => {
             </div>
           </Profile>
           <UserBox>
-            <Card>
+            <Cardarea>
               <p>✔️ 최근 본 상품</p>
-            </Card>
-            <Card>
+            </Cardarea>
+            <Cardarea>
               <p>✔️ 마음에 들어한 상품</p>
-            </Card>
-            <Card>
+            </Cardarea>
+            <Cardarea>
               <p>✔️ 내 문의 글</p>
-            </Card>
+            </Cardarea>
           </UserBox>
         </Box>
       </Background>

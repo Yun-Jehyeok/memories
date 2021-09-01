@@ -9,7 +9,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getCartItems, onSuccessBuy } from 'redux/actions';
 
 import Paypal from 'components/Paypal/Paypal';
-import Axios from 'axios';
 
 const columns = [
   {
@@ -22,6 +21,7 @@ const columns = [
       <img
         src={`http://localhost:7000/${images[0]}`}
         style={{ width: '100px', height: '100px' }}
+        alt="image"
       />
     ),
   },
@@ -65,7 +65,6 @@ const Cart = () => {
   const [ShowSuccess, setShowSuccess] = useState(false);
 
   const rowSelection = {
-    onChange: (selectedRowKeys, selectedRows) => {},
     onSelect: (record, selected, selectedRows) => {
       let total = 0;
 

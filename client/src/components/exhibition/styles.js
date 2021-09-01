@@ -38,23 +38,32 @@ export const Text = styled.div`
     }
   }
 `;
+
 export const ExBox = styled.div`
   position: absolute;
   background: black;
-  z-index: 500;
-  opacity: 0.4;
+  z-index: 10;
+  opacity: 0;
   border: 3px solid black;
+  line-height: 360px;
 
   font-size: 50px;
   color: white;
+
+  transition: all 0.3s ease-out;
+
+  &:hover {
+    opacity: 0.6;
+    transition: all 0.3s ease-out;
+  }
 `;
 export const Box = styled.div`
   position: absolute;
-  z-index: 1000;
   border: 1px solid black;
-  &: hover {
-    z-index: 0;
-    transition: all 0.3s;
-    background-color: #000000;
+
+  & > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 `;

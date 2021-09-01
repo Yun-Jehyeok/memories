@@ -86,7 +86,7 @@ const SharingModal = (props) => {
           &nbsp;twitter
         </p>
         <p>
-          <img src={KakaoIcon} style={{ width: '35px' }} />
+          <img src={KakaoIcon} style={{ width: '35px' }} alt="kakao imoticon" />
           &nbsp;kakao talk
         </p>
       </Modal>

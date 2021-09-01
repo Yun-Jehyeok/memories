@@ -60,6 +60,12 @@ const UserSchema = new mongoose.Schema({
       },
     },
   ],
+  views: {
+    product_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'product',
+    },
+  },
 });
 
 const User = mongoose.model('user', UserSchema);
