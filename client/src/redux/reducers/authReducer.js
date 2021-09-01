@@ -24,12 +24,17 @@ import {
   CHANGE_PASSWORD_REQUEST,
   CHANGE_PASSWORD_SUCCESS,
   CHANGE_PASSWORD_FAILURE,
+  UPLIKE_REQUEST,
+  UPLIKE_SUCCESS,
+  UPLIKE_FAILURE,
+  UNLIKE_SUCCESS,
 } from '../types';
 
 const initialState = {
   token: localStorage.getItem('token'),
   isAuthenticated: null,
   isPasswordChange: false,
+  isProfileChange: false,
   isLoading: false,
   user: '',
   userId: '',
@@ -41,6 +46,7 @@ const initialState = {
   cartDetail: [],
   address: '',
   registerDate: '',
+  likes: [],
 };
 
 const authReducer = (state = initialState, action) => {
@@ -170,6 +176,7 @@ const authReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: true,
+        isProfileChange: false,
       };
     case PROFILE_EDIT_SUCCESS:
       return {
@@ -178,6 +185,7 @@ const authReducer = (state = initialState, action) => {
         userName: action.payload.name,
         userId: action.payload._id,
         isLoading: false,
+        isProfileChange: true,
       };
     case PROFILE_EDIT_FAILURE:
       return {
@@ -190,6 +198,24 @@ const authReducer = (state = initialState, action) => {
         ...state,
         cart: action.payload.cart,
         cartDetail: action.payload.cartDetail,
+      };
+
+    case UPLIKE_REQUEST:
+      return {
+        ...state,
+      };
+    case UPLIKE_SUCCESS:
+      return {
+        ...state,
+        likes: [action.payload.like_id],
+      };
+    case UPLIKE_FAILURE:
+      return {
+        ...state,
+      };
+    case UNLIKE_SUCCESS:
+      return {
+        ...state,
       };
     default:
       return state;

@@ -3,11 +3,14 @@ import {
   REGISTER_REQUEST,
   LOGOUT_REQUEST,
   USER_LOADING_REQUEST,
+  CHANGE_PASSWORD_REQUEST,
   ADD_TO_CART_USER_REQUEST,
   GET_CART_ITEMS_USER_REQUEST,
   POST_DETAIL_LOADING_REQUEST,
   PROFILE_EDIT_REQUEST,
   ON_SUCCESS_BUY_USER,
+  UPLIKE_REQUEST,
+  UNLIKE_REQUEST,
 } from './types';
 
 import axios from 'axios';
@@ -62,3 +65,18 @@ export function onSuccessBuy(data) {
     payload: request,
   };
 }
+
+export const changePassword = (user) => ({
+  type: CHANGE_PASSWORD_REQUEST,
+  payload: user,
+});
+
+export const upLikeAction = (data) => ({
+  type: UPLIKE_REQUEST,
+  payload: data,
+});
+
+export const unLikeAction = (data) => ({
+  type: UNLIKE_REQUEST,
+  payload: data,
+});
