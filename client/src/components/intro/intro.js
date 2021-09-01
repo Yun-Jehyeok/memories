@@ -2,7 +2,6 @@ import React from 'react';
 import { Page, Info } from './styles';
 import flower1 from 'assets/img/꽃1.png';
 import flower2 from 'assets/img/꽃2.png';
-import flower3 from 'assets/img/꽃3.PNG';
 
 const Intro = () => {
   return (
@@ -17,6 +16,7 @@ const Intro = () => {
             top: '35%',
             width: '280px',
           }}
+          alt="flower1"
         />
         <img
           src={flower2}
@@ -27,6 +27,7 @@ const Intro = () => {
             top: '22%',
             width: '280px',
           }}
+          alt="flower2"
         />
         <Info className="col align-self-center">
           <b>

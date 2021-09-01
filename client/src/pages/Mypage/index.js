@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import GoodsNavbar from 'components/shared/goodsNavbar/goodsNavbar';
 import ChangepwModal from 'components/ChangepwModal/ChangepwModal';
 
-import { Card, Col, Row } from 'antd';
+import { Card, Col } from 'antd';
 import { Page } from 'assets/commonStyle/styles';
 import {
   Background,

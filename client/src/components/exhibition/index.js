@@ -50,6 +50,7 @@ const Exhibition = () => {
                   width: '270px',
                   height: '360px',
                   textAlign: 'center',
+                  lineHeight: '360px',
                 }}
               >
                 419혁명
@@ -62,10 +63,7 @@ const Exhibition = () => {
                   height: '360px',
                 }}
               >
-                <img
-                  src={four_pic}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
+                <img src={four_pic} alt="419" />
               </Box>
             </a>
 
@@ -77,6 +75,7 @@ const Exhibition = () => {
                   bottom: '40%',
                   width: '280px',
                   height: '360px',
+                  lineHeight: '360px',
                   textAlign: 'center',
                   alignItems: 'center',
                 }}
@@ -92,10 +91,7 @@ const Exhibition = () => {
                   height: '360px',
                 }}
               >
-                <img
-                  src={vet_pic}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
+                <img src={vet_pic} alt="월남전" />
               </Box>
             </a>
             <a href="/thousand_page/exhibitDetail">
@@ -106,6 +102,7 @@ const Exhibition = () => {
                   bottom: '1%',
                   width: '280px',
                   height: '360px',
+                  lineHeight: '360px',
                   textAlign: 'center',
                 }}
               >
@@ -120,10 +117,7 @@ const Exhibition = () => {
                   height: '360px',
                 }}
               >
-                <img
-                  src={twothousand_pic}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
+                <img src={twothousand_pic} alt="근현대" />
               </Box>
             </a>
 
@@ -135,6 +129,7 @@ const Exhibition = () => {
                   bottom: '55%',
                   width: '360px',
                   height: '270px',
+                  lineHeight: '270px',
                   textAlign: 'center',
                 }}
               >
@@ -149,10 +144,7 @@ const Exhibition = () => {
                   height: '270px',
                 }}
               >
-                <img
-                  src={six_pic}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
+                <img src={six_pic} alt="625" />
               </Box>
             </a>
             <a href="/518Main/exhibitDetail">
@@ -163,6 +155,7 @@ const Exhibition = () => {
                   bottom: '64%',
                   width: '380px',
                   height: '200px',
+                  lineHeight: '200px',
                   textAlign: 'center',
                 }}
               >
@@ -177,10 +170,7 @@ const Exhibition = () => {
                   height: '200px',
                 }}
               >
-                <img
-                  src={five_pic}
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
+                <img src={five_pic} alt="518" />
               </Box>
             </a>
 

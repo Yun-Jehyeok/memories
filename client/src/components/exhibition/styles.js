@@ -38,12 +38,14 @@ export const Text = styled.div`
     }
   }
 `;
+
 export const ExBox = styled.div`
   position: absolute;
   background: black;
   z-index: 10;
   opacity: 0;
   border: 3px solid black;
+  line-height: 360px;
 
   font-size: 50px;
   color: white;
@@ -51,11 +53,17 @@ export const ExBox = styled.div`
   transition: all 0.3s ease-out;
 
   &:hover {
-    opacity: 0.4;
+    opacity: 0.6;
     transition: all 0.3s ease-out;
   }
 `;
 export const Box = styled.div`
   position: absolute;
   border: 1px solid black;
+
+  & > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 `;
