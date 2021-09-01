@@ -9,13 +9,14 @@ export const Background = styled.div`
 export const Box = styled.div`
   width: 85%;
   margin: 30px 7.5% 0 7.5%;
-  height: 450px;
+  height: 80vh;
   display: flex;
   justify-content: space-between;
 `;
 
 export const Profile = styled.div`
-  width: 40%;
+  width: 70%;
+  height: 430px;
   background: #ffffff;
   border: 2px solid #dddddd;
   box-sizing: border-box;
@@ -47,7 +48,7 @@ export const BtnContainer = styled.div`
 `;
 
 export const UserBox = styled.div`
-  width: 55%;
+  width: 100%;
   height: 530px;
   background: #ffffff;
   border: 2px solid #dddddd;

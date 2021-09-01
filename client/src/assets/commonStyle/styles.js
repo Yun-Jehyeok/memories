@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import LogoImg from '../img/Logo.png';
+import LogoImg from '../img/Main_Logo.PNG';
 
 export const Img = styled.img.attrs({ src: `${LogoImg}` })`
-  margin: 23px 0 0 20px;
-  width: 3.5em;
+  margin: 18px 0 0 20px;
+  width: 7em;
 `;
 
 export function Logo(page) {

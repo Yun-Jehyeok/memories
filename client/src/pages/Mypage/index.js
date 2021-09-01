@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
+import Fade from 'react-reveal/Fade';
 import GoodsNavbar from 'components/shared/goodsNavbar/goodsNavbar';
 import ChangepwModal from 'components/ChangepwModal/ChangepwModal';
 
@@ -26,47 +27,46 @@ const Mypage = (props) => {
       <Helmet title={`기억들 - ${userName}님의 마이페이지`} />
       <Background>
         <GoodsNavbar />
-        <Box>
-          <Profile>
-            <div>🌸 {userName} 님의 프로필</div>
-            <div>
-              <p>
-                <b>가입일</b> : {String(user.register_date).substring(0, 10)}
-              </p>
-              <p>
-                <b>주소</b> : {user.address}
-              </p>
-              <p>
-                <b>닉네임</b> : {userName}
-              </p>
-            </div>
-            <BtnContainer>
-              <Link to={`/goods/${user._id}/mypage/edit`}>
-                <Btn>프로필 편집</Btn>
-              </Link>
-              <ChangepwModal />
-            </BtnContainer>
-          </Profile>
-          <UserBox>
-            <Cardarea>
-              <p>✔️ 최근 본 상품</p>
-            </Cardarea>
-            <Cardarea>
-              <p>✔️ 마음에 들어한 상품</p>
-              {console.log(likes)}
-              {likes.map((like, index) => {
-                return (
-                  <Col key={index}>
-                    <Card title="">{like._id}</Card>
-                  </Col>
-                );
-              })}
-            </Cardarea>
-            <Cardarea>
-              <p>✔️ 내 문의 글</p>
-            </Cardarea>
-          </UserBox>
-        </Box>
+        <Fade bottom>
+          <Box>
+            <Profile>
+              <div>🌸 {userName} 님의 프로필</div>
+              <div>
+                <p>
+                  <b>가입일</b> : {String(user.register_date).substring(0, 10)}
+                </p>
+                <p>
+                  <b>주소</b> : {user.address}
+                </p>
+                <p>
+                  <b>닉네임</b> : {userName}
+                </p>
+              </div>
+              <BtnContainer>
+                <Link to={`/goods/${user._id}/mypage/edit`}>
+                  <Btn>프로필 편집</Btn>
+                </Link>
+                <ChangepwModal />
+              </BtnContainer>
+            </Profile>
+            <UserBox>
+              <Cardarea>
+                <p>✔️ 최근 본 상품</p>
+              </Cardarea>
+              <Cardarea>
+                <p>✔️ 마음에 들어한 상품</p>
+                {console.log(likes)}
+                {likes.map((like, index) => {
+                  return (
+                    <Col key={index}>
+                      <Card title="">{like._id}</Card>
+                    </Col>
+                  );
+                })}
+              </Cardarea>
+            </UserBox>
+          </Box>
+        </Fade>
       </Background>
     </Page>
   );

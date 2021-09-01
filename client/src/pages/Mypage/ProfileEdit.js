@@ -101,9 +101,6 @@ const ProfileEdit = () => {
             <Cardarea>
               <p>✔️ 마음에 들어한 상품</p>
             </Cardarea>
-            <Cardarea>
-              <p>✔️ 내 문의 글</p>
-            </Cardarea>
           </UserBox>
         </Box>
       </Background>
