@@ -15,7 +15,7 @@ export const Box = styled.div`
 `;
 
 export const Profile = styled.div`
-  width: 70%;
+  width: 40%;
   height: 430px;
   background: #ffffff;
   border: 2px solid #dddddd;
@@ -48,8 +48,8 @@ export const BtnContainer = styled.div`
 `;
 
 export const UserBox = styled.div`
-  width: 100%;
-  height: 530px;
+  width: 58%;
+  height: 550px;
   background: #ffffff;
   border: 2px solid #dddddd;
   box-sizing: border-box;
@@ -59,7 +59,7 @@ export const UserBox = styled.div`
 export const Cardarea = styled.div`
   width: 90%;
   margin: 20px 5% 0 5%;
-  height: 25%;
+  height: auto;
 
   & > p {
     font-size: 19px;

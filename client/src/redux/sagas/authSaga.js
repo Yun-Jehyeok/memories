@@ -329,6 +329,7 @@ const getMypageAPI = (payload) => {
 
 function* getMypage(action) {
   const result = yield call(getMypageAPI, action.payload);
+  console.log(result.data);
   try {
     yield put({
       type: GET_MYPAGE_SUCCESS,

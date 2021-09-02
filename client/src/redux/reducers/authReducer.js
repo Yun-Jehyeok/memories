@@ -225,8 +225,8 @@ const authReducer = (state = initialState, action) => {
     case GET_MYPAGE_SUCCESS:
       return {
         ...state,
-        likes: action.payload.mypage.likes,
-        views: action.payload.mypage.views,
+        likes: action.payload.likes,
+        views: action.payload.views,
       };
     case GET_MYPAGE_FAILURE:
       return {

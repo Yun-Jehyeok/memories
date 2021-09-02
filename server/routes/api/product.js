@@ -260,7 +260,7 @@ router.post('/:id/views', async (req, res) => {
       },
     });
 
-    res.json({ success: true, product: result });
+    res.json({ success: true, views: result });
   } catch (e) {
     res.json(e);
   }

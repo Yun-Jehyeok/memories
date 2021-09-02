@@ -48,14 +48,18 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
-  likes: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'product',
-  },
-  views: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'product',
-  },
+  likes: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'product',
+    },
+  ],
+  views: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'product',
+    },
+  ],
 });
 
 const User = mongoose.model('user', UserSchema);
