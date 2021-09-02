@@ -28,6 +28,9 @@ import {
   UPLIKE_SUCCESS,
   UPLIKE_FAILURE,
   UNLIKE_SUCCESS,
+  GET_MYPAGE_REQUEST,
+  GET_MYPAGE_SUCCESS,
+  GET_MYPAGE_FAILURE,
 } from '../types';
 
 const initialState = {
@@ -47,10 +50,12 @@ const initialState = {
   address: '',
   registerDate: '',
   likes: [],
+  views: [],
 };
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
+    case GET_MYPAGE_REQUEST:
     case CHANGE_PASSWORD_REQUEST:
     case LOGIN_REQUEST:
     case REGISTER_REQUEST:
@@ -207,7 +212,7 @@ const authReducer = (state = initialState, action) => {
     case UPLIKE_SUCCESS:
       return {
         ...state,
-        likes: [action.payload.like_id],
+        likes: action.payload,
       };
     case UPLIKE_FAILURE:
       return {
@@ -216,6 +221,18 @@ const authReducer = (state = initialState, action) => {
     case UNLIKE_SUCCESS:
       return {
         ...state,
+      };
+    case GET_MYPAGE_SUCCESS:
+      return {
+        ...state,
+        likes: action.payload.mypage.likes,
+        views: action.payload.mypage.views,
+      };
+    case GET_MYPAGE_FAILURE:
+      return {
+        ...state,
+        likes: [],
+        views: [],
       };
     default:
       return state;

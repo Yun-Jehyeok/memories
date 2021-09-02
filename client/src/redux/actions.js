@@ -11,6 +11,7 @@ import {
   ON_SUCCESS_BUY_USER,
   UPLIKE_REQUEST,
   UNLIKE_REQUEST,
+  GET_MYPAGE_REQUEST,
 } from './types';
 
 import axios from 'axios';
@@ -78,5 +79,10 @@ export const upLikeAction = (data) => ({
 
 export const unLikeAction = (data) => ({
   type: UNLIKE_REQUEST,
+  payload: data,
+});
+
+export const getMypage = (data) => ({
+  type: GET_MYPAGE_REQUEST,
   payload: data,
 });

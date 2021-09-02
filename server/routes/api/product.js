@@ -107,6 +107,7 @@ router.get('/products_by_id', async (req, res) => {
 router.get('/:id/like/getlike', async (req, res) => {
   try {
     const likes = await Like.find({ productId: req.params.id });
+
     return res.status(200).json({ getLike: true, likes: likes });
   } catch (e) {
     return res.status(400).json({ getLike: false, e });
@@ -124,15 +125,10 @@ router.post('/:id/like/uplike', async (req, res) => {
   try {
     await User.findByIdAndUpdate(userId, {
       $push: {
-        likes: {
-          product_id: productId,
-          like_id: newLike._id,
-        },
+        likes: productId,
       },
     });
-    return res
-      .status(200)
-      .json({ upLike: true, product_id: productId, like_id: newLike._id });
+    return res.status(200).json({ upLike: true, product_id: productId });
   } catch (e) {
     return res.status(400).json({ upLike: false, e });
   }
@@ -148,7 +144,7 @@ router.post('/:id/like/unlike', async (req, res) => {
       productId: productId,
     });
     await User.findByIdAndUpdate(userId, {
-      $pull: { likes: { product_id: productId } },
+      $pull: { likes: productId },
     });
     return res.status(200).json({ unLike: true });
   } catch (e) {
@@ -252,17 +248,19 @@ router.post('/:id/views', async (req, res) => {
   const productId = req.params.id;
 
   try {
+    const product = await Product.findById(productId);
+    const result = product.views + 1;
     await Product.findByIdAndUpdate(productId, {
-      views: views + 1,
+      views: result,
     });
 
     await User.findByIdAndUpdate(userId, {
       $push: {
-        views: { product_id: productId },
+        views: productId,
       },
     });
 
-    res.json({ success: true });
+    res.json({ success: true, product: result });
   } catch (e) {
     res.json(e);
   }
