@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useDispatch, useSelector } from 'react-redux';
 import { Form, FormGroup, Input } from 'reactstrap';
 
 import GoodsNavbar from 'components/shared/goodsNavbar/goodsNavbar';
+
+import { Card, Col, Row } from 'antd';
 import { Page } from 'assets/commonStyle/styles';
 import {
   Background,
@@ -18,7 +20,7 @@ import { Btn } from 'assets/commonStyle/styles';
 import { editProfile } from 'redux/actions';
 
 const ProfileEdit = () => {
-  const { userName, user } = useSelector((state) => state.auth);
+  const { userName, user, likes, views } = useSelector((state) => state.auth);
 
   const [form, setValues] = useState({
     name: `${userName}`,
@@ -33,6 +35,48 @@ const ProfileEdit = () => {
   };
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getMypage({ user: userId }));
+  }, [user]);
+
+  const likeItems = likes.map((item, index) => {
+    return (
+      <Col span={8}>
+        <Card key={index} title={item.title}>
+          <Link to={`/goods/${item._id}`}>
+            <img src={`http://localhost:7000/${item.images}`} width="100px" />
+          </Link>
+        </Card>
+      </Col>
+    );
+  });
+
+  const viewItems = remove_Dup(views).map((item, index) => {
+    return (
+      <Col span={8}>
+        <Card key={index} title={item.title}>
+          <Link to={`/goods/${item._id}`}>
+            <img src={`http://localhost:7000/${item.images}`} width="100px" />
+          </Link>
+        </Card>
+      </Col>
+    );
+  });
+
+  function remove_Dup(arr) {
+    var uniques = [];
+    var items = [];
+    for (var i = 0, l = arr.length; i < l; i++) {
+      var stringified = JSON.stringify(arr[i]);
+      if (items[stringified]) {
+        continue;
+      }
+      uniques.push(arr[i]);
+      items[stringified] = true;
+    }
+    return uniques;
+  }
 
   const onSubmit = async (e) => {
     await e.preventDefault();
@@ -97,9 +141,11 @@ const ProfileEdit = () => {
           <UserBox>
             <Cardarea>
               <p>✔️ 최근 본 상품</p>
+              <Row gutter={16}>{viewItems}</Row>
             </Cardarea>
             <Cardarea>
               <p>✔️ 마음에 들어한 상품</p>
+              <Row gutter={16}>{likeItems}</Row>
             </Cardarea>
           </UserBox>
         </Box>
