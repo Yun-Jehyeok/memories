@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Modal } from 'antd';
 import { dummyArr } from './data';
+
+import Fade from 'react-reveal/Fade';
 import { IconBox, Item, ItemContainer, ModalBox } from './styles';
 import {
   FrownOutlined,
@@ -33,13 +35,15 @@ function FiveModal() {
   };
   const Items = dummyArr.map((item) => (
     <Item key={item.id} onClick={() => showModal(item)}>
-      <div>
-        <img src={item.image} alt={item.title} />
-      </div>
-      <div>
-        <h4>{item.title}</h4>
-        <div>{item.description.slice(0, 176)}...</div>
-      </div>
+      <Fade bottom>
+        <div>
+          <img src={item.image} alt={item.title} />
+        </div>
+        <div>
+          <h4>{item.title}</h4>
+          <div>{item.description.slice(0, 176)}...</div>
+        </div>
+      </Fade>
     </Item>
   ));
 
