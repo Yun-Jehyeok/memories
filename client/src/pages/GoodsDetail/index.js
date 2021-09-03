@@ -7,7 +7,7 @@ import Comment from 'components/comment/Comment';
 
 import { Button } from 'antd';
 // icons //
-import { HeartFilled, HeartOutlined } from '@ant-design/icons';
+import { HeartFilled, HeartOutlined, EyeOutlined } from '@ant-design/icons';
 
 import { Box, DescriptionBox, PageLink, RightCircle } from './styles';
 import { Page } from 'assets/commonStyle/styles';
@@ -18,7 +18,11 @@ import {
   upLikeAction,
   unLikeAction,
 } from 'redux/actions';
-import { COMMENT_DELETE_REQUEST } from 'redux/types';
+import {
+  COMMENT_DELETE_REQUEST,
+  GET_VIEWS_REQUEST,
+  UPVIEWS_REQUEST,
+} from 'redux/types';
 import SharingModal from 'components/SharingModal/SharingModal';
 
 const GoodsDetail = (props) => {
@@ -28,7 +32,7 @@ const GoodsDetail = (props) => {
 
   const { comments } = useSelector((state) => state.comment);
   const { userId, userName } = useSelector((state) => state.auth);
-  const { images, title, price, description } = useSelector(
+  const { images, title, price, description, views } = useSelector(
     (state) => state.post,
   );
 
@@ -43,13 +47,13 @@ const GoodsDetail = (props) => {
     setDescriptionButtonClick(false);
   };
 
+  const body = {
+    userId: userId,
+    productId: goodsId,
+  };
+
   // 좋아요 기능 - 리덕스로 수정 //
   const onLikeClick = () => {
-    const body = {
-      userId: userId,
-      productId: goodsId,
-    };
-
     if (userId === '') {
       alert('로그인을 하세요.');
     } else if (action === '') {
@@ -75,6 +79,14 @@ const GoodsDetail = (props) => {
 
   useEffect(() => {
     dispatch(getGoodsDetail(goodsId));
+    dispatch({
+      type: UPVIEWS_REQUEST,
+      payload: body,
+    });
+    dispatch({
+      type: GET_VIEWS_REQUEST,
+      payload: body,
+    });
 
     Axios.get(`api/product/${goodsId}/like/getLike`).then((res) => {
       // 좋아요가 있을 때
@@ -149,6 +161,9 @@ const GoodsDetail = (props) => {
               </span>
               <span>
                 <SharingModal goodsId={goodsId} />
+              </span>
+              <span style={{ marginLeft: '50px' }}>
+                <EyeOutlined /> {views}명
               </span>
             </div>
           </div>

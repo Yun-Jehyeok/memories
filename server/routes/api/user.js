@@ -241,4 +241,22 @@ router.get('/getHistory', auth, (req, res) => {
   });
 });
 
+// Mypage Loading
+router.get('/:id/getMypage', async (req, res) => {
+  try {
+    const user = await User.findOne({ _id: req.params.id }).populate({
+      path: 'likes',
+    });
+    const user_views = await User.findOne({ _id: req.params.id }).populate({
+      path: 'views',
+    });
+
+    const likes = user.likes;
+    const views = user_views.views;
+    res.status(200).json({ likes: likes, views: views });
+  } catch (e) {
+    res.json(e);
+  }
+});
+
 module.exports = router;

@@ -2,6 +2,11 @@ import {
   POST_DETAIL_LOADING_FAILURE,
   POST_DETAIL_LOADING_REQUEST,
   POST_DETAIL_LOADING_SUCCESS,
+  GET_VIEWS_REQUEST,
+  GET_VIEWS_SUCCESS,
+  GET_VIEWS_FAILURE,
+  UPVIEWS_REQUEST,
+  UPVIEWS_SUCCESS,
 } from '../types';
 
 const initialState = {
@@ -17,6 +22,8 @@ const initialState = {
 
 export default function (state = initialState, action) {
   switch (action.type) {
+    case GET_VIEWS_REQUEST:
+    case UPVIEWS_REQUEST:
     case POST_DETAIL_LOADING_REQUEST:
       return {
         ...state,
@@ -40,6 +47,16 @@ export default function (state = initialState, action) {
         loading: false,
       };
 
+    case GET_VIEWS_SUCCESS:
+      return {
+        ...state,
+        views: action.payload,
+      };
+    case GET_VIEWS_FAILURE:
+      return {
+        ...state,
+        views: 0,
+      };
     default:
       return state;
   }
