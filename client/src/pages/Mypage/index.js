@@ -74,7 +74,6 @@ const Mypage = (props) => {
       <Background>
         <GoodsNavbar />
         <Fade bottom>
-          {console.log(user)}
           <Box>
             <Profile>
               <div>🌸 {userName} 님의 프로필</div>
