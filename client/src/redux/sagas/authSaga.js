@@ -32,6 +32,9 @@ import {
   UNLIKE_REQUEST,
   UNLIKE_SUCCESS,
   UNLIKE_FAILURE,
+  GET_MYPAGE_REQUEST,
+  GET_MYPAGE_SUCCESS,
+  GET_MYPAGE_FAILURE,
 } from '../types';
 
 const loginUserAPI = (loginData) => {
@@ -77,7 +80,7 @@ const registerUserAPI = (registerData) => {
 function* registerUser(action) {
   try {
     const result = yield call(registerUserAPI, action.payload);
-    console.log(result.data);
+
     yield put({
       type: REGISTER_SUCCESS,
       payload: result.data,
@@ -274,8 +277,8 @@ const upLikeAPI = (payload) => {
 
 function* upLike(action) {
   const result = yield call(upLikeAPI, action.payload);
+
   try {
-    console.log(result.data);
     if (result.data.upLike) {
       yield put({
         type: UPLIKE_SUCCESS,
@@ -320,6 +323,31 @@ function* watchunLike() {
   yield takeEvery(UNLIKE_REQUEST, unLike);
 }
 
+// get Mypage
+const getMypageAPI = (payload) => {
+  return axios.get(`/api/user/${payload.user}/getMypage`, payload);
+};
+
+function* getMypage(action) {
+  const result = yield call(getMypageAPI, action.payload);
+
+  try {
+    yield put({
+      type: GET_MYPAGE_SUCCESS,
+      payload: result.data,
+    });
+  } catch (e) {
+    yield put({
+      type: GET_MYPAGE_FAILURE,
+      payload: e,
+    });
+  }
+}
+
+function* watchgetMypage() {
+  yield takeEvery(GET_MYPAGE_REQUEST, getMypage);
+}
+
 export default function* authSaga() {
   yield all([
     // Auth //
@@ -334,6 +362,7 @@ export default function* authSaga() {
     // Profile //
     fork(watchProfileEdit),
     fork(watchfindPassword),
+    fork(watchgetMypage),
 
     // Like //
     fork(watchupLike),

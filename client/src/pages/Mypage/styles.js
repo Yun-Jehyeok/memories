@@ -9,13 +9,14 @@ export const Background = styled.div`
 export const Box = styled.div`
   width: 85%;
   margin: 30px 7.5% 0 7.5%;
-  height: 450px;
+  height: 80vh;
   display: flex;
   justify-content: space-between;
 `;
 
 export const Profile = styled.div`
   width: 40%;
+  height: 430px;
   background: #ffffff;
   border: 2px solid #dddddd;
   box-sizing: border-box;
@@ -47,8 +48,8 @@ export const BtnContainer = styled.div`
 `;
 
 export const UserBox = styled.div`
-  width: 55%;
-  height: 530px;
+  width: 58%;
+  height: 550px;
   background: #ffffff;
   border: 2px solid #dddddd;
   box-sizing: border-box;
@@ -58,7 +59,7 @@ export const UserBox = styled.div`
 export const Cardarea = styled.div`
   width: 90%;
   margin: 20px 5% 0 5%;
-  height: 25%;
+  height: auto;
 
   & > p {
     font-size: 19px;
