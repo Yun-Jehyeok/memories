@@ -80,7 +80,7 @@ const registerUserAPI = (registerData) => {
 function* registerUser(action) {
   try {
     const result = yield call(registerUserAPI, action.payload);
-    console.log(result.data);
+
     yield put({
       type: REGISTER_SUCCESS,
       payload: result.data,
@@ -330,7 +330,7 @@ const getMypageAPI = (payload) => {
 
 function* getMypage(action) {
   const result = yield call(getMypageAPI, action.payload);
-  console.log(result.data);
+
   try {
     yield put({
       type: GET_MYPAGE_SUCCESS,

@@ -17,10 +17,13 @@ import {
 } from './styles';
 import { Btn } from 'assets/commonStyle/styles';
 
-import { editProfile } from 'redux/actions';
+import { editProfile, getMypage } from 'redux/actions';
+import { Link } from 'react-router-dom';
 
 const ProfileEdit = () => {
-  const { userName, user, likes, views } = useSelector((state) => state.auth);
+  const { userName, user, likes, views, userId } = useSelector(
+    (state) => state.auth,
+  );
 
   const [form, setValues] = useState({
     name: `${userName}`,
@@ -42,7 +45,7 @@ const ProfileEdit = () => {
 
   const likeItems = likes.map((item, index) => {
     return (
-      <Col span={8}>
+      <Col span={8} key={item._id}>
         <Card key={index} title={item.title}>
           <Link to={`/goods/${item._id}`}>
             <img src={`http://localhost:7000/${item.images}`} width="100px" />

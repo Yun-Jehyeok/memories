@@ -32,7 +32,7 @@ const Mypage = (props) => {
 
   const likeItems = likes.map((item, index) => {
     return (
-      <Col span={8}>
+      <Col span={8} key={item._id}>
         <Card key={index} title={item.title}>
           <Link to={`/goods/${item._id}`}>
             <img src={`http://localhost:7000/${item.images}`} width="100px" />
@@ -70,11 +70,11 @@ const Mypage = (props) => {
 
   return (
     <Page>
-      {console.log(user)}
       <Helmet title={`기억들 - ${userName}님의 마이페이지`} />
       <Background>
         <GoodsNavbar />
         <Fade bottom>
+          {console.log(user)}
           <Box>
             <Profile>
               <div>🌸 {userName} 님의 프로필</div>
