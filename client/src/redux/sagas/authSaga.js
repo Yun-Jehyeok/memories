@@ -274,8 +274,8 @@ const upLikeAPI = (payload) => {
 
 function* upLike(action) {
   const result = yield call(upLikeAPI, action.payload);
+
   try {
-    console.log(result.data);
     if (result.data.upLike) {
       yield put({
         type: UPLIKE_SUCCESS,

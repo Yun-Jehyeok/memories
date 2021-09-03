@@ -107,6 +107,7 @@ router.get('/products_by_id', async (req, res) => {
 router.get('/:id/like/getlike', async (req, res) => {
   try {
     const likes = await Like.find({ productId: req.params.id });
+
     return res.status(200).json({ getLike: true, likes: likes });
   } catch (e) {
     return res.status(400).json({ getLike: false, e });
@@ -130,9 +131,12 @@ router.post('/:id/like/uplike', async (req, res) => {
         },
       },
     });
-    return res
-      .status(200)
-      .json({ upLike: true, product_id: productId, like_id: newLike._id });
+
+    return res.status(200).json({
+      upLike: true,
+      product_id: productId,
+      like_id: newLike._id,
+    });
   } catch (e) {
     return res.status(400).json({ upLike: false, e });
   }

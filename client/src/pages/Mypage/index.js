@@ -23,6 +23,7 @@ const Mypage = (props) => {
 
   return (
     <Page>
+      {console.log(user)}
       <Helmet title={`기억들 - ${userName}님의 마이페이지`} />
       <Background>
         <GoodsNavbar />
@@ -53,7 +54,6 @@ const Mypage = (props) => {
             </Cardarea>
             <Cardarea>
               <p>✔️ 마음에 들어한 상품</p>
-              {console.log(likes)}
               {likes.map((like, index) => {
                 return (
                   <Col key={index}>
