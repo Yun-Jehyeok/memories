@@ -102,7 +102,7 @@ const GoodsDetail = (props) => {
         alert('데이터 오류');
       }
     });
-  }, [goodsId, userId, dispatch, body]);
+  }, [goodsId, userId, dispatch]);
 
   const addToCartHandler = () => {
     const data = {
