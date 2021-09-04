@@ -28,14 +28,18 @@ const Mypage = (props) => {
 
   useEffect(() => {
     dispatch(getMypage({ user: userId }));
-  }, [user]);
+  }, [dispatch, userId]);
 
   const likeItems = likes.map((item, index) => {
     return (
       <Col span={8} key={item._id}>
         <Card key={index} title={item.title}>
           <Link to={`/goods/${item._id}`}>
-            <img src={`http://localhost:7000/${item.images}`} width="100px" />
+            <img
+              src={`http://localhost:7000/${item.images}`}
+              width="100px"
+              alt={item.title}
+            />
           </Link>
         </Card>
       </Col>
@@ -47,7 +51,11 @@ const Mypage = (props) => {
       <Col span={8}>
         <Card key={index} title={item.title}>
           <Link to={`/goods/${item._id}`}>
-            <img src={`http://localhost:7000/${item.images}`} width="100px" />
+            <img
+              src={`http://localhost:7000/${item.images}`}
+              width="100px"
+              alt={item.title}
+            />
           </Link>
         </Card>
       </Col>

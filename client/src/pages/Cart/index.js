@@ -21,7 +21,7 @@ const columns = [
       <img
         src={`http://localhost:7000/${images[0]}`}
         style={{ width: '100px', height: '100px' }}
-        alt="image"
+        alt="cartImages"
       />
     ),
   },
@@ -60,7 +60,6 @@ const Cart = () => {
   const dispatch = useDispatch();
   const { user, cartDetail, isLoading } = useSelector((state) => state.auth);
   const [Total, setTotal] = useState(0);
-  const [checkStrictly, setCheckStrictly] = useState(false);
   const [ShowTotal, setShowTotal] = useState(false);
   const [ShowSuccess, setShowSuccess] = useState(false);
 
@@ -139,7 +138,7 @@ const Cart = () => {
           columns={columns}
           dataSource={cartDetail}
           pagination={{ position: ['none', 'none'] }}
-          rowSelection={{ ...rowSelection, checkStrictly }}
+          rowSelection={{ ...rowSelection, checkStrictly: false }}
           footer={() => (
             <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
               결제 총 금액: {Total} 원

@@ -86,7 +86,7 @@ function* watchupViews() {
   yield takeEvery(UPVIEWS_REQUEST, upViews);
 }
 
-export default function* postSaga() {
+export default function* productSaga() {
   yield all([
     fork(watchloadPostDetail),
     fork(watchgetViews),

@@ -33,7 +33,7 @@ const GoodsDetail = (props) => {
   const { comments } = useSelector((state) => state.comment);
   const { userId, userName } = useSelector((state) => state.auth);
   const { images, title, price, description, views } = useSelector(
-    (state) => state.post,
+    (state) => state.product,
   );
 
   const goodsId = props.match.params.goodsId;
@@ -102,7 +102,7 @@ const GoodsDetail = (props) => {
         alert('데이터 오류');
       }
     });
-  }, [goodsId, userId, dispatch]);
+  }, [goodsId, userId, dispatch, body]);
 
   const addToCartHandler = () => {
     const data = {
@@ -119,7 +119,7 @@ const GoodsDetail = (props) => {
       payload: {
         userId: userId,
         commentId: commentId,
-        postId: goodsId,
+        productId: goodsId,
         token: localStorage.getItem('token'),
       },
     });
