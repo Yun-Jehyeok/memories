@@ -6,7 +6,6 @@ import {
   GET_VIEWS_SUCCESS,
   GET_VIEWS_FAILURE,
   UPVIEWS_REQUEST,
-  UPVIEWS_SUCCESS,
 } from '../types';
 
 const initialState = {
@@ -20,7 +19,7 @@ const initialState = {
   views: 0,
 };
 
-export default function (state = initialState, action) {
+const productReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_VIEWS_REQUEST:
     case UPVIEWS_REQUEST:
@@ -60,4 +59,6 @@ export default function (state = initialState, action) {
     default:
       return state;
   }
-}
+};
+
+export default productReducer;

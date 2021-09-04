@@ -34,6 +34,7 @@ router.post('/login', (req, res) => {
 
           res.json({
             token,
+            userForCart: user,
             user: {
               id: user.id,
               name: user.name,

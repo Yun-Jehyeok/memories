@@ -82,6 +82,7 @@ const authReducer = (state = initialState, action) => {
         ...action.payload,
         isAuthenticated: true,
         isLoading: false,
+        user: action.payload.userForCart,
         userId: action.payload.user.id,
         userRole: action.payload.user.role,
         userName: action.payload.user.name,
