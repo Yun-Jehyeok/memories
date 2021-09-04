@@ -6,7 +6,6 @@ import {
   Year,
   Text,
   Redtext,
-  Filptext,
   Info,
   Column,
   Yeartext,
