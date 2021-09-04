@@ -22,7 +22,7 @@ import LoginModal from 'components/LoginModal/LoginModal';
 
 const GoodsNavbar = () => {
   const page = 'goods';
-  const { isAuthenticated, userName, user } = useSelector(
+  const { isAuthenticated, userName, user, userRole } = useSelector(
     (state) => state.auth,
   );
   const [badgeCount, setBadgeCount] = useState(0);
