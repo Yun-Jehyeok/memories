@@ -24,12 +24,12 @@ export const SlideBox = styled.div`
   top: 120px;
   overflow: hidden;
   & > div {
-    width: 3544px;
-    height: 590px;
+    width: 100%;
+    height: 100%;
   }
   & > div > div > .slide_content {
-    width: 1250px;
-    height: 590px;
+    width: 100%;
+    height: 100%;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
     z-index: 1;
     float: left;
@@ -37,8 +37,8 @@ export const SlideBox = styled.div`
 `;
 
 export const Slide = styled.img`
-  width: 1250px;
-  height: 590px;
+  width: 1200px;
+  height: 550px;
   object-position: center top;
   object-fit: cover;
 `;

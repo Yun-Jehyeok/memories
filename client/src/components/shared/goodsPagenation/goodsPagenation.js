@@ -1,5 +1,5 @@
 import React from 'react';
-import { Page, Pagenum, PageBorder, Pagenum_snd } from './styles';
+import { Page, Pagenum, PageBorder, PageNumSnd } from './styles';
 
 const GoodsPagenation = (props) => {
   return (
@@ -11,15 +11,15 @@ const GoodsPagenation = (props) => {
         <PageBorder></PageBorder>
       </div>
       <div type="button" onClick={() => props.slideNext(1)}>
-        <Pagenum_snd className="slideBtn" id="slide_btn_2">
+        <PageNumSnd className="slideBtn" id="slide_btn_2">
           02
-        </Pagenum_snd>
+        </PageNumSnd>
         <PageBorder></PageBorder>
       </div>
       <div type="button" onClick={() => props.slideNext(2)}>
-        <Pagenum_snd className="slideBtn" id="slide_btn_3">
+        <PageNumSnd className="slideBtn" id="slide_btn_3">
           03
-        </Pagenum_snd>
+        </PageNumSnd>
         <PageBorder></PageBorder>
       </div>
     </Page>

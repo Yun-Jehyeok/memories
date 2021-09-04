@@ -77,10 +77,13 @@ const History = () => {
   return (
     <Page className="page_section section" id="history_area">
       <HistorySection className="row justify-content-md-center">
-        <Year className="col align-self-center">
+        <Year className="col align-self-center d-flex justify-content-flex-start">
           <Sel
             defaultValue="all"
-            style={{ width: '120px' }}
+            style={{
+              width: '150px',
+              paddingLeft: '32px',
+            }}
             onChange={handleChange}
             onSelect={onSelect}
           >

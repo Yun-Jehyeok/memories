@@ -32,7 +32,7 @@ export const Pagenum = styled.p`
   }
 `;
 
-export const Pagenum_snd = styled.p`
+export const PageNumSnd = styled.p`
   position: relative;
   font-size: 35px;
   font-weight: 200;
