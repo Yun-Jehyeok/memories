@@ -57,7 +57,7 @@ const Mypage = (props) => {
           <Link to={`/goods/${item._id}`}>
             <img
               src={`http://localhost:7000/${item.images}`}
-              width="100px"
+              height="100px"
               alt={item.title}
             />
           </Link>
