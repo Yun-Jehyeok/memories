@@ -6,7 +6,8 @@ export const Explain = styled.div`
   font-size: 9vh;
   z-index: 50px;
   margin-left: 35%;
-  color: #1a1a1a;
+  color: #e9c400;
+  font-weight: 400;
 `;
 
 export const Container = styled.div`

@@ -11,7 +11,6 @@ const GoodsMain = () => {
   // 애니메이션 //
   const [num, setNum] = useState(0);
   var slideList;
-  var slideContents;
   var slideBtn;
   const slideWidth = 1250;
   const slideSpeed = 600;
@@ -19,7 +18,6 @@ const GoodsMain = () => {
   const slideNext = (index) => {
     setNum(index);
     slideList = document.querySelector('.slide_list');
-    slideContents = document.querySelectorAll('.slide_content');
     slideBtn = document.querySelectorAll('.slideBtn');
     slideList.style.transition = slideSpeed + 'ms';
     slideList.style.transform = 'translateX(-' + slideWidth * index + 'px)';

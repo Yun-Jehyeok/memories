@@ -30,21 +30,25 @@ const Mypage = (props) => {
     dispatch(getMypage({ user: userId }));
   }, [dispatch, userId]);
 
-  const likeItems = likes.map((item, index) => {
-    return (
-      <Col span={8} key={item._id}>
-        <Card key={index} title={item.title}>
-          <Link to={`/goods/${item._id}`}>
-            <img
-              src={`http://localhost:7000/${item.images}`}
-              width="100px"
-              alt={item.title}
-            />
-          </Link>
-        </Card>
-      </Col>
-    );
-  });
+  const likeItems = likes
+    ? likes.length > 0
+      ? likes.map((item, index) => {
+          return (
+            <Col span={8} key={item._id}>
+              <Card key={index} title={item.title}>
+                <Link to={`/goods/${item._id}`}>
+                  <img
+                    src={`http://localhost:7000/${item.images}`}
+                    width="100px"
+                    alt={item.title}
+                  />
+                </Link>
+              </Card>
+            </Col>
+          );
+        })
+      : []
+    : [];
 
   const viewItems = remove_Dup(views).map((item, index) => {
     return (
@@ -53,7 +57,7 @@ const Mypage = (props) => {
           <Link to={`/goods/${item._id}`}>
             <img
               src={`http://localhost:7000/${item.images}`}
-              width="100px"
+              height="100px"
               alt={item.title}
             />
           </Link>
