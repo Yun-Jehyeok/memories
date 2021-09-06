@@ -10,6 +10,13 @@ import { getCartItems, onSuccessBuy } from 'redux/actions';
 
 import Paypal from 'components/Paypal/Paypal';
 
+const DecreaseQuantity = (quantity) => {
+  quantity = quantity - 1;
+};
+const IncreaseQuantity = (quantity) => {
+  quantity = quantity + 1;
+};
+
 const columns = [
   {
     title: '',
