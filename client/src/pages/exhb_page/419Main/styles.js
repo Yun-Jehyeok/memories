@@ -34,8 +34,9 @@ export const Item = styled.div`
   display: inline-block;
   width: 300px;
   height: 450px;
-  margin-left: 8%;
+  margin-left: 4%;
   margin-bottom: 10%;
+  margin-right: 4%;
   background-color: transparent;
   white-space: normal;
   cursor: pointer;
@@ -48,14 +49,7 @@ export const Item = styled.div`
     object-position: center top;
     object-fit: cover;
   }
-  & > div:nth-child(2) {
-    padding: 30px;
-    padding-top: 20px;
-    text-align: center;
-    & > h4 {
-      margin-bottom: 20px;
-      color: #a4a4a4;
-    }
+  
     & > div {
       font-size: 12px;
       color: #a4a4a4;
