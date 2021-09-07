@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router';
+
 import { Modal } from 'antd';
-import { dummyArr } from './518data';
 
 import Fade from 'react-reveal/Fade';
 import { IconBox, Item, ItemContainer, ModalBox } from './styles';
@@ -11,6 +12,12 @@ import {
   RobotOutlined,
 } from '@ant-design/icons';
 
+import { dataFor419 } from './419data';
+import { dataForVet } from './vetdata';
+import { dataFor2000 } from './2000data';
+import { dataFor625 } from './625data';
+import { dataFor518 } from './518data';
+
 function FiveModal() {
   const [isModalVisible, setisModalVisible] = useState(false);
   const [ItemDetail, setItemDetail] = useState({
@@ -18,6 +25,35 @@ function FiveModal() {
     title: '',
     description: '',
   });
+
+  /////////////////////////////////////
+
+  const { exhibitionId } = useParams();
+  const [dataArr, setDataArr] = useState([]);
+
+  useEffect(() => {
+    switch (exhibitionId) {
+      case '419main':
+        setDataArr(dataFor419);
+        return;
+      case 'vet_page':
+        setDataArr(dataForVet);
+        return;
+      case 'thousand_page':
+        setDataArr(dataFor2000);
+        return;
+      case '625main':
+        setDataArr(dataFor625);
+        return;
+      case '518Main':
+        setDataArr(dataFor518);
+
+      default:
+        return;
+    }
+  }, [exhibitionId]);
+
+  /////////////////////////////////////
 
   const showModal = (item) => {
     setisModalVisible(true);
@@ -33,7 +69,7 @@ function FiveModal() {
   const handleCancel = () => {
     setisModalVisible(false);
   };
-  const Items = dummyArr.map((item) => (
+  const Items = dataArr.map((item) => (
     <Item key={item.id} onClick={() => showModal(item)}>
       <Fade bottom>
         <div>

@@ -5,6 +5,7 @@ import six_pic from 'assets/img/625signature.png';
 import vet_pic from 'assets/img/vetsignature.png';
 import twothousand_pic from 'assets/img/2000signature.png';
 import four_pic from 'assets/img/419signature.jpg';
+import { Link } from 'react-router-dom';
 
 const Exhibition = () => {
   return (
@@ -42,7 +43,7 @@ const Exhibition = () => {
               </div>
             </center_abs>
 
-            <a href="/419main/exhibitDetail">
+            <Link to="/exhibitDetail/419main">
               <ExBox
                 className="ex_419"
                 style={{
@@ -65,9 +66,9 @@ const Exhibition = () => {
               >
                 <img src={four_pic} alt="419" />
               </Box>
-            </a>
+            </Link>
 
-            <a href="/vet_page/exhibitDetail">
+            <Link to="/exhibitDetail/vet_page">
               <ExBox
                 className="ex_vet"
                 style={{
@@ -93,8 +94,8 @@ const Exhibition = () => {
               >
                 <img src={vet_pic} alt="월남전" />
               </Box>
-            </a>
-            <a href="/thousand_page/exhibitDetail">
+            </Link>
+            <Link to="/exhibitDetail/thousand_page">
               <ExBox
                 className="ex_thousand"
                 style={{
@@ -119,9 +120,9 @@ const Exhibition = () => {
               >
                 <img src={twothousand_pic} alt="근현대" />
               </Box>
-            </a>
+            </Link>
 
-            <a href="/625main/exhibitDetail">
+            <Link to="/exhibitDetail/625main">
               <ExBox
                 className="ex_625"
                 style={{
@@ -146,8 +147,8 @@ const Exhibition = () => {
               >
                 <img src={six_pic} alt="625" />
               </Box>
-            </a>
-            <a href="/518Main/exhibitDetail">
+            </Link>
+            <Link to="/exhibitDetail/518Main">
               <ExBox
                 className="ex_518"
                 style={{
@@ -172,7 +173,7 @@ const Exhibition = () => {
               >
                 <img src={five_pic} alt="518" />
               </Box>
-            </a>
+            </Link>
 
             <ex_abs>
               <div

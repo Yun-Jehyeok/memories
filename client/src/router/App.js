@@ -27,7 +27,7 @@ const App = () => {
       {/* 메인 페이지 */}
       <Route path="/" exact component={Main} />
       <Route
-        path="/:exhibtionId/exhibitDetail"
+        path="/exhibitDetail/:exhibitionId"
         render={() => <ExhibitDetail />}
       />
 

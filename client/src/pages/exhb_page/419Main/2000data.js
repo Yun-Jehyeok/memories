@@ -35,12 +35,12 @@ import yangseungjin from 'assets/img/thousand/sewol/yangseungjin.jpg';
 import yuneena from 'assets/img/thousand/sewol/yuneena.jpg';
 import chocheonhyeong from 'assets/img/thousand/yeonpyeong/chocheonhyeong.jpg';
 import hansangkuk from 'assets/img/thousand/yeonpyeong/hansangkuk.jpg';
-import hwandohyeon from 'assets/img/thousand/yeonpyeong/hwandohyeon.jpg';
+import hwangdohyeon from 'assets/img/thousand/yeonpyeong/hwangdohyeon.jpg';
 import parkdonghyeok from 'assets/img/thousand/yeonpyeong/parkdonghyeok.jpg';
 import seohoowon from 'assets/img/thousand/yeonpyeong/seohoowon.jpg';
-import yunyeongha from 'assets/img/thousand/yeonpyeong/yunyeongha.jpg';
+import yunyeongha from 'assets/img/thousand/yeonpyeong/yunyeongha.png';
 
-export const dummyArr = [
+export const dataFor2000 = [
   {
     id: '0',
     title: '이창기 원사',
@@ -317,7 +317,7 @@ export const dummyArr = [
   {
     id: '38',
     title: '황도현 중사(병기사,화랑무공훈장 추서)',
-    image: `${hwandohyeon}`,
+    image: `${hwangdohyeon}`,
     description:
       '2002년 6월 29일. 참수리 357호정의 22mm 벌컨포 사수였던 황 중사는 제2연평해전 당시 포탄을 다 쏘고도 방아쇠를 꼭 쥔 채 시신으로 발견돼 감동을 줬다.',
   },

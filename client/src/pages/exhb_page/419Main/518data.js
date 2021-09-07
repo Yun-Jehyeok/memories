@@ -6,7 +6,7 @@ import parkseunghee from 'assets/img/person/parkseunghee.jpg';
 import yunhanbong from 'assets/img/person/yunhanbong.jpg';
 import yunsangwon from 'assets/img/person/yunsangwon.jpg';
 
-export const dummyArr = [
+export const dataFor518 = [
   {
     id: 0,
     title: '안병하',

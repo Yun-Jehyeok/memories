@@ -1,16 +1,16 @@
 import backseonyeop from 'assets/img/625person/625baekseonyeop.jpg';
 import berkle from 'assets/img/625person/625berkle.jpg';
-import chaemyeongsin from 'assets/img/625person/chaemyeongsin.jpg';
-import jangdoyeong from 'assets/img/625person/jangdoyeong.jpg';
-import kimjongoh from 'assets/img/625person/kimjongoh.jpg';
-import kimseokwon from 'assets/img/625person/kimseokwon.jpg';
-import kimsin from 'assets/img/625person/kimsin.jpg';
-import kimmyeongok from 'assets/img/625person/kimmyeongok.jpg';
-import macarthor from 'assets/img/625person/macarthor.jpg';
-import wartonwarker from 'assets/img/625person/wartonwarker.jpg';
-import sonwonil from 'assets/img/625person/sonwonil.jpg';
+import chaemyeongsin from 'assets/img/625person/625chaemyeongsin.jpg';
+import jangdoyeong from 'assets/img/625person/625jangdoyeong.jpg';
+import kimjongoh from 'assets/img/625person/625kimjongoh.jpg';
+import kimseokwon from 'assets/img/625person/625kimseokwon.jpg';
+import kimsin from 'assets/img/625person/625kimsin.jpg';
+import kimmyeongok from 'assets/img/625person/625kimyeongok.jpg';
+import macarthor from 'assets/img/625person/625macarthor.jpg';
+import wartonwarker from 'assets/img/625person/625wartonwarker.jpg';
+import sonwonil from 'assets/img/625person/625sonwonil.jpg';
 
-export const dummyArr = [
+export const dataFor625 = [
   {
     id: 0,
     title: '백선엽',
