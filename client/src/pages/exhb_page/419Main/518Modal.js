@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Modal } from 'antd';
-import { dummyArr } from './data';
+import { dummyArr } from './518data';
 
 import Fade from 'react-reveal/Fade';
 import { IconBox, Item, ItemContainer, ModalBox } from './styles';
