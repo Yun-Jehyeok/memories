@@ -15,7 +15,7 @@ export const Wrap = styled.div`
   transform: translate(0, -50%);
   background-color: white;
   border-radius: 10px;
-  box-shadow: -14px 35px 10px gray;
+  border: 1px solid gray;
 `;
 
 export const FormContainer = styled.div`
