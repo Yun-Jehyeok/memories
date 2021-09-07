@@ -23,7 +23,11 @@ const MenuBar = () => {
               </ItemLink>
             </li>
             <li>
-              <ItemLink href="/goods">
+              <ItemLink
+                href="https://open.kakao.com/o/siDcC6nd"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <span>KAKAO TALK</span>
                 <Mask></Mask>
               </ItemLink>
