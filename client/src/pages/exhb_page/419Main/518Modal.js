@@ -76,7 +76,9 @@ function FiveModal() {
           <img src={item.image} alt={item.title} />
         </div>
         <div>
-          <h4>{item.title}</h4>
+          <h4 style={{ textAlign: 'center', marginTop: '16px' }}>
+            {item.title}
+          </h4>
           <div>{item.description.slice(0, 176)}...</div>
         </div>
       </Fade>
