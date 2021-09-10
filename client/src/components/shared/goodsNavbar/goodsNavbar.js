@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useLayoutEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { LOGOUT_REQUEST } from 'redux/types';
@@ -25,7 +25,7 @@ const GoodsNavbar = () => {
   const { isAuthenticated, userName, user } = useSelector(
     (state) => state.auth,
   );
-  // const [badgeCount, setBadgeCount] = useState(0);
+  const [badgeCount, setBadgeCount] = useState(0);
   const dispatch = useDispatch();
 
   const LogOut = useCallback(() => {
@@ -36,13 +36,13 @@ const GoodsNavbar = () => {
     dispatch(push('/goods'));
   }, [dispatch]);
 
-  // useEffect(() => {
-  //   if (user && user.cart) {
-  //     if (user.cart.length > 0) {
-  //       setBadgeCount(user.cart.length);
-  //     }
-  //   }
-  // }, [user]);
+  useLayoutEffect(() => {
+    if (user && user.cart) {
+      if (user.cart.length > 0) {
+        setBadgeCount(user.cart.length);
+      }
+    }
+  }, [user]);
 
   const menu = (
     <Menu>
@@ -83,17 +83,7 @@ const GoodsNavbar = () => {
                 <b>{userName}</b>님 오늘도 화이팅하세요!
               </div>
               <a href="/goods/cart" className="nav-item">
-                <Badge
-                  count={
-                    user
-                      ? user.cart
-                        ? user.cart.length > 0
-                          ? user.cart.length
-                          : 0
-                        : 0
-                      : 0
-                  }
-                >
+                <Badge count={badgeCount}>
                   <Icon
                     type="shopping-cart"
                     style={{ fontSize: 24, marginBottom: 3 }}
