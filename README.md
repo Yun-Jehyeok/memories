@@ -7,4 +7,4 @@ Memories는 국가 유공자 분들을 위한 웹앨범 제공 및 굿즈 판매
 
 ## Dependencies
 
-- Mac, Windows, iOS, Android 모두 사용 가능
+- 대부분의 브라우저에서 사용 가능
